@@ -13,3 +13,5 @@ do
     unzip -o $bundle
     mv $bundle-master $bundle
 done
+
+./doc-gen.sh
