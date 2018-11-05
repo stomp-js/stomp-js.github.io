@@ -162,7 +162,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:19</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:20</a></div>
                             </td>
                         </tr>
 
@@ -210,7 +210,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:30</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:31</a></div>
                             </td>
                         </tr>
 
@@ -298,7 +298,7 @@ the STOMP server located at the url.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:68</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:70</a></div>
                             </td>
                         </tr>
 
@@ -308,7 +308,8 @@ the STOMP server located at the url.</p>
                             <div class="io-description"><p>This method is an alternative to <a href="../classes/Stomp.html#client">Stomp#client</a> to let the user
 specify the WebSocket to use (either a standard HTML5 WebSocket or
 a similar object).</p>
-<p>In order to support reconnection, the function Client._connect should be callable more than once. While reconnecting
+<p>In order to support reconnection, the function Client._connect should be callable more than once.
+While reconnecting
 a new instance of underlying transport (TCP Socket, WebSocket or SockJS) will be needed. So, this function
 alternatively allows passing a function that should return a new instance of the underlying socket.</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        var client = Stomp.over(function(){
@@ -366,8 +367,8 @@ alternatively allows passing a function that should return a new instance of the
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Versions} from &quot;../versions&quot;;
-import {CompatClient} from &quot;./compat-client&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Versions} from &#x27;../versions&#x27;;
+import {CompatClient} from &#x27;./compat-client&#x27;;
 
 /**
  * STOMP Class, acts like a factory to create {@link Client}.
@@ -384,7 +385,8 @@ export class Stomp {
    *        Stomp.WebSocketClass &#x3D; require(&#x27;websocket&#x27;).w3cwebsocket;
    * &#x60;&#x60;&#x60;
    */
-  public static WebSocketClass:any &#x3D; null;
+  // tslint:disable-next-line:variable-name
+  public static WebSocketClass: any &#x3D; null;
 
   /**
    * This method creates a WebSocket client that is connected to
@@ -395,7 +397,7 @@ export class Stomp {
    *        var client &#x3D; Stomp.client(url);
    * &#x60;&#x60;&#x60;
    */
-  public static client (url: string, protocols?: string[]): CompatClient {
+  public static client(url: string, protocols?: string[]): CompatClient {
     // This is a hack to allow another implementation than the standard
     // HTML5 WebSocket class.
     //
@@ -410,12 +412,12 @@ export class Stomp {
 
     // See remarks on the function Stomp.over
     if (protocols &#x3D;&#x3D; null) { protocols &#x3D; Versions.default.protocolVersions(); }
-    const ws_fn&#x3D; function() {
+    const wsFn &#x3D; () &#x3D;&gt; {
       const klass &#x3D; Stomp.WebSocketClass || WebSocket;
       return new klass(url, protocols);
     };
 
-    return new CompatClient(ws_fn);
+    return new CompatClient(wsFn);
   }
 
   /**
@@ -423,7 +425,8 @@ export class Stomp {
    * specify the WebSocket to use (either a standard HTML5 WebSocket or
    * a similar object).
    *
-   * In order to support reconnection, the function Client._connect should be callable more than once. While reconnecting
+   * In order to support reconnection, the function Client._connect should be callable more than once.
+   * While reconnecting
    * a new instance of underlying transport (TCP Socket, WebSocket or SockJS) will be needed. So, this function
    * alternatively allows passing a function that should return a new instance of the underlying socket.
    *
@@ -433,10 +436,10 @@ export class Stomp {
    *        });
    * &#x60;&#x60;&#x60;
    */
-  public static over (ws: any): CompatClient {
-    const ws_fn &#x3D; typeof(ws) &#x3D;&#x3D;&#x3D; &quot;function&quot; ? ws : () &#x3D;&gt; ws;
+  public static over(ws: any): CompatClient {
+    const wsFn &#x3D; typeof(ws) &#x3D;&#x3D;&#x3D; &#x27;function&#x27; ? ws : () &#x3D;&gt; ws;
 
-    return new CompatClient(ws_fn);
+    return new CompatClient(wsFn);
   }
 }
 </code></pre>

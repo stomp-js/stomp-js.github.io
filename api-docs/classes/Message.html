@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content interface">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -41,9 +41,8 @@
 
 
 
-
 <ol class="breadcrumb">
-  <li>Interfaces</li>
+  <li>Classes</li>
   <li>Message</li>
 </ol>
 
@@ -71,8 +70,8 @@
             <p class="comment">
                 <p>Instance of Message will be passed to <a href="../classes/Client.html#subscribe">subscription callback</a>
 and <a href="../classes/Client.html#onUnhandledMessage">Client#onUnhandledMessage</a>.
-Since it is an extended <a href="../classes/Frame.html">Frame</a>, you can access <a href="../classes/Frame.html#headers">headers</a>
-and <a href="../classes/Frame.html#body">body</a> as properties.</p>
+Since it is an extended <a href="Frame">Frame</a>, you can access <a href="Frame#headers">headers</a>
+and <a href="Frame#body">body</a> as properties.</p>
 <p>See <a href="../classes/Client.html#subscribe">Client#subscribe</a> for example.</p>
 
             </p>
@@ -81,38 +80,49 @@ and <a href="../classes/Frame.html#body">body</a> as properties.</p>
                 <h3>Extends</h3>
             </p>
             <p class="comment">
-                    <code><a href="../classes/Frame.html" target="_self" >Frame</a></code>
+                    <code>Frame</code>
             </p>
 
-        <section>
-            <h3 id="index">Index</h3>
-            <table class="table table-sm table-bordered index-table">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Methods</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                    <a href="#ack">ack</a>
-                                </li>
-                                <li>
-                                    <a href="#nack">nack</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ack">ack</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nack">nack</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
 
             <section>
     
-        <h3 id="methods">
-            Methods
+        <h3 id="inputs">
+            Properties
         </h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -121,6 +131,7 @@ and <a href="../classes/Frame.html#body">body</a> as properties.</p>
                         <a name="ack"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Public</span>
                             ack
                             </b>
                             <a href="#ack"><span class="icon ion-ios-link"></span></a>
@@ -129,61 +140,30 @@ and <a href="../classes/Frame.html#body">body</a> as properties.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>ack(headers?: <a href="../interfaces/StompHeaders.html">StompHeaders</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>ack:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
 
-
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">consolidated/stompjs/src/message.ts:18</a></div>
                             </td>
                         </tr>
 
-
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>When subscribing with manual acknowledgement, call this method on the message to ACK the message.</p>
+                        <div class="io-description"><p>When subscribing with manual acknowledgement, call this method on the message to ACK the message.</p>
 <p>See <a href="../classes/Client.html#ack">Client#ack</a> for an example.</p>
 </div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>headers</td>
-                                                        <td>
-                                                                    <code><a href="../interfaces/StompHeaders.html" target="_self" >StompHeaders</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            Yes
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
                     </td>
                 </tr>
+
             </tbody>
         </table>
         <table class="table table-sm table-bordered">
@@ -193,6 +173,7 @@ and <a href="../classes/Frame.html#body">body</a> as properties.</p>
                         <a name="nack"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Public</span>
                             nack
                             </b>
                             <a href="#nack"><span class="icon ion-ios-link"></span></a>
@@ -201,72 +182,46 @@ and <a href="../classes/Frame.html#body">body</a> as properties.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>nack(headers?: <a href="../interfaces/StompHeaders.html">StompHeaders</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>nack:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
 
-
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">consolidated/stompjs/src/message.ts:25</a></div>
                             </td>
                         </tr>
 
-
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>When subscribing with manual acknowledgement, call this method on the message to NACK the message.</p>
+                        <div class="io-description"><p>When subscribing with manual acknowledgement, call this method on the message to NACK the message.</p>
 <p>See <a href="../classes/Client.html#nack">Client#nack</a> for an example.</p>
 </div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>headers</td>
-                                                        <td>
-                                                                    <code><a href="../interfaces/StompHeaders.html" target="_self" >StompHeaders</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            Yes
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
                     </td>
                 </tr>
+
             </tbody>
         </table>
 </section>
+
+
+
+
+
 
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Frame} from &quot;./frame&quot;;
-import {StompHeaders} from &quot;./stomp-headers&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Frame} from &#x27;./frame&#x27;;
+import {StompHeaders} from &#x27;./stomp-headers&#x27;;
 
 /**
  * Instance of Message will be passed to [subscription callback]{@link Client#subscribe}
@@ -276,24 +231,25 @@ import {StompHeaders} from &quot;./stomp-headers&quot;;
  *
  * See [Client#subscribe]{@link Client#subscribe} for example.
  */
-export interface Message extends Frame {
+export class Message extends Frame {
   /**
    * When subscribing with manual acknowledgement, call this method on the message to ACK the message.
    *
    * See [Client#ack]{@link Client#ack} for an example.
    */
-  ack(headers?: StompHeaders): void;
+  public ack: (headers?: StompHeaders) &#x3D;&gt; void;
 
   /**
    * When subscribing with manual acknowledgement, call this method on the message to NACK the message.
    *
    * See [Client#nack]{@link Client#nack} for an example.
    */
-  nack(headers?: StompHeaders): void;
+  public nack: (headers?: StompHeaders) &#x3D;&gt; void;
 }
 </code></pre>
     </div>
 </div>
+
 
 
 
@@ -316,7 +272,7 @@ export interface Message extends Frame {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'Message.html';
        </script>
 

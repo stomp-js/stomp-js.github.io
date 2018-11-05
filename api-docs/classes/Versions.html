@@ -397,13 +397,15 @@ STOMP handshake.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">consolidated/stompjs/src/versions.ts:36</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">consolidated/stompjs/src/versions.ts:42</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Used while creating a WebSocket</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -437,13 +439,15 @@ STOMP handshake.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">consolidated/stompjs/src/versions.ts:32</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">consolidated/stompjs/src/versions.ts:35</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>Used as part of CONNECT STOMP Frame</p>
+</div>
 
                             <div class="io-description">
                                 <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -468,20 +472,20 @@ STOMP handshake.</p>
   /**
    * 1.0
    */
-  static V1_0&#x3D; &#x27;1.0&#x27;;
+  public static V1_0 &#x3D; &#x27;1.0&#x27;;
   /**
    * 1.1
    */
-  static V1_1&#x3D; &#x27;1.1&#x27;;
+  public static V1_1 &#x3D; &#x27;1.1&#x27;;
   /**
    * 1.2
    */
-  static V1_2&#x3D; &#x27;1.2&#x27;;
+  public static V1_2 &#x3D; &#x27;1.2&#x27;;
 
   /**
    * @internal
    */
-  static default &#x3D; new Versions([Versions.V1_0, Versions.V1_1, Versions.V1_2]);
+  public static default &#x3D; new Versions([Versions.V1_0, Versions.V1_1, Versions.V1_2]);
 
   /**
    * Takes an array of string of versions, typical elements &#x27;1.0&#x27;, &#x27;1.1&#x27;, or &#x27;1.2&#x27;
@@ -489,15 +493,21 @@ STOMP handshake.</p>
    * You will an instance if this class if you want to override supported versions to be declared during
    * STOMP handshake.
    */
-  constructor (public versions: string[]) {
+  constructor(public versions: string[]) {
   }
 
+  /**
+   * Used as part of CONNECT STOMP Frame
+   */
   public supportedVersions() {
     return this.versions.join(&#x27;,&#x27;);
   }
 
+  /**
+   * Used while creating a WebSocket
+   */
   public protocolVersions() {
-    return this.versions.map(x &#x3D;&gt; &#x60;v${x.replace(&#x27;.&#x27;, &#x27;&#x27;)}.stomp&#x60;);
+    return this.versions.map((x) &#x3D;&gt; &#x60;v${x.replace(&#x27;.&#x27;, &#x27;&#x27;)}.stomp&#x60;);
   }
 }
 </code></pre>

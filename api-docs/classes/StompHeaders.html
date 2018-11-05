@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content interface">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -41,9 +41,8 @@
 
 
 
-
 <ol class="breadcrumb">
-  <li>Interfaces</li>
+  <li>Classes</li>
   <li>StompHeaders</li>
 </ol>
 
@@ -70,11 +69,15 @@
             </p>
             <p class="comment">
                 <p>STOMP headers. Many functions calls will accept headers as parameters.
-The headers sent by Broker will be available as <a href="../classes/Frame.html#headers">Frame#headers</a>.</p>
+The headers sent by Broker will be available as <a href="Frame#headers">Frame#headers</a>.</p>
 <p><code>key</code> and <code>value</code> must be valid strings.
 In addition, <code>key</code> must not contain <code>CR</code>, <code>LF</code>, or <code>:</code>.</p>
 
             </p>
+
+
+
+
 
 
 
@@ -98,14 +101,19 @@ In addition, <code>key</code> must not contain <code>CR</code>, <code>LF</code>,
         </table>
 </section>
 
+
+
+
+
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export interface StompHeaders { [key: string]: string }
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class StompHeaders { [key: string]: string }
 </code></pre>
     </div>
 </div>
+
 
 
 
@@ -128,7 +136,7 @@ In addition, <code>key</code> must not contain <code>CR</code>, <code>LF</code>,
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'StompHeaders.html';
        </script>
 

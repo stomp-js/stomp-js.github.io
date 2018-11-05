@@ -28,7 +28,7 @@
                    <compodoc-menu mode="normal"></compodoc-menu>
                </div>
                <!-- START CONTENT -->
-               <div class="content interface">
+               <div class="content class">
                    <div class="content-data">
 
 
@@ -41,9 +41,8 @@
 
 
 
-
 <ol class="breadcrumb">
-  <li>Interfaces</li>
+  <li>Classes</li>
   <li>StompSubscription</li>
 </ol>
 
@@ -74,32 +73,42 @@
             </p>
 
 
-        <section>
-            <h3 id="index">Index</h3>
-            <table class="table table-sm table-bordered index-table">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <h6><b>Methods</b></h6>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <ul class="index-list">
-                                <li>
-                                    <a href="#unsubscribe">unsubscribe</a>
-                                </li>
-                            </ul>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#unsubscribe">unsubscribe</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
 
             <section>
     
-        <h3 id="methods">
-            Methods
+        <h3 id="inputs">
+            Properties
         </h3>
         <table class="table table-sm table-bordered">
             <tbody>
@@ -108,6 +117,7 @@
                         <a name="unsubscribe"></a>
                         <span class="name">
                             <b>
+                                <span class="modifier">Public</span>
                             unsubscribe
                             </b>
                             <a href="#unsubscribe"><span class="icon ion-ios-link"></span></a>
@@ -116,88 +126,63 @@
                 </tr>
                 <tr>
                     <td class="col-md-4">
-<code>unsubscribe(headers?: <a href="../interfaces/StompHeaders.html">StompHeaders</a>)</code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>unsubscribe:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+</code>
                     </td>
                 </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
 
-
+                        </td>
+                    </tr>
                         <tr>
                             <td class="col-md-4">
                                     <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">consolidated/stompjs/src/stomp-subscription.ts:15</a></div>
                             </td>
                         </tr>
 
-
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Unsubscribe. See <a href="../classes/Client.html#unsubscribe">Client#unsubscribe</a> for an example.</p>
+                        <div class="io-description"><p>Unsubscribe. See <a href="../classes/Client.html#unsubscribe">Client#unsubscribe</a> for an example.</p>
 </div>
-
-                            <div class="io-description">
-                                    <b>Parameters :</b>
-                                    <table class="params">
-                                        <thead>
-                                            <tr>
-                                                <td>Name</td>
-                                                    <td>Type</td>
-                                                <td>Optional</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr>
-                                                        <td>headers</td>
-                                                        <td>
-                                                                    <code><a href="../interfaces/StompHeaders.html" target="_self" >StompHeaders</a></code>
-                                                        </td>
-                                                    
-                                                    <td>
-                                                            Yes
-                                                    </td>
-                                                    
-
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                                <div class="io-description">
-                                    
-                                </div>
                     </td>
                 </tr>
+
             </tbody>
         </table>
 </section>
+
+
+
+
+
 
 
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {StompHeaders} from &quot;./stomp-headers&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {StompHeaders} from &#x27;./stomp-headers&#x27;;
 
 /**
  * Call [Client#subscribe]{@link Client#subscribe} to create a StompSubscription.
  */
-export interface StompSubscription {
+export class StompSubscription {
   /**
    * @internal
    */
-  id: string;
+  public id: string;
 
   /**
    * Unsubscribe. See [Client#unsubscribe]{@link Client#unsubscribe} for an example.
    */
-  unsubscribe(headers?: StompHeaders): void;
+  public unsubscribe: (headers?: StompHeaders) &#x3D;&gt; void;
 }
 </code></pre>
     </div>
 </div>
+
 
 
 
@@ -220,7 +205,7 @@ export interface StompSubscription {
 
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
             var COMPODOC_CURRENT_PAGE_URL = 'StompSubscription.html';
        </script>
 

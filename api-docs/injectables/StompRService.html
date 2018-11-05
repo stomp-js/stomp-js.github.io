@@ -90,46 +90,6 @@ please use StompService class.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#client">client</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#connectObservable">connectObservable</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#debug">debug</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#defaultMessagesObservable">defaultMessagesObservable</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#errorSubject">errorSubject</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#on_connect">on_connect</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#on_error">on_error</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#queuedMessages">queuedMessages</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#receiptsObservable">receiptsObservable</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
-                                <a href="#serverHeadersObservable">serverHeadersObservable</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#state">state</a>
                             </li>
@@ -147,10 +107,6 @@ please use StompService class.</p>
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#connected">connected</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Public</span>
                                 <a href="#disconnect">disconnect</a>
                             </li>
                             <li>
@@ -158,24 +114,8 @@ please use StompService class.</p>
                                 <a href="#initAndConnect">initAndConnect</a>
                             </li>
                             <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#initStompClient">initStompClient</a>
-                            </li>
-                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#publish">publish</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#sendQueuedMessages">sendQueuedMessages</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#setupOnReceive">setupOnReceive</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#setupReceipts">setupReceipts</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -202,7 +142,25 @@ please use StompService class.</p>
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
+                                    <a href="#connectObservable">connectObservable</a>
+                                </li>
+                                <li>
+                                    <a href="#serverHeadersObservable">serverHeadersObservable</a>
+                                </li>
+                                <li>
+                                    <a href="#defaultMessagesObservable">defaultMessagesObservable</a>
+                                </li>
+                                <li>
+                                    <a href="#receiptsObservable">receiptsObservable</a>
+                                </li>
+                                <li>
+                                    <a href="#errorSubject">errorSubject</a>
+                                </li>
+                                <li>
                                     <a href="#config">config</a>
+                                </li>
+                                <li>
+                                    <a href="#client">client</a>
                                 </li>
                             </ul>
                         </td>
@@ -223,17 +181,10 @@ please use StompService class.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:83</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="216" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:216</a></div>
                             </td>
                         </tr>
 
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Constructor</p>
-<p>See README and samples for configuration examples</p>
-</div>
-                    </td>
-                </tr>
             </tbody>
         </table>
 </section>
@@ -243,48 +194,6 @@ please use StompService class.</p>
         <h3 id="methods">
             Methods
         </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="connected"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            connected
-                            </b>
-                            <a href="#connected"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>connected()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:201</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>It will return <code>true</code> if STOMP broker is connected and <code>false</code> otherwise.</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -309,7 +218,7 @@ please use StompService class.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:179</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:138</a></div>
                             </td>
                         </tr>
 
@@ -351,7 +260,7 @@ please use StompService class.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:157</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:127</a></div>
                             </td>
                         </tr>
 
@@ -359,48 +268,6 @@ please use StompService class.</p>
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>It will connect to the STOMP broker.</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="initStompClient"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            initStompClient
-                            </b>
-                            <a href="#initStompClient"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>initStompClient()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:121</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>It will initialize STOMP Client. </p>
 </div>
 
                             <div class="io-description">
@@ -428,14 +295,14 @@ please use StompService class.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>publish(queueName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, message: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, headers: <a href="../interfaces/StompHeaders.html">StompHeaders</a>)</code>
+                        <code>publish(queueName: string | publishParams, message?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, headers: <a href="../classes/StompHeaders.html">StompHeaders</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="215" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:215</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:152</a></div>
                             </td>
                         </tr>
 
@@ -462,7 +329,7 @@ publish queued messages as soon as the broker gets connected.</p>
                                                 <tr>
                                                         <td>queueName</td>
                                                         <td>
-                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                                    <code>string | publishParams</code>
                                                         </td>
                                                     
                                                     <td>
@@ -480,7 +347,7 @@ publish queued messages as soon as the broker gets connected.</p>
                                                         </td>
                                                     
                                                     <td>
-                                                            No
+                                                            Yes
                                                     </td>
                                                     
                                                         <td>
@@ -490,7 +357,7 @@ publish queued messages as soon as the broker gets connected.</p>
                                                 <tr>
                                                         <td>headers</td>
                                                         <td>
-                                                                    <code><a href="../interfaces/StompHeaders.html" target="_self" >StompHeaders</a></code>
+                                                                    <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -522,133 +389,6 @@ publish queued messages as soon as the broker gets connected.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="sendQueuedMessages"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            sendQueuedMessages
-                            </b>
-                            <a href="#sendQueuedMessages"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>sendQueuedMessages()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="225" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:225</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>It will send queued messages. </p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="setupOnReceive"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            setupOnReceive
-                            </b>
-                            <a href="#setupOnReceive"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>setupOnReceive()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="318" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:318</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>It will handle messages received in the default queue. Messages that would not be handled otherwise
-get delivered to the default queue.</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="setupReceipts"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            setupReceipts
-                            </b>
-                            <a href="#setupReceipts"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>setupReceipts()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="329" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:329</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>It will emit all receipts.</p>
-</div>
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="subscribe"></a>
                         <span class="name">
                             <b>
@@ -662,14 +402,14 @@ get delivered to the default queue.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>subscribe(queueName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, headers: <a href="../interfaces/StompHeaders.html">StompHeaders</a>)</code>
+                        <code>subscribe(queueName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, headers: <a href="../classes/StompHeaders.html">StompHeaders</a>)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="254" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:254</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="178" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:178</a></div>
                             </td>
                         </tr>
 
@@ -716,7 +456,7 @@ to this library but the way STOMP brokers are designed to work.</p>
                                                 <tr>
                                                         <td>headers</td>
                                                         <td>
-                                                                    <code><a href="../interfaces/StompHeaders.html" target="_self" >StompHeaders</a></code>
+                                                                    <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -734,7 +474,7 @@ to this library but the way STOMP brokers are designed to work.</p>
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../interfaces/Message.html" target="_self" >Observable&lt;Stomp.Message&gt;</a></code>
+                                <b>Returns : </b>    <code><a href="../classes/Message.html" target="_self" >Observable&lt;Message&gt;</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -761,21 +501,39 @@ to this library but the way STOMP brokers are designed to work.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>waitForReceipt(receiptId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (frame: <a href="../classes/Stomp.html">Stomp.Frame</a>) => void)</code>
+                        <code>waitForReceipt(receiptId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (frame: Frame) => void)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="340" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:340</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="210" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:210</a></div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Wait for receipt, this indicates that server has carried out the related operation</p>
+                            <div class="io-description"><p>STOMP brokers may carry out operation asynchronously and allow requesting for acknowledgement.
+To request an acknowledgement, a <code>receipt</code> header needs to be sent with the actual request.
+The value (say receipt-id) for this header needs to be unique for each use. Typically a sequence, a UUID, a
+random number or a combination may be used.</p>
+<p>A complaint broker will send a RECEIPT frame when an operation has actually been completed.
+The operation needs to be matched based in the value of the receipt-id.</p>
+<p>This method allow watching for a receipt and invoke the callback
+when corresponding receipt has been received.</p>
+<p>The actual <a href="https://stomp-js.github.io/stompjs/classes/Frame.html">https://stomp-js.github.io/stompjs/classes/Frame.html</a>
+will be passed as parameter to the callback.</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-javascript">   *        // Publishing with acknowledgement
+   *        let receiptId = randomText();
+   *
+   *        rxStomp.waitForReceipt(receiptId, function() {
+   *          // Will be called after server acknowledges
+   *        });
+   *        rxStomp.publish({destination: TEST.destination, headers: {receipt: receiptId}, body: msg});
+   *</code></pre></div><p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#watchForReceipt">https://stomp-js.github.io/stompjs/classes/Client.html#watchForReceipt</a></p>
 </div>
 
                             <div class="io-description">
@@ -840,454 +598,6 @@ to this library but the way STOMP brokers are designed to work.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
-                        <a name="client"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            client
-                            </b>
-                            <a href="#client"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>client:     <code><a href="../classes/Stomp.html" target="_self" >Stomp.Client</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/Stomp.html" target="_self" >Stomp.Client</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:83</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>STOMP Client from @stomp/stomp.js</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="connectObservable"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            connectObservable
-                            </b>
-                            <a href="#connectObservable"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>connectObservable:     <code><a href="../classes/Stomp.html" target="_self" >Observable&lt;StompState&gt;</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/Stomp.html" target="_self" >Observable&lt;StompState&gt;</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:41</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Will trigger when connection is established. Use this to carry out initialization.
-It will trigger every time a (re)connection occurs. If it is already connected
-it will trigger immediately. You can safely ignore the value, as it will always be
-StompState.CONNECTED</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="debug"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            debug
-                            </b>
-                            <a href="#debug"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>debug:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>(args: any): void &#x3D;&gt; {
-    console.log(new Date(), args);
-  }</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="357" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:357</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Callback Functions</p>
-<p>Note the method signature: () =&gt; preserves lexical scope
-if we need to use this.x inside the function</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="defaultMessagesObservable"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            defaultMessagesObservable
-                            </b>
-                            <a href="#defaultMessagesObservable"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>defaultMessagesObservable:     <code><a href="../interfaces/Message.html" target="_self" >Subject&lt;Stomp.Message&gt;</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../interfaces/Message.html" target="_self" >Subject&lt;Stomp.Message&gt;</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:57</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Will emit all messages to the default queue (any message that are not handled by a subscription)</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="errorSubject"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            errorSubject
-                            </b>
-                            <a href="#errorSubject"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>errorSubject:     <code><a href="../interfaces/Message.html" target="_self" >Subject&lt;string | Stomp.Message&gt;</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../interfaces/Message.html" target="_self" >Subject&lt;string | Stomp.Message&gt;</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:68</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Will trigger when an error occurs. This Subject can be used to handle errors from
-the stomp broker.</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="on_connect"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            on_connect
-                            </b>
-                            <a href="#on_connect"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>on_connect:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>(frame: Frame) &#x3D;&gt; {
-
-    this.debug(&#x27;Connected&#x27;);
-
-    this._serverHeadersBehaviourSubject.next(frame.headers);
-
-    // Indicate our connected state to observers
-    this.state.next(StompState.CONNECTED);
-  }</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="362" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:362</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Callback run on successfully connecting to server </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="on_error"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            on_error
-                            </b>
-                            <a href="#on_error"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>on_error:     <code></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>(error: string | Stomp.Message) &#x3D;&gt; {
-
-    // Trigger the error subject
-    this.errorSubject.next(error);
-
-    if (typeof error &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
-      error &#x3D; (&lt;Stomp.Message&gt;error).body;
-    }
-
-    this.debug(&#x60;Error: ${error}&#x60;);
-
-    // Check for dropped connection and try reconnecting
-    if (!this.client.connected) {
-      // Reset state indicator
-      this.state.next(StompState.CLOSED);
-    }
-  }</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="373" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:373</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Handle errors from stomp.js </p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="queuedMessages"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            queuedMessages
-                            </b>
-                            <a href="#queuedMessages"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>queuedMessages:     <code>literal type[]</code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>literal type[]</code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>[]</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:73</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Internal array to hold locally queued messages when STOMP broker is not connected.</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="receiptsObservable"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            receiptsObservable
-                            </b>
-                            <a href="#receiptsObservable"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>receiptsObservable:     <code><a href="../classes/Stomp.html" target="_self" >Subject&lt;Stomp.Frame&gt;</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/Stomp.html" target="_self" >Subject&lt;Stomp.Frame&gt;</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:62</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Will emit all receipts</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="serverHeadersObservable"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Public</span>
-                            serverHeadersObservable
-                            </b>
-                            <a href="#serverHeadersObservable"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>serverHeadersObservable:     <code><a href="../interfaces/StompHeaders.html" target="_self" >Observable&lt;StompHeaders&gt;</a></code>
-</code>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../interfaces/StompHeaders.html" target="_self" >Observable&lt;StompHeaders&gt;</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:50</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Provides headers from most recent connection to the server as return by the CONNECTED
-frame.
-If the STOMP connection has already been established it will trigger immediately.
-It will additionally trigger in event of reconnection, the value will be set of headers from
-the recent server response.</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
                         <a name="state"></a>
                         <span class="name">
                             <b>
@@ -1312,7 +622,7 @@ the recent server response.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:33</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -1337,6 +647,179 @@ used to show current status to the end user.</p>
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="connectObservable"></a>
+                        <span class="name"><b>connectObservable</b><a href="#connectObservable"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>connectObservable()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:58</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Will trigger when connection is established. Use this to carry out initialization.
+It will trigger every time a (re)connection occurs. If it is already connected
+it will trigger immediately. You can safely ignore the value, as it will always be
+StompState.CONNECTED</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="../classes/Stomp.html" target="_self" >Observable&lt;StompState&gt;</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="serverHeadersObservable"></a>
+                        <span class="name"><b>serverHeadersObservable</b><a href="#serverHeadersObservable"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>serverHeadersObservable()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:71</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Provides headers from most recent connection to the server as return by the CONNECTED
+frame.
+If the STOMP connection has already been established it will trigger immediately.
+It will additionally trigger in event of reconnection, the value will be set of headers from
+the recent server response.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="../classes/StompHeaders.html" target="_self" >Observable&lt;StompHeaders&gt;</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="defaultMessagesObservable"></a>
+                        <span class="name"><b>defaultMessagesObservable</b><a href="#defaultMessagesObservable"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>defaultMessagesObservable()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:78</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Will emit all messages to the default queue (any message that are not handled by a subscription)</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="../classes/Message.html" target="_self" >Subject&lt;Message&gt;</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="receiptsObservable"></a>
+                        <span class="name"><b>receiptsObservable</b><a href="#receiptsObservable"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>receiptsObservable()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:85</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Will emit all receipts</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>Subject&lt;Frame&gt;</code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="errorSubject"></a>
+                        <span class="name"><b>errorSubject</b><a href="#errorSubject"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>errorSubject()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:93</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Will trigger when an error occurs. This Subject can be used to handle errors from
+the stomp broker.</p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>Subject&lt;string | Frame&gt;</code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="config"></a>
                         <span class="name"><b>config</b><a href="#config"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -1345,12 +828,12 @@ used to show current status to the end user.</p>
 
                 <tr>
                     <td class="col-md-4">
-                        <span class="accessor"><b>set</b><code>config(value)</code></span>
+                        <span class="accessor"><b>set</b><code>config(config)</code></span>
                     </td>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:116</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:98</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1369,7 +852,7 @@ used to show current status to the end user.</p>
                                             </thead>
                                             <tbody>
                                                     <tr>
-                                                            <td>value</td>
+                                                            <td>config</td>
                                                     
                                                     
                                                         <td>
@@ -1390,21 +873,45 @@ used to show current status to the end user.</p>
                     </tr>
             </tbody>
         </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="client"></a>
+                        <span class="name"><b>client</b><a href="#client"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>client()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="214" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:214</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
 </section>
     </div>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { first, filter, share } from &#x27;rxjs/operators&#x27;;
-import { Injectable } from &#x27;@angular/core&#x27;;
-import { BehaviorSubject ,  Observable ,  Observer ,  Subject ,  Subscription } from &#x27;rxjs&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
 
-import { StompConfig } from &#x27;./stomp.config&#x27;;
+import {RxStomp, RxStompConfig, RxStompState} from &#x27;@stomp/rx-stomp&#x27;;
 
-import * as Stomp from &#x27;@stomp/stompjs&#x27;;
-import { Frame, StompSubscription } from &#x27;@stomp/stompjs&#x27;;
+import {publishParams, Client, Message, Frame} from &#x27;@stomp/stompjs&#x27;;
+
+import {BehaviorSubject, Observable, Subject} from &#x27;rxjs&#x27;;
+import {map} from &#x27;rxjs/operators&#x27;;
+
+import {StompState} from &#x27;./stomp-state&#x27;;
 import { StompHeaders } from &#x27;./stomp-headers&#x27;;
-import { StompState } from &#x27;./stomp-state&#x27;;
+import {StompConfig} from &#x27;./stomp.config&#x27;;
 
 /**
  * Angular2 STOMP Raw Service using @stomp/stomp.js
@@ -1420,7 +927,7 @@ import { StompState } from &#x27;./stomp-state&#x27;;
  * please use StompService class.
  */
 @Injectable()
-export class StompRService {
+export class StompRService extends RxStomp {
   /**
    * State of the STOMPService
    *
@@ -1429,13 +936,32 @@ export class StompRService {
    */
   public state: BehaviorSubject&lt;StompState&gt;;
 
+  private static _mapStompState(st: RxStompState): StompState {
+    if (st &#x3D;&#x3D;&#x3D; RxStompState.CONNECTING) {
+      return StompState.TRYING;
+    }
+    if (st &#x3D;&#x3D;&#x3D; RxStompState.OPEN) {
+      return StompState.CONNECTED;
+    }
+    if (st &#x3D;&#x3D;&#x3D; RxStompState.CLOSING) {
+      return StompState.DISCONNECTING;
+    }
+    if (st &#x3D;&#x3D;&#x3D; RxStompState.CLOSED) {
+      return StompState.CLOSED;
+    }
+  }
+
   /**
    * Will trigger when connection is established. Use this to carry out initialization.
    * It will trigger every time a (re)connection occurs. If it is already connected
    * it will trigger immediately. You can safely ignore the value, as it will always be
    * StompState.CONNECTED
    */
-  public connectObservable: Observable&lt;StompState&gt;;
+  get connectObservable(): Observable&lt;StompState&gt; {
+    return this.connected$.pipe(map((st: RxStompState): StompState &#x3D;&gt; {
+      return StompRService._mapStompState(st);
+    }));
+  }
 
   /**
    * Provides headers from most recent connection to the server as return by the CONNECTED
@@ -1444,159 +970,75 @@ export class StompRService {
    * It will additionally trigger in event of reconnection, the value will be set of headers from
    * the recent server response.
    */
-  public serverHeadersObservable: Observable&lt;StompHeaders&gt;;
-
-  private _serverHeadersBehaviourSubject: BehaviorSubject&lt;null | StompHeaders&gt;;
+  get serverHeadersObservable(): Observable&lt;StompHeaders&gt; {
+    return this.serverHeaders$;
+  }
 
   /**
    * Will emit all messages to the default queue (any message that are not handled by a subscription)
    */
-  public defaultMessagesObservable: Subject&lt;Stomp.Message&gt;;
+  get defaultMessagesObservable(): Subject&lt;Message&gt; {
+    return this.unhandledMessage$;
+  }
 
   /**
    * Will emit all receipts
    */
-  public receiptsObservable: Subject&lt;Stomp.Frame&gt;;
+  get receiptsObservable(): Subject&lt;Frame&gt; {
+    return this.unhandledReceipts$;
+  }
 
   /**
    * Will trigger when an error occurs. This Subject can be used to handle errors from
    * the stomp broker.
    */
-  public errorSubject: Subject&lt;string | Stomp.Message&gt;;
-
-  /**
-   * Internal array to hold locally queued messages when STOMP broker is not connected.
-   */
-  protected queuedMessages: { queueName: string, message: string, headers: StompHeaders }[] &#x3D; [];
-
-  /**
-   * Configuration
-   */
-  private _config: StompConfig;
-
-  /**
-   * STOMP Client from @stomp/stomp.js
-   */
-  protected client: Stomp.Client;
-
-  /**
-   * Constructor
-   *
-   * See README and samples for configuration examples
-   */
-  public constructor() {
-    this.state &#x3D; new BehaviorSubject&lt;StompState&gt;(StompState.CLOSED);
-
-    this.connectObservable &#x3D; this.state.pipe(
-      filter((currentState: StompState) &#x3D;&gt; {
-        return currentState &#x3D;&#x3D;&#x3D; StompState.CONNECTED;
-      })
-    );
-
-    // Setup sending queuedMessages
-    this.connectObservable.subscribe(() &#x3D;&gt; {
-      this.sendQueuedMessages();
-    });
-
-    this._serverHeadersBehaviourSubject &#x3D; new BehaviorSubject&lt;null | StompHeaders&gt;(null);
-
-    this.serverHeadersObservable &#x3D; this._serverHeadersBehaviourSubject.pipe(
-      filter((headers: null | StompHeaders) &#x3D;&gt; {
-        return headers !&#x3D;&#x3D; null;
-      })
-    );
-
-    this.errorSubject &#x3D; new Subject();
+  get errorSubject(): Subject&lt;string | Frame&gt; {
+    return this.stompErrors$;
   }
 
   /** Set configuration */
-  set config(value: StompConfig) {
-    this._config &#x3D; value;
-  }
+  set config(config: StompConfig) {
+    const rxStompConfig: RxStompConfig &#x3D; { };
 
-  /** It will initialize STOMP Client. */
-  protected initStompClient(): void {
-    // disconnect if connected
-    this.disconnect();
-
-    // url takes precedence over socketFn
-    if (typeof(this._config.url) &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
-      this.client &#x3D; Stomp.client(this._config.url);
+    if (typeof(config.url) &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+      rxStompConfig.brokerURL &#x3D; config.url;
     } else {
-      this.client &#x3D; Stomp.over(this._config.url);
+      rxStompConfig.webSocketFactory &#x3D; config.url;
     }
 
     // Configure client heart-beating
-    this.client.heartbeat.incoming &#x3D; this._config.heartbeat_in;
-    this.client.heartbeat.outgoing &#x3D; this._config.heartbeat_out;
+    rxStompConfig.heartbeatIncoming &#x3D; config.heartbeat_in;
+    rxStompConfig.heartbeatOutgoing &#x3D; config.heartbeat_out;
 
     // Auto reconnect
-    this.client.reconnect_delay &#x3D; this._config.reconnect_delay;
+    rxStompConfig.reconnectDelay &#x3D; config.reconnect_delay;
 
-    if (!this._config.debug) {
-      this.debug &#x3D; function () {
+    if (config.debug) {
+      rxStompConfig.debug &#x3D; (str: string): void &#x3D;&gt; {
+        console.log(new Date(), str);
       };
     }
-    // Set function to debug print messages
-    this.client.debug &#x3D; this.debug;
 
-    // Default messages
-    this.setupOnReceive();
+    rxStompConfig.connectHeaders &#x3D; config.headers;
 
-    // Receipts
-    this.setupReceipts();
+    this.configure(rxStompConfig);
   }
-
-
   /**
    * It will connect to the STOMP broker.
    */
   public initAndConnect(): void {
-    this.initStompClient();
-
-    if (!this._config.headers) {
-      this._config.headers &#x3D; {};
-    }
+    // disconnect if connected
+    this.deactivate();
 
     // Attempt connection, passing in a callback
-    this.client.connect(
-      this._config.headers,
-      this.on_connect,
-      this.on_error
-    );
-
-    this.debug(&#x27;Connecting...&#x27;);
-    this.state.next(StompState.TRYING);
+    this.activate();
   }
-
 
   /**
    * It will disconnect from the STOMP broker.
    */
   public disconnect(): void {
-
-    // Disconnect if connected. Callback will set CLOSED state
-    if (this.client) {
-      if (!this.client.connected) {
-        // Nothing to do
-        this.state.next(StompState.CLOSED);
-        return;
-      }
-
-      // Notify observers that we are disconnecting!
-      this.state.next(StompState.DISCONNECTING);
-
-      this.client.disconnect(
-        () &#x3D;&gt; this.state.next(StompState.CLOSED)
-      );
-    }
-  }
-
-  /**
-   * It will return &#x60;true&#x60; if STOMP broker is connected and &#x60;false&#x60; otherwise.
-   */
-  public connected(): boolean {
-    return this.state.getValue() &#x3D;&#x3D;&#x3D; StompState.CONNECTED;
+    this.deactivate();
   }
 
   /**
@@ -1609,25 +1051,12 @@ export class StompRService {
    * @param message
    * @param headers
    */
-  public publish(queueName: string, message: string, headers: StompHeaders &#x3D; {}): void {
-    if (this.connected()) {
-      this.client.send(queueName, headers, message);
+  public publish(queueName: string|publishParams, message?: string, headers: StompHeaders &#x3D; {}): void {
+    if (typeof queueName &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+      super.publish({destination: queueName as string, body: message, headers});
     } else {
-      this.debug(&#x60;Not connected, queueing ${message}&#x60;);
-      this.queuedMessages.push({queueName: &lt;string&gt;queueName, message: &lt;string&gt;message, headers: headers});
-    }
-  }
-
-  /** It will send queued messages. */
-  protected sendQueuedMessages(): void {
-    const queuedMessages &#x3D; this.queuedMessages;
-    this.queuedMessages &#x3D; [];
-
-    this.debug(&#x60;Will try sending queued messages ${queuedMessages}&#x60;);
-
-    for (const queuedMessage of queuedMessages) {
-      this.debug(&#x60;Attempting to send ${queuedMessage}&#x60;);
-      this.publish(queuedMessage.queueName, queuedMessage.message, queuedMessage.headers);
+      const pubParams: publishParams &#x3D; queueName;
+      super.publish(pubParams);
     }
   }
 
@@ -1648,141 +1077,54 @@ export class StompRService {
    * @param queueName
    * @param headers
    */
-  public subscribe(queueName: string, headers: StompHeaders &#x3D; {}): Observable&lt;Stomp.Message&gt; {
-
-    /* Well the logic is complicated but works beautifully. RxJS is indeed wonderful.
-     *
-     * We need to activate the underlying subscription immediately if Stomp is connected. If not it should
-     * subscribe when it gets next connected. Further it should re establish the subscription whenever Stomp
-     * successfully reconnects.
-     *
-     * Actual implementation is simple, we filter the BehaviourSubject &#x27;state&#x27; so that we can trigger whenever Stomp is
-     * connected. Since &#x27;state&#x27; is a BehaviourSubject, if Stomp is already connected, it will immediately trigger.
-     *
-     * The observable that we return to caller remains same across all reconnects, so no special handling needed at
-     * the message subscriber.
-     */
-    this.debug(&#x60;Request to subscribe ${queueName}&#x60;);
-
-    // By default auto acknowledgement of messages
-    if (!headers[&#x27;ack&#x27;]) {
-      headers[&#x27;ack&#x27;] &#x3D; &#x27;auto&#x27;;
-    }
-
-    const coldObservable &#x3D; Observable.create(
-      (messages: Observer&lt;Stomp.Message&gt;) &#x3D;&gt; {
-        /*
-         * These variables will be used as part of the closure and work their magic during unsubscribe
-         */
-        let stompSubscription: StompSubscription;
-
-        let stompConnectedSubscription: Subscription;
-
-        stompConnectedSubscription &#x3D; this.connectObservable
-          .subscribe(() &#x3D;&gt; {
-            this.debug(&#x60;Will subscribe to ${queueName}&#x60;);
-            stompSubscription &#x3D; this.client.subscribe(queueName, (message: Stomp.Message) &#x3D;&gt; {
-                messages.next(message);
-              },
-              headers);
-          });
-
-        return () &#x3D;&gt; { /* cleanup function, will be called when no subscribers are left */
-          this.debug(&#x60;Stop watching connection state (for ${queueName})&#x60;);
-          stompConnectedSubscription.unsubscribe();
-
-          if (this.state.getValue() &#x3D;&#x3D;&#x3D; StompState.CONNECTED) {
-            this.debug(&#x60;Will unsubscribe from ${queueName} at Stomp&#x60;);
-            stompSubscription.unsubscribe();
-          } else {
-            this.debug(&#x60;Stomp not connected, no need to unsubscribe from ${queueName} at Stomp&#x60;);
-          }
-        };
-      });
-
-    /**
-     * Important - convert it to hot Observable - otherwise, if the user code subscribes
-     * to this observable twice, it will subscribe twice to Stomp broker. (This was happening in the current example).
-     * A long but good explanatory article at https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339
-     */
-    return coldObservable.pipe(share());
+  public subscribe(queueName: string, headers: StompHeaders &#x3D; {}): Observable&lt;Message&gt; {
+    return this.watch(queueName, headers);
   }
 
   /**
-   * It will handle messages received in the default queue. Messages that would not be handled otherwise
-   * get delivered to the default queue.
-   */
-  protected setupOnReceive(): void {
-    this.defaultMessagesObservable &#x3D; new Subject();
-
-    this.client.onreceive &#x3D; (message: Stomp.Message) &#x3D;&gt; {
-      this.defaultMessagesObservable.next(message);
-    };
-  }
-
-  /**
-   * It will emit all receipts.
-   */
-  protected setupReceipts(): void {
-    this.receiptsObservable &#x3D; new Subject();
-
-    this.client.onreceipt &#x3D; (frame: Stomp.Frame) &#x3D;&gt; {
-      this.receiptsObservable.next(frame);
-    };
-  }
-
-  /**
-   * Wait for receipt, this indicates that server has carried out the related operation
-   */
-  public waitForReceipt(receiptId: string, callback: (frame: Stomp.Frame) &#x3D;&gt; void): void {
-    this.receiptsObservable.pipe(
-      filter((frame: Stomp.Frame) &#x3D;&gt; {
-        return frame.headers[&#x27;receipt-id&#x27;] &#x3D;&#x3D;&#x3D; receiptId;
-      }),
-      first()
-    ).subscribe((frame: Stomp.Frame) &#x3D;&gt; {
-      callback(frame);
-    });
-  }
-
-  /**
-   * Callback Functions
+   * STOMP brokers may carry out operation asynchronously and allow requesting for acknowledgement.
+   * To request an acknowledgement, a &#x60;receipt&#x60; header needs to be sent with the actual request.
+   * The value (say receipt-id) for this header needs to be unique for each use. Typically a sequence, a UUID, a
+   * random number or a combination may be used.
    *
-   * Note the method signature: () &#x3D;&gt; preserves lexical scope
-   * if we need to use this.x inside the function
+   * A complaint broker will send a RECEIPT frame when an operation has actually been completed.
+   * The operation needs to be matched based in the value of the receipt-id.
+   *
+   * This method allow watching for a receipt and invoke the callback
+   * when corresponding receipt has been received.
+   *
+   * The actual {@link https://stomp-js.github.io/stompjs/classes/Frame.html}
+   * will be passed as parameter to the callback.
+   *
+   * Example:
+   * &#x60;&#x60;&#x60;javascript
+   *        // Publishing with acknowledgement
+   *        let receiptId &#x3D; randomText();
+   *
+   *        rxStomp.waitForReceipt(receiptId, function() {
+   *          // Will be called after server acknowledges
+   *        });
+   *        rxStomp.publish({destination: TEST.destination, headers: {receipt: receiptId}, body: msg});
+   * &#x60;&#x60;&#x60;
+   *
+   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#watchForReceipt
    */
-  protected debug &#x3D; (args: any): void &#x3D;&gt; {
-    console.log(new Date(), args);
+  public waitForReceipt(receiptId: string, callback: (frame: Frame) &#x3D;&gt; void): void {
+    super.watchForReceipt(receiptId, callback);
   }
 
-  /** Callback run on successfully connecting to server */
-  protected on_connect &#x3D; (frame: Frame) &#x3D;&gt; {
-
-    this.debug(&#x27;Connected&#x27;);
-
-    this._serverHeadersBehaviourSubject.next(frame.headers);
-
-    // Indicate our connected state to observers
-    this.state.next(StompState.CONNECTED);
+  get client(): Client {
+    return this._stompClient;
   }
 
-  /** Handle errors from stomp.js */
-  protected on_error &#x3D; (error: string | Stomp.Message) &#x3D;&gt; {
+  public constructor() {
+    super();
 
-    // Trigger the error subject
-    this.errorSubject.next(error);
+    this.state &#x3D; new BehaviorSubject&lt;StompState&gt;(StompState.CLOSED);
 
-    if (typeof error &#x3D;&#x3D;&#x3D; &#x27;object&#x27;) {
-      error &#x3D; (&lt;Stomp.Message&gt;error).body;
-    }
-
-    this.debug(&#x60;Error: ${error}&#x60;);
-
-    // Check for dropped connection and try reconnecting
-    if (!this.client.connected) {
-      // Reset state indicator
-      this.state.next(StompState.CLOSED);
-    }
+    this.connectionState$.subscribe((st: RxStompState) &#x3D;&gt; {
+      this.state.next(StompRService._mapStompState(st));
+    });
   }
 }
 </code></pre>
