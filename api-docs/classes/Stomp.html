@@ -1,0 +1,500 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>stompjs-docs documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/Vagrant.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">stompjs-docs documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li>Classes</li>
+  <li>Stomp</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>consolidated/stompjs/src/compatibility/stomp.ts</code>
+        </p>
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>STOMP Class, acts like a factory to create <a href="../classes/Client.html">Client</a>.</p>
+
+            </p>
+
+
+
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#WebSocketClass">WebSocketClass</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#client">client</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#over">over</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section>
+    
+        <h3 id="inputs">
+            Properties
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="WebSocketClass"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            WebSocketClass
+                            </b>
+                            <a href="#WebSocketClass"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>WebSocketClass:     <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>null</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>In case you need to use a non standard class for WebSocket.</p>
+<p>For example when using within NodeJS environment:</p>
+<div><pre class="line-numbers"><code class="language-javascript">   *        StompJs = require(&#39;../../esm5/&#39;);
+   *        Stomp = StompJs.Stomp;
+   *        Stomp.WebSocketClass = require(&#39;websocket&#39;).w3cwebsocket;
+   *</code></pre></div></div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+</section>
+
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="client"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            client
+                            </b>
+                            <a href="#client"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>client(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, protocols?: string[])</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:30</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>This method creates a WebSocket client that is connected to
+the STOMP server located at the url.</p>
+<div><pre class="line-numbers"><code class="language-javascript">   *        var url = &quot;ws://localhost:61614/stomp&quot;;
+   *        var client = Stomp.client(url);
+   *</code></pre></div></div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>url</td>
+                                                        <td>
+                                                                    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                                <tr>
+                                                        <td>protocols</td>
+                                                        <td>
+                                                                    <code>string[]</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="../classes/CompatClient.html" target="_self" >CompatClient</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="over"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Static</span>
+                            over
+                            </b>
+                            <a href="#over"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>over(ws: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:68</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>This method is an alternative to <a href="../classes/Stomp.html#client">Stomp#client</a> to let the user
+specify the WebSocket to use (either a standard HTML5 WebSocket or
+a similar object).</p>
+<p>In order to support reconnection, the function Client._connect should be callable more than once. While reconnecting
+a new instance of underlying transport (TCP Socket, WebSocket or SockJS) will be needed. So, this function
+alternatively allows passing a function that should return a new instance of the underlying socket.</p>
+<div><pre class="line-numbers"><code class="language-javascript">   *        var client = Stomp.over(function(){
+   *          return new WebSocket(&#39;ws://localhost:15674/ws&#39;)
+   *        });
+   *</code></pre></div></div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ws</td>
+                                                        <td>
+                                                                    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="../classes/CompatClient.html" target="_self" >CompatClient</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Versions} from &quot;../versions&quot;;
+import {CompatClient} from &quot;./compat-client&quot;;
+
+/**
+ * STOMP Class, acts like a factory to create {@link Client}.
+ */
+export class Stomp {
+  /**
+   * In case you need to use a non standard class for WebSocket.
+   *
+   * For example when using within NodeJS environment:
+   *
+   * &#x60;&#x60;&#x60;javascript
+   *        StompJs &#x3D; require(&#x27;../../esm5/&#x27;);
+   *        Stomp &#x3D; StompJs.Stomp;
+   *        Stomp.WebSocketClass &#x3D; require(&#x27;websocket&#x27;).w3cwebsocket;
+   * &#x60;&#x60;&#x60;
+   */
+  public static WebSocketClass:any &#x3D; null;
+
+  /**
+   * This method creates a WebSocket client that is connected to
+   * the STOMP server located at the url.
+   *
+   * &#x60;&#x60;&#x60;javascript
+   *        var url &#x3D; &quot;ws://localhost:61614/stomp&quot;;
+   *        var client &#x3D; Stomp.client(url);
+   * &#x60;&#x60;&#x60;
+   */
+  public static client (url: string, protocols?: string[]): CompatClient {
+    // This is a hack to allow another implementation than the standard
+    // HTML5 WebSocket class.
+    //
+    // It is possible to use another class by calling
+    //
+    //     Stomp.WebSocketClass &#x3D; MozWebSocket
+    //
+    // *prior* to call &#x60;Stomp.client()&#x60;.
+    //
+    // This hack is deprecated and &#x60;Stomp.over()&#x60; method should be used
+    // instead.
+
+    // See remarks on the function Stomp.over
+    if (protocols &#x3D;&#x3D; null) { protocols &#x3D; Versions.default.protocolVersions(); }
+    const ws_fn&#x3D; function() {
+      const klass &#x3D; Stomp.WebSocketClass || WebSocket;
+      return new klass(url, protocols);
+    };
+
+    return new CompatClient(ws_fn);
+  }
+
+  /**
+   * This method is an alternative to [Stomp#client]{@link Stomp#client} to let the user
+   * specify the WebSocket to use (either a standard HTML5 WebSocket or
+   * a similar object).
+   *
+   * In order to support reconnection, the function Client._connect should be callable more than once. While reconnecting
+   * a new instance of underlying transport (TCP Socket, WebSocket or SockJS) will be needed. So, this function
+   * alternatively allows passing a function that should return a new instance of the underlying socket.
+   *
+   * &#x60;&#x60;&#x60;javascript
+   *        var client &#x3D; Stomp.over(function(){
+   *          return new WebSocket(&#x27;ws://localhost:15674/ws&#x27;)
+   *        });
+   * &#x60;&#x60;&#x60;
+   */
+  public static over (ws: any): CompatClient {
+    const ws_fn &#x3D; typeof(ws) &#x3D;&#x3D;&#x3D; &quot;function&quot; ? ws : () &#x3D;&gt; ws;
+
+    return new CompatClient(ws_fn);
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'Stomp.html';
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
+       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
