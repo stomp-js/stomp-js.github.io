@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-BASE=`dirname $0`/consolidated
-BUNDLES="stompjs rx-stomp ng2-stompjs"
+source `dirname $0`/config.sh
 
 rm -rf $BASE
 mkdir -p $BASE

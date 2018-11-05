@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-DESTINATION=../api-docs/
+source `dirname $0`/config.sh
 
 rm -rf $DESTINATION
+
+cd $BASE/..
 
 ./node_modules/.bin/compodoc \
         -p tsconfig.json \
