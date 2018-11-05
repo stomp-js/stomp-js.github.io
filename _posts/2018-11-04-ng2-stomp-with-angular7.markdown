@@ -11,7 +11,7 @@ and demonstrate usage of ng2-stompjs.
 While preparing this guide `Angular` `7.0.4` and
 `@stomp/ng2-stompjs` `7.0.0-beta.3` are used.
 
-For the impatient final code from this tutorial is at:
+For the impatient, final code from this tutorial is at:
 [https://github.com/stomp-js/ng2-stompjs-angular7](https://github.com/stomp-js/ng2-stompjs-angular7)
 
 ## Pre requisites
@@ -396,7 +396,7 @@ export class MessagesComponent implements OnInit, OnDestroy {
 ## Where next
 
 - Browse the code at
-  [https://github.com/stomp-js/ng2-stompjs-angular7](https://github.com/stomp-js/ng2-stompjs-angular7
+  [https://github.com/stomp-js/ng2-stompjs-angular7](https://github.com/stomp-js/ng2-stompjs-angular7)
 - Explore [RxStomp][rx-stomp] to understand other interesting methods exposed by the library.
 - Go through [Angular Dependency Injection][angular-di] - trust me mastering it will take
   you places.
