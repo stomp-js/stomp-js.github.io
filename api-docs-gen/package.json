@@ -1,0 +1,15 @@
+{
+  "name": "stompjs-docs",
+  "version": "0.1.0",
+  "description": "Documentation for StompJS family",
+  "main": "index.js",
+  "scripts": {
+    "doc": "./doc-gen.sh",
+    "doc-serve": "./doc-gen.sh -r 59324 -s -w -o"
+  },
+  "author": "Deepak Kumar",
+  "license": "MIT",
+  "dependencies": {
+    "@compodoc/compodoc": "^1.1.6"
+  }
+}
