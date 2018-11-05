@@ -39,3 +39,4 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - api-docs-gen/
+  - .idea/
