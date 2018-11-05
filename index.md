@@ -2,4 +2,5 @@
 layout: home
 ---
 
-# Stomp JS
+This is a new site and is under heavy development.
+
