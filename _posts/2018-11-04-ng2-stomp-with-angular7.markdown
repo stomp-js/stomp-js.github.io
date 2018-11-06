@@ -5,6 +5,8 @@ date:   2018-11-04 17:27:13 +0530
 categories: guide ng2-stompjs
 ---
 
+**Important: See https://github.com/stomp-js/ng2-stompjs/issues/103#issuecomment-436117924**
+
 This step by step guide will create a new Angular application
 and demonstrate usage of ng2-stompjs.
 
