@@ -64,7 +64,10 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Represents a configuration object for the
+                <p>Part of <code>@stomp/ng2-stompjs</code>.</p>
+<p><strong>This class has been deprecated in favor of <a href="../injectables/InjectableRxStompConfig.html">InjectableRxStompConfig</a>.
+It will be dropped <code>@stomp/ng2-stompjs@8.x.x</code>.</strong></p>
+<p>Represents a configuration object for the
 STOMPService to connect to.</p>
 
             </p>
@@ -147,7 +150,7 @@ STOMPService to connect to.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:57</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:62</a></div>
                             </td>
                         </tr>
 
@@ -187,7 +190,7 @@ STOMPService to connect to.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:36</a></div>
                             </td>
                         </tr>
 
@@ -229,7 +232,7 @@ host:string will neeed to be passed for virtual hosts in RabbitMQ</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:38</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:43</a></div>
                             </td>
                         </tr>
 
@@ -271,7 +274,7 @@ Interval in milliseconds, set to 0 to disable</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:46</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:51</a></div>
                             </td>
                         </tr>
 
@@ -313,7 +316,7 @@ Interval in milliseconds, set to 0 to disable</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:54</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:59</a></div>
                             </td>
                         </tr>
 
@@ -355,7 +358,7 @@ Set to 0 to disable</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">consolidated/ng2-stompjs/src/stomp.config.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -383,11 +386,16 @@ Set to 0 to disable</p>
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
 import { StompHeaders } from &#x27;@stomp/stompjs&#x27;;
+
 /**
+ * Part of &#x60;@stomp/ng2-stompjs&#x60;.
+ *
+ * **This class has been deprecated in favor of {@link InjectableRxStompConfig}.
+ * It will be dropped &#x60;@stomp/ng2-stompjs@8.x.x&#x60;.**
+ *
  * Represents a configuration object for the
  * STOMPService to connect to.
  */
-
 @Injectable()
 export class StompConfig {
   /**
