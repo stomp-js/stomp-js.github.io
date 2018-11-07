@@ -7,6 +7,10 @@ categories: guide stompjs rx-stomp ng2-stompjs
 
 This guide covers how to use [SockJS client] instead of WebSockets as underlying transport.
 
+**For Spring STOMP users:**
+*There are few tutorials/guides that implicitly suggest that you need SockJS to use STOMP.
+That is incorrect, you only need SockJS if you need to support old browsers.*
+
 ## Do you need SockJS?
 
 As of 2018, WebSocket support in browsers is nearly ubiquitous.
@@ -74,8 +78,12 @@ Each time a broker (re)connects, it needs a new instance of WebSocket.**
 
 ## Usage
 
+You should set [webSocketFactory] instead of [brokerURL] in your configuration.
 
+You can even check if WebSocket is available and accordingly use SockJS as a fallback.
+See the example below.
 
+**Note: if you set both [webSocketFactory] takes precedence.**
 
 ## Example with stompjs
 
@@ -130,3 +138,6 @@ You will need to include latest [SockJS client] in your web page.
 [SockJS client]: https://github.com/sockjs/sockjs-client
 [StompConfig]: /api-docs/injectables/StompConfig.html
 [InjectableRxStompConfig]: /api-docs/injectables/InjectableRxStompConfig.html
+[webSocketFactory]: /api-docs/classes/Client.html#webSocketFactory
+[brokerURL]: /api-docs/classes/Client.html#brokerURL
+[Stomp Client]: /api-docs/classes/Client.html
