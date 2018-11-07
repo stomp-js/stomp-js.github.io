@@ -5,26 +5,37 @@ date:   2018-09-10 12:06:34 +0530
 categories: guide stompjs rx-stomp ng2-stompjs
 ---
 
-Outdated
+This guide covers how to use [SockJS client] instead of WebSockets as underlying transport.
 
-See sample at https://github.com/stomp-js/ng4-stompjs-demo/tree/sockjs
+## Do you need SockJS?
 
-*Almost all brokers that support SockJS also support WebSockets.
-If your application does not need to support old browsers, switch to using WebSockets.
-Check https://en.wikipedia.org/wiki/WebSocket for compatibility information.*
+As of 2018, WebSocket support in browsers is nearly ubiquitous.
+Please check [https://caniuse.com/#feat=websockets](https://caniuse.com/#feat=websockets).
+Depending on your user base you can skip this page.
 
-## Notes
+You can use [SockJS client]
+to support browsers that do not natively support WebSockets.
 
-- It is an initial release.
-- Instead of a `url` in the default form, you need 
-to pass it as a `socketProvider` function. It will be streamlined in a
-future release.
-- Please read notes on SockJS support of the underlying library at
-https://stomp-js.github.io/stomp-websocket/codo/extra/docs-src/sockjs.md.html
+You would need to consider the following:
 
-## Usage
+- URL protocol conventions are different for WebSockets (`ws:`/`wss:`) and SockJS (`http:` or `https:`).
+- Internal handshake sequences are different - so, some brokers will use different end points for
+  both protocols.
+- Neither of these allow custom headers to be set during the HTTP handshake.
+- SockJS internally supports different transport mechanisms. You might face specific limitations
+  depending on actual transport in use.
+- Auto reconnect is not quite reliable with SockJS.
+- Heartbeats may not be supported over SockJS by some brokers.
+- SockJS does not allow more than simultaneous connection to the same broker.
+  This usually is not a problem for most of the applications.
 
-### Install SockJS Client
+It is advised to use WebSockets by default and then fall back to SockJS if the browser does not support.
+
+## Basic installation
+
+### In Node.js environments
+
+Please install latest [SockJS client]:
 
 ```bash
 $ npm install sockjs-client --save
@@ -32,67 +43,90 @@ $ npm install sockjs-client --save
 
 ### Import SockJS class
 
+Depending on your programming language/environment, you may have to `import` or `require` it:
+
 ```typescript
 import * as SockJS from 'sockjs-client';
 ```
 
-### Implement a socketProvider
+### In the browser
+
+Add the following to include directly in the browser:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+```
+
+## Implement a webSocketFactory
 
 Create a function that returns an object similar to WebSocket (typically SockJS instance).
 
 ```typescript
-export function socketProvider() {
+export function mySocketFactory() {
   return new SockJS('http://127.0.0.1:15674/stomp');
 }
 ```
 
-### StompConfig
+This function should return a WebSocket compatible object.
 
-Pass the function as `url` in `StompConfig`.
- It will work even
-though name of the parameter is url, don't worry :)
+**Note: this function may be invoked multiple times.
+Each time a broker (re)connects, it needs a new instance of WebSocket.**
 
-Example:
+## Usage
 
-```typescript
-const stompConfig: StompConfig = {
-  // Which server?
-  url: socketProvider,
 
-  // Headers
-  // Typical keys: login, passcode, host
-  headers: {
-    login: 'guest',
-    passcode: 'guest'
-  },
 
-  // How frequent is the heartbeat?
-  // Interval in milliseconds, set to 0 to disable
-  heartbeat_in: 0, // Typical value 0 - disabled
-  heartbeat_out: 20000, // Typical value 20000 - every 20 seconds
 
-  // Wait in milliseconds before attempting auto reconnect
-  // Set to 0 to disable
-  // Typical value 5000 (5 seconds)
-  reconnect_delay: 5000,
+## Example with stompjs
 
-  // Will log diagnostics on console
-  debug: true
-};
+```javascript
+    const client = new StompJs.Client({
+      brokerURL: "ws://localhost:15674/ws",
+      connectHeaders: {
+        login: "user",
+        passcode: "password"
+      },
+      debug: function (str) {
+        console.log(str);
+      },
+      reconnectDelay: 5000,
+      heartbeatIncoming: 4000,
+      heartbeatOutgoing: 4000
+    });
+    
+    // Fallback code
+    if (typeof WebSocket !== 'function') {
+      // For SockJS you need to set a factory that creates a new SockJS instance
+      // to be used for each (re)connect
+      client.webSocketFactory = function () {
+        // Note that the URL is different from the WebSocket URL 
+        return new SockJS("http://localhost:15674/stomp");
+      };
+    }
+
+    client.onConnect = function(frame) {
+      // Do something, all subscribes must be done is this callback
+      // This is needed because this will be executed after a (re)connect
+    };
+    
+    client.onStompError = function (frame) {
+      // Will be invoked in case of error encountered at Broker
+      // Bad login/passcode typically will cause an error
+      // Complaint brokers will set `message` header with a brief message. Body may contain details.
+      // Compliant brokers will terminate the connection after any error
+      console.log('Broker reported error: ' + frame.headers['message']);
+      console.log('Additional details: ' + frame.body);
+    };
+    
+    client.activate();
 ```
 
-## Limitations
+Compare the above against the sample in [using StompJS]({{% link _posts/2018-06-29-using-stompjs.md %}}),
+only addition is the fallback code trying to use SockJS if WebSocket is unavailable.
+You will need to include latest [SockJS client] in your web page.
 
-Copied from https://stomp-js.github.io/stomp-websocket/codo/extra/docs-src/sockjs.md.html
 
-- SockJS is an emulation of WebSockets. This is not a complete implementation.
-- Heart beating is not supported.
-- SockJS internally uses one of many possible means to communicate. In some of those, auto reconnect may occasionally fail.
 
-## When Hacking Code of this Library
-
-- When developing on this library code to use SockJS, please adjust the unit tests to use
-SockJS.
-- Unit testes may occasionally fail in SockJS. It is because of limitations
-of SockJS around allowing only one SockJS connection at a time. Usually 
-this should not affect your usage of the library.
+[SockJS client]: https://github.com/sockjs/sockjs-client
+[StompConfig]: /api-docs/injectables/StompConfig.html
+[InjectableRxStompConfig]: /api-docs/injectables/InjectableRxStompConfig.html
