@@ -60,6 +60,21 @@
             <code>consolidated/ng2-stompjs/src/injectable-rx-stomp-config.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Part of <code>@stomp/ng2-stompjs</code>.</p>
+<p>This class is Injectable version of <a href="../classes/RxStompConfig.html">RxStompConfig</a> with exactly same functionality.
+Please see <a href="../classes/RxStompConfig.html">RxStompConfig</a> for details.</p>
+<p>See: <a href="/guide/ng2-stompjs/2018/11/04/ng2-stomp-with-angular7.html">/guide/ng2-stompjs/2018/11/04/ng2-stomp-with-angular7.html</a>
+for a step-by-step guide.</p>
+<p>If all fields of configuration are fixed and known in advance you would typically define
+a <code>const</code> and inject it using value.</p>
+<p>If some fields will be known by later, it can be injected using a factory function.</p>
+<p>Occasionally it may need to be combined with Angular&#39;s APP_INITIALIZER mechanism.</p>
+
+            </p>
 
 
 
@@ -73,6 +88,22 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
 import {RxStompConfig} from &#x27;@stomp/rx-stomp&#x27;;
 
+/**
+ * Part of &#x60;@stomp/ng2-stompjs&#x60;.
+ *
+ * This class is Injectable version of {@link RxStompConfig} with exactly same functionality.
+ * Please see {@link RxStompConfig} for details.
+ *
+ * See: {@link /guide/ng2-stompjs/2018/11/04/ng2-stomp-with-angular7.html}
+ * for a step-by-step guide.
+ *
+ * If all fields of configuration are fixed and known in advance you would typically define
+ * a &#x60;const&#x60; and inject it using value.
+ *
+ * If some fields will be known by later, it can be injected using a factory function.
+ *
+ * Occasionally it may need to be combined with Angular&#x27;s APP_INITIALIZER mechanism.
+ */
 @Injectable()
 export class InjectableRxStompConfig extends RxStompConfig { }
 </code></pre>

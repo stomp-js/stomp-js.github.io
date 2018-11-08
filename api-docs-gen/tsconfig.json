@@ -5,6 +5,7 @@
     "consolidated/ng2-stompjs/src/**/*.ts"
   ],
   "exclude": [
+    "consolidated/ng2-stompjs/src/stomp.config.ts",
     "consolidated/ng2-stompjs/src/specs/**/*.ts",
     "consolidated/ng2-stompjs/src/test.ts",
     "consolidated/ng2-stompjs/src/environments/**/*.ts"
