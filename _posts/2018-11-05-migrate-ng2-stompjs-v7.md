@@ -7,36 +7,6 @@ categories: guide ng2-stompjs
 
 Work in Progress
 
-## Upgrading from version 6
-
-For upgrading from version 4, you will additionally need to make RxJS specific changes.
-
-
-
-This version uses newer Javascript features. Few these can be pollyfilled in older
-browsers.
-However [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
-is critically needed and not possible to be efficiently pollyfilled  (notably in IE9 or lower).
-If you need to support any browser that does not have native support for Uint8Array
-please continue using version 4 of this library.
-
-### Basic changes
-
-Please follow section [Include STOMP.js](usage.html#include-stomp-js) to add latest version
-and to include necessary polyfills.
-
-The following is for convenience - to keep the code change to the minimum.
-
-```javascript
-    // Depending on your JS version you may have to use var instead of const 
-     
-    // To use compatibility mode
-    const Stomp = StompJs.Stomp;
-```
-
-### For the lazy: use the compatibility mode
-
-
 ## Rationale of changes
 
 These libraries have been maintained under stomp-js for past few years.
@@ -54,33 +24,65 @@ Major reasons for changes in this library are following:
 - Values for connection state now aligns to [WebSocket States][web-socket-states].
 - Exposing newer features like binary messages and updating configuration before connect.
 
+## Upgrading from version 6
+
+*For upgrading from version 4, you will additionally need to make RxJS specific changes.
+These are Angular specific, not covered in this guide.*
+
+### Polyfills
+
+Please see [Polyfills & Critical Dependencies] for the underlying `@stomp/stompjs` library.
+
+### Basic changes
+
+Install the v7 of `@stomp/ng2-stompjs`
+
+```bash
+$ npm i @stomp/ng2-stompjs@^7.0.0-beta.3
+```
+
+### For the lazy: use the compatibility mode
+
+You application should now use compatibility mode and should work as before.
+If you need to access any of the newer features of the underlying library -
+like binary messages,
+better support for deactivate (disconnect),
+ability to update configuration before connect etc. you would need to carry out a full upgrade.
+
+In addition the compatibility mode for v6 will be dropped in v8.
+
+## Full Upgrade
+
+### Inject new service
+
+
+
 ## Summary of renames and replacements
 
 - Classes (all have semantic changes as well):
+    - [StompConfig] --> [InjectableRxStompConfig]
     - [StompRService] --> [RxStompService]
     - [StompService] --> [RxStompService] and [rxStompServiceFactory]
-    - [StompConfig] --> [InjectableRxStompConfig]
     - [StompState] --> [RxStompState]
 - Members of [StompRService] and [StompService]:
-    - `state` --> `connectionState$` - semantic change as well
-    - `serverHeadersObservable` --> `serverHeaders$`
-    - `defaultMessagesObservable` --> `unhandledMessage$`
-    - `receiptsObservable` --> `unhandledReceipts$`
-    - `errorSubject` --> `stompErrors$`
     - `client` --> `_stompClient` - to indicate that be careful when using it directly
-    - `waitForReceipt` --> `watchForReceipt`
-    - `initAndConnect` --> `activate`
+    - `defaultMessagesObservable` --> `unhandledMessage$`
     - `disconnect` --> `deactivate`
     - `errorSubject` --> `stompError$` - slight semantic change as well
-    - `subscribe` --> `watch`
+    - `initAndConnect` --> `activate`
     - `publish` --> `publish` - parameters are now hash
+    - `receiptsObservable` --> `unhandledReceipts$`
+    - `serverHeadersObservable` --> `serverHeaders$`
+    - `state` --> `connectionState$` - semantic change as well
+    - `subscribe` --> `watch`
+    - `waitForReceipt` --> `watchForReceipt`
 - Members of [StompConfig]
+    - `headers` --> `connectHeaders`
+    - `heartbeat_in` --> `heartbeatIncoming`
+    - `heartbeat_out` --> `heartbeatOutgoing`
+    - `reconnect_delay` --> `reconnectDelay`
     - `url` --> `brokerURL` - when value is a URL string
     - `url` --> `webSocketFactory` - when value is a function
-    - `heartbeat`_`in` --> `heartbeatIncoming`
-    - `heartbeat`_`out` --> `heartbeatOutgoing`
-    - `reconnect`_`delay` --> `reconnectDelay`
-    - `headers` --> `connectHeaders`
 - Values in [StompState]
     - `TRYING` --> `CONNECTING`
     - `CONNECTED` --> `OPEN`
@@ -113,3 +115,4 @@ Major reasons for changes in this library are following:
 [RxStomp]: /api-docs/classes/RxStomp.html
 [RxStompConfig]: /api-docs/classes/RxStompConfig.html
 [/guide/ng2-stompjs/2018/11/04/ng2-stomp-with-angular7.html]: /guide/ng2-stompjs/2018/11/04/ng2-stomp-with-angular7.html
+[Polyfills & Critical Dependencies]: {% link _posts/2018-06-28-pollyfils-for-stompjs-v5.md %}

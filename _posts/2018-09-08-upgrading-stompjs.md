@@ -7,18 +7,12 @@ categories: guide stompjs
 
 ## Upgrading from version 3/4
 
-This version uses newer Javascript features. Few these can be pollyfilled in older
-browsers.
-However [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
-is critically needed and not possible to be efficiently pollyfilled  (notably in IE9 or lower).
-If you need to support any browser that does not have native support for Uint8Array
-please continue using version 4 of this library.
+*Important: before upgrading please check [Polyfills & Critical Dependencies].*
 
 ### Basic changes
 
-Please follow section [Include STOMP.js]({% link _posts/2018-06-29-using-stompjs.md %}#include-stompjs)
-to add latest version
-and to include necessary polyfills.
+Please follow section [Include STOMP.js]({% link _posts/2018-06-29-using-stompjs-v5.md %}#include-stompjs)
+to add latest version.
 
 The following is for convenience - to keep the code change to the minimum.
 
@@ -189,5 +183,7 @@ Additional notes:
   Follow the instructions as above.
 - `Stomp.overTCP` is no longer supported. If your brokers supports WebStomp (STOMP over WebSocket),
   you may switch to that.
-- If you are using `SockJS` please also see
-  [SockJS support]({{% link _posts/2018-09-10-using-stomp-with-sockjs.md %}})
+- If you are using `SockJS` please also see [SockJS support]
+  
+[SockJS support]: {% link _posts/2018-09-10-using-stomp-with-sockjs.md %}
+[Polyfills & Critical Dependencies]: {% link _posts/2018-06-28-pollyfils-for-stompjs-v5.md %}

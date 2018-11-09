@@ -129,7 +129,7 @@ See the example below.
     client.activate();
 ```
 
-Compare the above against the sample in [using StompJS]({{% link _posts/2018-06-29-using-stompjs.md %}}),
+Compare the above against the sample in [using StompJS]({% link _posts/2018-06-29-using-stompjs-v5.md %}),
 only addition is the fallback code trying to use SockJS if WebSocket is unavailable.
 You will need to include latest [SockJS client] in your web page.
 

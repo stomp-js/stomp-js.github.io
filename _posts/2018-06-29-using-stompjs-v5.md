@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Using StompJs"
+title:  "Using StompJs v5"
 date:   2018-06-29 03:59:22 +0530
 categories: guide stompjs
 ---
@@ -13,50 +13,22 @@ or activating plugins.
 
 ## Include stompjs
 
+### Pollyfills
+
+*Important: before using please check [Polyfills & Critical Dependencies].*
+
 ### In Web Browser
 
 * Download or directly include one of [CDN links] or from `bundles/` folder.
 * `StompJs` object will now be available. Read along to learn how to use it.
 
-#### Pollyfills
-
-- [Object.assign](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign).
-  It is not supported by IE (supported by Edge).
-  It will need to be polyfilled from `npm` package `es6-object-assign`. A simple approach:
-    ```html
-    <script src="https://cdn.jsdelivr.net/npm/es6-object-assign@1.1.0/dist/object-assign-auto.min.js"></script>
-    ```
-- [TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder)
-  and
-  [TextDecoder](https://developer.mozilla.org/en-US/docs/Web/API/TextDecoder).
-  These are not supported by any of the MicroSoft browsers as of 2018.
-  These will need to be polyfilled from `npm` package `text-encoding`. A simple approach:
-    ```html
-    <script src="https://cdn.jsdelivr.net/npm/text-encoding@0.6.4/lib/encoding.min.js"></script>
-    ```
-
 ### In NodeJS
 
-* Add npm modules `@stomp/stompjs`, `websocket` and `text-encoding` to your project.
-    ```bash
-    $ npm install @stomp/stompjs websocket text-encoding
-    ```
+```bash
+$ npm i @stomp/stompjs
+```
 
-* Require the module
-    ```javascript
-        // This is simplest way to get going
-        WebSocket = require('websocket').w3cwebsocket;
-    
-        // There is a proposal to add these by default in NodeJS, so good idea is to check first
-        if (typeof TextEncoder !== 'function') {
-          const TextEncodingPolyfill = require('text-encoding');
-          TextEncoder = TextEncodingPolyfill.TextEncoder;
-          TextDecoder = TextEncodingPolyfill.TextDecoder;
-        }
-      
-        StompJs = require('@stomp/stompjs/esm5/');  
-    ```
-* Read along to learn how to use the `StompJs` object.
+Read along to learn how to use the `StompJs` object.
 
 ## Setting/getting options
 
@@ -426,3 +398,6 @@ Even [Client#brokerURL](/api-docs/classes/Client.html#brokerURL)
 or [Client#connectHeaders](/api-docs/classes/Client.html#connectHeaders)
 can be altered which would get used in a subsequent reconnect.
 However, I will suggest creating a new instance of the STOMP client in this scenario.
+
+
+[Polyfills & Critical Dependencies]: {% link _posts/2018-06-28-pollyfils-for-stompjs-v5.md %}
