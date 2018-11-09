@@ -7,5 +7,5 @@ cd $BASE
 
 for bundle in $BUNDLES
 do
-    rsync -av ../../../$bundle/src $bundle
+    rsync -av --delete ../../../$bundle/src $bundle
 done
