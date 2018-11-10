@@ -5,9 +5,6 @@ date:   2018-11-05 23:02:56 +0530
 categories: guide ng2-stompjs
 ---
 
-**Important: See 
-[https://github.com/stomp-js/ng2-stompjs/issues/103#issuecomment-436117924](https://github.com/stomp-js/ng2-stompjs/issues/103#issuecomment-436117924)**
-
 ## Rationale of changes
 
 These libraries have been maintained under stomp-js for past few years.
@@ -39,7 +36,7 @@ Please see [Polyfills & Critical Dependencies] for the underlying `@stomp/stompj
 Install the v7 of `@stomp/ng2-stompjs`
 
 ```bash
-$ npm i @stomp/ng2-stompjs@^7.0.0-beta.3
+$ npm i @stomp/ng2-stompjs@^7.0.0-beta.4
 ```
 
 ### For the lazy: use the compatibility mode

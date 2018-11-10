@@ -5,14 +5,11 @@ date:   2018-11-04 17:27:13 +0530
 categories: guide ng2-stompjs
 ---
 
-**Important: See 
-[https://github.com/stomp-js/ng2-stompjs/issues/103#issuecomment-436117924](https://github.com/stomp-js/ng2-stompjs/issues/103#issuecomment-436117924)**
-
 This step by step guide will create a new Angular application
 and demonstrate usage of ng2-stompjs.
 
 While preparing this guide `Angular` `7.0.4` and
-`@stomp/ng2-stompjs` `7.0.0-beta.3` are used.
+`@stomp/ng2-stompjs` `7.0.0-beta.4` are used.
 
 For the impatient, final code from this tutorial is at:
 [https://github.com/stomp-js/ng2-stompjs-angular7](https://github.com/stomp-js/ng2-stompjs-angular7)
