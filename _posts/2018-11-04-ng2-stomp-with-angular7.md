@@ -414,6 +414,6 @@ I will be writing more tutorials in following days to cover additional topics:
 
 [tour-of-heroes]: https://angular.io/tutorial
 [angular-di]: https://angular.io/guide/dependency-injection
-[rx-stomp]: https://stomp-js.github.io/rx-stomp/classes/RxStomp.html
-[rx-stomp-publish]: https://stomp-js.github.io/rx-stomp/classes/RxStomp.html#publish
-[rx-stomp-watch]: https://stomp-js.github.io/rx-stomp/classes/RxStomp.html#watch
+[rx-stomp]: https://stomp-js.github.io/api-docs/latest/classes/RxStomp.html
+[rx-stomp-publish]: https://stomp-js.github.io/api-docs/latest/classes/RxStomp.html#publish
+[rx-stomp-watch]: https://stomp-js.github.io/api-docs/latest/classes/RxStomp.html#watch

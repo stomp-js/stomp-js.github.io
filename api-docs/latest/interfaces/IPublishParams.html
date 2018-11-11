@@ -70,6 +70,7 @@
             </p>
             <p class="comment">
                 <p>Parameters for <a href="../classes/Client.html#publish">Client#publish</a></p>
+<p>Part of <code>@stomp/stompjs</code>.</p>
 
             </p>
 
@@ -323,33 +324,45 @@ import {StompHeaders} from &#x27;./stomp-headers&#x27;;
 
 /**
  * This callback will receive a &#x60;string&#x60; as parameter.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
  */
 export type debugFnType &#x3D; (msg: string) &#x3D;&gt; void;
 
 /**
  * This callback will receive a {@link Message} as parameter.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
  */
 export type messageCallbackType &#x3D; (message: Message) &#x3D;&gt; void;
 
 /**
  * This callback will receive a {@link Message} as parameter.
  * The callback will need to return a boolean value.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
  */
 export type messageCheckCallbackType &#x3D; (frame: Frame) &#x3D;&gt; boolean;
 
 /**
  * This callback will receive a {@link Frame} as parameter.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
  */
 export type frameCallbackType &#x3D; (receipt: Frame) &#x3D;&gt; void;
 
 /**
  * This callback will receive a [CloseEvent]{@link https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent}
  * as parameter.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
  */
 export type closeEventCallbackType &#x3D; (evt: CloseEvent) &#x3D;&gt; void;
 
 /**
  * Parameters for [Client#publish]{@link Client#publish}
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
  */
 export interface IPublishParams {
   /**
@@ -376,9 +389,21 @@ export interface IPublishParams {
 }
 
 /**
- * The parser yield frames in this structure
+ * Used in {@link IRawFrameType}
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ *
+ * @internal
  */
 export type RawHeaderType &#x3D; [string, string];
+
+/**
+ * The parser yield frames in this structure
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ *
+ * @internal
+ */
 export interface IRawFrameType { command: string; headers: RawHeaderType[]; binaryBody: Uint8Array; }
 </code></pre>
     </div>

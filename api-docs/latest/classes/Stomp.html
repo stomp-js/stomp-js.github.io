@@ -69,6 +69,9 @@
             </p>
             <p class="comment">
                 <p>STOMP Class, acts like a factory to create <a href="../classes/Client.html">Client</a>.</p>
+<p>Part of <code>@stomp/stompjs</code>.</p>
+<p><strong>Deprecated</strong></p>
+<p>It will be removed in next major version. Please switch to <a href="../classes/Client.html">Client</a>.</p>
 
             </p>
 
@@ -162,7 +165,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -173,7 +176,10 @@
 <div><pre class="line-numbers"><code class="language-javascript">   *        StompJs = require(&#39;../../esm5/&#39;);
    *        Stomp = StompJs.Stomp;
    *        Stomp.WebSocketClass = require(&#39;websocket&#39;).w3cwebsocket;
-   *</code></pre></div></div>
+   *</code></pre></div><p><strong>Deprecated</strong></p>
+<p>It will be removed in next major version. Please switch to <a href="../classes/Client.html">Client</a>
+using <a href="../classes/Client.html#webSocketFactory">Client#webSocketFactory</a>.</p>
+</div>
                     </td>
                 </tr>
 
@@ -210,7 +216,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:48</a></div>
                             </td>
                         </tr>
 
@@ -221,7 +227,10 @@
 the STOMP server located at the url.</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        var url = &quot;ws://localhost:61614/stomp&quot;;
    *        var client = Stomp.client(url);
-   *</code></pre></div></div>
+   *</code></pre></div><p><strong>Deprecated</strong></p>
+<p>It will be removed in next major version. Please switch to <a href="../classes/Client.html">Client</a>
+using <a href="../classes/Client.html#brokerURL">Client#brokerURL</a>.</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -298,7 +307,7 @@ the STOMP server located at the url.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:70</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">consolidated/stompjs/src/compatibility/stomp.ts:92</a></div>
                             </td>
                         </tr>
 
@@ -315,7 +324,10 @@ alternatively allows passing a function that should return a new instance of the
 <div><pre class="line-numbers"><code class="language-javascript">   *        var client = Stomp.over(function(){
    *          return new WebSocket(&#39;ws://localhost:15674/ws&#39;)
    *        });
-   *</code></pre></div></div>
+   *</code></pre></div><p><strong>Deprecated</strong></p>
+<p>It will be removed in next major version. Please switch to <a href="../classes/Client.html">Client</a>
+using <a href="../classes/Client.html#webSocketFactory">Client#webSocketFactory</a>.</p>
+</div>
 
                             <div class="io-description">
                                     <b>Parameters :</b>
@@ -372,6 +384,12 @@ import {CompatClient} from &#x27;./compat-client&#x27;;
 
 /**
  * STOMP Class, acts like a factory to create {@link Client}.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ *
+ * **Deprecated**
+ *
+ * It will be removed in next major version. Please switch to {@link Client}.
  */
 export class Stomp {
   /**
@@ -384,6 +402,12 @@ export class Stomp {
    *        Stomp &#x3D; StompJs.Stomp;
    *        Stomp.WebSocketClass &#x3D; require(&#x27;websocket&#x27;).w3cwebsocket;
    * &#x60;&#x60;&#x60;
+   *
+   * **Deprecated**
+   *
+   *
+   * It will be removed in next major version. Please switch to {@link Client}
+   * using [Client#webSocketFactory]{@link Client#webSocketFactory}.
    */
   // tslint:disable-next-line:variable-name
   public static WebSocketClass: any &#x3D; null;
@@ -396,6 +420,11 @@ export class Stomp {
    *        var url &#x3D; &quot;ws://localhost:61614/stomp&quot;;
    *        var client &#x3D; Stomp.client(url);
    * &#x60;&#x60;&#x60;
+   *
+   * **Deprecated**
+   *
+   * It will be removed in next major version. Please switch to {@link Client}
+   * using [Client#brokerURL]{@link Client#brokerURL}.
    */
   public static client(url: string, protocols?: string[]): CompatClient {
     // This is a hack to allow another implementation than the standard
@@ -435,6 +464,11 @@ export class Stomp {
    *          return new WebSocket(&#x27;ws://localhost:15674/ws&#x27;)
    *        });
    * &#x60;&#x60;&#x60;
+   *
+   * **Deprecated**
+   *
+   * It will be removed in next major version. Please switch to {@link Client}
+   * using [Client#webSocketFactory]{@link Client#webSocketFactory}.
    */
   public static over(ws: any): CompatClient {
     const wsFn &#x3D; typeof(ws) &#x3D;&#x3D;&#x3D; &#x27;function&#x27; ? ws : () &#x3D;&gt; ws;
