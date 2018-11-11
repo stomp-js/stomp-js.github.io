@@ -136,8 +136,8 @@ You will need to include latest [SockJS client] in your web page.
 
 
 [SockJS client]: https://github.com/sockjs/sockjs-client
-[StompConfig]: /api-docs/injectables/StompConfig.html
-[InjectableRxStompConfig]: /api-docs/injectables/InjectableRxStompConfig.html
-[webSocketFactory]: /api-docs/classes/Client.html#webSocketFactory
-[brokerURL]: /api-docs/classes/Client.html#brokerURL
-[Stomp Client]: /api-docs/classes/Client.html
+[StompConfig]: /api-docs/latest/injectables/StompConfig.html
+[InjectableRxStompConfig]: /api-docs/latest/injectables/InjectableRxStompConfig.html
+[webSocketFactory]: /api-docs/latest/classes/Client.html#webSocketFactory
+[brokerURL]: /api-docs/latest/classes/Client.html#brokerURL
+[Stomp Client]: /api-docs/latest/classes/Client.html

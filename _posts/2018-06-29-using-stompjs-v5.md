@@ -41,8 +41,8 @@ All options can be set/get by directly operating on the client instance:
     console.log(client.brokerURL);
 ```
 
-These can also be set passing key/value pairs to [Client constructor](/api-docs/classes/Client.html#constructor)
-or to [Client#configure](/api-docs/classes/Client.html#configure).
+These can also be set passing key/value pairs to [Client constructor](/api-docs/latest/classes/Client.html#constructor)
+or to [Client#configure](/api-docs/latest/classes/Client.html#configure).
 
 ## Create a STOMP client
 
@@ -80,7 +80,7 @@ STOMP JavaScript clients will communicate to a STOMP server using a `ws://` or `
     client.activate();
 ```
 
-To deactivate a client call [Client#deactivate](/api-docs/classes/Client.html#deactivate).
+To deactivate a client call [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate).
 It will stop sttempting to reconnect and disconnect if there is an active connection.
 
 ```javascript
@@ -90,7 +90,7 @@ It will stop sttempting to reconnect and disconnect if there is an active connec
 ## Send messages
 
 When the client is connected to the server, it can send STOMP messages using
-the [Client#publish](/api-docs/classes/Client.html#publish) method.
+the [Client#publish](/api-docs/latest/classes/Client.html#publish) method.
 
 ```javascript
     client.publish({destination: '/topic/general', body: 'Hello world'});
@@ -118,7 +118,7 @@ To send a binary message body use binaryBody parameter. It should be a
 To receive messages in the browser, the STOMP client must first subscribe to 
 a destination.
 
-You can use the [Client#subscribe](/api-docs/classes/Client.html#subscribe) method to subscribe to a destination. The method
+You can use the [Client#subscribe](/api-docs/latest/classes/Client.html#subscribe) method to subscribe to a destination. The method
 takes 2 mandatory arguments: `destination`, a String corresponding to the 
 destination and `callback`, a function with one message argument and an optional
 argument `headers`, a JavaScript object for additional headers.
@@ -133,7 +133,7 @@ that can be used later on to unsubscribe the client from this destination.
 
 Every time the server sends 
 a message to the client, the client will in turn invoke the callback with a 
-[Message](/api-docs/classes/Message.html) object.
+[Message](/api-docs/latest/classes/Message.html) object.
 
 ```javascript
   callback = function(message) {
@@ -157,8 +157,8 @@ additional `headers` when subscribing to a destination:
 The client specifies that it will handle the message acknowledgement.
 
 To stop receiving messages, the client can use the 
-[unsubscribe](/api-docs/interfaces/StompSubscription.html#unsubscribe) method on 
-the object returned by the [Client#subscribe](/api-docs/classes/Client.html#subscribe) method.
+[unsubscribe](/api-docs/latest/interfaces/StompSubscription.html#unsubscribe) method on 
+the object returned by the [Client#subscribe](/api-docs/latest/classes/Client.html#subscribe) method.
 
 ```javascript
   var subscription = client.subscribe("queue/test", onmessage);
@@ -181,7 +181,7 @@ web_stomp.ws_frame = binary
 
 ### Publishing binary messages
 
-Use parameter `binaryBody` of [Client#publish](/api-docs/classes/Client.html#publish) to send binary data of type
+Use parameter `binaryBody` of [Client#publish](/api-docs/latest/classes/Client.html#publish) to send binary data of type
 [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array).
 
 See [Send messages](#send-messages) for an example.
@@ -189,8 +189,8 @@ See [Send messages](#send-messages) for an example.
 ### Receiving binary messages
 
 The library does not try to guess whether the incoming data is text/binary.
-When you access [Message#body](/api-docs/classes/Frame.html#body) the message will be returned as string.
-To access the message body as binary please call [Message#binaryBody](/api-docs/classes/Frame.html#binaryBody).
+When you access [Message#body](/api-docs/latest/classes/Frame.html#body) the message will be returned as string.
+To access the message body as binary please call [Message#binaryBody](/api-docs/latest/classes/Frame.html#binaryBody).
 
 There is no generally accepted convention in STOMP (actually messaging in general) to indicate that a message
 is binary. The message senders and receivers will need to agree on required convention.
@@ -234,7 +234,7 @@ acknowledgement by subscribing
 to a destination and specify a `ack` header set to `client` or 
 `client-individual`.
 
-In that case, the client must use the [Message#ack](/api-docs/classes/Message.html#ack) method to inform the 
+In that case, the client must use the [Message#ack](/api-docs/latest/classes/Message.html#ack) method to inform the 
 server that it has processed the message.
 
 ```javascript
@@ -249,7 +249,7 @@ server that it has processed the message.
   );
 ```
 
-The [Message#ack](/api-docs/classes/Message.html#ack) method accepts `headers` argument for additional headers.
+The [Message#ack](/api-docs/latest/classes/Message.html#ack) method accepts `headers` argument for additional headers.
 For example, it is possible to acknowledge a 
 message as part of a transaction and ask for a receipt when the `ACK` has effectively been processed by the broker:
 
@@ -259,22 +259,22 @@ message as part of a transaction and ask for a receipt when the `ACK` has effect
   tx.commit();
 ```
 
-The [Message#nack](/api-docs/classes/Message.html#nack) method can also be used to inform STOMP 1.1 or higher
+The [Message#nack](/api-docs/latest/classes/Message.html#nack) method can also be used to inform STOMP 1.1 or higher
 brokers that the client did not consume the message. It 
-takes the same arguments than the [Message#ack](/api-docs/classes/Message.html#ack) method.
+takes the same arguments than the [Message#ack](/api-docs/latest/classes/Message.html#ack) method.
 
 ## Transactions
 
 Messages can be sent and acknowledged _in a transaction_.
 
-A transaction is started by the client using its [Client#begin](/api-docs/classes/Client.html#begin) method which 
+A transaction is started by the client using its [Client#begin](/api-docs/latest/classes/Client.html#begin) method which 
 takes an optional `transaction_id`.
 
 This methods returns a JavaScript object with an `id` attribute corresponding
 to the transaction ID and two methods:
 
-* [Client#commit](/api-docs/classes/Client.html#commit) to commit the transaction
-* [Client#abort](/api-docs/classes/Client.html#abort) to abort the transaction
+* [Client#commit](/api-docs/latest/classes/Client.html#commit) to commit the transaction
+* [Client#abort](/api-docs/latest/classes/Client.html#abort) to abort the transaction
 
 The client can then send and/or acknowledge messages in the transaction
 by specifying a `transaction` set with the transaction `id`.
@@ -288,7 +288,7 @@ by specifying a `transaction` set with the transaction `id`.
   tx.commit();
 ```
 
-_If you forget to add the `transaction` header when calling [Client#publish](/api-docs/classes/Client.html#publish) the message
+_If you forget to add the `transaction` header when calling [Client#publish](/api-docs/latest/classes/Client.html#publish) the message
 will not be part of the transaction and will be sent directly without waiting
 for the completion of the transaction._
 
@@ -304,8 +304,8 @@ for the completion of the transaction._
 
 If the STOMP broker accepts STOMP 1.1 or higher frames, 
 heart-beating is enabled by default.
-Options [Client#heartbeatIncoming](/api-docs/classes/Client.html#heartbeatIncoming)
-and [Client#heartbeatOutgoing](/api-docs/classes/Client.html#heartbeatOutgoing)
+Options [Client#heartbeatIncoming](/api-docs/latest/classes/Client.html#heartbeatIncoming)
+and [Client#heartbeatOutgoing](/api-docs/latest/classes/Client.html#heartbeatOutgoing)
 can be used to control heart-beating
 (default value for both is 10,000ms). These can be disabled by setting to 0.
 
@@ -318,7 +318,7 @@ can be used to control heart-beating
 ## Auto Reconnect
 
 The `client` supports automatic reconnecting in case of a connection failure. It is
-controlled by a option [Client#reconnectDelay](/api-docs/classes/Client.html#reconnectDelay).
+controlled by a option [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay).
 Default value is 5000ms, which indicates that
 a attempt to connect will be made after 5000ms of a connection drop.
 
@@ -331,7 +331,7 @@ This can be set quite small.
 
 ## Debug
 
-The client can set its [Client#debug](/api-docs/classes/Client.html#debug) property to a function with takes a `String` 
+The client can set its [Client#debug](/api-docs/latest/classes/Client.html#debug) property to a function with takes a `String` 
 argument to see all the debug statements of the library:
 
 ```javascript
@@ -347,30 +347,30 @@ On a busy system the logs can be overwhelming.
 
 ### Lifecycle callbacks
 
-- [Client#beforeConnect](/api-docs/classes/Client.html#beforeConnect) - invoked each time before 
+- [Client#beforeConnect](/api-docs/latest/classes/Client.html#beforeConnect) - invoked each time before 
   connection to STOMP broker is attempted. You can modify connection parameters and other callbacks.
-- [Client#onConnect](/api-docs/classes/Client.html#onConnect) - invoked for each time STOMP broker connects and
+- [Client#onConnect](/api-docs/latest/classes/Client.html#onConnect) - invoked for each time STOMP broker connects and
   STOMP handshake is complete
-- [Client#onDisconnect](/api-docs/classes/Client.html#onDisconnect) - invoked after each graceful disconnection.
+- [Client#onDisconnect](/api-docs/latest/classes/Client.html#onDisconnect) - invoked after each graceful disconnection.
   If the connection breaks because of an error or network failure, it will no tbe called.
-- [Client#onStompError](/api-docs/classes/Client.html#onStompError) - invoked when the broker reports an Error
-- [Client#onWebSocketClose](/api-docs/classes/Client.html#onWebSocketClose)  - when the WebSocket closes.
+- [Client#onStompError](/api-docs/latest/classes/Client.html#onStompError) - invoked when the broker reports an Error
+- [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose)  - when the WebSocket closes.
   It is most reliable way of knowing that the connection has terminated.
 
 ### Frame callbacks
 
-- [Client#onUnhandledMessage](/api-docs/classes/Client.html#onUnhandledMessage) - typically brokers will send messages
+- [Client#onUnhandledMessage](/api-docs/latest/classes/Client.html#onUnhandledMessage) - typically brokers will send messages
   corresponding to subscriptions. 
   However, brokers may support concepts that are beyond standard definition of STOMP -
   for example RabbitMQ support concepts of temporary queues.
   If any message is received that is not linked to a subscription, this callback will be invoked.
-- [Client#onUnhandledReceipt](/api-docs/classes/Client.html#onUnhandledReceipt) - you should prefer
-  [Client#watchForReceipt](/api-docs/classes/Client.html#watchForReceipt). If there is any incoming receipt for
+- [Client#onUnhandledReceipt](/api-docs/latest/classes/Client.html#onUnhandledReceipt) - you should prefer
+  [Client#watchForReceipt](/api-docs/latest/classes/Client.html#watchForReceipt). If there is any incoming receipt for
   which there is no active watcher, this callback will be invoked.
-- [Client#treatMessageAsBinary](/api-docs/classes/Client.html#treatMessageAsBinary) - invoked for each incoming
+- [Client#treatMessageAsBinary](/api-docs/latest/classes/Client.html#treatMessageAsBinary) - invoked for each incoming
   message, depending on the outcome, the body is returned as string or Uint8Array. The default implementation
   always returns `false`.
-- [Client#onUnhandledFrame](/api-docs/classes/Client.html#onUnhandledFrame) - it will be invoked if broker sends a
+- [Client#onUnhandledFrame](/api-docs/latest/classes/Client.html#onUnhandledFrame) - it will be invoked if broker sends a
   non standard STOMP command.
   
 ## Advanced notes
@@ -379,23 +379,23 @@ The version 5 of this library has taken significant variation from previous synt
 all of the options and callbacks to be altered.
 New values will take effect as soon as possible. For example:
 
-- Altered values of [Client#onUnhandledMessage](/api-docs/classes/Client.html#onUnhandledMessage) 
-  or [Client#onDisconnect](/api-docs/classes/Client.html#onDisconnect) will be effective immediately.
-- New values of [Client#heartbeatIncoming](/api-docs/classes/Client.html#heartbeatIncoming)
-  and [Client#heartbeatOutgoing](/api-docs/classes/Client.html#heartbeatOutgoing) will be used next time STOMP connects.
+- Altered values of [Client#onUnhandledMessage](/api-docs/latest/classes/Client.html#onUnhandledMessage) 
+  or [Client#onDisconnect](/api-docs/latest/classes/Client.html#onDisconnect) will be effective immediately.
+- New values of [Client#heartbeatIncoming](/api-docs/latest/classes/Client.html#heartbeatIncoming)
+  and [Client#heartbeatOutgoing](/api-docs/latest/classes/Client.html#heartbeatOutgoing) will be used next time STOMP connects.
 
 The callback sequences are arranged in a way that most expected operations should work.
-For example it is possible to call [Client#deactivate](/api-docs/classes/Client.html#deactivate)
-within [Client#onStompError](/api-docs/classes/Client.html#onStompError)
-or [Client#onWebSocketClose](/api-docs/classes/Client.html#onWebSocketClose).
+For example it is possible to call [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate)
+within [Client#onStompError](/api-docs/latest/classes/Client.html#onStompError)
+or [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose).
 This is useful if we determine that we have incorrect credentials and no point keep on trying to connect.
 
-The above also allows readjusting [Client#reconnectDelay](/api-docs/classes/Client.html#reconnectDelay)
-in [Client#onWebSocketClose](/api-docs/classes/Client.html#onWebSocketClose).
+The above also allows readjusting [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay)
+in [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose).
 This can be used to implement exponential back-off before each successive reconnect attempt.
 
-Even [Client#brokerURL](/api-docs/classes/Client.html#brokerURL)
-or [Client#connectHeaders](/api-docs/classes/Client.html#connectHeaders)
+Even [Client#brokerURL](/api-docs/latest/classes/Client.html#brokerURL)
+or [Client#connectHeaders](/api-docs/latest/classes/Client.html#connectHeaders)
 can be altered which would get used in a subsequent reconnect.
 However, I will suggest creating a new instance of the STOMP client in this scenario.
 

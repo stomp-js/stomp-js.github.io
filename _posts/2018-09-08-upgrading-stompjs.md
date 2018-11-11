@@ -93,13 +93,13 @@ calling [client.activate](https://stomp-js.github.io/stompjs/classes/Client.html
     client.activate();
 ```
 
-Please see [StompConfig](/api-docs/interfaces/StompConfig.html) for all possible options.
-These options can be set onto [client](/api-docs/classes/Client.html).
+Please see [StompConfig](/api-docs/latest/interfaces/StompConfig.html) for all possible options.
+These options can be set onto [client](/api-docs/latest/classes/Client.html).
 Alternatively these can be passed
-as options to the [Client constructor](/api-docs/classes/Client.html#constructor) constructor,
-the [Client#activate](/api-docs/classes/Client.html#activate)
-or the [Client#deactivate](/api-docs/classes/Client.html#deactivate) calls.
-If you want to set options in bulk you can use [Client#configure](/api-docs/classes/Client.html#configure).
+as options to the [Client constructor](/api-docs/latest/classes/Client.html#constructor) constructor,
+the [Client#activate](/api-docs/latest/classes/Client.html#activate)
+or the [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate) calls.
+If you want to set options in bulk you can use [Client#configure](/api-docs/latest/classes/Client.html#configure).
 
 #### Publishing messages
 
@@ -129,35 +129,35 @@ If you want to set options in bulk you can use [Client#configure](/api-docs/clas
 
 #### Semantic changes
 
-- [Stomp.client](/api-docs/classes/Stomp.html#client) --> [Client constructor](/api-docs/classes/Client.html#constructor)
-  and [Client#brokerURL](/api-docs/classes/Client.html#brokerURL)
-- [Stomp.over](/api-docs/classes/Stomp.html#over) --> [Client constructor](/api-docs/classes/Client.html#constructor)
-  and [Client#webSocketFactory](/api-docs/classes/Client.html#webSocketFactory)
-- [connect](/api-docs/classes/CompatClient.html#connect) --> [Client#activate](/api-docs/classes/Client.html#activate)
-    - login, passcode, host --> [Client#connectHeaders](/api-docs/classes/Client.html#connectHeaders)
-    - connectCallback --> [Client#onConnect](/api-docs/classes/Client.html#onConnect) 
-    - errorCallback --> [Client#onStompError](/api-docs/classes/Client.html#onStompError)
-    - closeEventCallback --> [Client#onWebSocketClose](/api-docs/classes/Client.html#onWebSocketClose) 
-- [disconnect](/api-docs/classes/CompatClient.html#disconnect) --> [Client#deactivate](/api-docs/classes/Client.html#deactivate)
-    - disconnectCallback --> [Client#onDisconnect](/api-docs/classes/Client.html#onDisconnect)
-- [send](/api-docs/classes/CompatClient.html#send) --> [Client#publish](/api-docs/classes/Client.html#publish)
+- [Stomp.client](/api-docs/latest/classes/Stomp.html#client) --> [Client constructor](/api-docs/latest/classes/Client.html#constructor)
+  and [Client#brokerURL](/api-docs/latest/classes/Client.html#brokerURL)
+- [Stomp.over](/api-docs/latest/classes/Stomp.html#over) --> [Client constructor](/api-docs/latest/classes/Client.html#constructor)
+  and [Client#webSocketFactory](/api-docs/latest/classes/Client.html#webSocketFactory)
+- [connect](/api-docs/latest/classes/CompatClient.html#connect) --> [Client#activate](/api-docs/latest/classes/Client.html#activate)
+    - login, passcode, host --> [Client#connectHeaders](/api-docs/latest/classes/Client.html#connectHeaders)
+    - connectCallback --> [Client#onConnect](/api-docs/latest/classes/Client.html#onConnect) 
+    - errorCallback --> [Client#onStompError](/api-docs/latest/classes/Client.html#onStompError)
+    - closeEventCallback --> [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose) 
+- [disconnect](/api-docs/latest/classes/CompatClient.html#disconnect) --> [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate)
+    - disconnectCallback --> [Client#onDisconnect](/api-docs/latest/classes/Client.html#onDisconnect)
+- [send](/api-docs/latest/classes/CompatClient.html#send) --> [Client#publish](/api-docs/latest/classes/Client.html#publish)
 
 #### Name changes
 
 These changes have been carried out in order to make a consistent naming convention (lowerCamelCase)
 and to make meaning of the option clearer.
 
-- [reconnect_delay](/api-docs/classes/CompatClient.html#reconnect_delay) --> [Client#reconnectDelay](/api-docs/classes/Client.html#reconnectDelay)
-- [ws](/api-docs/classes/CompatClient.html#ws) --> [Client#webSocket](/api-docs/classes/Client.html#webSocket)
-- [version](/api-docs/classes/CompatClient.html#version) --> [Client#connectedVersion](/api-docs/classes/Client.html#connectedVersion)
-- [onreceive](/api-docs/classes/CompatClient.html#onreceive) --> [Client#onUnhandledMessage](/api-docs/classes/Client.html#onUnhandledMessage)
-- [onreceipt](/api-docs/classes/CompatClient.html#onreceipt) --> [Client#onUnhandledReceipt](/api-docs/classes/Client.html#onUnhandledReceipt)
-- [heartbeat](/api-docs/classes/CompatClient.html#heartbeat).incoming --> [Client#heartbeatIncoming](/api-docs/classes/Client.html#heartbeatIncoming)
-- [heartbeat](/api-docs/classes/CompatClient.html#heartbeat).outgoing --> [Client#heartbeatOutgoing](/api-docs/classes/Client.html#heartbeatOutgoing)
+- [reconnect_delay](/api-docs/latest/classes/CompatClient.html#reconnect_delay) --> [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay)
+- [ws](/api-docs/latest/classes/CompatClient.html#ws) --> [Client#webSocket](/api-docs/latest/classes/Client.html#webSocket)
+- [version](/api-docs/latest/classes/CompatClient.html#version) --> [Client#connectedVersion](/api-docs/latest/classes/Client.html#connectedVersion)
+- [onreceive](/api-docs/latest/classes/CompatClient.html#onreceive) --> [Client#onUnhandledMessage](/api-docs/latest/classes/Client.html#onUnhandledMessage)
+- [onreceipt](/api-docs/latest/classes/CompatClient.html#onreceipt) --> [Client#onUnhandledReceipt](/api-docs/latest/classes/Client.html#onUnhandledReceipt)
+- [heartbeat](/api-docs/latest/classes/CompatClient.html#heartbeat).incoming --> [Client#heartbeatIncoming](/api-docs/latest/classes/Client.html#heartbeatIncoming)
+- [heartbeat](/api-docs/latest/classes/CompatClient.html#heartbeat).outgoing --> [Client#heartbeatOutgoing](/api-docs/latest/classes/Client.html#heartbeatOutgoing)
 
 #### Dropped APIs
 
-- [maxWebSocketFrameSize](/api-docs/classes/CompatClient.html#maxWebSocketFrameSize) -  large messages
+- [maxWebSocketFrameSize](/api-docs/latest/classes/CompatClient.html#maxWebSocketFrameSize) -  large messages
   work without this. Test cases have been added to test large text and binary messages.
 
 ## Migrating from Version 2
@@ -167,13 +167,13 @@ You will need to follow the instructions above with few additional consideration
 Please note:
 
 * Auto reconnect is switched on by default.
-  Set [Client#reconnectDelay](/api-docs/classes/Client.html#reconnectDelay) to `0` to disable.
+  Set [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay) to `0` to disable.
 * After each connect (i.e., initial connect as well each reconnection) the 
-  [Client#onConnect](/api-docs/classes/Client.html#onConnect) (connectCallback in earlier versions)
+  [Client#onConnect](/api-docs/latest/classes/Client.html#onConnect) (connectCallback in earlier versions)
   will be called.
 * After reconnecting, it will not automatically subscribe to queues that were subscribed.
   So, if all subscriptions are part of the 
-  [Client#onConnect](/api-docs/classes/Client.html#onConnect) (which it would in most of the cases),
+  [Client#onConnect](/api-docs/latest/classes/Client.html#onConnect) (which it would in most of the cases),
   you will not need to do any additional handling.
 
 Additional notes:

@@ -223,7 +223,7 @@ import {RxStompState} from '@stomp/rx-stomp';
 [Summary of renames and replacements](#summary-of-renames-and-replacements) below.
 
 - `publish` method now aligns to the same function in `@stomp/stompjs`
-[Client#publish](/api-docs/classes/Client.html#publish).
+[Client#publish](/api-docs/latest/classes/Client.html#publish).
 Please make changes as per examples below:
 
 ```typescript
@@ -286,16 +286,16 @@ If the above instructions do not resolve the issue, please raise a ticket.
   a guide on using `@stomp/ng2-stompjs` v7.  
 
 
-[StompRService]: /api-docs/injectables/StompRService.html
-[StompService]: /api-docs/injectables/StompService.html
-[RxStompService]: /api-docs/injectables/RxStompService.html
-[rxStompServiceFactory]: /api-docs/miscellaneous/functions.html#rxStompServiceFactory
-[StompConfig]: /api-docs/injectables/StompConfig.html
-[InjectableRxStompConfig]: /api-docs/injectables/InjectableRxStompConfig.html
-[StompState]: /api-docs/miscellaneous/enumerations.html#StompState
-[RxStompState]: /api-docs/miscellaneous/enumerations.html#RxStompState
+[StompRService]: /api-docs/latest/injectables/StompRService.html
+[StompService]: /api-docs/latest/injectables/StompService.html
+[RxStompService]: /api-docs/latest/injectables/RxStompService.html
+[rxStompServiceFactory]: /api-docs/latest/miscellaneous/functions.html#rxStompServiceFactory
+[StompConfig]: /api-docs/latest/injectables/StompConfig.html
+[InjectableRxStompConfig]: /api-docs/latest/injectables/InjectableRxStompConfig.html
+[StompState]: /api-docs/latest/miscellaneous/enumerations.html#StompState
+[RxStompState]: /api-docs/latest/miscellaneous/enumerations.html#RxStompState
 [web-socket-states]: https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/readyState
-[RxStomp]: /api-docs/classes/RxStomp.html
-[RxStompConfig]: /api-docs/classes/RxStompConfig.html
+[RxStomp]: /api-docs/latest/classes/RxStomp.html
+[RxStompConfig]: /api-docs/latest/classes/RxStompConfig.html
 [ng2-stompjs with Angular7]: {% link _posts/2018-11-04-ng2-stomp-with-angular7.md %}
 [Polyfills & Critical Dependencies]: {% link _posts/2018-06-28-pollyfils-for-stompjs-v5.md %}
