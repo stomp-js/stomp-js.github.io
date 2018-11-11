@@ -196,7 +196,7 @@ Instance of this can be passed to <a href="../classes/RxStomp.html#configure">Rx
                         <div class="io-description"><p>Callback, invoked on before a connection connection to the STOMP broker.</p>
 <p>You can change configuration of the rxStomp, which will impact the immediate connect.
 It is valid to call <a href="../classes/RxStomp.html#deactivate">RxStomp#decativate</a> in this callback.</p>
-<p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#beforeConnect">https://stomp-js.github.io/stompjs/classes/Client.html#beforeConnect</a></p>
+<p>Maps to: <a href="../classes/Client.html#beforeConnect">Client#beforeConnect</a></p>
 </div>
                     </td>
                 </tr>
@@ -242,7 +242,7 @@ It is valid to call <a href="../classes/RxStomp.html#deactivate">RxStomp#decativ
 Typically like <code>&quot;ws://broker.329broker.com:15674/ws&quot;</code> or <code>&quot;wss://broker.329broker.com:15674/ws&quot;</code>.</p>
 <p>Only one of this or <a href="../classes/RxStompConfig.html#webSocketFactory">RxStompConfig#webSocketFactory</a> need to be set.
 If both are set, <a href="../classes/RxStompConfig.html#webSocketFactory">RxStompConfig#webSocketFactory</a> will be used.</p>
-<p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#brokerURL">https://stomp-js.github.io/stompjs/classes/Client.html#brokerURL</a></p>
+<p>Maps to: <a href="../classes/Client.html#brokerURL">Client#brokerURL</a></p>
 </div>
                     </td>
                 </tr>
@@ -287,7 +287,7 @@ If both are set, <a href="../classes/RxStompConfig.html#webSocketFactory">RxStom
                         <div class="io-description"><p>Connection headers, important keys - <code>login</code>, <code>passcode</code>, <code>host</code>.
 Though STOMP 1.2 standard marks these keys to be present, check your broker documentation for
 details specific to your broker.</p>
-<p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#connectHeaders">https://stomp-js.github.io/stompjs/classes/Client.html#connectHeaders</a></p>
+<p>Maps to: <a href="../classes/Client.html#connectHeaders">Client#connectHeaders</a></p>
 </div>
                     </td>
                 </tr>
@@ -372,7 +372,7 @@ details specific to your broker.</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Disconnection headers.</p>
-<p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#disconnectHeaders">https://stomp-js.github.io/stompjs/classes/Client.html#disconnectHeaders</a></p>
+<p>Maps to: <a href="../classes/Client.html#disconnectHeaders">Client#disconnectHeaders</a></p>
 </div>
                     </td>
                 </tr>
@@ -415,7 +415,7 @@ details specific to your broker.</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Incoming heartbeat interval in milliseconds. Set to 0 to disable.</p>
-<p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#heartbeatIncoming">https://stomp-js.github.io/stompjs/classes/Client.html#heartbeatIncoming</a></p>
+<p>Maps to: [Client#heartbeatIncoming]{@Client#heartbeatIncoming}</p>
 </div>
                     </td>
                 </tr>
@@ -458,7 +458,7 @@ details specific to your broker.</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Outgoing heartbeat interval in milliseconds. Set to 0 to disable.</p>
-<p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#heartbeatOutgoing">https://stomp-js.github.io/stompjs/classes/Client.html#heartbeatOutgoing</a></p>
+<p>Maps to: <a href="../classes/Client.html#heartbeatOutgoing">Client#heartbeatOutgoing</a></p>
 </div>
                     </td>
                 </tr>
@@ -501,7 +501,7 @@ details specific to your broker.</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>automatically reconnect with delay in milliseconds, set to 0 to disable.</p>
-<p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#reconnectDelay">https://stomp-js.github.io/stompjs/classes/Client.html#reconnectDelay</a></p>
+<p>Maps to: [Client#reconnectDelay]{@Client#reconnectDelay}</p>
 </div>
                     </td>
                 </tr>
@@ -547,7 +547,7 @@ details specific to your broker.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        // Try only versions 1.0 and 1.1
    *        rxStompConfig.stompVersions= new Versions([&#39;1.0&#39;, &#39;1.1&#39;]);
-   *</code></pre></div><p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#stompVersions">https://stomp-js.github.io/stompjs/classes/Client.html#stompVersions</a></p>
+   *</code></pre></div><p>Maps to: <a href="../classes/Client.html#stompVersions">Client#stompVersions</a></p>
 </div>
                     </td>
                 </tr>
@@ -602,7 +602,7 @@ If your STOMP Broker supports WebSockets, prefer setting <a href="../classes/Cli
    *        rxStompConfig.webSocketFactory= function () {
    *          return new SockJS(&quot;http://broker.329broker.com/stomp&quot;);
    *        };
-   *</code></pre></div><p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#webSocketFactory">https://stomp-js.github.io/stompjs/classes/Client.html#webSocketFactory</a></p>
+   *</code></pre></div><p>Maps to: <a href="../classes/Client.html#webSocketFactory">Client#webSocketFactory</a></p>
 </div>
                     </td>
                 </tr>
@@ -637,7 +637,7 @@ export class RxStompConfig {
    * Only one of this or [RxStompConfig#webSocketFactory]{@link RxStompConfig#webSocketFactory} need to be set.
    * If both are set, [RxStompConfig#webSocketFactory]{@link RxStompConfig#webSocketFactory} will be used.
    *
-   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#brokerURL
+   * Maps to: [Client#brokerURL]{@link Client#brokerURL}
    */
   public brokerURL?: string;
 
@@ -650,7 +650,7 @@ export class RxStompConfig {
    *        rxStompConfig.stompVersions&#x3D; new Versions([&#x27;1.0&#x27;, &#x27;1.1&#x27;]);
    * &#x60;&#x60;&#x60;
    *
-   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#stompVersions
+   * Maps to: [Client#stompVersions]{@link Client#stompVersions}
    */
   public stompVersions?: Versions;
 
@@ -676,28 +676,28 @@ export class RxStompConfig {
    *        };
    * &#x60;&#x60;&#x60;
    *
-   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#webSocketFactory
+   * Maps to: [Client#webSocketFactory]{@link Client#webSocketFactory}
    */
   public webSocketFactory?: () &#x3D;&gt; any;
 
   /**
    *  automatically reconnect with delay in milliseconds, set to 0 to disable.
    *
-   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#reconnectDelay
+   * Maps to: [Client#reconnectDelay]{@Client#reconnectDelay}
    */
   public reconnectDelay?: number;
 
   /**
    * Incoming heartbeat interval in milliseconds. Set to 0 to disable.
    *
-   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#heartbeatIncoming
+   * Maps to: [Client#heartbeatIncoming]{@Client#heartbeatIncoming}
    */
   public heartbeatIncoming?: number;
 
   /**
    * Outgoing heartbeat interval in milliseconds. Set to 0 to disable.
    *
-   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#heartbeatOutgoing
+   * Maps to: [Client#heartbeatOutgoing]{@link Client#heartbeatOutgoing}
    */
   public heartbeatOutgoing?: number;
 
@@ -706,14 +706,14 @@ export class RxStompConfig {
    * Though STOMP 1.2 standard marks these keys to be present, check your broker documentation for
    * details specific to your broker.
    *
-   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#connectHeaders
+   * Maps to: [Client#connectHeaders]{@link Client#connectHeaders}
    */
   public connectHeaders?: StompHeaders;
 
   /**
    * Disconnection headers.
    *
-   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#disconnectHeaders
+   * Maps to: [Client#disconnectHeaders]{@link Client#disconnectHeaders}
    */
   public disconnectHeaders?: StompHeaders;
 
@@ -723,7 +723,7 @@ export class RxStompConfig {
    * You can change configuration of the rxStomp, which will impact the immediate connect.
    * It is valid to call [RxStomp#decativate]{@link RxStomp#deactivate} in this callback.
    *
-   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#beforeConnect
+   * Maps to: [Client#beforeConnect]{@link Client#beforeConnect}
    */
   public beforeConnect?: () &#x3D;&gt; void;
 }

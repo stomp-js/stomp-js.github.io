@@ -504,7 +504,7 @@ to this library but the way STOMP brokers are designed to work.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>waitForReceipt(receiptId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (frame: Frame) => void)</code>
+                        <code>waitForReceipt(receiptId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (frame: <a href="../classes/Frame.html">Frame</a>) => void)</code>
                     </td>
                 </tr>
 
@@ -526,7 +526,7 @@ random number or a combination may be used.</p>
 The operation needs to be matched based in the value of the receipt-id.</p>
 <p>This method allow watching for a receipt and invoke the callback
 when corresponding receipt has been received.</p>
-<p>The actual <a href="https://stomp-js.github.io/stompjs/classes/Frame.html">https://stomp-js.github.io/stompjs/classes/Frame.html</a>
+<p>The actual <a href="../classes/Frame.html">Frame</a>
 will be passed as parameter to the callback.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        // Publishing with acknowledgement
@@ -536,7 +536,7 @@ will be passed as parameter to the callback.</p>
    *          // Will be called after server acknowledges
    *        });
    *        rxStomp.publish({destination: TEST.destination, headers: {receipt: receiptId}, body: msg});
-   *</code></pre></div><p>Maps to: <a href="https://stomp-js.github.io/stompjs/classes/Client.html#watchForReceipt">https://stomp-js.github.io/stompjs/classes/Client.html#watchForReceipt</a></p>
+   *</code></pre></div><p>Maps to: <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a></p>
 </div>
 
                             <div class="io-description">
@@ -777,7 +777,7 @@ the recent server response.</p>
 </div>
 
                                 <div class="io-description">
-                                    <b>Returns : </b>    <code>Subject&lt;Frame&gt;</code>
+                                    <b>Returns : </b>    <code><a href="../classes/Frame.html" target="_self" >Subject&lt;Frame&gt;</a></code>
 
                                 </div>
                         </td>
@@ -811,7 +811,7 @@ the stomp broker.</p>
 </div>
 
                                 <div class="io-description">
-                                    <b>Returns : </b>    <code>Subject&lt;string | Frame&gt;</code>
+                                    <b>Returns : </b>    <code><a href="../classes/Frame.html" target="_self" >Subject&lt;string | Frame&gt;</a></code>
 
                                 </div>
                         </td>
@@ -1101,7 +1101,7 @@ export class StompRService extends RxStomp {
    * This method allow watching for a receipt and invoke the callback
    * when corresponding receipt has been received.
    *
-   * The actual {@link https://stomp-js.github.io/stompjs/classes/Frame.html}
+   * The actual {@link Frame}
    * will be passed as parameter to the callback.
    *
    * Example:
@@ -1115,7 +1115,7 @@ export class StompRService extends RxStomp {
    *        rxStomp.publish({destination: TEST.destination, headers: {receipt: receiptId}, body: msg});
    * &#x60;&#x60;&#x60;
    *
-   * Maps to: https://stomp-js.github.io/stompjs/classes/Client.html#watchForReceipt
+   * Maps to: [Client#watchForReceipt]{@link Client#watchForReceipt}
    */
   public waitForReceipt(receiptId: string, callback: (frame: Frame) &#x3D;&gt; void): void {
     super.watchForReceipt(receiptId, callback);

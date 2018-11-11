@@ -9,6 +9,6 @@ cd $BASE/..
 ./node_modules/.bin/compodoc \
         -p tsconfig.json \
         -d $DESTINATION \
-        --disablePrivate --disableInternal \
+        --disablePrivate --disableProtected --disableInternal --disableGraph \
         --theme Vagrant --hideGenerator \
         "$@"

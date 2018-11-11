@@ -728,7 +728,7 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Callback, invoked on every successful connection to the STOMP broker.</p>
-<p>The actual <a href="Frame">Frame</a> will be passed as parameter to the callback.
+<p>The actual <a href="../classes/Frame.html">Frame</a> will be passed as parameter to the callback.
 Sometimes clients will like to use headers from this frame.</p>
 </div>
                     </td>
@@ -778,9 +778,9 @@ Sometimes clients will like to use headers from this frame.</p>
                     <td class="col-md-4">
                         <div class="io-description"><p>Callback, invoked on every successful disconnection from the STOMP broker. It will not be invoked if
 the STOMP broker disconnected due to an error.</p>
-<p>The actual Receipt <a href="Frame">Frame</a> acknowledging the DISCONNECT will be passed as parameter to the callback.</p>
+<p>The actual Receipt <a href="../classes/Frame.html">Frame</a> acknowledging the DISCONNECT will be passed as parameter to the callback.</p>
 <p>The way STOMP protocol is designed, the connection may close/terminate without the client
-receiving the Receipt <a href="Frame">Frame</a> acknowledging the DISCONNECT.
+receiving the Receipt <a href="../classes/Frame.html">Frame</a> acknowledging the DISCONNECT.
 You might find <a href="../classes/Client.html#onWebSocketClose">Client#onWebSocketClose</a> more appropriate to watch
 STOMP broker disconnects.</p>
 </div>
@@ -832,7 +832,7 @@ STOMP broker disconnects.</p>
                         <div class="io-description"><p>Callback, invoked on an ERROR frame received from the STOMP Broker.
 A compliant STOMP Broker will close the connection after this type of frame.
 Please check broker specific documentation for exact behavior.</p>
-<p>The actual <a href="Frame">Frame</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="../classes/Frame.html">Frame</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
                 </tr>
@@ -879,8 +879,8 @@ Please check broker specific documentation for exact behavior.</p>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Will be invoked if <a href="Frame">Frame</a> of unknown type is received from the STOMP broker.</p>
-<p>The actual <a href="Frame">Frame</a> will be passed as parameter to the callback.</p>
+                        <div class="io-description"><p>Will be invoked if <a href="../classes/Frame.html">Frame</a> of unknown type is received from the STOMP broker.</p>
+<p>The actual <a href="../classes/Frame.html">Frame</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
                 </tr>
@@ -982,7 +982,7 @@ from an endpoint.</p>
                         <div class="io-description"><p>STOMP brokers can be requested to notify when an operation is actually completed.
 Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a>. See
 <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a> for examples.</p>
-<p>The actual <a href="Frame">Frame</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="../classes/Frame.html">Frame</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
                 </tr>
@@ -2608,7 +2608,7 @@ random number or a combination may be used.</p>
 The operation needs to be matched based in the value of the receipt-id.</p>
 <p>This method allow watching for a receipt and invoke the callback
 when corresponding receipt has been received.</p>
-<p>The actual <a href="Frame">Frame</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="../classes/Frame.html">Frame</a> will be passed as parameter to the callback.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        // Subscribing with acknowledgement
    *        let receiptId = randomText();

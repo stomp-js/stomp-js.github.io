@@ -47,7 +47,7 @@ combination of parameters.
 
 The new version makes all options settable on client instance.
 These options can be passed during creation of a client or while
-calling [client.activate](https://stomp-js.github.io/stompjs/classes/Client.html#activate).
+calling [client.activate](/api-docs/latest/classes/Client.html#activate).
 
 **Old**
 
