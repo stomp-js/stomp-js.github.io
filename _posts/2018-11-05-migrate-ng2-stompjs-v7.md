@@ -290,7 +290,7 @@ If the above instructions do not resolve the issue, please raise a ticket.
 [StompService]: /api-docs/latest/injectables/StompService.html
 [RxStompService]: /api-docs/latest/injectables/RxStompService.html
 [rxStompServiceFactory]: /api-docs/latest/miscellaneous/functions.html#rxStompServiceFactory
-[StompConfig]: /api-docs/latest/injectables/StompConfig.html
+[StompConfig]: /ng2-stompjs/injectables/StompConfig.html
 [InjectableRxStompConfig]: /api-docs/latest/injectables/InjectableRxStompConfig.html
 [StompState]: /api-docs/latest/miscellaneous/enumerations.html#StompState
 [RxStompState]: /api-docs/latest/miscellaneous/enumerations.html#RxStompState

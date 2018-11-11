@@ -157,7 +157,7 @@ additional `headers` when subscribing to a destination:
 The client specifies that it will handle the message acknowledgement.
 
 To stop receiving messages, the client can use the 
-[unsubscribe](/api-docs/latest/interfaces/StompSubscription.html#unsubscribe) method on 
+[unsubscribe](/api-docs/latest/classes/StompSubscription.html#unsubscribe) method on 
 the object returned by the [Client#subscribe](/api-docs/latest/classes/Client.html#subscribe) method.
 
 ```javascript

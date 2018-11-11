@@ -93,7 +93,7 @@ calling [client.activate](/api-docs/latest/classes/Client.html#activate).
     client.activate();
 ```
 
-Please see [StompConfig](/api-docs/latest/interfaces/StompConfig.html) for all possible options.
+Please see [StompConfig](/api-docs/latest/classes/StompConfig.html) for all possible options.
 These options can be set onto [client](/api-docs/latest/classes/Client.html).
 Alternatively these can be passed
 as options to the [Client constructor](/api-docs/latest/classes/Client.html#constructor) constructor,
