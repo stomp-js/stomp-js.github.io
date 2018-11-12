@@ -36,7 +36,7 @@ Please see [Polyfills & Critical Dependencies] for the underlying `@stomp/stompj
 Install the v7 of `@stomp/ng2-stompjs`
 
 ```bash
-$ npm i @stomp/ng2-stompjs@^7.0.0-beta.4
+$ npm i @stomp/ng2-stompjs@^7.0.0
 ```
 
 ### For the lazy: use the compatibility mode
