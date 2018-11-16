@@ -13,22 +13,48 @@ or activating plugins.
 
 ## Include stompjs
 
+This library is distributed as UMD package, so it allows usage from web browser,
+via `require` in Node, `import` from typescript/ES6.
+
 ### Pollyfills
 
 *Important: before using please check [Polyfills & Critical Dependencies].*
 
 ### In Web Browser
 
-* Download or directly include one of [CDN links] or from `bundles/` folder.
+* Download and include directly from `bundles/` folder.
+* Alternatively use from CDN
+    - Minified [https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js)
+    - [https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.js)
 * `StompJs` object will now be available. Read along to learn how to use it.
 
 ### In NodeJS
 
-```bash
-$ npm i @stomp/stompjs
+See [Polyfills & Critical Dependencies] for installing dependencies.
+
+```javascript
+// Node does not have WebSockets natively
+WebSocket = require('websocket').w3cwebsocket;
+StompJs = require('../../esm5/');
 ```
 
 Read along to learn how to use the `StompJs` object.
+
+### TypeScript or ES6
+
+See [Polyfills & Critical Dependencies] for installing dependencies.
+
+These libraries have been developed using typescript and the distributions have typing already included.
+
+You can import classes like the following:
+
+```typescript
+import { Client, Message } from '@stomp/stompjs';
+```
+
+You can use these classes without prefixing with `StompJs.`.
+
+**There is no `StompJs` class/object that can be imported.**
 
 ## Setting/getting options
 
