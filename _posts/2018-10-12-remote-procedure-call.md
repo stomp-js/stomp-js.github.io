@@ -5,8 +5,6 @@ date:   2018-10-12 09:12:00 +0530
 categories: guide rx-stomp ng2-stompjs
 ---
 
-Outdated
-
 Messaging usually works one way.
 There is however a convention for two way communication (i.e. request/response).
 This involves `reply-to` queues which routes the response back to correct client program
@@ -15,6 +13,9 @@ and `correlation-id` to uniquely match a response to the correct request.
 See: [https://www.rabbitmq.com/tutorials/tutorial-six-python.html]
 (https://www.rabbitmq.com/tutorials/tutorial-six-python.html)
 for a sample using a very similar approach.
+
+See a sample RPC server and broker at: 
+[https://github.com/stomp-js/samples/](https://github.com/stomp-js/samples/)
 
 ## Outline
 
@@ -34,7 +35,7 @@ This can be implemented in any language, in most cases it will be there in some 
 ```typescript
     const myServiceEndPoint = '/topic/echo';
 
-    stompService.subscribe(myServiceEndPoint).subscribe((message: Message) => {
+    rxStompService.watch(myServiceEndPoint).subscribe((message: Message) => {
       // The response needs to be sent back here
       const replyTo = message.headers['reply-to'];
       
@@ -47,7 +48,11 @@ This can be implemented in any language, in most cases it will be there in some 
       const outgoingMessage = 'Echoing - ' + incomingMessage;
       
       // Send the response back to destination `replyTo` with `correlation-id` header
-      stompService.publish(replyTo, outgoingMessage, {'correlation-id' : correlationId});
+      rxStompService.publish({
+        destination: replyTo,
+        body: outgoingMessage,
+        headers: {'correlation-id' : correlationId}
+      });
     });
 ```
 
@@ -74,7 +79,7 @@ a dependency (or argument).
 
     const request = 'Hello';
     // It accepts a optional third argument a Hash of headers to be sent as part of the request
-    stompRPCService.rpc(myServiceEndPoint, request).subscribe((message: Message) => {
+    rxStompRPCService.rpc({destination: myServiceEndPoint, body: request}).subscribe((message: Message) => {
       // Consume the response
       console.log(message.body);
     });
