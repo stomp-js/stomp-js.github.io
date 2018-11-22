@@ -37,7 +37,7 @@ See [Polyfills & Critical Dependencies] for installing dependencies.
 ```javascript
 // Node does not have WebSockets natively
 WebSocket = require('websocket').w3cwebsocket;
-StompJs = require('@stomp/stompjs');
+StompJs = require('@stomp/stompjs/esm5');
 ```
 
 Read along to learn how to use the `StompJs` object.
