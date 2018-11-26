@@ -40,20 +40,54 @@ please continue using version 4 of this library.
 
 ## In NodeJS
 
-* Add npm modules add `websocket` and `text-encoding` to your project.
-    ```bash
-    $ npm install websocket text-encoding
-    ```
+### TextEncoder/TextDecoder
 
-* Require the module
+* Node JS v11 (tested with v11.2.0) has `TextEncoder`/`TextDecoder` built-in. See:
+  [https://nodejs.org/api/util.html#util_class_util_textencoder](https://nodejs.org/api/util.html#util_class_util_textencoder)
+  
+* For older NodeJS, you need to install `text-encoding`
+    ```bash
+    $ npm install text-encoding
+    ```
+     
+* Add the following:
+
     ```javascript
-        // This is simplest way to get going
-        WebSocket = require('websocket').w3cwebsocket;
-    
-        // There is a proposal to add these by default in NodeJS, so good idea is to check first
+        // These have been added in NodeJS v11, so good idea is to check first
         if (typeof TextEncoder !== 'function') {
           const TextEncodingPolyfill = require('text-encoding');
           TextEncoder = TextEncodingPolyfill.TextEncoder;
           TextDecoder = TextEncodingPolyfill.TextDecoder;
         }
+    ```
+
+### WebSocket
+
+There are two alternate libraries `websocket` and `ws` which has been reported to work.
+
+#### websocket
+
+* Add npm modules add `websocket`.
+    ```bash
+    $ npm install websocket
+    ```
+
+* Require the module
+    ```javascript
+        WebSocket = require('websocket').w3cwebsocket;
+    ```
+
+#### ws
+    
+* Instead of `websocket` lib `ws` has also been reported to work.
+  See: [stompjs/issues/28](https://github.com/stomp-js/stompjs/issues/28).
+  
+* Add npm modules add `websocket`.
+    ```bash
+    $ npm install ws
+    ```
+
+* Require the module
+    ```javascript
+        WebSocket = require('ws');
     ```

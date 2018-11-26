@@ -18,7 +18,7 @@ or activating plugins.
 This library is distributed as UMD package, so it allows usage from web browser,
 via `require` in Node, `import` from typescript/ES6.
 
-### Pollyfills
+### Polyfills
 
 *Important: before using please check [Polyfills & Critical Dependencies].*
 
