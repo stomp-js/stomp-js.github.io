@@ -74,7 +74,7 @@ export function mySocketFactory() {
 This function should return a WebSocket compatible object.
 
 **Note: this function may be invoked multiple times.
-Each time a broker (re)connects, it needs a new instance of WebSocket.**
+Each time a broker (re)connects, it needs a new instance of WebSocket/SockJS.**
 
 ## Usage
 
@@ -133,6 +133,29 @@ Compare the above against the sample in [using StompJS]({% link _posts/2018-06-2
 only addition is the fallback code trying to use SockJS if WebSocket is unavailable.
 You will need to include latest [SockJS client] in your web page.
 
+## SockJS in Angular6
+
+See: [ng2-stompjs/issues/70].
+
+When you are using SockJS in an Angular6 project you might get **"global is not defined"**.
+
+The underlying issue can only be fixed by SockJS or Angular teams.
+Try any of the following as a possible work around (from [ng2-stompjs/issues/70]):
+
+- In your index.html file, in the header add the following:
+
+```html
+    <script type="application/javascript">
+      var global = window;
+    </script>
+```  
+
+- Add following to your `polyfill.ts`:
+
+```typescript
+  (window as any).global = window;
+```  
+
 
 
 [SockJS client]: https://github.com/sockjs/sockjs-client
@@ -141,3 +164,4 @@ You will need to include latest [SockJS client] in your web page.
 [webSocketFactory]: /api-docs/latest/classes/Client.html#webSocketFactory
 [brokerURL]: /api-docs/latest/classes/Client.html#brokerURL
 [Stomp Client]: /api-docs/latest/classes/Client.html
+[ng2-stompjs/issues/70]: https://github.com/stomp-js/ng2-stompjs/issues/70
