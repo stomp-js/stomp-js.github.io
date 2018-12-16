@@ -365,13 +365,13 @@ It will trigger for each reconnection.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>stompErrors$:     <code><a href="../classes/Frame.html" target="_self" >Subject&lt;Frame&gt;</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>stompErrors$:     <code><a href="../miscellaneous/typealiases.html#Frame" target="_self" >Subject&lt;Frame&gt;</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/Frame.html" target="_self" >Subject&lt;Frame&gt;</a></code>
+                            <i>Type : </i>    <code><a href="../miscellaneous/typealiases.html#Frame" target="_self" >Subject&lt;Frame&gt;</a></code>
 
                         </td>
                     </tr>
@@ -412,13 +412,13 @@ objects.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>unhandledMessage$:     <code><a href="../classes/Message.html" target="_self" >Subject&lt;Message&gt;</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>unhandledMessage$:     <code><a href="../miscellaneous/typealiases.html#Message" target="_self" >Subject&lt;Message&gt;</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/Message.html" target="_self" >Subject&lt;Message&gt;</a></code>
+                            <i>Type : </i>    <code><a href="../miscellaneous/typealiases.html#Message" target="_self" >Subject&lt;Message&gt;</a></code>
 
                         </td>
                     </tr>
@@ -435,7 +435,7 @@ It is useful for receiving messages sent to RabbitMQ temporary queues.</p>
 <p>It can also get invoked with stray messages while the server is processing
 a request to unsubscribe from an endpoint.</p>
 <p>This Observer will yield the received
-<a href="../classes/Message.html">Message</a>
+<a href="../miscellaneous/typealiases.html#Message">Message</a>
 objects.</p>
 <p>Maps to: <a href="../classes/Client.html#onUnhandledMessage">Client#onUnhandledMessage</a></p>
 </div>
@@ -460,13 +460,13 @@ objects.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>unhandledReceipts$:     <code><a href="../classes/Frame.html" target="_self" >Subject&lt;Frame&gt;</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>unhandledReceipts$:     <code><a href="../miscellaneous/typealiases.html#Frame" target="_self" >Subject&lt;Frame&gt;</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/Frame.html" target="_self" >Subject&lt;Frame&gt;</a></code>
+                            <i>Type : </i>    <code><a href="../miscellaneous/typealiases.html#Frame" target="_self" >Subject&lt;Frame&gt;</a></code>
 
                         </td>
                     </tr>
@@ -738,7 +738,7 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>publish(parameters: publishParams)</code>
+                        <code>publish(parameters: <a href="../undefineds/publishParams.html">publishParams</a>)</code>
                     </td>
                 </tr>
 
@@ -766,7 +766,7 @@ Set <code>skipContentLengthHeader</code> to indicate that <code>content-length</
 For binary messages <code>content-length</code> header is always added.</p>
 <p>Caution: The broker will, most likely, report an error and disconnect if message body has NULL octet(s)
 and <code>content-length</code> header is missing.</p>
-<p>See: <a href="publishParams">publishParams</a></p>
+<p>See: <a href="../miscellaneous/typealiases.html#publishParams">publishParams</a></p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        rxStomp.publish({destination: &quot;/queue/test&quot;, headers: {priority: 9}, body: &quot;Hello, STOMP&quot;});
    *
    *        // Only destination is mandatory parameter
@@ -798,7 +798,7 @@ publish queued messages as soon as the broker gets connected.</p>
                                                 <tr>
                                                         <td>parameters</td>
                                                         <td>
-                                                                    <code>publishParams</code>
+                                                                    <code><a href="../miscellaneous/typealiases.html#publishParams" target="_self" >publishParams</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -913,7 +913,7 @@ following each other and both meaning very different things.</p>
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../classes/Message.html" target="_self" >Observable&lt;Message&gt;</a></code>
+                                <b>Returns : </b>    <code><a href="../miscellaneous/typealiases.html#Message" target="_self" >Observable&lt;Message&gt;</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -940,7 +940,7 @@ following each other and both meaning very different things.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>watchForReceipt(receiptId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (frame: <a href="../classes/Frame.html">Frame</a>) => void)</code>
+                        <code>watchForReceipt(receiptId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (frame: <a href="../undefineds/Frame.html">Frame</a>) => void)</code>
                     </td>
                 </tr>
 
@@ -962,7 +962,7 @@ random number or a combination may be used.</p>
 The operation needs to be matched based in the value of the receipt-id.</p>
 <p>This method allow watching for a receipt and invoke the callback
 when corresponding receipt has been received.</p>
-<p>The actual <a href="../classes/Frame.html">Frame</a>
+<p>The actual <a href="../miscellaneous/typealiases.html#Frame">Frame</a>
 will be passed as parameter to the callback.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        // Publishing with acknowledgement

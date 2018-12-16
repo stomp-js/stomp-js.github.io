@@ -298,7 +298,7 @@ please use StompService class.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>publish(queueName: string | publishParams, message?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, headers: <a href="../classes/StompHeaders.html">StompHeaders</a>)</code>
+                        <code>publish(queueName: <a href="../miscellaneous/publishParams.html">string | publishParams</a>, message?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, headers: <a href="../classes/StompHeaders.html">StompHeaders</a>)</code>
                     </td>
                 </tr>
 
@@ -332,7 +332,7 @@ publish queued messages as soon as the broker gets connected.</p>
                                                 <tr>
                                                         <td>queueName</td>
                                                         <td>
-                                                                    <code>string | publishParams</code>
+                                                                    <code><a href="../miscellaneous/typealiases.html#publishParams" target="_self" >string | publishParams</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -477,7 +477,7 @@ to this library but the way STOMP brokers are designed to work.</p>
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../classes/Message.html" target="_self" >Observable&lt;Message&gt;</a></code>
+                                <b>Returns : </b>    <code><a href="../miscellaneous/typealiases.html#Message" target="_self" >Observable&lt;Message&gt;</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -504,7 +504,7 @@ to this library but the way STOMP brokers are designed to work.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>waitForReceipt(receiptId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (frame: <a href="../classes/Frame.html">Frame</a>) => void)</code>
+                        <code>waitForReceipt(receiptId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (frame: <a href="../miscellaneous/Frame.html">Frame</a>) => void)</code>
                     </td>
                 </tr>
 
@@ -526,7 +526,7 @@ random number or a combination may be used.</p>
 The operation needs to be matched based in the value of the receipt-id.</p>
 <p>This method allow watching for a receipt and invoke the callback
 when corresponding receipt has been received.</p>
-<p>The actual <a href="../classes/Frame.html">Frame</a>
+<p>The actual <a href="../miscellaneous/typealiases.html#Frame">Frame</a>
 will be passed as parameter to the callback.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        // Publishing with acknowledgement
@@ -744,7 +744,7 @@ the recent server response.</p>
 </div>
 
                                 <div class="io-description">
-                                    <b>Returns : </b>    <code><a href="../classes/Message.html" target="_self" >Subject&lt;Message&gt;</a></code>
+                                    <b>Returns : </b>    <code><a href="../miscellaneous/typealiases.html#Message" target="_self" >Subject&lt;Message&gt;</a></code>
 
                                 </div>
                         </td>
@@ -777,7 +777,7 @@ the recent server response.</p>
 </div>
 
                                 <div class="io-description">
-                                    <b>Returns : </b>    <code><a href="../classes/Frame.html" target="_self" >Subject&lt;Frame&gt;</a></code>
+                                    <b>Returns : </b>    <code><a href="../miscellaneous/typealiases.html#Frame" target="_self" >Subject&lt;Frame&gt;</a></code>
 
                                 </div>
                         </td>
@@ -811,7 +811,7 @@ the stomp broker.</p>
 </div>
 
                                 <div class="io-description">
-                                    <b>Returns : </b>    <code><a href="../classes/Frame.html" target="_self" >Subject&lt;string | Frame&gt;</a></code>
+                                    <b>Returns : </b>    <code><a href="../miscellaneous/typealiases.html#Frame" target="_self" >Subject&lt;string | Frame&gt;</a></code>
 
                                 </div>
                         </td>

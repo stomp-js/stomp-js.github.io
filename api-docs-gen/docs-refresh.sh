@@ -14,4 +14,5 @@ do
     mv $bundle-master $bundle
 done
 
-./doc-gen.sh
+cd -
+`dirname $0`/doc-gen.sh

@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>IPublishParams</li>
+  <li>IFrame</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,16 +62,17 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>consolidated/stompjs/src/types.ts</code>
+            <code>consolidated/stompjs/src/i-frame.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Parameters for <a href="../classes/Client.html#publish">Client#publish</a>.
-Aliased as publishParams as well.</p>
+                <p>It represents a STOMP frame. Many of the callbacks pass an IFrame received from
+the STOMP broker. For advanced usage you might need to access <a href="../interfaces/IFrame.html#headers">headers</a>.</p>
 <p>Part of <code>@stomp/stompjs</code>.</p>
+<p><a href="../interfaces/IMessage.html">IMessage</a> is an extended IFrame.</p>
 
             </p>
 
@@ -89,23 +90,19 @@ Aliased as publishParams as well.</p>
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                            <span class="modifier">Optional</span>
                                         <a href="#binaryBody">binaryBody</a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
                                         <a href="#body">body</a>
                                 </li>
                                 <li>
-                                        <a href="#destination">destination</a>
+                                        <a href="#command">command</a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
                                         <a href="#headers">headers</a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#skipContentLengthHeader">skipContentLengthHeader</a>
+                                        <a href="#isBinaryBody">isBinaryBody</a>
                                 </li>
                             </ul>
                         </td>
@@ -141,18 +138,13 @@ Aliased as publishParams as well.</p>
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>binary body (optional)</p>
+                                    <div class="io-description"><p>body as Uint8Array</p>
 </div>
                                 </td>
                             </tr>
@@ -181,18 +173,13 @@ Aliased as publishParams as well.</p>
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>body (optional)</p>
+                                    <div class="io-description"><p>body of the frame as string</p>
 </div>
                                 </td>
                             </tr>
@@ -202,13 +189,13 @@ Aliased as publishParams as well.</p>
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="destination"></a>
-                                        <span class="name"><b>destination</b><a href="#destination"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="command"></a>
+                                        <span class="name"><b>command</b><a href="#command"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>destination:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>command:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -227,7 +214,7 @@ Aliased as publishParams as well.</p>
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>destination end point</p>
+                                    <div class="io-description"><p>STOMP Command</p>
 </div>
                                 </td>
                             </tr>
@@ -256,18 +243,13 @@ Aliased as publishParams as well.</p>
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>headers (optional)</p>
+                                    <div class="io-description"><p>Headers, key value pairs.</p>
 </div>
                                 </td>
                             </tr>
@@ -277,13 +259,13 @@ Aliased as publishParams as well.</p>
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="skipContentLengthHeader"></a>
-                                        <span class="name"><b>skipContentLengthHeader</b><a href="#skipContentLengthHeader"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="isBinaryBody"></a>
+                                        <span class="name"><b>isBinaryBody</b><a href="#isBinaryBody"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>skipContentLengthHeader:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>isBinaryBody:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -296,19 +278,13 @@ Aliased as publishParams as well.</p>
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>By default a <code>content-length</code> header will be added in the Frame to the broker.
-Set it to <code>true</code> for the header to be skipped.</p>
+                                    <div class="io-description"><p>Is this frame binary (based on whether body/binaryBody was passed when creating this frame).</p>
 </div>
                                 </td>
                             </tr>
@@ -319,99 +295,47 @@ Set it to <code>true</code> for the header to be skipped.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {IFrame} from &#x27;./i-frame&#x27;;
-import {IMessage} from &#x27;./i-message&#x27;;
-import {StompHeaders} from &#x27;./stomp-headers&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {StompHeaders} from &#x27;./stomp-headers&#x27;;
 
 /**
- * This callback will receive a &#x60;string&#x60; as parameter.
+ * It represents a STOMP frame. Many of the callbacks pass an IFrame received from
+ * the STOMP broker. For advanced usage you might need to access [headers]{@link IFrame#headers}.
  *
  * Part of &#x60;@stomp/stompjs&#x60;.
- */
-export type debugFnType &#x3D; (msg: string) &#x3D;&gt; void;
-
-/**
- * This callback will receive a {@link IMessage} as parameter.
  *
- * Part of &#x60;@stomp/stompjs&#x60;.
+ * {@link IMessage} is an extended IFrame.
  */
-export type messageCallbackType &#x3D; (message: IMessage) &#x3D;&gt; void;
-
-/**
- * This callback will receive a {@link IFrame} as parameter.
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- */
-export type frameCallbackType &#x3D; (receipt: IFrame) &#x3D;&gt; void;
-
-/**
- * This callback will receive a [CloseEvent]{@link https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent}
- * as parameter.
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- */
-export type closeEventCallbackType &#x3D; (evt: CloseEvent) &#x3D;&gt; void;
-
-/**
- * This callback will receive an [Event]{@link https://developer.mozilla.org/en-US/docs/Web/API/Event}
- * as parameter.
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- */
-export type wsErrorCallbackType &#x3D; (evt: Event) &#x3D;&gt; void;
-
-/**
- * Parameters for [Client#publish]{@link Client#publish}.
- * Aliased as publishParams as well.
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- */
-export interface IPublishParams {
+export interface IFrame {
   /**
-   * destination end point
+   * STOMP Command
    */
-  destination: string;
+  command: string;
+
   /**
-   * headers (optional)
+   * Headers, key value pairs.
    */
-  headers?: StompHeaders;
+  headers: StompHeaders;
+
   /**
-   * body (optional)
+   * Is this frame binary (based on whether body/binaryBody was passed when creating this frame).
    */
-  body?: string;
+  isBinaryBody: boolean;
+
   /**
-   * binary body (optional)
+   * body of the frame as string
    */
-  binaryBody?: Uint8Array;
+  readonly body: string;
+
   /**
-   * By default a &#x60;content-length&#x60; header will be added in the Frame to the broker.
-   * Set it to &#x60;true&#x60; for the header to be skipped.
+   * body as Uint8Array
    */
-  skipContentLengthHeader?: boolean;
+  readonly binaryBody: Uint8Array;
 }
 
 /**
- * Backward compatibility, switch to {@link IPublishParams}.
+ * Alias for {@link IFrame}
  */
-export type publishParams &#x3D; IPublishParams;
-
-/**
- * Used in {@link IRawFrameType}
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- *
- * @internal
- */
-export type RawHeaderType &#x3D; [string, string];
-
-/**
- * The parser yield frames in this structure
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- *
- * @internal
- */
-export interface IRawFrameType { command: string; headers: RawHeaderType[]; binaryBody: Uint8Array; }
+export type Frame &#x3D; IFrame;
 </code></pre>
     </div>
 </div>
@@ -438,7 +362,7 @@ export interface IRawFrameType { command: string; headers: RawHeaderType[]; bina
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IPublishParams.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'IFrame.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

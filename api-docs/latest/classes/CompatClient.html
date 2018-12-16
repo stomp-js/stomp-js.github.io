@@ -126,6 +126,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#logRawCommunication">logRawCommunication</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#onConnect">onConnect</a>
                             </li>
                             <li>
@@ -151,6 +155,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#onWebSocketClose">onWebSocketClose</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onWebSocketError">onWebSocketError</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -367,7 +375,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:152</div>
+                                    <div class="io-line">Defined in Client:161</div>
                             </td>
                         </tr>
 
@@ -376,6 +384,13 @@
                         <div class="io-description"><p>Callback, invoked on before a connection connection to the STOMP broker.</p>
 <p>You can change options on the client, which will impact the immediate connect.
 It is valid to call <a href="../classes/Client.html#deactivate">Client#decativate</a> in this callback.</p>
+<p>As of version 5.1, this callback can be
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async</a>
+(i.e., it can return a
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>).
+In that case connect will be called only after the Promise is resolved.
+This can be used to reliably fetch credentials, access token etc. from some other service
+in an asynchronous way.</p>
 </div>
                     </td>
                 </tr>
@@ -416,7 +431,7 @@ It is valid to call <a href="../classes/Client.html#deactivate">Client#decativat
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:28</div>
+                                    <div class="io-line">Defined in Client:29</div>
                             </td>
                         </tr>
 
@@ -466,7 +481,7 @@ If both are set, <a href="../classes/Client.html#webSocketFactory">Client#webSoc
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:94</div>
+                                    <div class="io-line">Defined in Client:95</div>
                             </td>
                         </tr>
 
@@ -515,7 +530,7 @@ details specific to your broker.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:204</div>
+                                    <div class="io-line">Defined in Client:231</div>
                             </td>
                         </tr>
 
@@ -572,7 +587,7 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:70</div>
+                                    <div class="io-line">Defined in Client:71</div>
                             </td>
                         </tr>
 
@@ -624,13 +639,63 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:75</div>
+                                    <div class="io-line">Defined in Client:76</div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Outgoing heartbeat interval in milliseconds. Set to 0 to disable.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="logRawCommunication"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            logRawCommunication
+                            </b>
+                            <a href="#logRawCommunication"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>logRawCommunication:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from     <code><a href="../classes/Client.html" target="_self" >Client</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in Client:217</div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Set it to log the actual raw communication with the broker.
+When unset, it logs headers of the parsed frames.</p>
+<p>Change in this effects from next broker reconnect.</p>
+<p><strong>Caution: this assumes that frames only have valid UTF8 strings.</strong></p>
 </div>
                     </td>
                 </tr>
@@ -671,14 +736,14 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:160</div>
+                                    <div class="io-line">Defined in Client:169</div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Callback, invoked on every successful connection to the STOMP broker.</p>
-<p>The actual <a href="../classes/Frame.html">Frame</a> will be passed as parameter to the callback.
+<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.
 Sometimes clients will like to use headers from this frame.</p>
 </div>
                     </td>
@@ -720,7 +785,7 @@ Sometimes clients will like to use headers from this frame.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:173</div>
+                                    <div class="io-line">Defined in Client:182</div>
                             </td>
                         </tr>
 
@@ -728,9 +793,9 @@ Sometimes clients will like to use headers from this frame.</p>
                     <td class="col-md-4">
                         <div class="io-description"><p>Callback, invoked on every successful disconnection from the STOMP broker. It will not be invoked if
 the STOMP broker disconnected due to an error.</p>
-<p>The actual Receipt <a href="../classes/Frame.html">Frame</a> acknowledging the DISCONNECT will be passed as parameter to the callback.</p>
+<p>The actual Receipt <a href="FrameImpl">FrameImpl</a> acknowledging the DISCONNECT will be passed as parameter to the callback.</p>
 <p>The way STOMP protocol is designed, the connection may close/terminate without the client
-receiving the Receipt <a href="../classes/Frame.html">Frame</a> acknowledging the DISCONNECT.
+receiving the Receipt <a href="FrameImpl">FrameImpl</a> acknowledging the DISCONNECT.
 You might find <a href="../classes/Client.html#onWebSocketClose">Client#onWebSocketClose</a> more appropriate to watch
 STOMP broker disconnects.</p>
 </div>
@@ -773,7 +838,7 @@ STOMP broker disconnects.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:182</div>
+                                    <div class="io-line">Defined in Client:191</div>
                             </td>
                         </tr>
 
@@ -782,7 +847,7 @@ STOMP broker disconnects.</p>
                         <div class="io-description"><p>Callback, invoked on an ERROR frame received from the STOMP Broker.
 A compliant STOMP Broker will close the connection after this type of frame.
 Please check broker specific documentation for exact behavior.</p>
-<p>The actual <a href="../classes/Frame.html">Frame</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
                 </tr>
@@ -823,14 +888,14 @@ Please check broker specific documentation for exact behavior.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:137</div>
+                                    <div class="io-line">Defined in Client:138</div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Will be invoked if <a href="../classes/Frame.html">Frame</a> of unknown type is received from the STOMP broker.</p>
-<p>The actual <a href="../classes/Frame.html">Frame</a> will be passed as parameter to the callback.</p>
+                        <div class="io-description"><p>Will be invoked if <a href="FrameImpl">FrameImpl</a> of unknown type is received from the STOMP broker.</p>
+<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
                 </tr>
@@ -871,7 +936,7 @@ Please check broker specific documentation for exact behavior.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:121</div>
+                                    <div class="io-line">Defined in Client:122</div>
                             </td>
                         </tr>
 
@@ -882,7 +947,7 @@ It is useful for receiving messages sent to RabbitMQ temporary queues.</p>
 <p>It can also get invoked with stray messages while the server is processing
 a request to <a href="../classes/Client.html#unsubscribe">Client#unsubscribe</a>
 from an endpoint.</p>
-<p>The actual <a href="../classes/Message.html">Message</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="../interfaces/IMessage.html">IMessage</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
                 </tr>
@@ -923,7 +988,7 @@ from an endpoint.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:130</div>
+                                    <div class="io-line">Defined in Client:131</div>
                             </td>
                         </tr>
 
@@ -932,7 +997,7 @@ from an endpoint.</p>
                         <div class="io-description"><p>STOMP brokers can be requested to notify when an operation is actually completed.
 Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a>. See
 <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a> for examples.</p>
-<p>The actual <a href="../classes/Frame.html">Frame</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
                 </tr>
@@ -973,7 +1038,7 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:190</div>
+                                    <div class="io-line">Defined in Client:199</div>
                             </td>
                         </tr>
 
@@ -981,6 +1046,55 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                     <td class="col-md-4">
                         <div class="io-description"><p>Callback, invoked when underlying WebSocket is closed.</p>
 <p>Actual <a href="https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent">CloseEvent</a>
+is passed as parameter to the callback.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onWebSocketError"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            onWebSocketError
+                            </b>
+                            <a href="#onWebSocketError"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>onWebSocketError:     <code><a href="../miscellaneous/typealiases.html#wsErrorCallbackType" target="_self" >wsErrorCallbackType</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../miscellaneous/typealiases.html#wsErrorCallbackType" target="_self" >wsErrorCallbackType</a></code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from     <code><a href="../classes/Client.html" target="_self" >Client</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in Client:207</div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Callback, invoked when underlying WebSocket raises an error.</p>
+<p>Actual <a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>
 is passed as parameter to the callback.</p>
 </div>
                     </td>
@@ -1027,7 +1141,7 @@ is passed as parameter to the callback.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:65</div>
+                                    <div class="io-line">Defined in Client:66</div>
                             </td>
                         </tr>
 
@@ -1073,7 +1187,7 @@ is passed as parameter to the callback.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:39</div>
+                                    <div class="io-line">Defined in Client:40</div>
                             </td>
                         </tr>
 
@@ -1123,7 +1237,7 @@ is passed as parameter to the callback.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:60</div>
+                                    <div class="io-line">Defined in Client:61</div>
                             </td>
                         </tr>
 
@@ -1493,7 +1607,7 @@ However, there may be special purpose headers corresponding to your STOMP broker
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:551</div>
+                                    <div class="io-line">Defined in Client:585</div>
                             </td>
                         </tr>
 
@@ -1501,8 +1615,8 @@ However, there may be special purpose headers corresponding to your STOMP broker
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Abort a transaction.
-It is preferable to abort a transaction by calling <a href="../classes/Transaction.html#abort">abort</a> directly on
-<a href="../classes/Transaction.html">Transaction</a> returned by <a href="../classes/Client.html#begin">client.begin</a>.</p>
+It is preferable to abort a transaction by calling <a href="../interfaces/ITransaction.html#abort">abort</a> directly on
+<a href="../interfaces/ITransaction.html">ITransaction</a> returned by <a href="../classes/Client.html#begin">client.begin</a>.</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        var tx = client.begin(txId);
    *        //...
    *        tx.abort();
@@ -1577,15 +1691,15 @@ It is preferable to abort a transaction by calling <a href="../classes/Transacti
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:568</div>
+                                    <div class="io-line">Defined in Client:602</div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>ACK a message. It is preferable to acknowledge a message by calling <a href="../classes/Message.html#ack">ack</a> directly
-on the <a href="../classes/Message.html">Message</a> handled by a subscription callback:</p>
+                            <div class="io-description"><p>ACK a message. It is preferable to acknowledge a message by calling <a href="../interfaces/IMessage.html#ack">ack</a> directly
+on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscription callback:</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        var callback = function (message) {
    *          // process the message
    *          // acknowledge it
@@ -1695,7 +1809,7 @@ on the <a href="../classes/Message.html">Message</a> handled by a subscription c
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:263</div>
+                                    <div class="io-line">Defined in Client:292</div>
                             </td>
                         </tr>
 
@@ -1746,15 +1860,15 @@ it will keep trying to reconnect.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:520</div>
+                                    <div class="io-line">Defined in Client:554</div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Start a transaction, the returned <a href="../classes/Transaction.html">Transaction</a> has methods - <a href="../classes/Transaction.html#commit">commit</a>
-and <a href="../classes/Transaction.html#abort">abort</a>.</p>
+                            <div class="io-description"><p>Start a transaction, the returned <a href="../interfaces/ITransaction.html">ITransaction</a> has methods - <a href="../interfaces/ITransaction.html#commit">commit</a>
+and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 <p><code>transactionId</code> is optional, if not passed the library will generate it internally.</p>
 </div>
 
@@ -1787,7 +1901,7 @@ and <a href="../classes/Transaction.html#abort">abort</a>.</p>
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../classes/Transaction.html" target="_self" >Transaction</a></code>
+                                <b>Returns : </b>    <code><a href="../interfaces/ITransaction.html" target="_self" >ITransaction</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -1827,7 +1941,7 @@ and <a href="../classes/Transaction.html#abort">abort</a>.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:536</div>
+                                    <div class="io-line">Defined in Client:570</div>
                             </td>
                         </tr>
 
@@ -1835,8 +1949,8 @@ and <a href="../classes/Transaction.html#abort">abort</a>.</p>
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Commit a transaction.</p>
-<p>It is preferable to commit a transaction by calling <a href="../classes/Transaction.html#commit">commit</a> directly on
-<a href="../classes/Transaction.html">Transaction</a> returned by <a href="../classes/Client.html#begin">client.begin</a>.</p>
+<p>It is preferable to commit a transaction by calling <a href="../interfaces/ITransaction.html#commit">commit</a> directly on
+<a href="../interfaces/ITransaction.html">ITransaction</a> returned by <a href="../classes/Client.html#begin">client.begin</a>.</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        var tx = client.begin(txId);
    *        //...
    *        tx.commit();
@@ -1911,7 +2025,7 @@ and <a href="../classes/Transaction.html#abort">abort</a>.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:251</div>
+                                    <div class="io-line">Defined in Client:280</div>
                             </td>
                         </tr>
 
@@ -1990,7 +2104,7 @@ and <a href="../classes/Transaction.html#abort">abort</a>.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:358</div>
+                                    <div class="io-line">Defined in Client:392</div>
                             </td>
                         </tr>
 
@@ -2040,7 +2154,7 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:375</div>
+                                    <div class="io-line">Defined in Client:409</div>
                             </td>
                         </tr>
 
@@ -2091,15 +2205,15 @@ To stop further reconnects call <a href="../classes/Client.html#deactivate">Clie
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:585</div>
+                                    <div class="io-line">Defined in Client:619</div>
                             </td>
                         </tr>
 
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>NACK a message. It is preferable to acknowledge a message by calling <a href="../classes/Message.html#nack">nack</a> directly
-on the <a href="../classes/Message.html">Message</a> handled by a subscription callback:</p>
+                            <div class="io-description"><p>NACK a message. It is preferable to acknowledge a message by calling <a href="../interfaces/IMessage.html#nack">nack</a> directly
+on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscription callback:</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        var callback = function (message) {
    *          // process the message
    *          // an error occurs, nack it
@@ -2209,7 +2323,7 @@ on the <a href="../classes/Message.html">Message</a> handled by a subscription c
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:427</div>
+                                    <div class="io-line">Defined in Client:461</div>
                             </td>
                         </tr>
 
@@ -2313,7 +2427,7 @@ and <code>content-length</code> header is missing.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:494</div>
+                                    <div class="io-line">Defined in Client:528</div>
                             </td>
                         </tr>
 
@@ -2321,7 +2435,7 @@ and <code>content-length</code> header is missing.</p>
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Subscribe to a STOMP Broker location. The callback will be invoked for each received message with
-the <a href="../classes/Message.html">Message</a> as argument.</p>
+the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
 <p>Note: The library will generate an unique ID if there is none provided in the headers.
        To use your own ID, pass it using the headers argument.</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        callback = function(message) {
@@ -2441,7 +2555,7 @@ the <a href="../classes/Message.html">Message</a> as argument.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:510</div>
+                                    <div class="io-line">Defined in Client:544</div>
                             </td>
                         </tr>
 
@@ -2543,7 +2657,7 @@ the <a href="../classes/Message.html">Message</a> as argument.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:466</div>
+                                    <div class="io-line">Defined in Client:500</div>
                             </td>
                         </tr>
 
@@ -2558,7 +2672,7 @@ random number or a combination may be used.</p>
 The operation needs to be matched based in the value of the receipt-id.</p>
 <p>This method allow watching for a receipt and invoke the callback
 when corresponding receipt has been received.</p>
-<p>The actual <a href="../classes/Frame.html">Frame</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        // Subscribing with acknowledgement
    *        let receiptId = randomText();
