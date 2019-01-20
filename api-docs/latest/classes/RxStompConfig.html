@@ -118,6 +118,11 @@ Instance of this can be passed to <a href="../classes/RxStomp.html#configure">Rx
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Optional</span>
+                                <a href="#forceBinaryWSFrames">forceBinaryWSFrames</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
                                 <a href="#heartbeatIncoming">heartbeatIncoming</a>
                             </li>
                             <li>
@@ -128,7 +133,22 @@ Instance of this can be passed to <a href="../classes/RxStomp.html#configure">Rx
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Optional</span>
+                                <a href="#logRawCommunication">logRawCommunication</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#maxWebSocketChunkSize">maxWebSocketChunkSize</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
                                 <a href="#reconnectDelay">reconnectDelay</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#splitLargeFrames">splitLargeFrames</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -188,7 +208,7 @@ Instance of this can be passed to <a href="../classes/RxStomp.html#configure">Rx
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:107</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:146</a></div>
                             </td>
                         </tr>
 
@@ -197,6 +217,13 @@ Instance of this can be passed to <a href="../classes/RxStomp.html#configure">Rx
                         <div class="io-description"><p>Callback, invoked on before a connection connection to the STOMP broker.</p>
 <p>You can change configuration of the rxStomp, which will impact the immediate connect.
 It is valid to call <a href="../classes/RxStomp.html#deactivate">RxStomp#decativate</a> in this callback.</p>
+<p>As of version 0.1.1, this callback can be
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async</a>
+(i.e., it can return a
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>).
+In that case connect will be called only after the Promise is resolved.
+This can be used to reliably fetch credentials, access token etc. from some other service
+in an asynchronous way.</p>
 <p>Maps to: <a href="../classes/Client.html#beforeConnect">Client#beforeConnect</a></p>
 </div>
                     </td>
@@ -279,7 +306,7 @@ If both are set, <a href="../classes/RxStompConfig.html#webSocketFactory">RxStom
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:90</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="121" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:121</a></div>
                             </td>
                         </tr>
 
@@ -324,7 +351,7 @@ details specific to your broker.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:49</a></div>
                             </td>
                         </tr>
 
@@ -366,7 +393,7 @@ details specific to your broker.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:97</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:128</a></div>
                             </td>
                         </tr>
 
@@ -374,6 +401,48 @@ details specific to your broker.</p>
                     <td class="col-md-4">
                         <div class="io-description"><p>Disconnection headers.</p>
 <p>Maps to: <a href="../classes/Client.html#disconnectHeaders">Client#disconnectHeaders</a></p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forceBinaryWSFrames"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Optional</span>
+                            forceBinaryWSFrames
+                            </b>
+                            <a href="#forceBinaryWSFrames"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>forceBinaryWSFrames:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:107</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Maps to: <a href="../classes/Client.html#forceBinaryWSFrames">Client#forceBinaryWSFrames</a>.</p>
 </div>
                     </td>
                 </tr>
@@ -409,7 +478,7 @@ details specific to your broker.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:74</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:86</a></div>
                             </td>
                         </tr>
 
@@ -452,7 +521,7 @@ details specific to your broker.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:81</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:93</a></div>
                             </td>
                         </tr>
 
@@ -460,6 +529,94 @@ details specific to your broker.</p>
                     <td class="col-md-4">
                         <div class="io-description"><p>Outgoing heartbeat interval in milliseconds. Set to 0 to disable.</p>
 <p>Maps to: <a href="../classes/Client.html#heartbeatOutgoing">Client#heartbeatOutgoing</a></p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="logRawCommunication"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Optional</span>
+                            logRawCommunication
+                            </b>
+                            <a href="#logRawCommunication"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>logRawCommunication:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Set it to log the actual raw communication with the broker.
+When unset, it logs headers of the parsed frames.</p>
+<p>Change in this effects from next broker reconnect.</p>
+<p><strong>Caution: this assumes that frames only have valid UTF8 strings.</strong></p>
+<p>Maps to: <a href="../classes/Client.html#logRawCommunication">Client#logRawCommunication</a>.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxWebSocketChunkSize"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Optional</span>
+                            maxWebSocketChunkSize
+                            </b>
+                            <a href="#maxWebSocketChunkSize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>maxWebSocketChunkSize:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:112</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Maps to: <a href="../classes/Client.html#maxWebSocketChunkSize">Client#maxWebSocketChunkSize</a>.</p>
 </div>
                     </td>
                 </tr>
@@ -495,7 +652,7 @@ details specific to your broker.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:67</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:79</a></div>
                             </td>
                         </tr>
 
@@ -503,6 +660,51 @@ details specific to your broker.</p>
                     <td class="col-md-4">
                         <div class="io-description"><p>automatically reconnect with delay in milliseconds, set to 0 to disable.</p>
 <p>Maps to: [Client#reconnectDelay]{@Client#reconnectDelay}</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="splitLargeFrames"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                                <span class="modifier">Optional</span>
+                            splitLargeFrames
+                            </b>
+                            <a href="#splitLargeFrames"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>splitLargeFrames:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:102</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Enable non-standards compliant mode of splitting of outgoing large text packets.
+See <a href="../classes/Client.html#splitLargeFrames">Client#splitLargeFrames</a> for details.
+Useful with Java Spring based brokers.</p>
+<p>Maps to: <a href="../classes/Client.html#splitLargeFrames">Client#splitLargeFrames</a>.</p>
 </div>
                     </td>
                 </tr>
@@ -584,7 +786,7 @@ details specific to your broker.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-config.ts:72</a></div>
                             </td>
                         </tr>
 
@@ -657,6 +859,18 @@ export class RxStompConfig {
    */
   public stompVersions?: Versions;
 
+  /**
+   * Set it to log the actual raw communication with the broker.
+   * When unset, it logs headers of the parsed frames.
+   *
+   * Change in this effects from next broker reconnect.
+   *
+   * **Caution: this assumes that frames only have valid UTF8 strings.**
+   *
+   * Maps to: [Client#logRawCommunication]{@link Client#logRawCommunication}.
+   */
+  public logRawCommunication?: boolean;
+
   /** Enable client debugging? */
   public debug?: debugFnType;
 
@@ -705,6 +919,25 @@ export class RxStompConfig {
   public heartbeatOutgoing?: number;
 
   /**
+   * Enable non-standards compliant mode of splitting of outgoing large text packets.
+   * See [Client#splitLargeFrames]{@link Client#splitLargeFrames} for details.
+   * Useful with Java Spring based brokers.
+   *
+   * Maps to: [Client#splitLargeFrames]{@link Client#splitLargeFrames}.
+   */
+  public splitLargeFrames?: boolean;
+
+  /**
+   * Maps to: [Client#forceBinaryWSFrames]{@link Client#forceBinaryWSFrames}.
+   */
+  public forceBinaryWSFrames?: boolean;
+
+  /**
+   * Maps to: [Client#maxWebSocketChunkSize]{@link Client#maxWebSocketChunkSize}.
+   */
+  public maxWebSocketChunkSize?: number;
+
+  /**
    * Connection headers, important keys - &#x60;login&#x60;, &#x60;passcode&#x60;, &#x60;host&#x60;.
    * Though STOMP 1.2 standard marks these keys to be present, check your broker documentation for
    * details specific to your broker.
@@ -726,9 +959,17 @@ export class RxStompConfig {
    * You can change configuration of the rxStomp, which will impact the immediate connect.
    * It is valid to call [RxStomp#decativate]{@link RxStomp#deactivate} in this callback.
    *
+   * As of version 0.1.1, this callback can be
+   * [async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+   * (i.e., it can return a
+   * [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)).
+   * In that case connect will be called only after the Promise is resolved.
+   * This can be used to reliably fetch credentials, access token etc. from some other service
+   * in an asynchronous way.
+   *
    * Maps to: [Client#beforeConnect]{@link Client#beforeConnect}
    */
-  public beforeConnect?: () &#x3D;&gt; void;
+  public beforeConnect?: () &#x3D;&gt; void|Promise&lt;void&gt;;
 }
 </code></pre>
     </div>

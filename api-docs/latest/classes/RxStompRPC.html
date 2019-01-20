@@ -242,7 +242,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../miscellaneous/typealiases.html#Message" target="_self" >Observable&lt;Message&gt;</a></code>
+                                <b>Returns : </b>    <code><a href="../interfaces/IMessage.html" target="_self" >Observable&lt;IMessage&gt;</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -315,7 +315,7 @@
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../miscellaneous/typealiases.html#Message" target="_self" >Observable&lt;Message&gt;</a></code>
+                                <b>Returns : </b>    <code><a href="../interfaces/IMessage.html" target="_self" >Observable&lt;IMessage&gt;</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -336,15 +336,15 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable, Observer, Subscription } from &#x27;rxjs&#x27;;
-import { filter, first } from &#x27;rxjs/operators&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Observable, Observer, Subscription} from &#x27;rxjs&#x27;;
+import {filter, first} from &#x27;rxjs/operators&#x27;;
 
-import { UUID } from &#x27;angular2-uuid&#x27;;
+import {UUID} from &#x27;angular2-uuid&#x27;;
 
-import {Message, publishParams, StompHeaders} from &#x27;@stomp/stompjs&#x27;;
+import {IMessage, publishParams, StompHeaders} from &#x27;@stomp/stompjs&#x27;;
 
-import { RxStomp } from &#x27;./rx-stomp&#x27;;
-import { RxStompRPCConfig, setupReplyQueueFnType } from &#x27;./rx-stomp-rpc-config&#x27;;
+import {RxStomp} from &#x27;./rx-stomp&#x27;;
+import {RxStompRPCConfig, setupReplyQueueFnType} from &#x27;./rx-stomp-rpc-config&#x27;;
 
 /**
  * An implementation of Remote Procedure Call (RPC) using messaging.
@@ -360,7 +360,7 @@ export class RxStompRPC {
     return this.rxStomp.unhandledMessage$;
   }
 
-  private _repliesObservable: Observable&lt;Message&gt;;
+  private _repliesObservable: Observable&lt;IMessage&gt;;
 
   /**
    * Create an instance, see the [guide](../additional-documentation/rpc---remote-procedure-call.html) for details.
@@ -379,7 +379,7 @@ export class RxStompRPC {
   /**
    * Make an RPC request. See the [guide](../additional-documentation/rpc---remote-procedure-call.html) for example.
    */
-  public rpc(params: publishParams): Observable&lt;Message&gt; {
+  public rpc(params: publishParams): Observable&lt;IMessage&gt; {
     // We know there will be only one message in reply
     return this.stream(params).pipe(first());
   }
@@ -387,7 +387,7 @@ export class RxStompRPC {
   /**
    * Make an RPC stream request. See the [guide](../additional-documentation/rpc---remote-procedure-call.html).
    */
-  public stream(params: publishParams): Observable&lt;Message&gt; {
+  public stream(params: publishParams): Observable&lt;IMessage&gt; {
     const headers: StompHeaders &#x3D; (Object as any).assign({}, params.headers || {});
     const {destination, body, binaryBody} &#x3D; params;
 
@@ -396,14 +396,14 @@ export class RxStompRPC {
     }
 
     return Observable.create(
-      (rpcObserver: Observer&lt;Message&gt;) &#x3D;&gt; {
+      (rpcObserver: Observer&lt;IMessage&gt;) &#x3D;&gt; {
         let defaultMessagesSubscription: Subscription;
 
         const correlationId &#x3D; UUID.UUID();
 
-        defaultMessagesSubscription &#x3D; this._repliesObservable.pipe(filter((message: Message) &#x3D;&gt; {
+        defaultMessagesSubscription &#x3D; this._repliesObservable.pipe(filter((message: IMessage) &#x3D;&gt; {
           return message.headers[&#x27;correlation-id&#x27;] &#x3D;&#x3D;&#x3D; correlationId;
-        })).subscribe((message: Message) &#x3D;&gt; {
+        })).subscribe((message: IMessage) &#x3D;&gt; {
           rpcObserver.next(message);
         });
 

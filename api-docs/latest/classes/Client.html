@@ -106,6 +106,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#forceBinaryWSFrames">forceBinaryWSFrames</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#heartbeatIncoming">heartbeatIncoming</a>
                             </li>
                             <li>
@@ -115,6 +119,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#logRawCommunication">logRawCommunication</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#maxWebSocketChunkSize">maxWebSocketChunkSize</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -151,6 +159,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#reconnectDelay">reconnectDelay</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#splitLargeFrames">splitLargeFrames</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -273,7 +285,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="249" class="link-to-prism">consolidated/stompjs/src/client.ts:249</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="280" class="link-to-prism">consolidated/stompjs/src/client.ts:280</a></div>
                             </td>
                         </tr>
 
@@ -346,7 +358,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">consolidated/stompjs/src/client.ts:161</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="192" class="link-to-prism">consolidated/stompjs/src/client.ts:192</a></div>
                             </td>
                         </tr>
 
@@ -440,7 +452,7 @@ If both are set, <a href="../classes/Client.html#webSocketFactory">Client#webSoc
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">consolidated/stompjs/src/client.ts:95</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">consolidated/stompjs/src/client.ts:126</a></div>
                             </td>
                         </tr>
 
@@ -483,7 +495,7 @@ details specific to your broker.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="231" class="link-to-prism">consolidated/stompjs/src/client.ts:231</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="262" class="link-to-prism">consolidated/stompjs/src/client.ts:262</a></div>
                             </td>
                         </tr>
 
@@ -495,6 +507,56 @@ details specific to your broker.</p>
    *        };
    *</code></pre></div><p>Currently this method does not support levels of log. Be aware that the output can be quite verbose
 and may contain sensitive information (like passwords, tokens etc.).</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forceBinaryWSFrames"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            forceBinaryWSFrames
+                            </b>
+                            <a href="#forceBinaryWSFrames"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>forceBinaryWSFrames:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">consolidated/stompjs/src/client.ts:107</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Usually the
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/send#Parameters">type of WebSocket frame</a>
+is automatically decided by type of the payload.
+Default is <code>false</code>, which should work with all compliant brokers.</p>
+<p>Set this flag to force binary frames.</p>
 </div>
                     </td>
                 </tr>
@@ -621,7 +683,7 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="217" class="link-to-prism">consolidated/stompjs/src/client.ts:217</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="248" class="link-to-prism">consolidated/stompjs/src/client.ts:248</a></div>
                             </td>
                         </tr>
 
@@ -631,6 +693,53 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
 When unset, it logs headers of the parsed frames.</p>
 <p>Change in this effects from next broker reconnect.</p>
 <p><strong>Caution: this assumes that frames only have valid UTF8 strings.</strong></p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="maxWebSocketChunkSize"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            maxWebSocketChunkSize
+                            </b>
+                            <a href="#maxWebSocketChunkSize"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>maxWebSocketChunkSize:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>8 * 1024</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">consolidated/stompjs/src/client.ts:97</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>See <a href="../classes/Client.html#splitLargeFrames">splitLargeFrames</a>.
+This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLargeFrames</a> is <code>false</code>.</p>
 </div>
                     </td>
                 </tr>
@@ -665,7 +774,7 @@ When unset, it logs headers of the parsed frames.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">consolidated/stompjs/src/client.ts:169</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="200" class="link-to-prism">consolidated/stompjs/src/client.ts:200</a></div>
                             </td>
                         </tr>
 
@@ -708,7 +817,7 @@ Sometimes clients will like to use headers from this frame.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">consolidated/stompjs/src/client.ts:182</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="213" class="link-to-prism">consolidated/stompjs/src/client.ts:213</a></div>
                             </td>
                         </tr>
 
@@ -755,7 +864,7 @@ STOMP broker disconnects.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">consolidated/stompjs/src/client.ts:191</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="222" class="link-to-prism">consolidated/stompjs/src/client.ts:222</a></div>
                             </td>
                         </tr>
 
@@ -764,7 +873,7 @@ STOMP broker disconnects.</p>
                         <div class="io-description"><p>Callback, invoked on an ERROR frame received from the STOMP Broker.
 A compliant STOMP Broker will close the connection after this type of frame.
 Please check broker specific documentation for exact behavior.</p>
-<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="../interfaces/IFrame.html">IFrame</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
                 </tr>
@@ -799,14 +908,14 @@ Please check broker specific documentation for exact behavior.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">consolidated/stompjs/src/client.ts:138</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">consolidated/stompjs/src/client.ts:169</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Will be invoked if <a href="FrameImpl">FrameImpl</a> of unknown type is received from the STOMP broker.</p>
-<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="../interfaces/IFrame.html">IFrame</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
                 </tr>
@@ -841,7 +950,7 @@ Please check broker specific documentation for exact behavior.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">consolidated/stompjs/src/client.ts:122</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">consolidated/stompjs/src/client.ts:153</a></div>
                             </td>
                         </tr>
 
@@ -887,7 +996,7 @@ from an endpoint.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">consolidated/stompjs/src/client.ts:131</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">consolidated/stompjs/src/client.ts:162</a></div>
                             </td>
                         </tr>
 
@@ -931,7 +1040,7 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="199" class="link-to-prism">consolidated/stompjs/src/client.ts:199</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="230" class="link-to-prism">consolidated/stompjs/src/client.ts:230</a></div>
                             </td>
                         </tr>
 
@@ -974,7 +1083,7 @@ is passed as parameter to the callback.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="207" class="link-to-prism">consolidated/stompjs/src/client.ts:207</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="238" class="link-to-prism">consolidated/stompjs/src/client.ts:238</a></div>
                             </td>
                         </tr>
 
@@ -1029,6 +1138,59 @@ is passed as parameter to the callback.</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>automatically reconnect with delay in milliseconds, set to 0 to disable.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="splitLargeFrames"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            splitLargeFrames
+                            </b>
+                            <a href="#splitLargeFrames"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>splitLargeFrames:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">consolidated/stompjs/src/client.ts:91</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This switches on a non standard behavior while sending WebSocket packets.
+It splits larger (text) packets into chunks of <a href="../classes/Client.html#maxWebSocketChunkSize">maxWebSocketChunkSize</a>.
+Only Java Spring brokers seems to use this mode.</p>
+<p>WebSockets, by itself, split large (text) packets,
+so it is not needed with a truly compliant STOMP/WebSocket broker.
+Actually setting it for such broker will cause large messages to fail.</p>
+<p><code>false</code> by default.</p>
+<p>Binary frames are never split.</p>
 </div>
                     </td>
                 </tr>
@@ -1162,7 +1324,7 @@ If your STOMP Broker supports WebSockets, prefer setting <a href="../classes/Cli
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="585" class="link-to-prism">consolidated/stompjs/src/client.ts:585</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="619" class="link-to-prism">consolidated/stompjs/src/client.ts:619</a></div>
                             </td>
                         </tr>
 
@@ -1240,7 +1402,7 @@ It is preferable to abort a transaction by calling <a href="../interfaces/ITrans
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="602" class="link-to-prism">consolidated/stompjs/src/client.ts:602</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="636" class="link-to-prism">consolidated/stompjs/src/client.ts:636</a></div>
                             </td>
                         </tr>
 
@@ -1352,7 +1514,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="292" class="link-to-prism">consolidated/stompjs/src/client.ts:292</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="323" class="link-to-prism">consolidated/stompjs/src/client.ts:323</a></div>
                             </td>
                         </tr>
 
@@ -1397,7 +1559,7 @@ it will keep trying to reconnect.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="554" class="link-to-prism">consolidated/stompjs/src/client.ts:554</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="588" class="link-to-prism">consolidated/stompjs/src/client.ts:588</a></div>
                             </td>
                         </tr>
 
@@ -1472,7 +1634,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="570" class="link-to-prism">consolidated/stompjs/src/client.ts:570</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="604" class="link-to-prism">consolidated/stompjs/src/client.ts:604</a></div>
                             </td>
                         </tr>
 
@@ -1550,7 +1712,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="280" class="link-to-prism">consolidated/stompjs/src/client.ts:280</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="311" class="link-to-prism">consolidated/stompjs/src/client.ts:311</a></div>
                             </td>
                         </tr>
 
@@ -1623,7 +1785,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="392" class="link-to-prism">consolidated/stompjs/src/client.ts:392</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="426" class="link-to-prism">consolidated/stompjs/src/client.ts:426</a></div>
                             </td>
                         </tr>
 
@@ -1667,7 +1829,7 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="409" class="link-to-prism">consolidated/stompjs/src/client.ts:409</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="443" class="link-to-prism">consolidated/stompjs/src/client.ts:443</a></div>
                             </td>
                         </tr>
 
@@ -1712,7 +1874,7 @@ To stop further reconnects call <a href="../classes/Client.html#deactivate">Clie
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="619" class="link-to-prism">consolidated/stompjs/src/client.ts:619</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="653" class="link-to-prism">consolidated/stompjs/src/client.ts:653</a></div>
                             </td>
                         </tr>
 
@@ -1824,7 +1986,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="461" class="link-to-prism">consolidated/stompjs/src/client.ts:461</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="495" class="link-to-prism">consolidated/stompjs/src/client.ts:495</a></div>
                             </td>
                         </tr>
 
@@ -1922,7 +2084,7 @@ and <code>content-length</code> header is missing.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="528" class="link-to-prism">consolidated/stompjs/src/client.ts:528</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="562" class="link-to-prism">consolidated/stompjs/src/client.ts:562</a></div>
                             </td>
                         </tr>
 
@@ -2044,7 +2206,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="544" class="link-to-prism">consolidated/stompjs/src/client.ts:544</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="578" class="link-to-prism">consolidated/stompjs/src/client.ts:578</a></div>
                             </td>
                         </tr>
 
@@ -2140,7 +2302,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="500" class="link-to-prism">consolidated/stompjs/src/client.ts:500</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="534" class="link-to-prism">consolidated/stompjs/src/client.ts:534</a></div>
                             </td>
                         </tr>
 
@@ -2254,7 +2416,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">consolidated/stompjs/src/client.ts:81</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">consolidated/stompjs/src/client.ts:112</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2287,7 +2449,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="100" class="link-to-prism">consolidated/stompjs/src/client.ts:100</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">consolidated/stompjs/src/client.ts:131</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2309,7 +2471,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="104" class="link-to-prism">consolidated/stompjs/src/client.ts:104</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">consolidated/stompjs/src/client.ts:135</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2363,7 +2525,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">consolidated/stompjs/src/client.ts:143</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="174" class="link-to-prism">consolidated/stompjs/src/client.ts:174</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2396,7 +2558,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="236" class="link-to-prism">consolidated/stompjs/src/client.ts:236</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="267" class="link-to-prism">consolidated/stompjs/src/client.ts:267</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2429,7 +2591,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="245" class="link-to-prism">consolidated/stompjs/src/client.ts:245</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="276" class="link-to-prism">consolidated/stompjs/src/client.ts:276</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2529,6 +2691,37 @@ export class Client {
   public heartbeatOutgoing: number &#x3D; 10000;
 
   /**
+   * This switches on a non standard behavior while sending WebSocket packets.
+   * It splits larger (text) packets into chunks of [maxWebSocketChunkSize]{@link Client#maxWebSocketChunkSize}.
+   * Only Java Spring brokers seems to use this mode.
+   *
+   * WebSockets, by itself, split large (text) packets,
+   * so it is not needed with a truly compliant STOMP/WebSocket broker.
+   * Actually setting it for such broker will cause large messages to fail.
+   *
+   * &#x60;false&#x60; by default.
+   *
+   * Binary frames are never split.
+   */
+  public splitLargeFrames: boolean &#x3D; false;
+
+  /**
+   * See [splitLargeFrames]{@link Client#splitLargeFrames}.
+   * This has no effect if [splitLargeFrames]{@link Client#splitLargeFrames} is &#x60;false&#x60;.
+   */
+  public maxWebSocketChunkSize: number &#x3D; 8 * 1024;
+
+  /**
+   * Usually the
+   * [type of WebSocket frame]{@link https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/send#Parameters}
+   * is automatically decided by type of the payload.
+   * Default is &#x60;false&#x60;, which should work with all compliant brokers.
+   *
+   * Set this flag to force binary frames.
+   */
+  public forceBinaryWSFrames: boolean &#x3D; false;
+
+  /**
    * Underlying WebSocket instance, READONLY.
    */
   get webSocket(): WebSocket {
@@ -2586,7 +2779,7 @@ export class Client {
   /**
    * Will be invoked if {@link FrameImpl} of unknown type is received from the STOMP broker.
    *
-   * The actual {@link FrameImpl} will be passed as parameter to the callback.
+   * The actual {@link IFrame} will be passed as parameter to the callback.
    */
   public onUnhandledFrame: frameCallbackType;
 
@@ -2639,7 +2832,7 @@ export class Client {
    * A compliant STOMP Broker will close the connection after this type of frame.
    * Please check broker specific documentation for exact behavior.
    *
-   * The actual {@link FrameImpl} will be passed as parameter to the callback.
+   * The actual {@link IFrame} will be passed as parameter to the callback.
    */
   public onStompError: frameCallbackType;
 
@@ -2773,6 +2966,9 @@ export class Client {
       disconnectHeaders: this._disconnectHeaders,
       heartbeatIncoming: this.heartbeatIncoming,
       heartbeatOutgoing: this.heartbeatOutgoing,
+      splitLargeFrames: this.splitLargeFrames,
+      maxWebSocketChunkSize: this.maxWebSocketChunkSize,
+      forceBinaryWSFrames: this.forceBinaryWSFrames,
       logRawCommunication: this.logRawCommunication,
 
       onConnect: (frame) &#x3D;&gt; {

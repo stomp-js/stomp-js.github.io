@@ -116,11 +116,19 @@ is exposed as Observables/Subjects/BehaviorSubjects.</p>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#unhandledFrame$">unhandledFrame$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#unhandledMessage$">unhandledMessage$</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#unhandledReceipts$">unhandledReceipts$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#webSocketErrors$">webSocketErrors$</a>
                             </li>
                         </ul>
                     </td>
@@ -200,7 +208,7 @@ is exposed as Observables/Subjects/BehaviorSubjects.</p>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="129" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:129</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:160</a></div>
                             </td>
                         </tr>
 
@@ -334,7 +342,7 @@ used to show current status to the end user.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:60</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:68</a></div>
                             </td>
                         </tr>
 
@@ -365,19 +373,19 @@ It will trigger for each reconnection.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>stompErrors$:     <code><a href="../miscellaneous/typealiases.html#Frame" target="_self" >Subject&lt;Frame&gt;</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>stompErrors$:     <code><a href="../interfaces/IFrame.html" target="_self" >Subject&lt;IFrame&gt;</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../miscellaneous/typealiases.html#Frame" target="_self" >Subject&lt;Frame&gt;</a></code>
+                            <i>Type : </i>    <code><a href="../interfaces/IFrame.html" target="_self" >Subject&lt;IFrame&gt;</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:102</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:123</a></div>
                             </td>
                         </tr>
 
@@ -387,9 +395,56 @@ It will trigger for each reconnection.</p>
 A compliant STOMP Broker will close the connection after this type of frame.
 Please check broker specific documentation for exact behavior.</p>
 <p>This Observer will yield the received
-<a href="../classes/Frame.html">Frame</a>
+<a href="../interfaces/IFrame.html">IFrame</a>
 objects.</p>
 <p>Maps to: <a href="../classes/Client.html#onStompError">Client#onStompError</a></p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="unhandledFrame$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            unhandledFrame$
+                            </b>
+                            <a href="#unhandledFrame$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>unhandledFrame$:     <code><a href="../interfaces/IFrame.html" target="_self" >Subject&lt;IFrame&gt;</a></code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../interfaces/IFrame.html" target="_self" >Subject&lt;IFrame&gt;</a></code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:98</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>This function will be called for any unhandled frame.
+Normally you should receive anything here unless it is non compliant STOMP broker
+or an error.</p>
+<p>This Observer will yield the received
+<a href="../interfaces/IFrame.html">IFrame</a>
+objects.</p>
+<p>Maps to: <a href="../classes/Client.html#onUnhandledFrame">Client#onUnhandledFrame</a></p>
 </div>
                     </td>
                 </tr>
@@ -412,19 +467,19 @@ objects.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>unhandledMessage$:     <code><a href="../miscellaneous/typealiases.html#Message" target="_self" >Subject&lt;Message&gt;</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>unhandledMessage$:     <code><a href="../interfaces/IMessage.html" target="_self" >Subject&lt;IMessage&gt;</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../miscellaneous/typealiases.html#Message" target="_self" >Subject&lt;Message&gt;</a></code>
+                            <i>Type : </i>    <code><a href="../interfaces/IMessage.html" target="_self" >Subject&lt;IMessage&gt;</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:77</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:85</a></div>
                             </td>
                         </tr>
 
@@ -435,7 +490,7 @@ It is useful for receiving messages sent to RabbitMQ temporary queues.</p>
 <p>It can also get invoked with stray messages while the server is processing
 a request to unsubscribe from an endpoint.</p>
 <p>This Observer will yield the received
-<a href="../miscellaneous/typealiases.html#Message">Message</a>
+<a href="../interfaces/IMessage.html">IMessage</a>
 objects.</p>
 <p>Maps to: <a href="../classes/Client.html#onUnhandledMessage">Client#onUnhandledMessage</a></p>
 </div>
@@ -460,19 +515,19 @@ objects.</p>
                 </tr>
                 <tr>
                     <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>unhandledReceipts$:     <code><a href="../miscellaneous/typealiases.html#Frame" target="_self" >Subject&lt;Frame&gt;</a></code>
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>unhandledReceipts$:     <code><a href="../interfaces/IFrame.html" target="_self" >Subject&lt;IFrame&gt;</a></code>
 </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../miscellaneous/typealiases.html#Frame" target="_self" >Subject&lt;Frame&gt;</a></code>
+                            <i>Type : </i>    <code><a href="../interfaces/IFrame.html" target="_self" >Subject&lt;IFrame&gt;</a></code>
 
                         </td>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:89</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="110" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:110</a></div>
                             </td>
                         </tr>
 
@@ -481,9 +536,53 @@ objects.</p>
                         <div class="io-description"><p>STOMP brokers can be requested to notify when an operation is actually completed.
 Prefer using <a href="../classes/RxStomp.html#watchForReceipt">RxStomp#watchForReceipt</a>.</p>
 <p>This Observer will yield the received
-<a href="../classes/Frame.html">Frame</a>
+<a href="../interfaces/IFrame.html">IFrame</a>
 objects.</p>
 <p>Maps to: <a href="../classes/Client.html#onUnhandledReceipt">Client#onUnhandledReceipt</a></p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="webSocketErrors$"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            webSocketErrors$
+                            </b>
+                            <a href="#webSocketErrors$"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span><code>webSocketErrors$:     <code>Subject&lt;Event&gt;</code>
+</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code>Subject&lt;Event&gt;</code>
+
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:133</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>It will stream all web socket errors.</p>
+<p>This Observer will yield the received
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Event">Event</a>.</p>
+<p>Maps to: <a href="../classes/Client.html#onWebSocketError">Client#onWebSocketError</a></p>
 </div>
                     </td>
                 </tr>
@@ -521,7 +620,7 @@ objects.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="226" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:226</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="264" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:264</a></div>
                             </td>
                         </tr>
 
@@ -567,7 +666,7 @@ it will keep trying to reconnect.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="202" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:202</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="240" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:240</a></div>
                             </td>
                         </tr>
 
@@ -658,7 +757,7 @@ Each call will add to the existing configuration.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="280" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:280</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="330" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:330</a></div>
                             </td>
                         </tr>
 
@@ -700,7 +799,7 @@ Each call will add to the existing configuration.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="261" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:261</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="311" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:311</a></div>
                             </td>
                         </tr>
 
@@ -745,7 +844,7 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="327" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:327</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="377" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:377</a></div>
                             </td>
                         </tr>
 
@@ -847,7 +946,7 @@ publish queued messages as soon as the broker gets connected.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="369" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:369</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="419" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:419</a></div>
                             </td>
                         </tr>
 
@@ -913,7 +1012,7 @@ following each other and both meaning very different things.</p>
                             <div>
                             </div>
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="../miscellaneous/typealiases.html#Message" target="_self" >Observable&lt;Message&gt;</a></code>
+                                <b>Returns : </b>    <code><a href="../interfaces/IMessage.html" target="_self" >Observable&lt;IMessage&gt;</a></code>
 
                             </div>
                                 <div class="io-description">
@@ -940,14 +1039,14 @@ following each other and both meaning very different things.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>watchForReceipt(receiptId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (frame: <a href="../undefineds/Frame.html">Frame</a>) => void)</code>
+                        <code>watchForReceipt(receiptId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, callback: (frame: <a href="../interfaces/IFrame.html">IFrame</a>) => void)</code>
                     </td>
                 </tr>
 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="478" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:478</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="506" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:506</a></div>
                             </td>
                         </tr>
 
@@ -1053,7 +1152,7 @@ will be passed as parameter to the callback.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:116</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:147</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1085,8 +1184,8 @@ import {filter, share} from &#x27;rxjs/operators&#x27;;
 import {
   Client,
   debugFnType,
-  Frame,
-  Message,
+  IFrame,
+  IMessage,
   publishParams,
   StompConfig,
   StompHeaders,
@@ -1133,6 +1232,14 @@ export class RxStomp {
   public connected$: Observable&lt;RxStompState&gt;;
 
   /**
+   * These will be triggered before connectionState$ and connected$.
+   * During a reconnect, tt will allow subscriptions to be reinstated before sending
+   * queued messages.
+   */
+  private _connectionStatePre$: BehaviorSubject&lt;RxStompState&gt;;
+  private _connectedPre$: Observable&lt;RxStompState&gt;;
+
+  /**
    * Provides headers from most recent connection to the server as returned by the CONNECTED frame.
    * If the STOMP connection has already been established it will trigger immediately.
    * It will trigger for each reconnection.
@@ -1149,24 +1256,37 @@ export class RxStomp {
    * a request to unsubscribe from an endpoint.
    *
    * This Observer will yield the received
-   * {@link Message}
+   * {@link IMessage}
    * objects.
    *
    * Maps to: [Client#onUnhandledMessage]{@link Client#onUnhandledMessage}
    */
-  public unhandledMessage$: Subject&lt;Message&gt;;
+  public unhandledMessage$: Subject&lt;IMessage&gt;;
+
+  /**
+   * This function will be called for any unhandled frame.
+   * Normally you should receive anything here unless it is non compliant STOMP broker
+   * or an error.
+   *
+   * This Observer will yield the received
+   * {@link IFrame}
+   * objects.
+   *
+   * Maps to: [Client#onUnhandledFrame]{@link Client#onUnhandledFrame}
+   */
+  public unhandledFrame$: Subject&lt;IFrame&gt;;
 
   /**
    * STOMP brokers can be requested to notify when an operation is actually completed.
    * Prefer using [RxStomp#watchForReceipt]{@link RxStomp#watchForReceipt}.
    *
    * This Observer will yield the received
-   * [Frame]{@link ../classes/Frame.html}
+   * {@link IFrame}
    * objects.
    *
    * Maps to: [Client#onUnhandledReceipt]{@link Client#onUnhandledReceipt}
    */
-  public unhandledReceipts$: Subject&lt;Frame&gt;;
+  public unhandledReceipts$: Subject&lt;IFrame&gt;;
 
   /**
    * It will stream all ERROR frames received from the STOMP Broker.
@@ -1174,12 +1294,22 @@ export class RxStomp {
    * Please check broker specific documentation for exact behavior.
    *
    * This Observer will yield the received
-   * [Frame]{@link ../classes/Frame.html}
+   * {@link IFrame}
    * objects.
    *
    * Maps to: [Client#onStompError]{@link Client#onStompError}
    */
-  public stompErrors$: Subject&lt;Frame&gt;;
+  public stompErrors$: Subject&lt;IFrame&gt;;
+
+  /**
+   * It will stream all web socket errors.
+   *
+   * This Observer will yield the received
+   * [Event]{@link https://developer.mozilla.org/en-US/docs/Web/API/Event}.
+   *
+   * Maps to: [Client#onWebSocketError]{@link Client#onWebSocketError}
+   */
+  public webSocketErrors$: Subject&lt;Event&gt;;
 
   /**
    * Internal array to hold locally queued messages when STOMP broker is not connected.
@@ -1214,12 +1344,6 @@ export class RxStomp {
   public constructor() {
     this._stompClient &#x3D; new Client();
 
-    // Default messages
-    this._setupUnhandledMessages();
-
-    // Receipts
-    this._setupUnhandledReceipts();
-
     const noOp &#x3D; () &#x3D;&gt; {};
 
     // Before connect is no op by default
@@ -1227,6 +1351,15 @@ export class RxStomp {
 
     // debug is no-op by default
     this._debug &#x3D; noOp;
+
+    // Initial state is CLOSED
+    this._connectionStatePre$ &#x3D; new BehaviorSubject&lt;RxStompState&gt;(RxStompState.CLOSED);
+
+    this._connectedPre$ &#x3D; this._connectionStatePre$.pipe(
+      filter((currentState: RxStompState) &#x3D;&gt; {
+        return currentState &#x3D;&#x3D;&#x3D; RxStompState.OPEN;
+      })
+    );
 
     // Initial state is CLOSED
     this.connectionState$ &#x3D; new BehaviorSubject&lt;RxStompState&gt;(RxStompState.CLOSED);
@@ -1250,7 +1383,11 @@ export class RxStomp {
       })
     );
 
-    this.stompErrors$ &#x3D; new Subject();
+    this.stompErrors$ &#x3D; new Subject&lt;IFrame&gt;();
+    this.unhandledMessage$ &#x3D; new Subject&lt;IMessage&gt;();
+    this.unhandledReceipts$ &#x3D; new Subject&lt;IFrame&gt;();
+    this.unhandledFrame$ &#x3D; new Subject&lt;IFrame&gt;();
+    this.webSocketErrors$ &#x3D; new Subject&lt;Event&gt;();
   }
 
   /**
@@ -1305,24 +1442,36 @@ export class RxStomp {
    */
   public activate(): void {
     this._stompClient.configure({
-      beforeConnect: () &#x3D;&gt; {
+      beforeConnect: async () &#x3D;&gt; {
         this._changeState(RxStompState.CONNECTING);
 
         // Call handler
-        this._beforeConnect();
+        await this._beforeConnect();
       },
-      onConnect: (frame: Frame) &#x3D;&gt; {
+      onConnect: (frame: IFrame) &#x3D;&gt; {
         this._serverHeadersBehaviourSubject$.next(frame.headers);
 
         // Indicate our connected state to observers
         this._changeState(RxStompState.OPEN);
       },
-      onStompError: (frame: Frame) &#x3D;&gt; {
+      onStompError: (frame: IFrame) &#x3D;&gt; {
         // Trigger the frame subject
         this.stompErrors$.next(frame);
       },
       onWebSocketClose: () &#x3D;&gt; {
         this._changeState(RxStompState.CLOSED);
+      },
+      onUnhandledMessage: (message: IMessage) &#x3D;&gt; {
+        this.unhandledMessage$.next(message);
+      },
+      onUnhandledReceipt: (frame: IFrame) &#x3D;&gt; {
+        this.unhandledReceipts$.next(frame);
+      },
+      onUnhandledFrame: (frame: IFrame) &#x3D;&gt; {
+        this.unhandledFrame$.next(frame);
+      },
+      onWebSocketError: (evt: Event) &#x3D;&gt; {
+        this.webSocketErrors$.next(evt);
       }
     });
 
@@ -1446,7 +1595,7 @@ export class RxStomp {
    *
    * Maps to: [Client#subscribe]{@link Client#subscribe}
    */
-  public watch(destination: string, headers: StompHeaders &#x3D; {}): Observable&lt;Message&gt; {
+  public watch(destination: string, headers: StompHeaders &#x3D; {}): Observable&lt;IMessage&gt; {
 
     /* Well the logic is complicated but works beautifully. RxJS is indeed wonderful.
      *
@@ -1468,7 +1617,7 @@ export class RxStomp {
     }
 
     const coldObservable &#x3D; Observable.create(
-      (messages: Observer&lt;Message&gt;) &#x3D;&gt; {
+      (messages: Observer&lt;IMessage&gt;) &#x3D;&gt; {
         /*
          * These variables will be used as part of the closure and work their magic during unsubscribe
          */
@@ -1476,13 +1625,13 @@ export class RxStomp {
 
         let stompConnectedSubscription: Subscription;
 
-        stompConnectedSubscription &#x3D; this.connected$.subscribe(() &#x3D;&gt; {
-            this._debug(&#x60;Will subscribe to ${destination}&#x60;);
-            stompSubscription &#x3D; this._stompClient.subscribe(destination, (message: Message) &#x3D;&gt; {
-                messages.next(message);
-              },
-              headers);
-          });
+        stompConnectedSubscription &#x3D; this._connectedPre$.subscribe(() &#x3D;&gt; {
+          this._debug(&#x60;Will subscribe to ${destination}&#x60;);
+          stompSubscription &#x3D; this._stompClient.subscribe(destination, (message: IMessage) &#x3D;&gt; {
+              messages.next(message);
+            },
+            headers);
+        });
 
         return () &#x3D;&gt; { /* cleanup function, will be called when no subscribers are left */
           this._debug(&#x60;Stop watching connection state (for ${destination})&#x60;);
@@ -1503,28 +1652,6 @@ export class RxStomp {
      * A long but good explanatory article at https://medium.com/@benlesh/hot-vs-cold-observables-f8094ed53339
      */
     return coldObservable.pipe(share());
-  }
-
-  /**
-   * Setup streaming unhandled messages.
-   */
-  protected _setupUnhandledMessages(): void {
-    this.unhandledMessage$ &#x3D; new Subject();
-
-    this._stompClient.onUnhandledMessage &#x3D; (message: Message) &#x3D;&gt; {
-      this.unhandledMessage$.next(message);
-    };
-  }
-
-  /**
-   * Setup streaming unhandled receipts.
-   */
-  protected _setupUnhandledReceipts(): void {
-    this.unhandledReceipts$ &#x3D; new Subject();
-
-    this._stompClient.onUnhandledReceipt &#x3D; (frame: Frame) &#x3D;&gt; {
-      this.unhandledReceipts$.next(frame);
-    };
   }
 
   /**
@@ -1555,11 +1682,12 @@ export class RxStomp {
    *
    * Maps to: [Client#watchForReceipt]{@link Client#watchForReceipt}
    */
-  public watchForReceipt(receiptId: string, callback: (frame: Frame) &#x3D;&gt; void): void {
+  public watchForReceipt(receiptId: string, callback: (frame: IFrame) &#x3D;&gt; void): void {
     this._stompClient.watchForReceipt(receiptId, callback);
   }
 
   protected _changeState(state: RxStompState): void {
+    this._connectionStatePre$.next(state);
     this.connectionState$.next(state);
   }
 

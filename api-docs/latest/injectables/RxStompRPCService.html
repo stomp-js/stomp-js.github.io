@@ -78,7 +78,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rxStomp: <a href="../injectables/StompService.html">RxStompService</a>, stompRPCConfig?: <a href="../injectables/InjectableRxStompRpcConfig.html">InjectableRxStompRpcConfig</a>)</code>
+<code>constructor(rxStomp: <a href="../injectables/StompService.html">RxStompService</a>, stompRPCConfig?: <a href="../injectables/InjectableRxStompRPCConfig.html">InjectableRxStompRPCConfig</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -116,7 +116,7 @@
                                                         <td>stompRPCConfig</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/InjectableRxStompRpcConfig.html" target="_self" >InjectableRxStompRpcConfig</a></code>
+                                                                    <code><a href="../injectables/InjectableRxStompRPCConfig.html" target="_self" >InjectableRxStompRPCConfig</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -143,7 +143,7 @@
 
 import {RxStompRPC} from &#x27;@stomp/rx-stomp&#x27;;
 import {RxStompService} from &#x27;./rx-stomp.service&#x27;;
-import {InjectableRxStompRpcConfig} from &#x27;./injectable-rx-stomp-rpc-config&#x27;;
+import {InjectableRxStompRPCConfig} from &#x27;./injectable-rx-stomp-rpc-config&#x27;;
 
 /**
  * Part of &#x60;@stomp/ng2-stompjs&#x60;.
@@ -154,7 +154,7 @@ import {InjectableRxStompRpcConfig} from &#x27;./injectable-rx-stomp-rpc-config&
  */
 @Injectable()
 export class RxStompRPCService extends RxStompRPC {
-  constructor(rxStomp: RxStompService, @Optional() stompRPCConfig?: InjectableRxStompRpcConfig) {
+  constructor(rxStomp: RxStompService, @Optional() stompRPCConfig?: InjectableRxStompRPCConfig) {
     super(rxStomp, stompRPCConfig);
   }
 }
