@@ -364,8 +364,11 @@ This can be set quite small.
 
 ## Debug
 
-The client can set its [Client#debug](/api-docs/latest/classes/Client.html#debug) property to a function with takes a `String` 
-argument to see all the debug statements of the library:
+By default, the debug messages are ignored.
+On a busy system volume of logs can be overwhelming.
+
+[Client#debug](/api-docs/latest/classes/Client.html#debug) property can be set to a function
+(which will receive a `String` argument) to enable debug statements:
 
 ```javascript
   client.debug = function(str) {
@@ -373,8 +376,8 @@ argument to see all the debug statements of the library:
   };
 ```
 
-By default, the debug messages are ignored.
-On a busy system the logs can be overwhelming.
+Usually headers of the incoming and outgoing frames are logged.
+Set [Client#logRawCommunication](/api-docs/latest/classes/Client.html#logRawCommunication) to log entire frames. 
 
 ## Callbacks
 
@@ -400,9 +403,6 @@ On a busy system the logs can be overwhelming.
 - [Client#onUnhandledReceipt](/api-docs/latest/classes/Client.html#onUnhandledReceipt) - you should prefer
   [Client#watchForReceipt](/api-docs/latest/classes/Client.html#watchForReceipt). If there is any incoming receipt for
   which there is no active watcher, this callback will be invoked.
-- [Client#treatMessageAsBinary](/api-docs/latest/classes/Client.html#treatMessageAsBinary) - invoked for each incoming
-  message, depending on the outcome, the body is returned as string or Uint8Array. The default implementation
-  always returns `false`.
 - [Client#onUnhandledFrame](/api-docs/latest/classes/Client.html#onUnhandledFrame) - it will be invoked if broker sends a
   non standard STOMP command.
   
