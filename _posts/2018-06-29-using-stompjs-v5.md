@@ -114,7 +114,7 @@ STOMP JavaScript clients will communicate to a STOMP server using a `ws://` or `
 ```
 
 To deactivate a client call [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate).
-It will stop sttempting to reconnect and disconnect if there is an active connection.
+It will stop attempting to reconnect and disconnect if there is an active connection.
 
 ```javascript
     client.deactivate();
