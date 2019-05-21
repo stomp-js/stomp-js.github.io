@@ -30,7 +30,7 @@ You would need to consider the following:
   depending on actual transport in use.
 - Auto reconnect is not quite reliable with SockJS.
 - Heartbeats may not be supported over SockJS by some brokers.
-- SockJS does not allow more than simultaneous connection to the same broker.
+- SockJS does not allow more than one simultaneous connection to the same broker.
   This usually is not a problem for most of the applications.
 
 It is advised to use WebSockets by default and then fall back to SockJS if the browser does not support.
