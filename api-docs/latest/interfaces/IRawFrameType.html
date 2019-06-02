@@ -43,7 +43,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>IFrame</li>
+  <li>IRawFrameType</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -61,17 +61,15 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>consolidated/stompjs/src/i-frame.ts</code>
+            <code>consolidated/stompjs/src/types.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>It represents a STOMP frame. Many of the callbacks pass an IFrame received from
-the STOMP broker. For advanced usage you might need to access <a href="../interfaces/IFrame.html#headers">headers</a>.</p>
+                <p>The parser yield frames in this structure</p>
 <p>Part of <code>@stomp/stompjs</code>.</p>
-<p><a href="../interfaces/IMessage.html">IMessage</a> is an extended IFrame.</p>
 
             </p>
 
@@ -92,16 +90,10 @@ the STOMP broker. For advanced usage you might need to access <a href="../interf
                                         <a href="#binaryBody">binaryBody</a>
                                 </li>
                                 <li>
-                                        <a href="#body">body</a>
-                                </li>
-                                <li>
                                         <a href="#command">command</a>
                                 </li>
                                 <li>
                                         <a href="#headers">headers</a>
-                                </li>
-                                <li>
-                                        <a href="#isBinaryBody">isBinaryBody</a>
                                 </li>
                             </ul>
                         </td>
@@ -141,47 +133,6 @@ the STOMP broker. For advanced usage you might need to access <a href="../interf
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>body as Uint8Array</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="body"></a>
-                                        <span class="name"><b>body</b><a href="#body"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>body:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>body of the frame as string</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -211,12 +162,6 @@ the STOMP broker. For advanced usage you might need to access <a href="../interf
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>STOMP Command</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
@@ -229,7 +174,7 @@ the STOMP broker. For advanced usage you might need to access <a href="../interf
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>headers:     <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders</a></code>
+                                        <code>headers:     <code><a href="../miscellaneous/typealiases.html#RawHeaderType" target="_self" >RawHeaderType[]</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -237,7 +182,7 @@ the STOMP broker. For advanced usage you might need to access <a href="../interf
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders</a></code>
+                                            <i>Type : </i>    <code><a href="../miscellaneous/typealiases.html#RawHeaderType" target="_self" >RawHeaderType[]</a></code>
 
                                         </td>
                                     </tr>
@@ -246,47 +191,6 @@ the STOMP broker. For advanced usage you might need to access <a href="../interf
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Headers, key value pairs.</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="isBinaryBody"></a>
-                                        <span class="name"><b>isBinaryBody</b><a href="#isBinaryBody"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>isBinaryBody:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                                        </td>
-                                    </tr>
-
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>Is this frame binary (based on whether body/binaryBody was passed when creating this frame).</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
             </section>
@@ -294,47 +198,99 @@ the STOMP broker. For advanced usage you might need to access <a href="../interf
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {StompHeaders} from &#x27;./stomp-headers&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {IFrame} from &#x27;./i-frame&#x27;;
+import {IMessage} from &#x27;./i-message&#x27;;
+import {StompHeaders} from &#x27;./stomp-headers&#x27;;
 
 /**
- * It represents a STOMP frame. Many of the callbacks pass an IFrame received from
- * the STOMP broker. For advanced usage you might need to access [headers]{@link IFrame#headers}.
+ * This callback will receive a &#x60;string&#x60; as parameter.
  *
  * Part of &#x60;@stomp/stompjs&#x60;.
- *
- * {@link IMessage} is an extended IFrame.
  */
-export interface IFrame {
-  /**
-   * STOMP Command
-   */
-  command: string;
+export type debugFnType &#x3D; (msg: string) &#x3D;&gt; void;
 
-  /**
-   * Headers, key value pairs.
-   */
-  headers: StompHeaders;
+/**
+ * This callback will receive a {@link IMessage} as parameter.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ */
+export type messageCallbackType &#x3D; (message: IMessage) &#x3D;&gt; void;
 
-  /**
-   * Is this frame binary (based on whether body/binaryBody was passed when creating this frame).
-   */
-  isBinaryBody: boolean;
+/**
+ * This callback will receive a {@link IFrame} as parameter.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ */
+export type frameCallbackType &#x3D; (receipt: IFrame) &#x3D;&gt; void;
 
-  /**
-   * body of the frame as string
-   */
-  readonly body: string;
+/**
+ * This callback will receive a [CloseEvent]{@link https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent}
+ * as parameter.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ */
+export type closeEventCallbackType &#x3D; (evt: CloseEvent) &#x3D;&gt; void;
 
+/**
+ * This callback will receive an [Event]{@link https://developer.mozilla.org/en-US/docs/Web/API/Event}
+ * as parameter.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ */
+export type wsErrorCallbackType &#x3D; (evt: Event) &#x3D;&gt; void;
+
+/**
+ * Parameters for [Client#publish]{@link Client#publish}.
+ * Aliased as publishParams as well.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ */
+export interface IPublishParams {
   /**
-   * body as Uint8Array
+   * destination end point
    */
-  readonly binaryBody: Uint8Array;
+  destination: string;
+  /**
+   * headers (optional)
+   */
+  headers?: StompHeaders;
+  /**
+   * body (optional)
+   */
+  body?: string;
+  /**
+   * binary body (optional)
+   */
+  binaryBody?: Uint8Array;
+  /**
+   * By default a &#x60;content-length&#x60; header will be added in the Frame to the broker.
+   * Set it to &#x60;true&#x60; for the header to be skipped.
+   */
+  skipContentLengthHeader?: boolean;
 }
 
 /**
- * Alias for {@link IFrame}
+ * Backward compatibility, switch to {@link IPublishParams}.
  */
-export type Frame &#x3D; IFrame;
+export type publishParams &#x3D; IPublishParams;
+
+/**
+ * Used in {@link IRawFrameType}
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ *
+ * @internal
+ */
+export type RawHeaderType &#x3D; [string, string];
+
+/**
+ * The parser yield frames in this structure
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ *
+ * @internal
+ */
+export interface IRawFrameType { command: string; headers: RawHeaderType[]; binaryBody: Uint8Array; }
 </code></pre>
     </div>
 </div>
@@ -361,7 +317,7 @@ export type Frame &#x3D; IFrame;
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IFrame.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'IRawFrameType.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

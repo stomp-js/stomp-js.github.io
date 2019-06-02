@@ -9,7 +9,6 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
-        <link rel="stylesheet" href="../styles/Vagrant.css">
     </head>
     <body>
 
@@ -109,6 +108,11 @@ please use StompService class.</p>
                     <td class="col-md-4">
                         <ul class="index-list">
                             <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#_mapStompState">_mapStompState</a>
+                            </li>
+                            <li>
                                     <span class="modifier">Public</span>
                                 <a href="#disconnect">disconnect</a>
                             </li>
@@ -197,6 +201,78 @@ please use StompService class.</p>
         <h3 id="methods">
             Methods
         </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_mapStompState"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Private</span>
+                                <span class="modifier">Static</span>
+                            _mapStompState
+                            </b>
+                            <a href="#_mapStompState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                            <span class="modifier-icon icon ion-ios-reset"></span>
+                        <code>_mapStompState(st: <a href="../classes/Stomp.html">RxStompState</a>)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">consolidated/ng2-stompjs/src/stomp-r.service.ts:42</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>st</td>
+                                                        <td>
+                                                                    <code><a href="../classes/Stomp.html" target="_self" >RxStompState</a></code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="../classes/Stomp.html" target="_self" >StompState</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -298,7 +374,7 @@ please use StompService class.</p>
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>publish(queueName: <a href="../miscellaneous/publishParams.html">string | publishParams</a>, message?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, headers: <a href="../classes/StompHeaders.html">StompHeaders</a>)</code>
+                        <code>publish(queueName: <a href="../undefineds/publishParams.html">string | publishParams</a>, message?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, headers: <a href="../classes/StompHeaders.html">StompHeaders</a>)</code>
                     </td>
                 </tr>
 
@@ -605,16 +681,9 @@ will be passed as parameter to the callback.</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
-                            state
-                            </b>
+                            state</b>
                             <a href="#state"><span class="icon ion-ios-link"></span></a>
                         </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                        <span class="modifier-icon icon ion-ios-reset"></span><code>state:     <code><a href="../classes/Stomp.html" target="_self" >BehaviorSubject&lt;StompState&gt;</a></code>
-</code>
                     </td>
                 </tr>
                     <tr>

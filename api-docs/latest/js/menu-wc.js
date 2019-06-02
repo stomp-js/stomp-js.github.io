@@ -1,41 +1,186 @@
 'use strict';
 
 
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-customElements.define('compodoc-menu', function (_HTMLElement) {
-    _inherits(_class, _HTMLElement);
-
-    function _class() {
-        _classCallCheck(this, _class);
-
-        var _this = _possibleConstructorReturn(this, (_class.__proto__ || Object.getPrototypeOf(_class)).call(this));
-
-        _this.isNormalMode = _this.getAttribute('mode') === 'normal';
-        return _this;
+customElements.define('compodoc-menu', class extends HTMLElement {
+    constructor() {
+        super();
+        this.isNormalMode = this.getAttribute('mode') === 'normal';
     }
 
-    _createClass(_class, [{
-        key: 'connectedCallback',
-        value: function connectedCallback() {
-            this.render(this.isNormalMode);
-        }
-    }, {
-        key: 'render',
-        value: function render(isNormalMode) {
-            let tp = lithtml.html(
-'<nav>\n    <ul class="list">\n        <li class="title">\n            \n                <a href="index.html" data-type="index-link">stompjs-docs documentation</a>\n            \n        </li>\n\n        <li class="divider"></li>\n        ' + (isNormalMode ? '<div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>' : '') + '\n        <li class="chapter">\n            <a data-type="chapter-link" href="index.html"><span class="icon ion-ios-home"></span>Getting started</a>\n            <ul class="links">\n                \n                    <li class="link">\n                        <a href="index.html" data-type="chapter-link">\n                            <span class="icon ion-ios-keypad" ></span>Overview\n                        </a>\n                    </li>\n                \n                \n                \n                    <li class="link">\n                        <a href="dependencies.html"\n                            data-type="chapter-link">\n                            <span class="icon ion-ios-list"></span>Dependencies\n                        </a>\n                    </li>\n                \n            </ul>\n        </li>\n        \n        \n        \n        \n        \n        \n        <li class="chapter">\n            <div class="simple menu-toggler" data-toggle="collapse"\n            ' + (isNormalMode ? 'data-target="#classes-links"' : 'data-target="#xs-classes-links"') + '>\n                <span class="icon ion-ios-paper"></span>\n                <span>Classes</span>\n                <span class="icon ion-ios-arrow-down"></span>\n            </div>\n            <ul class="links collapse"\n            ' + (isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"') + '>\n                \n                    <li class="link">\n                        <a href="classes/Client.html" data-type="entity-link">Client</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="classes/CompatClient.html" data-type="entity-link">CompatClient</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="classes/RxStomp.html" data-type="entity-link">RxStomp</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="classes/RxStompConfig.html" data-type="entity-link">RxStompConfig</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="classes/RxStompRPC.html" data-type="entity-link">RxStompRPC</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="classes/RxStompRPCConfig.html" data-type="entity-link">RxStompRPCConfig</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="classes/Stomp.html" data-type="entity-link">Stomp</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="classes/StompConfig.html" data-type="entity-link">StompConfig</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="classes/StompHeaders.html" data-type="entity-link">StompHeaders</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="classes/StompSubscription.html" data-type="entity-link">StompSubscription</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="classes/Versions.html" data-type="entity-link">Versions</a>\n                    </li>\n                \n            </ul>\n        </li>\n        \n        \n            \n                <li class="chapter">\n                    <div class="simple menu-toggler" data-toggle="collapse"\n                        ' + (isNormalMode ? 'data-target="#injectables-links"' : 'data-target="#xs-injectables-links"') + '>\n                        <span class="icon ion-md-arrow-round-down"></span>\n                        <span>Injectables</span>\n                        <span class="icon ion-ios-arrow-down"></span>\n                    </div>\n                    <ul class="links collapse"\n                    ' + (isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"') + '>\n                        \n                            <li class="link">\n                                <a href="injectables/InjectableRxStompConfig.html" data-type="entity-link">InjectableRxStompConfig</a>\n                            </li>\n                        \n                            <li class="link">\n                                <a href="injectables/InjectableRxStompRPCConfig.html" data-type="entity-link">InjectableRxStompRPCConfig</a>\n                            </li>\n                        \n                            <li class="link">\n                                <a href="injectables/RxStompRPCService.html" data-type="entity-link">RxStompRPCService</a>\n                            </li>\n                        \n                            <li class="link">\n                                <a href="injectables/RxStompService.html" data-type="entity-link">RxStompService</a>\n                            </li>\n                        \n                            <li class="link">\n                                <a href="injectables/StompRService.html" data-type="entity-link">StompRService</a>\n                            </li>\n                        \n                            <li class="link">\n                                <a href="injectables/StompService.html" data-type="entity-link">StompService</a>\n                            </li>\n                        \n                    </ul>\n                </li>\n            \n        \n        \n        \n        \n        <li class="chapter">\n            <div class="simple menu-toggler" data-toggle="collapse"\n                ' + (isNormalMode ? 'data-target="#interfaces-links"' : 'data-target="#xs-interfaces-links"') + '>\n                <span class="icon ion-md-information-circle-outline"></span>\n                <span>Interfaces</span>\n                <span class="icon ion-ios-arrow-down"></span>\n            </div>\n            <ul class="links collapse"\n            ' + (isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"') + '>\n                \n                    <li class="link">\n                        <a href="interfaces/IFrame.html" data-type="entity-link">IFrame</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="interfaces/IMessage.html" data-type="entity-link">IMessage</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="interfaces/IPublishParams.html" data-type="entity-link">IPublishParams</a>\n                    </li>\n                \n                    <li class="link">\n                        <a href="interfaces/ITransaction.html" data-type="entity-link">ITransaction</a>\n                    </li>\n                \n            </ul>\n        </li>\n        \n        \n        \n        <li class="chapter">\n            <div class="simple menu-toggler" data-toggle="collapse"\n            ' + (isNormalMode ? 'data-target="#miscellaneous-links"' : 'data-target="#xs-miscellaneous-links"') + '>\n                <span class="icon ion-ios-cube"></span>\n                <span>Miscellaneous</span>\n                <span class="icon ion-ios-arrow-down"></span>\n            </div>\n            <ul class="links collapse"\n            ' + (isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"') + '>\n                \n                    <li class="link">\n                      <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>\n                    </li>\n                \n                \n                    <li class="link">\n                      <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>\n                    </li>\n                \n                \n                    <li class="link">\n                      <a href="miscellaneous/typealiases.html" data-type="entity-link">Type aliases</a>\n                    </li>\n                \n                \n                    <li class="link">\n                      <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>\n                    </li>\n                \n            </ul>\n        </li>\n        \n        \n            \n        \n        \n        <li class="chapter">\n            <a data-type="chapter-link" href="coverage.html"><span class="icon ion-ios-stats"></span>Documentation coverage</a>\n        </li>\n        \n        \n        \n    </ul>\n</nav>'
-);
-        this.innerHTML = tp.strings;
-        }
-    }]);
+    connectedCallback() {
+        this.render(this.isNormalMode);
+    }
 
-    return _class;
-}(HTMLElement));
+    render(isNormalMode) {
+        let tp = lithtml.html(`
+        <nav>
+            <ul class="list">
+                <li class="title">
+                    <a href="index.html" data-type="index-link">stompjs-docs documentation</a>
+                </li>
+
+                <li class="divider"></li>
+                ${ isNormalMode ? `<div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>` : '' }
+                <li class="chapter">
+                    <a data-type="chapter-link" href="index.html"><span class="icon ion-ios-home"></span>Getting started</a>
+                    <ul class="links">
+                        <li class="link">
+                            <a href="index.html" data-type="chapter-link">
+                                <span class="icon ion-ios-keypad"></span>Overview
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="dependencies.html" data-type="chapter-link">
+                                <span class="icon ion-ios-list"></span>Dependencies
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#classes-links"' :
+                            'data-target="#xs-classes-links"' }>
+                            <span class="icon ion-ios-paper"></span>
+                            <span>Classes</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse" ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
+                            <li class="link">
+                                <a href="classes/Client.html" data-type="entity-link">Client</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/CompatClient.html" data-type="entity-link">CompatClient</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/FrameImpl.html" data-type="entity-link">FrameImpl</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/HeartbeatInfo.html" data-type="entity-link">HeartbeatInfo</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Parser.html" data-type="entity-link">Parser</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/RxStomp.html" data-type="entity-link">RxStomp</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/RxStompConfig.html" data-type="entity-link">RxStompConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/RxStompRPC.html" data-type="entity-link">RxStompRPC</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/RxStompRPCConfig.html" data-type="entity-link">RxStompRPCConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Stomp.html" data-type="entity-link">Stomp</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/StompConfig.html" data-type="entity-link">StompConfig</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/StompHandler.html" data-type="entity-link">StompHandler</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/StompHeaders.html" data-type="entity-link">StompHeaders</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/StompSubscription.html" data-type="entity-link">StompSubscription</a>
+                            </li>
+                            <li class="link">
+                                <a href="classes/Versions.html" data-type="entity-link">Versions</a>
+                            </li>
+                        </ul>
+                    </li>
+                        <li class="chapter">
+                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#injectables-links"' :
+                                'data-target="#xs-injectables-links"' }>
+                                <span class="icon ion-md-arrow-round-down"></span>
+                                <span>Injectables</span>
+                                <span class="icon ion-ios-arrow-down"></span>
+                            </div>
+                            <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
+                                <li class="link">
+                                    <a href="injectables/InjectableRxStompConfig.html" data-type="entity-link">InjectableRxStompConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/InjectableRxStompRPCConfig.html" data-type="entity-link">InjectableRxStompRPCConfig</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/RxStompRPCService.html" data-type="entity-link">RxStompRPCService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/RxStompService.html" data-type="entity-link">RxStompService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/StompRService.html" data-type="entity-link">StompRService</a>
+                                </li>
+                                <li class="link">
+                                    <a href="injectables/StompService.html" data-type="entity-link">StompService</a>
+                                </li>
+                            </ul>
+                        </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interfaces-links"' :
+                            'data-target="#xs-interfaces-links"' }>
+                            <span class="icon ion-md-information-circle-outline"></span>
+                            <span>Interfaces</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse" ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                            <li class="link">
+                                <a href="interfaces/IFrame.html" data-type="entity-link">IFrame</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IMessage.html" data-type="entity-link">IMessage</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IPublishParams.html" data-type="entity-link">IPublishParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IRawFrameType.html" data-type="entity-link">IRawFrameType</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IRxStompPublishParams.html" data-type="entity-link">IRxStompPublishParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/ITransaction.html" data-type="entity-link">ITransaction</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#miscellaneous-links"'
+                            : 'data-target="#xs-miscellaneous-links"' }>
+                            <span class="icon ion-ios-cube"></span>
+                            <span>Miscellaneous</span>
+                            <span class="icon ion-ios-arrow-down"></span>
+                        </div>
+                        <ul class="links collapse" ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
+                            <li class="link">
+                                <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/typealiases.html" data-type="entity-link">Type aliases</a>
+                            </li>
+                            <li class="link">
+                                <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="coverage.html"><span class="icon ion-ios-stats"></span>Documentation coverage</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li class="copyright">
+                        Documentation generated using <a href="https://compodoc.app/" target="_blank">
+                            <img data-src="images/compodoc-vectorise.png" class="img-responsive" data-type="compodoc-logo">
+                        </a>
+                    </li>
+            </ul>
+        </nav>
+        `);
+        this.innerHTML = tp.strings;
+    }
+});
