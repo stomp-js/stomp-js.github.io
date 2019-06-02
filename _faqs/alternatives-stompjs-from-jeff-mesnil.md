@@ -1,6 +1,6 @@
 ---
-question: "stompjs from Jeff Mesnil"
-group: Alternatives
+question: "How is it related to stompjs from Jeff Mesnil?"
+group: Jeff Mesnil's stompjs
 priority: KAA
 ---
 

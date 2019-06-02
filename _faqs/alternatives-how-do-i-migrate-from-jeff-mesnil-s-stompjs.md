@@ -1,6 +1,6 @@
 ---
-question: "How do I migrate from the original (Jeff Mesnil) stompjs?"
-group: Alternatives
+question: "How do I migrate from Jeff Mesnil's stompjs?"
+group: Jeff Mesnil's stompjs
 priority: KAC
 ---
 

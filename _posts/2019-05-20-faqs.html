@@ -8,8 +8,12 @@ categories: faqs
 <style type="text/css">
     #answers .question {
         font-weight: bold;
-        padding-top: 2em;
-        padding-bottom: 0.3em;
+        margin-top: 1.9em;
+        margin-bottom: 0.3em;
+    }
+
+    h2 {
+        margin-top: 2em;
     }
 
 </style>
@@ -22,23 +26,24 @@ categories: faqs
 {% assign grouped_faqs = sorted_faqs | group_by: "group" %}
 
 <div id="question-list">
-{% for group in grouped_faqs %}
-<h3>{{ group.name }}</h3>
-<ol class="list">
-{% for faq in group.items  %}
-    <li><a href="#{{ faq.question | markdownify | slugify}}">{{ faq.question }}</a></li>
-{% endfor %}
-</ol>
-{% endfor %}
+    {% for group in grouped_faqs %}
+    <h3>{{ group.name }}</h3>
+    <ol class="list">
+        {% for faq in group.items %}
+        <li><a href="#{{ faq.question | markdownify | slugify}}">{{ faq.question }}</a></li>
+        {% endfor %}
+    </ol>
+    {% endfor %}
 </div>
 
 <div id="answers">
-{% for group in grouped_faqs %}
-{% for faq in group.items  %}
-<div class="item" id="{{ faq.question | markdownify | slugify}}">
-<p class="question">{{ faq.question }}</p>
-<div class="answer">{{ faq.content | markdownify }}</div>
-</div>
-{% endfor %}
-{% endfor %}
+    {% for group in grouped_faqs %}
+    <h2>{{ group.name }}</h2>
+    {% for faq in group.items %}
+    <div class="item" id="{{ faq.question | markdownify | slugify}}">
+        <p class="question">Q: {{ faq.question }}</p>
+        <div class="answer">{{ faq.content | markdownify }}</div>
+    </div>
+    {% endfor %}
+    {% endfor %}
 </div>
