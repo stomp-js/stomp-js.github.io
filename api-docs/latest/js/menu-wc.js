@@ -51,15 +51,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/CompatClient.html" data-type="entity-link">CompatClient</a>
                             </li>
                             <li class="link">
-                                <a href="classes/FrameImpl.html" data-type="entity-link">FrameImpl</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/HeartbeatInfo.html" data-type="entity-link">HeartbeatInfo</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/Parser.html" data-type="entity-link">Parser</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/RxStomp.html" data-type="entity-link">RxStomp</a>
                             </li>
                             <li class="link">
@@ -76,9 +67,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/StompConfig.html" data-type="entity-link">StompConfig</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/StompHandler.html" data-type="entity-link">StompHandler</a>
                             </li>
                             <li class="link">
                                 <a href="classes/StompHeaders.html" data-type="entity-link">StompHeaders</a>
@@ -137,9 +125,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IPublishParams.html" data-type="entity-link">IPublishParams</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IRawFrameType.html" data-type="entity-link">IRawFrameType</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/IRxStompPublishParams.html" data-type="entity-link">IRxStompPublishParams</a>
                             </li>
                             <li class="link">
@@ -171,12 +156,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                     </li>
                     <li class="chapter">
                         <a data-type="chapter-link" href="coverage.html"><span class="icon ion-ios-stats"></span>Documentation coverage</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li class="copyright">
-                        Documentation generated using <a href="https://compodoc.app/" target="_blank">
-                            <img data-src="images/compodoc-vectorise.png" class="img-responsive" data-type="compodoc-logo">
-                        </a>
                     </li>
             </ul>
         </nav>

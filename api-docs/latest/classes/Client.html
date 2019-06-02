@@ -9,6 +9,7 @@
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
 	      <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/Vagrant.css">
     </head>
     <body>
 
@@ -87,26 +88,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#_active">_active</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#_disconnectHeaders">_disconnectHeaders</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#_reconnector">_reconnector</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#_stompHandler">_stompHandler</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Protected</span>
-                                <a href="#_webSocket">_webSocket</a>
-                            </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#beforeConnect">beforeConnect</a>
@@ -203,23 +184,6 @@
                 <tr>
                     <td class="col-md-4">
                         <ul class="index-list">
-                            <li>
-                                    <span class="modifier">Private</span>
-                                    <span class="modifier">Async</span>
-                                <a href="#_connect">_connect</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#_createWebSocket">_createWebSocket</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#_disposeStompHandler">_disposeStompHandler</a>
-                            </li>
-                            <li>
-                                    <span class="modifier">Private</span>
-                                <a href="#_schedule_reconnect">_schedule_reconnect</a>
-                            </li>
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#abort">abort</a>
@@ -366,157 +330,6 @@
         <h3 id="inputs">
             Properties
         </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_active"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _active</b>
-                            <a href="#_active"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
-
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Default value : </i><code>false</code>
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="279" class="link-to-prism">consolidated/stompjs/src/client.ts:279</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_disconnectHeaders"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _disconnectHeaders</b>
-                            <a href="#_disconnectHeaders"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">consolidated/stompjs/src/client.ts:141</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_reconnector"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _reconnector</b>
-                            <a href="#_reconnector"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="280" class="link-to-prism">consolidated/stompjs/src/client.ts:280</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_stompHandler"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _stompHandler</b>
-                            <a href="#_stompHandler"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code><a href="../classes/StompHandler.html" target="_self" >StompHandler</a></code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="271" class="link-to-prism">consolidated/stompjs/src/client.ts:271</a></div>
-                            </td>
-                        </tr>
-
-
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_webSocket"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Protected</span>
-                            _webSocket</b>
-                            <a href="#_webSocket"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                    <tr>
-                        <td class="col-md-4">
-                            <i>Type : </i>    <code>WebSocket</code>
-
-                        </td>
-                    </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">consolidated/stompjs/src/client.ts:119</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                        <div class="io-description"><p>Underlying WebSocket instance</p>
-</div>
-                    </td>
-                </tr>
-
-            </tbody>
-        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -898,7 +711,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Callback, invoked on every successful connection to the STOMP broker.</p>
-<p>The actual <a href="../classes/FrameImpl.html">FrameImpl</a> will be passed as parameter to the callback.
+<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.
 Sometimes clients will like to use headers from this frame.</p>
 </div>
                     </td>
@@ -935,9 +748,9 @@ Sometimes clients will like to use headers from this frame.</p>
                     <td class="col-md-4">
                         <div class="io-description"><p>Callback, invoked on every successful disconnection from the STOMP broker. It will not be invoked if
 the STOMP broker disconnected due to an error.</p>
-<p>The actual Receipt <a href="../classes/FrameImpl.html">FrameImpl</a> acknowledging the DISCONNECT will be passed as parameter to the callback.</p>
+<p>The actual Receipt <a href="FrameImpl">FrameImpl</a> acknowledging the DISCONNECT will be passed as parameter to the callback.</p>
 <p>The way STOMP protocol is designed, the connection may close/terminate without the client
-receiving the Receipt <a href="../classes/FrameImpl.html">FrameImpl</a> acknowledging the DISCONNECT.
+receiving the Receipt <a href="FrameImpl">FrameImpl</a> acknowledging the DISCONNECT.
 You might find <a href="../classes/Client.html#onWebSocketClose">Client#onWebSocketClose</a> more appropriate to watch
 STOMP broker disconnects.</p>
 </div>
@@ -1010,7 +823,7 @@ Please check broker specific documentation for exact behavior.</p>
 
                 <tr>
                     <td class="col-md-4">
-                        <div class="io-description"><p>Will be invoked if <a href="../classes/FrameImpl.html">FrameImpl</a> of unknown type is received from the STOMP broker.</p>
+                        <div class="io-description"><p>Will be invoked if <a href="FrameImpl">FrameImpl</a> of unknown type is received from the STOMP broker.</p>
 <p>The actual <a href="../interfaces/IFrame.html">IFrame</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
@@ -1087,7 +900,7 @@ from an endpoint.</p>
                         <div class="io-description"><p>STOMP brokers can be requested to notify when an operation is actually completed.
 Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a>. See
 <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a> for examples.</p>
-<p>The actual <a href="../classes/FrameImpl.html">FrameImpl</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.</p>
 </div>
                     </td>
                 </tr>
@@ -1340,167 +1153,6 @@ If your STOMP Broker supports WebSockets, prefer setting <a href="../classes/Cli
         <h3 id="methods">
             Methods
         </h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_connect"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                                <span class="modifier">Async</span>
-                            _connect
-                            </b>
-                            <a href="#_connect"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>_connect()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="329" class="link-to-prism">consolidated/stompjs/src/client.ts:329</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_createWebSocket"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _createWebSocket
-                            </b>
-                            <a href="#_createWebSocket"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>_createWebSocket()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="398" class="link-to-prism">consolidated/stompjs/src/client.ts:398</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_disposeStompHandler"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _disposeStompHandler
-                            </b>
-                            <a href="#_disposeStompHandler"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>_disposeStompHandler()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="451" class="link-to-prism">consolidated/stompjs/src/client.ts:451</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-                        <a name="_schedule_reconnect"></a>
-                        <span class="name">
-                            <b>
-                                <span class="modifier">Private</span>
-                            _schedule_reconnect
-                            </b>
-                            <a href="#_schedule_reconnect"><span class="icon ion-ios-link"></span></a>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="col-md-4">
-                            <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>_schedule_reconnect()</code>
-                    </td>
-                </tr>
-
-
-                        <tr>
-                            <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="410" class="link-to-prism">consolidated/stompjs/src/client.ts:410</a></div>
-                            </td>
-                        </tr>
-
-
-                <tr>
-                    <td class="col-md-4">
-
-                            <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                            </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
         <table class="table table-sm table-bordered">
             <tbody>
                 <tr>
@@ -2518,7 +2170,7 @@ random number or a combination may be used.</p>
 The operation needs to be matched based in the value of the receipt-id.</p>
 <p>This method allow watching for a receipt and invoke the callback
 when corresponding receipt has been received.</p>
-<p>The actual <a href="../classes/FrameImpl.html">FrameImpl</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-javascript">   *        // Subscribing with acknowledgement
    *        let receiptId = randomText();
