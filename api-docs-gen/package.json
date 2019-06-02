@@ -10,6 +10,6 @@
   "author": "Deepak Kumar",
   "license": "MIT",
   "dependencies": {
-    "@compodoc/compodoc": "^1.1.6"
+    "@compodoc/compodoc": "^1.1.8"
   }
 }
