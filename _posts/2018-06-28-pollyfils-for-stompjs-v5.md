@@ -53,12 +53,12 @@ please continue using version 4 of this library.
 * Add the following:
 
     ```javascript
-        // These have been added in NodeJS v11, so good idea is to check first
-        if (typeof TextEncoder !== 'function') {
-          const TextEncodingPolyfill = require('text-encoding');
-          TextEncoder = TextEncodingPolyfill.TextEncoder;
-          TextDecoder = TextEncodingPolyfill.TextDecoder;
-        }
+    // These have been added in NodeJS v11, so good idea is to check first
+    if (typeof TextEncoder !== 'function') {
+      const TextEncodingPolyfill = require('text-encoding');
+      TextEncoder = TextEncodingPolyfill.TextEncoder;
+      TextDecoder = TextEncodingPolyfill.TextDecoder;
+    }
     ```
 
 ### WebSocket
@@ -67,14 +67,16 @@ There are two alternate libraries `websocket` and `ws` which has been reported t
 
 #### websocket
 
-* Add npm modules add `websocket`.
+* Add `websocket` npm module:
+
     ```bash
     $ npm install websocket
     ```
 
-* Require the module
+* Require the module and expose it through `global`
+
     ```javascript
-        WebSocket = require('websocket').w3cwebsocket;
+    Object.assign(global, { WebSocket: require('websocket').w3cwebsocket });
     ```
 
 #### ws
@@ -82,12 +84,14 @@ There are two alternate libraries `websocket` and `ws` which has been reported t
 * Instead of `websocket` lib `ws` has also been reported to work.
   See: [stompjs/issues/28](https://github.com/stomp-js/stompjs/issues/28).
   
-* Add npm modules add `websocket`.
+* Add `ws` npm module:
+
     ```bash
     $ npm install ws
     ```
 
-* Require the module
+* Require the module and expose it through `global`
+
     ```javascript
-        WebSocket = require('ws');
+    Object.assign(global, { WebSocket: require('ws') });
     ```
