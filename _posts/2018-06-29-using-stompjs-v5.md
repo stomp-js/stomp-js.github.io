@@ -35,9 +35,6 @@ via `require` in Node, `import` from typescript/ES6.
 See [Polyfills & Critical Dependencies] for installing dependencies.
 
 ```javascript
-// Node does not have WebSockets natively
-WebSocket = require('websocket').w3cwebsocket;
-
 // For StompJs >= 5.1.0
 StompJs = require('@stomp/stompjs');
 
