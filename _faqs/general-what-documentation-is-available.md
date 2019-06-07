@@ -1,7 +1,7 @@
 ---
 question: "What documentation is available?"
-group: Usage
-priority: CAA
+group: General
+priority: AAC
 ---
 
 - Comprehensive [API documentation](/api-docs/latest/).
