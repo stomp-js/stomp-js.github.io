@@ -1,7 +1,7 @@
 ---
 question: "How is it related to stompjs from Jeff Mesnil?"
 group: Jeff Mesnil's stompjs
-priority: KAA
+priority: ZAA
 ---
 
 [stompjs](https://www.npmjs.com/package/stompjs) 

@@ -1,7 +1,7 @@
 ---
 question: "Are there any missing features from Jeff Mesnil's stompjs?"
 group: Jeff Mesnil's stompjs
-priority: KAE
+priority: ZAE
 ---
 
 The Jeff Mesnil's stompjs supports STOMP over TCP when used in NodeJS

@@ -1,7 +1,7 @@
 ---
 question: "How do I migrate from Jeff Mesnil's stompjs?"
 group: Jeff Mesnil's stompjs
-priority: KAC
+priority: ZAC
 ---
 
 Please see [upgrading stompjs](/guide/stompjs/2018/09/08/upgrading-stompjs.html)
