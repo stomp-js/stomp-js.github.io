@@ -400,11 +400,12 @@ export class MessagesComponent implements OnInit, OnDestroy {
 - Explore [RxStomp][rx-stomp] to understand other interesting methods exposed by the library.
 - Go through [Angular Dependency Injection][angular-di] - trust me mastering it will take
   you places.
+- [Observing STOMP connection][connection-status-ng2-stompjs] status and showing a visual indicator.
+- Using [token authentication](/faqs/2019/05/20/faqs.html#p-can-i-use-token-based-authentication-with-these-libraries-p)
+  with the STOMP broker.
 
 I will be writing more tutorials in following days to cover additional topics:
 
-- Observing STOMP connection status and showing a visual indicator.
-- Using token authentication with the STOMP broker.
 - Manual control in the configuration and connection establishment.
  (In this sample, STOMP broker is connected during the Angular DI class
  initialization phase.)
@@ -414,6 +415,7 @@ I will be writing more tutorials in following days to cover additional topics:
 
 [tour-of-heroes]: https://angular.io/tutorial
 [angular-di]: https://angular.io/guide/dependency-injection
-[rx-stomp]: https://stomp-js.github.io/api-docs/latest/classes/RxStomp.html
-[rx-stomp-publish]: https://stomp-js.github.io/api-docs/latest/classes/RxStomp.html#publish
-[rx-stomp-watch]: https://stomp-js.github.io/api-docs/latest/classes/RxStomp.html#watch
+[rx-stomp]: /api-docs/latest/classes/RxStomp.html
+[rx-stomp-publish]: /api-docs/latest/classes/RxStomp.html#publish
+[rx-stomp-watch]: /api-docs/latest/classes/RxStomp.html#watch
+[connection-status-ng2-stompjs]: {% link _posts/2018-12-18-connection-status-ng2-stompjs.md %}
