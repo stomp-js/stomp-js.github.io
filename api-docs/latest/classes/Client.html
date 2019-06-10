@@ -90,6 +90,10 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#appendMissingNULLonIncoming">appendMissingNULLonIncoming</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#beforeConnect">beforeConnect</a>
                             </li>
                             <li>
@@ -285,7 +289,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="280" class="link-to-prism">consolidated/stompjs/src/client.ts:280</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="292" class="link-to-prism">consolidated/stompjs/src/client.ts:292</a></div>
                             </td>
                         </tr>
 
@@ -334,6 +338,51 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="appendMissingNULLonIncoming"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            appendMissingNULLonIncoming</b>
+                            <a href="#appendMissingNULLonIncoming"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">consolidated/stompjs/src/client.ts:119</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>A bug in ReactNative chops a string on occurrence of a NULL.
+See issue [<a href="https://github.com/stomp-js/stompjs/issues/89%5D%7B@link">https://github.com/stomp-js/stompjs/issues/89]{@link</a> <a href="https://github.com/stomp-js/stompjs/issues/89%7D">https://github.com/stomp-js/stompjs/issues/89}</a>.
+This makes incoming WebSocket messages invalid STOMP packets.
+Setting this flag attempts to reverse the damage by appending a NULL.
+If the broker splits a large message into multiple WebSocket messages,
+this flag will cause data loss and abnormal termination of connection.</p>
+<p>This is not an ideal solution, but a stop gap until the underlying issue is fixed at ReactNative library.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="beforeConnect"></a>
                         <span class="name">
                             <b>
@@ -351,7 +400,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="192" class="link-to-prism">consolidated/stompjs/src/client.ts:192</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="204" class="link-to-prism">consolidated/stompjs/src/client.ts:204</a></div>
                             </td>
                         </tr>
 
@@ -431,7 +480,7 @@ If both are set, <a href="../classes/Client.html#webSocketFactory">Client#webSoc
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">consolidated/stompjs/src/client.ts:126</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="138" class="link-to-prism">consolidated/stompjs/src/client.ts:138</a></div>
                             </td>
                         </tr>
 
@@ -467,7 +516,7 @@ details specific to your broker.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="262" class="link-to-prism">consolidated/stompjs/src/client.ts:262</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="274" class="link-to-prism">consolidated/stompjs/src/client.ts:274</a></div>
                             </td>
                         </tr>
 
@@ -627,7 +676,7 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="248" class="link-to-prism">consolidated/stompjs/src/client.ts:248</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="260" class="link-to-prism">consolidated/stompjs/src/client.ts:260</a></div>
                             </td>
                         </tr>
 
@@ -704,7 +753,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="200" class="link-to-prism">consolidated/stompjs/src/client.ts:200</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="212" class="link-to-prism">consolidated/stompjs/src/client.ts:212</a></div>
                             </td>
                         </tr>
 
@@ -740,7 +789,7 @@ Sometimes clients will like to use headers from this frame.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="213" class="link-to-prism">consolidated/stompjs/src/client.ts:213</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="225" class="link-to-prism">consolidated/stompjs/src/client.ts:225</a></div>
                             </td>
                         </tr>
 
@@ -780,7 +829,7 @@ STOMP broker disconnects.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="222" class="link-to-prism">consolidated/stompjs/src/client.ts:222</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="234" class="link-to-prism">consolidated/stompjs/src/client.ts:234</a></div>
                             </td>
                         </tr>
 
@@ -817,7 +866,7 @@ Please check broker specific documentation for exact behavior.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="169" class="link-to-prism">consolidated/stompjs/src/client.ts:169</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="181" class="link-to-prism">consolidated/stompjs/src/client.ts:181</a></div>
                             </td>
                         </tr>
 
@@ -852,7 +901,7 @@ Please check broker specific documentation for exact behavior.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="153" class="link-to-prism">consolidated/stompjs/src/client.ts:153</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="165" class="link-to-prism">consolidated/stompjs/src/client.ts:165</a></div>
                             </td>
                         </tr>
 
@@ -891,7 +940,7 @@ from an endpoint.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">consolidated/stompjs/src/client.ts:162</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="174" class="link-to-prism">consolidated/stompjs/src/client.ts:174</a></div>
                             </td>
                         </tr>
 
@@ -928,7 +977,7 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="230" class="link-to-prism">consolidated/stompjs/src/client.ts:230</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="242" class="link-to-prism">consolidated/stompjs/src/client.ts:242</a></div>
                             </td>
                         </tr>
 
@@ -964,7 +1013,7 @@ is passed as parameter to the callback.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="238" class="link-to-prism">consolidated/stompjs/src/client.ts:238</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="250" class="link-to-prism">consolidated/stompjs/src/client.ts:250</a></div>
                             </td>
                         </tr>
 
@@ -1177,7 +1226,7 @@ If your STOMP Broker supports WebSockets, prefer setting <a href="../classes/Cli
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="619" class="link-to-prism">consolidated/stompjs/src/client.ts:619</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="632" class="link-to-prism">consolidated/stompjs/src/client.ts:632</a></div>
                             </td>
                         </tr>
 
@@ -1255,7 +1304,7 @@ It is preferable to abort a transaction by calling <a href="../interfaces/ITrans
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="636" class="link-to-prism">consolidated/stompjs/src/client.ts:636</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="649" class="link-to-prism">consolidated/stompjs/src/client.ts:649</a></div>
                             </td>
                         </tr>
 
@@ -1367,7 +1416,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="323" class="link-to-prism">consolidated/stompjs/src/client.ts:323</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="335" class="link-to-prism">consolidated/stompjs/src/client.ts:335</a></div>
                             </td>
                         </tr>
 
@@ -1412,7 +1461,7 @@ it will keep trying to reconnect.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="588" class="link-to-prism">consolidated/stompjs/src/client.ts:588</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="601" class="link-to-prism">consolidated/stompjs/src/client.ts:601</a></div>
                             </td>
                         </tr>
 
@@ -1487,7 +1536,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="604" class="link-to-prism">consolidated/stompjs/src/client.ts:604</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="617" class="link-to-prism">consolidated/stompjs/src/client.ts:617</a></div>
                             </td>
                         </tr>
 
@@ -1565,7 +1614,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="311" class="link-to-prism">consolidated/stompjs/src/client.ts:311</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="323" class="link-to-prism">consolidated/stompjs/src/client.ts:323</a></div>
                             </td>
                         </tr>
 
@@ -1638,7 +1687,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="426" class="link-to-prism">consolidated/stompjs/src/client.ts:426</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="439" class="link-to-prism">consolidated/stompjs/src/client.ts:439</a></div>
                             </td>
                         </tr>
 
@@ -1682,7 +1731,7 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="443" class="link-to-prism">consolidated/stompjs/src/client.ts:443</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="456" class="link-to-prism">consolidated/stompjs/src/client.ts:456</a></div>
                             </td>
                         </tr>
 
@@ -1727,7 +1776,7 @@ To stop further reconnects call <a href="../classes/Client.html#deactivate">Clie
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="653" class="link-to-prism">consolidated/stompjs/src/client.ts:653</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="666" class="link-to-prism">consolidated/stompjs/src/client.ts:666</a></div>
                             </td>
                         </tr>
 
@@ -1839,7 +1888,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="495" class="link-to-prism">consolidated/stompjs/src/client.ts:495</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="508" class="link-to-prism">consolidated/stompjs/src/client.ts:508</a></div>
                             </td>
                         </tr>
 
@@ -1937,7 +1986,7 @@ and <code>content-length</code> header is missing.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="562" class="link-to-prism">consolidated/stompjs/src/client.ts:562</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="575" class="link-to-prism">consolidated/stompjs/src/client.ts:575</a></div>
                             </td>
                         </tr>
 
@@ -2059,7 +2108,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="578" class="link-to-prism">consolidated/stompjs/src/client.ts:578</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="591" class="link-to-prism">consolidated/stompjs/src/client.ts:591</a></div>
                             </td>
                         </tr>
 
@@ -2155,7 +2204,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="534" class="link-to-prism">consolidated/stompjs/src/client.ts:534</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="547" class="link-to-prism">consolidated/stompjs/src/client.ts:547</a></div>
                             </td>
                         </tr>
 
@@ -2269,7 +2318,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">consolidated/stompjs/src/client.ts:112</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="124" class="link-to-prism">consolidated/stompjs/src/client.ts:124</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2302,7 +2351,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">consolidated/stompjs/src/client.ts:131</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="143" class="link-to-prism">consolidated/stompjs/src/client.ts:143</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2324,7 +2373,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="135" class="link-to-prism">consolidated/stompjs/src/client.ts:135</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">consolidated/stompjs/src/client.ts:147</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2378,7 +2427,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="174" class="link-to-prism">consolidated/stompjs/src/client.ts:174</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="186" class="link-to-prism">consolidated/stompjs/src/client.ts:186</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2411,7 +2460,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="267" class="link-to-prism">consolidated/stompjs/src/client.ts:267</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="279" class="link-to-prism">consolidated/stompjs/src/client.ts:279</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2444,7 +2493,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="276" class="link-to-prism">consolidated/stompjs/src/client.ts:276</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="288" class="link-to-prism">consolidated/stompjs/src/client.ts:288</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2573,6 +2622,18 @@ export class Client {
    * Set this flag to force binary frames.
    */
   public forceBinaryWSFrames: boolean &#x3D; false;
+
+  /**
+   * A bug in ReactNative chops a string on occurrence of a NULL.
+   * See issue [https://github.com/stomp-js/stompjs/issues/89]{@link https://github.com/stomp-js/stompjs/issues/89}.
+   * This makes incoming WebSocket messages invalid STOMP packets.
+   * Setting this flag attempts to reverse the damage by appending a NULL.
+   * If the broker splits a large message into multiple WebSocket messages,
+   * this flag will cause data loss and abnormal termination of connection.
+   *
+   * This is not an ideal solution, but a stop gap until the underlying issue is fixed at ReactNative library.
+   */
+  public appendMissingNULLonIncoming: boolean &#x3D; false;
 
   /**
    * Underlying WebSocket instance, READONLY.
@@ -2823,6 +2884,7 @@ export class Client {
       maxWebSocketChunkSize: this.maxWebSocketChunkSize,
       forceBinaryWSFrames: this.forceBinaryWSFrames,
       logRawCommunication: this.logRawCommunication,
+      appendMissingNULLonIncoming: this.appendMissingNULLonIncoming,
 
       onConnect: (frame) &#x3D;&gt; {
         if (!this._active) {

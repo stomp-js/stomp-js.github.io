@@ -102,6 +102,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#appendMissingNULLonIncoming">appendMissingNULLonIncoming</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#beforeConnect">beforeConnect</a>
                             </li>
                             <li>
@@ -350,6 +354,57 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="appendMissingNULLonIncoming"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            appendMissingNULLonIncoming</b>
+                            <a href="#appendMissingNULLonIncoming"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>false</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from     <code><a href="../classes/Client.html" target="_self" >Client</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in Client:119</div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>A bug in ReactNative chops a string on occurrence of a NULL.
+See issue [<a href="https://github.com/stomp-js/stompjs/issues/89%5D%7B@link">https://github.com/stomp-js/stompjs/issues/89]{@link</a> <a href="https://github.com/stomp-js/stompjs/issues/89%7D">https://github.com/stomp-js/stompjs/issues/89}</a>.
+This makes incoming WebSocket messages invalid STOMP packets.
+Setting this flag attempts to reverse the damage by appending a NULL.
+If the broker splits a large message into multiple WebSocket messages,
+this flag will cause data loss and abnormal termination of connection.</p>
+<p>This is not an ideal solution, but a stop gap until the underlying issue is fixed at ReactNative library.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="beforeConnect"></a>
                         <span class="name">
                             <b>
@@ -373,7 +428,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:192</div>
+                                    <div class="io-line">Defined in Client:204</div>
                             </td>
                         </tr>
 
@@ -465,7 +520,7 @@ If both are set, <a href="../classes/Client.html#webSocketFactory">Client#webSoc
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:126</div>
+                                    <div class="io-line">Defined in Client:138</div>
                             </td>
                         </tr>
 
@@ -507,7 +562,7 @@ details specific to your broker.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:262</div>
+                                    <div class="io-line">Defined in Client:274</div>
                             </td>
                         </tr>
 
@@ -691,7 +746,7 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:248</div>
+                                    <div class="io-line">Defined in Client:260</div>
                             </td>
                         </tr>
 
@@ -780,7 +835,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:200</div>
+                                    <div class="io-line">Defined in Client:212</div>
                             </td>
                         </tr>
 
@@ -822,7 +877,7 @@ Sometimes clients will like to use headers from this frame.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:213</div>
+                                    <div class="io-line">Defined in Client:225</div>
                             </td>
                         </tr>
 
@@ -868,7 +923,7 @@ STOMP broker disconnects.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:222</div>
+                                    <div class="io-line">Defined in Client:234</div>
                             </td>
                         </tr>
 
@@ -911,7 +966,7 @@ Please check broker specific documentation for exact behavior.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:169</div>
+                                    <div class="io-line">Defined in Client:181</div>
                             </td>
                         </tr>
 
@@ -952,7 +1007,7 @@ Please check broker specific documentation for exact behavior.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:153</div>
+                                    <div class="io-line">Defined in Client:165</div>
                             </td>
                         </tr>
 
@@ -997,7 +1052,7 @@ from an endpoint.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:162</div>
+                                    <div class="io-line">Defined in Client:174</div>
                             </td>
                         </tr>
 
@@ -1040,7 +1095,7 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:230</div>
+                                    <div class="io-line">Defined in Client:242</div>
                             </td>
                         </tr>
 
@@ -1082,7 +1137,7 @@ is passed as parameter to the callback.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:238</div>
+                                    <div class="io-line">Defined in Client:250</div>
                             </td>
                         </tr>
 
@@ -1633,7 +1688,7 @@ However, there may be special purpose headers corresponding to your STOMP broker
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:619</div>
+                                    <div class="io-line">Defined in Client:632</div>
                             </td>
                         </tr>
 
@@ -1717,7 +1772,7 @@ It is preferable to abort a transaction by calling <a href="../interfaces/ITrans
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:636</div>
+                                    <div class="io-line">Defined in Client:649</div>
                             </td>
                         </tr>
 
@@ -1835,7 +1890,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:323</div>
+                                    <div class="io-line">Defined in Client:335</div>
                             </td>
                         </tr>
 
@@ -1886,7 +1941,7 @@ it will keep trying to reconnect.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:588</div>
+                                    <div class="io-line">Defined in Client:601</div>
                             </td>
                         </tr>
 
@@ -1967,7 +2022,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:604</div>
+                                    <div class="io-line">Defined in Client:617</div>
                             </td>
                         </tr>
 
@@ -2051,7 +2106,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:311</div>
+                                    <div class="io-line">Defined in Client:323</div>
                             </td>
                         </tr>
 
@@ -2130,7 +2185,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:426</div>
+                                    <div class="io-line">Defined in Client:439</div>
                             </td>
                         </tr>
 
@@ -2180,7 +2235,7 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:443</div>
+                                    <div class="io-line">Defined in Client:456</div>
                             </td>
                         </tr>
 
@@ -2231,7 +2286,7 @@ To stop further reconnects call <a href="../classes/Client.html#deactivate">Clie
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:653</div>
+                                    <div class="io-line">Defined in Client:666</div>
                             </td>
                         </tr>
 
@@ -2349,7 +2404,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:495</div>
+                                    <div class="io-line">Defined in Client:508</div>
                             </td>
                         </tr>
 
@@ -2453,7 +2508,7 @@ and <code>content-length</code> header is missing.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:562</div>
+                                    <div class="io-line">Defined in Client:575</div>
                             </td>
                         </tr>
 
@@ -2581,7 +2636,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:578</div>
+                                    <div class="io-line">Defined in Client:591</div>
                             </td>
                         </tr>
 
@@ -2683,7 +2738,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:534</div>
+                                    <div class="io-line">Defined in Client:547</div>
                             </td>
                         </tr>
 
