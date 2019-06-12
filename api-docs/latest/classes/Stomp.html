@@ -464,7 +464,15 @@ export class Stomp {
    * using [Client#webSocketFactory]{@link Client#webSocketFactory}.
    */
   public static over(ws: any): CompatClient {
-    const wsFn &#x3D; typeof(ws) &#x3D;&#x3D;&#x3D; &#x27;function&#x27; ? ws : () &#x3D;&gt; ws;
+    let wsFn: () &#x3D;&gt; any;
+
+    if (typeof (ws) &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
+      wsFn &#x3D; ws;
+    } else {
+      console.warn(&#x27;Stomp.over did not receive a factory, auto reconnect will not work. &#x27; +
+        &#x27;Please see https://stomp-js.github.io/api-docs/latest/classes/Stomp.html#over&#x27;);
+      wsFn &#x3D; () &#x3D;&gt; ws;
+    }
 
     return new CompatClient(wsFn);
   }
