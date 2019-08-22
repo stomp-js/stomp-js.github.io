@@ -203,7 +203,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:46</a></div>
                             </td>
                         </tr>
 
@@ -211,6 +211,7 @@
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Make an RPC request. See the <a href="../additional-documentation/rpc---remote-procedure-call.html">guide</a> for example.</p>
+<p>It is a simple wrapper around <a href="../classes/RxStompRPC.html#stream">RxStompRPC#stream</a>.</p>
 </div>
 
                             <div class="io-description">
@@ -276,7 +277,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:52</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:57</a></div>
                             </td>
                         </tr>
 
@@ -284,6 +285,8 @@
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Make an RPC stream request. See the <a href="../additional-documentation/rpc---remote-procedure-call.html">guide</a>.</p>
+<p>Note: This call internally takes care of generating a correlation id,
+however, if <code>correlation-id</code> is passed via <code>headers</code>, that will be used instead.</p>
 </div>
 
                             <div class="io-description">
@@ -378,6 +381,8 @@ export class RxStompRPC {
 
   /**
    * Make an RPC request. See the [guide](../additional-documentation/rpc---remote-procedure-call.html) for example.
+   *
+   * It is a simple wrapper around [RxStompRPC#stream]{@link RxStompRPC#stream}.
    */
   public rpc(params: publishParams): Observable&lt;IMessage&gt; {
     // We know there will be only one message in reply
@@ -386,6 +391,9 @@ export class RxStompRPC {
 
   /**
    * Make an RPC stream request. See the [guide](../additional-documentation/rpc---remote-procedure-call.html).
+   *
+   * Note: This call internally takes care of generating a correlation id,
+   * however, if &#x60;correlation-id&#x60; is passed via &#x60;headers&#x60;, that will be used instead.
    */
   public stream(params: publishParams): Observable&lt;IMessage&gt; {
     const headers: StompHeaders &#x3D; (Object as any).assign({}, params.headers || {});
@@ -399,7 +407,7 @@ export class RxStompRPC {
       (rpcObserver: Observer&lt;IMessage&gt;) &#x3D;&gt; {
         let defaultMessagesSubscription: Subscription;
 
-        const correlationId &#x3D; UUID.UUID();
+        const correlationId &#x3D; headers[&#x27;correlation-id&#x27;] || UUID.UUID();
 
         defaultMessagesSubscription &#x3D; this._repliesObservable.pipe(filter((message: IMessage) &#x3D;&gt; {
           return message.headers[&#x27;correlation-id&#x27;] &#x3D;&#x3D;&#x3D; correlationId;
