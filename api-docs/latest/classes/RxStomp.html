@@ -197,6 +197,9 @@ is exposed as Observables/Subjects/BehaviorSubjects.</p>
                                 <li>
                                     <a href="#stompClient">stompClient</a>
                                 </li>
+                                <li>
+                                    <a href="#active">active</a>
+                                </li>
                             </ul>
                         </td>
                     </tr>
@@ -804,7 +807,7 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="381" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:381</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="390" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:390</a></div>
                             </td>
                         </tr>
 
@@ -909,7 +912,7 @@ When <code>false</code>, this function will raise an error if message could not 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="430" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:430</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="439" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:439</a></div>
                             </td>
                         </tr>
 
@@ -1009,7 +1012,7 @@ following each other and both meaning very different things.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="517" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:517</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="526" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:526</a></div>
                             </td>
                         </tr>
 
@@ -1128,6 +1131,40 @@ will be passed as parameter to the callback.</p>
 
                                 <div class="io-description">
                                     <b>Returns : </b>    <code><a href="../classes/Client.html" target="_self" >Client</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="active"></a>
+                        <span class="name"><b>active</b><a href="#active"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>active()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="340" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:340</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>If the client is active (connected or going to reconnect).</p>
+<p>  Maps to: <a href="../classes/Client.html#active">Client#active</a></p>
+</div>
+
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                                 </div>
                         </td>
@@ -1472,6 +1509,15 @@ export class RxStomp {
    */
   public connected(): boolean {
     return this.connectionState$.getValue() &#x3D;&#x3D;&#x3D; RxStompState.OPEN;
+  }
+
+  /**
+   * If the client is active (connected or going to reconnect).
+   *
+   *  Maps to: [Client#active]{@link Client#active}
+   */
+  get active(): boolean {
+    return this.stompClient.active;
   }
 
   /**
