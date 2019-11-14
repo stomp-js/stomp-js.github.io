@@ -5,6 +5,9 @@ date:   2019-06-10 21:01:01 +0530
 categories: workaround stompjs rx-stomp ng2-stompjs
 ---
 
+Before you proceed, ensure you have [polyfills for 
+TextEncoder/TextDecoder](/guide/stompjs/rx-stomp/ng2-stompjs/2018/06/29/pollyfils-for-stompjs-v5.html#in-react-native).
+
 Some versions of React Native (including the current production
 version as on June 10, 2019) have an underlying issue that prevents these libraries
 to work correctly. See:
