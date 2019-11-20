@@ -807,7 +807,7 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="390" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:390</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="391" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:391</a></div>
                             </td>
                         </tr>
 
@@ -830,7 +830,8 @@ For binary messages <code>content-length</code> header is always added.</p>
 and <code>content-length</code> header is missing.</p>
 <p>The message will get locally queued if the STOMP broker is not connected. It will attempt to
 publish queued messages as soon as the broker gets connected.
-Please set <a href="../interfaces/IRxStompPublishParams.html#retryIfDisconnected">retryIfDisconnected</a> to <code>false</code>
+If you do not want that behavior,
+please set <a href="../interfaces/IRxStompPublishParams.html#retryIfDisconnected">retryIfDisconnected</a> to <code>false</code>
 in the parameters.
 When <code>false</code>, this function will raise an error if message could not be sent immediately.</p>
 <p>Maps to: <a href="../classes/Client.html#publish">Client#publish</a></p>
@@ -912,7 +913,7 @@ When <code>false</code>, this function will raise an error if message could not 
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="439" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:439</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="440" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:440</a></div>
                             </td>
                         </tr>
 
@@ -1012,7 +1013,7 @@ following each other and both meaning very different things.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="526" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:526</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="527" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:527</a></div>
                             </td>
                         </tr>
 
@@ -1543,7 +1544,8 @@ export class RxStomp {
    *
    * The message will get locally queued if the STOMP broker is not connected. It will attempt to
    * publish queued messages as soon as the broker gets connected.
-   * Please set [retryIfDisconnected]{@link IRxStompPublishParams#retryIfDisconnected} to &#x60;false&#x60;
+   * If you do not want that behavior,
+   * please set [retryIfDisconnected]{@link IRxStompPublishParams#retryIfDisconnected} to &#x60;false&#x60;
    * in the parameters.
    * When &#x60;false&#x60;, this function will raise an error if message could not be sent immediately.
    *
