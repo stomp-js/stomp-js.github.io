@@ -3,6 +3,10 @@ layout: post
 title:  "Upgrading StompJs"
 date:   2018-09-08 17:04:43 +0530
 categories: guide stompjs
+redirect_from:
+    - /guide/stompjs/2018/09/07/upgrading-stompjs.html
+    - /guide/stompjs/2018/09/08/upgrading-stompjs.html
+    - /guide/stompjs/2018/09/09/upgrading-stompjs.html
 ---
 
 ## Upgrading from version 3/4

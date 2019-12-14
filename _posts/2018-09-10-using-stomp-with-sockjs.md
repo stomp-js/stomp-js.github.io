@@ -3,6 +3,10 @@ layout: post
 title:  "Using STOMP with SockJS"
 date:   2018-09-10 12:06:34 +0530
 categories: guide stompjs rx-stomp ng2-stompjs
+redirect_from:
+    - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/09/using-stomp-with-sockjs.html
+    - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/10/using-stomp-with-sockjs.html
+    - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/11/using-stomp-with-sockjs.html
 ---
 
 This guide covers how to use [SockJS client] instead of WebSockets as underlying transport.

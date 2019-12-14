@@ -3,6 +3,10 @@ layout: post
 title:  "Using StompJs v5"
 date:   2018-06-29 07:59:22 +0530
 categories: guide stompjs
+redirect_from:
+    - /guide/stompjs/2018/06/28/using-stompjs-v5.html
+    - /guide/stompjs/2018/06/29/using-stompjs-v5.html
+    - /guide/stompjs/2018/06/30/using-stompjs-v5.html
 ---
 
 You can find samples at: [https://github.com/stomp-js/samples/](https://github.com/stomp-js/samples/).

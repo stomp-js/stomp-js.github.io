@@ -3,6 +3,10 @@ layout: post
 title:  "StompJs v5: Polyfills"
 date:   2018-06-29 07:59:22 +0530
 categories: guide stompjs rx-stomp ng2-stompjs
+redirect_from:
+    - /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/28/pollyfils-for-stompjs-v5.html
+    - /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/29/pollyfils-for-stompjs-v5.html
+    - /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/30/pollyfils-for-stompjs-v5.html
 ---
 
 This guide covers critical dependencies and polyfills for version 5 of `@stomp/stompjs`;
