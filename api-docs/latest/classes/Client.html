@@ -2975,7 +2975,7 @@ export class Client {
     if (this._webSocket) {
       if (this._webSocket.readyState &#x3D;&#x3D;&#x3D; WebSocketState.CONNECTING
               || this._webSocket.readyState &#x3D;&#x3D;&#x3D; WebSocketState.OPEN) {
-        this._webSocket.close();
+        this._stompHandler._closeWebsocket();
       }
     }
   }
