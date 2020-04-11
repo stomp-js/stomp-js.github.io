@@ -65,6 +65,41 @@ please continue using version 4 of this library.
     }
     ```
 
+### WebSocket
+
+There are two alternate libraries `websocket` and `ws` which has been reported to work.
+
+#### websocket
+
+* Add `websocket` npm module:
+
+    ```bash
+    $ npm install websocket
+    ```
+
+* Require the module and expose it through `global`
+
+    ```javascript
+    Object.assign(global, { WebSocket: require('websocket').w3cwebsocket });
+    ```
+
+#### ws
+    
+* Instead of `websocket` lib `ws` has also been reported to work.
+  See: [stompjs/issues/28](https://github.com/stomp-js/stompjs/issues/28).
+  
+* Add `ws` npm module:
+
+    ```bash
+    $ npm install ws
+    ```
+
+* Require the module and expose it through `global`
+
+    ```javascript
+    Object.assign(global, { WebSocket: require('ws') });
+    ```
+
 ## In React Native
 
 ### TextEncoder/TextDecoder
