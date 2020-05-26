@@ -4,7 +4,7 @@ group: General
 priority: AGA
 ---
 
-Please see [enabling debug log](/guide/stompjs/2018/06/29/using-stompjs-v5.html#debug).
+Please see [enabling debug log](/guide/stompjs/using-stompjs-v5.html#debug).
 
 The console debug output may have NULL characters, which will prevent it from copying and pasting
 into a GitHub issue.

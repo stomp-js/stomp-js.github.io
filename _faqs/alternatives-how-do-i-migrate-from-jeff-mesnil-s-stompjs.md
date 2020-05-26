@@ -4,7 +4,7 @@ group: Jeff Mesnil's stompjs
 priority: ZAC
 ---
 
-Please see [upgrading stompjs](/guide/stompjs/2018/09/08/upgrading-stompjs.html)
+Please see [upgrading stompjs](/guide/stompjs/upgrading-stompjs.html)
 guide.
 
 API of v4 of this library is backwards compatible with original stompjs.
