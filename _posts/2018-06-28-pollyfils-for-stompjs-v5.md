@@ -79,7 +79,7 @@ please continue using version 4 of this library.
     $ npm install text-encoding
     ```
      
-* Add the following:
+* Add the following to your `index.js` or `App.js`:
 
   ```javascript
     import * as encoding from 'text-encoding';
