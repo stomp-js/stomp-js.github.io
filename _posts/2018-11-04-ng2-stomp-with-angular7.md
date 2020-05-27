@@ -405,7 +405,7 @@ export class MessagesComponent implements OnInit, OnDestroy {
 - Go through [Angular Dependency Injection][angular-di] - trust me mastering it will take
   you places.
 - [Observing STOMP connection][connection-status-ng2-stompjs] status and showing a visual indicator.
-- Using [token authentication](/faqs/2019/05/20/faqs.html#p-can-i-use-token-based-authentication-with-these-libraries-p)
+- Using [token authentication](/faqs/faqs.html#p-can-i-use-token-based-authentication-with-these-libraries-p)
   with the STOMP broker.
 
 I will be writing more tutorials in following days to cover additional topics:

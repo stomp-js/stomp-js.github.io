@@ -85,8 +85,8 @@ please continue using version 4 of this library.
     import * as encoding from 'text-encoding';
   ```
 
-* There is one more issue with React Native in some device/version combinations. Please see:
-  [react-native-null-chopping-issue.html](/workaround/stompjs/rx-stomp/ng2-stompjs/2019/06/10/react-native-null-chopping-issue.html)
+* There is additional issues with React Native in some device/version combinations. Please see:
+  [React Native - Additional Notes](/workaround/stompjs/rx-stomp/ng2-stompjs/react-native-additional-notes.html)
 
 ### WebSocket
 
