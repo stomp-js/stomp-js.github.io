@@ -69,7 +69,7 @@
             </p>
             <p class="comment">
                 <p>An implementation of Remote Procedure Call (RPC) using messaging.</p>
-<p>Please see the <a href="/guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html">guide</a> for details.</p>
+<p>Please see the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a> for details.</p>
 <p>Part of <code>@stomp/rx-stomp</code></p>
 
             </p>
@@ -127,7 +127,7 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Create an instance, see the <a href="/guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html">guide</a> for details.</p>
+                            <div class="io-description"><p>Create an instance, see the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a> for details.</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -211,7 +211,7 @@
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Make an RPC request.
-See the <a href="/guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html">guide</a> for example.</p>
+See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a> for example.</p>
 <p>It is a simple wrapper around <a href="../classes/RxStompRPC.html#stream">RxStompRPC#stream</a>.</p>
 </div>
 
@@ -285,7 +285,7 @@ See the <a href="/guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.ht
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Make an RPC stream request. See the <a href="/guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html">guide</a>.</p>
+                            <div class="io-description"><p>Make an RPC stream request. See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a>.</p>
 <p>Note: This call internally takes care of generating a correlation id,
 however, if <code>correlation-id</code> is passed via <code>headers</code>, that will be used instead.</p>
 </div>
@@ -353,7 +353,7 @@ import {RxStompRPCConfig, setupReplyQueueFnType} from &#x27;./rx-stomp-rpc-confi
 /**
  * An implementation of Remote Procedure Call (RPC) using messaging.
  *
- * Please see the [guide](/guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html) for details.
+ * Please see the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for details.
  *
  * Part of &#x60;@stomp/rx-stomp&#x60;
  */
@@ -367,7 +367,7 @@ export class RxStompRPC {
   private _repliesObservable: Observable&lt;IMessage&gt;;
 
   /**
-   * Create an instance, see the [guide](/guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html) for details.
+   * Create an instance, see the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for details.
    */
   constructor(private rxStomp: RxStomp, private stompRPCConfig?: RxStompRPCConfig) {
     if (stompRPCConfig) {
@@ -382,7 +382,7 @@ export class RxStompRPC {
 
   /**
    * Make an RPC request.
-   * See the [guide](/guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html) for example.
+   * See the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for example.
    *
    * It is a simple wrapper around [RxStompRPC#stream]{@link RxStompRPC#stream}.
    */
@@ -392,7 +392,7 @@ export class RxStompRPC {
   }
 
   /**
-   * Make an RPC stream request. See the [guide](/guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html).
+   * Make an RPC stream request. See the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html).
    *
    * Note: This call internally takes care of generating a correlation id,
    * however, if &#x60;correlation-id&#x60; is passed via &#x60;headers&#x60;, that will be used instead.
