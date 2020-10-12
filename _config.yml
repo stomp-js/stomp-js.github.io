@@ -16,7 +16,7 @@
 github_username: stomp-js
 
 # Build settings
-theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.20.2"
 
 collections:
   - faqs
