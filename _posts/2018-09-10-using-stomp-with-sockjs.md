@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "Using STOMP with SockJS"
 date:   2018-09-10 12:06:34 +0530
 categories: guide stompjs rx-stomp ng2-stompjs

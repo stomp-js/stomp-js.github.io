@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "ng2-stompjs with Angular 7"
 date:   2018-11-04 17:27:13 +0530
 categories: guide ng2-stompjs

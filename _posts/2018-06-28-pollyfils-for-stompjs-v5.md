@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "StompJs v5: Polyfills"
 date:   2018-06-29 07:59:22 +0530
 categories: guide stompjs rx-stomp ng2-stompjs

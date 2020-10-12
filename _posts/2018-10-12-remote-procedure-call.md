@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "RPC - Remote Procedure Call"
 date:   2018-10-12 09:12:00 +0530
 categories: guide rx-stomp ng2-stompjs

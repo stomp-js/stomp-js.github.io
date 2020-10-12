@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "React Native - Additional notes"
 date:   2019-06-10 21:01:01 +0530
 categories: workaround stompjs rx-stomp ng2-stompjs

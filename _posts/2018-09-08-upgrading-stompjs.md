@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "Upgrading StompJs"
 date:   2018-09-08 17:04:43 +0530
 categories: guide stompjs

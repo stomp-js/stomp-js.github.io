@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title:  "Connection status in ng2-stompjs"
 date:   2018-12-18 19:22:37 +0530
 categories: guide ng2-stompjs rx-stomp
