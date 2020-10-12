@@ -3,6 +3,7 @@ layout: single
 title:  "Migrating ng2-stompjs to v7"
 date:   2018-11-05 23:02:56 +0530
 categories: guide ng2-stompjs
+toc: true
 redirect_from:
     - /guide/ng2-stompjs/2018/11/04/migrate-ng2-stompjs-v7.html
     - /guide/ng2-stompjs/2018/11/05/migrate-ng2-stompjs-v7.html

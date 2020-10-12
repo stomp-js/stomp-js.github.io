@@ -3,6 +3,7 @@ layout: single
 title:  "Connection status in ng2-stompjs"
 date:   2018-12-18 19:22:37 +0530
 categories: guide ng2-stompjs rx-stomp
+toc: true
 redirect_from:
     - /guide/ng2-stompjs/rx-stomp/2018/12/17/connection-status-ng2-stompjs.html
     - /guide/ng2-stompjs/rx-stomp/2018/12/18/connection-status-ng2-stompjs.html

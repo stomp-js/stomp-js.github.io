@@ -3,6 +3,7 @@ layout: single
 title:  "React Native - Additional notes"
 date:   2019-06-10 21:01:01 +0530
 categories: workaround stompjs rx-stomp ng2-stompjs
+toc: true
 redirect_from:
     - /workaround/stompjs/rx-stomp/ng2-stompjs/2019/06/09/react-native-null-chopping-issue.html
     - /workaround/stompjs/rx-stomp/ng2-stompjs/2019/06/10/react-native-null-chopping-issue.html

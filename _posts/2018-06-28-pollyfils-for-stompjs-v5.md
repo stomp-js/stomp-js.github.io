@@ -3,6 +3,7 @@ layout: single
 title:  "StompJs v5: Polyfills"
 date:   2018-06-29 07:59:22 +0530
 categories: guide stompjs rx-stomp ng2-stompjs
+toc: true
 redirect_from:
     - /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/28/pollyfils-for-stompjs-v5.html
     - /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/29/pollyfils-for-stompjs-v5.html

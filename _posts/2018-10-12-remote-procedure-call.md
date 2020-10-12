@@ -3,6 +3,7 @@ layout: single
 title:  "RPC - Remote Procedure Call"
 date:   2018-10-12 09:12:00 +0530
 categories: guide rx-stomp ng2-stompjs
+toc: true
 redirect_from:
     - /guide/rx-stomp/ng2-stompjs/2018/10/11/remote-procedure-call.html
     - /guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html
