@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>IPublishParams</li>
+  <li>IStompSocket</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -65,15 +65,6 @@
             <code>consolidated/stompjs/src/types.ts</code>
         </p>
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>Parameters for <a href="../classes/Client.html#publish">Client#publish</a>.
-Aliased as publishParams as well.</p>
-<p>Part of <code>@stomp/stompjs</code>.</p>
-
-            </p>
 
 
         <section>
@@ -89,23 +80,39 @@ Aliased as publishParams as well.</p>
                         <td class="col-md-4">
                             <ul class="index-list">
                                 <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#binaryBody">binaryBody</a>
+                                        <a href="#binaryType">binaryType</a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#body">body</a>
+                                        <a href="#onclose">onclose</a>
                                 </li>
                                 <li>
-                                        <a href="#destination">destination</a>
+                                        <a href="#onerror">onerror</a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#headers">headers</a>
+                                        <a href="#onmessage">onmessage</a>
                                 </li>
                                 <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#skipContentLengthHeader">skipContentLengthHeader</a>
+                                        <a href="#onopen">onopen</a>
+                                </li>
+                                <li>
+                                        <a href="#readyState">readyState</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Methods</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#close">close</a>
+                                </li>
+                                <li>
+                                    <a href="#send">send</a>
                                 </li>
                             </ul>
                         </td>
@@ -114,6 +121,123 @@ Aliased as publishParams as well.</p>
             </table>
         </section>
 
+            <section>
+    
+        <h3 id="methods">
+            Methods
+        </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="close"></a>
+                        <span class="name">
+                            <b>
+                            close
+                            </b>
+                            <a href="#close"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>close()</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">consolidated/stompjs/src/types.ts:122</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Closes the connection.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="send"></a>
+                        <span class="name">
+                            <b>
+                            send
+                            </b>
+                            <a href="#send"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+<code>send(data: string | ArrayBuffer)</code>
+                    </td>
+                </tr>
+
+
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="126" class="link-to-prism">consolidated/stompjs/src/types.ts:126</a></div>
+                            </td>
+                        </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                            <div class="io-description"><p>Transmits data using the connection. data can be a string or an ArrayBuffer.</p>
+</div>
+
+                            <div class="io-description">
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                        <td>
+                                                                    <code>string | ArrayBuffer</code>
+                                                        </td>
+                                                    
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                            <div>
+                            </div>
+                            <div class="io-description">
+                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                            </div>
+                                <div class="io-description">
+                                    
+                                </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
 
 
             <section>
@@ -122,37 +246,27 @@ Aliased as publishParams as well.</p>
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="binaryBody"></a>
-                                        <span class="name"><b>binaryBody</b><a href="#binaryBody"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="binaryType"></a>
+                                        <span class="name"><b>binaryType</b><a href="#binaryType"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>binaryBody:     <code>Uint8Array</code>
+                                        <code>binaryType:     <code></code>
 </code>
                                     </td>
                                 </tr>
 
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code>Uint8Array</code>
 
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>binary body (optional)</p>
+                                    <div class="io-description"><p>Returns a string that indicates how binary data from the socket is exposed to scripts:
+We support only &#39;arraybuffer&#39;.</p>
 </div>
                                 </td>
                             </tr>
@@ -162,13 +276,13 @@ Aliased as publishParams as well.</p>
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="body"></a>
-                                        <span class="name"><b>body</b><a href="#body"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="onclose"></a>
+                                        <span class="name"><b>onclose</b><a href="#onclose"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>body:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>onclose:     <code> | null</code>
 </code>
                                     </td>
                                 </tr>
@@ -176,39 +290,28 @@ Aliased as publishParams as well.</p>
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code> | null</code>
 
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>body (optional)</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="destination"></a>
-                                        <span class="name"><b>destination</b><a href="#destination"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="onerror"></a>
+                                        <span class="name"><b>onerror</b><a href="#onerror"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>destination:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>onerror:     <code> | null</code>
 </code>
                                     </td>
                                 </tr>
@@ -216,7 +319,7 @@ Aliased as publishParams as well.</p>
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>    <code> | null</code>
 
                                         </td>
                                     </tr>
@@ -225,25 +328,19 @@ Aliased as publishParams as well.</p>
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>destination end point</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="headers"></a>
-                                        <span class="name"><b>headers</b><a href="#headers"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="onmessage"></a>
+                                        <span class="name"><b>onmessage</b><a href="#onmessage"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>headers:     <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders</a></code>
+                                        <code>onmessage:     <code> | null</code>
 </code>
                                     </td>
                                 </tr>
@@ -251,39 +348,28 @@ Aliased as publishParams as well.</p>
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders</a></code>
+                                            <i>Type : </i>    <code> | null</code>
 
                                         </td>
                                     </tr>
 
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
 
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>headers (optional)</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="skipContentLengthHeader"></a>
-                                        <span class="name"><b>skipContentLengthHeader</b><a href="#skipContentLengthHeader"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="onopen"></a>
+                                        <span class="name"><b>onopen</b><a href="#onopen"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>skipContentLengthHeader:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>onopen:     <code> | null</code>
 </code>
                                     </td>
                                 </tr>
@@ -291,24 +377,47 @@ Aliased as publishParams as well.</p>
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            <i>Type : </i>    <code> | null</code>
 
                                         </td>
                                     </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="readyState"></a>
+                                        <span class="name"><b>readyState</b><a href="#readyState"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>readyState:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Optional</i>
+                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
                                         </td>
                                     </tr>
+
 
 
 
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>By default a <code>content-length</code> header will be added in the Frame to the broker.
-Set it to <code>true</code> for the header to be skipped.</p>
+                                    <div class="io-description"><p>Returns the state of the socket connection. It can have the values of StompSocketState.</p>
 </div>
                                 </td>
                             </tr>
@@ -483,7 +592,7 @@ export enum StompSocketState {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IPublishParams.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'IStompSocket.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

@@ -44,7 +44,7 @@
 
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>IPublishParams</li>
+  <li>IWatchParams</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -62,16 +62,15 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>consolidated/stompjs/src/types.ts</code>
+            <code>consolidated/rx-stomp/src/i-watch-params.ts</code>
         </p>
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Parameters for <a href="../classes/Client.html#publish">Client#publish</a>.
-Aliased as publishParams as well.</p>
-<p>Part of <code>@stomp/stompjs</code>.</p>
+                <p>Options for <a href="../classes/RxStomp.html#watch">RxStomp#watch</a>.</p>
+<p>Part of <code>@stomp/rx-stomp</code></p>
 
             </p>
 
@@ -90,22 +89,19 @@ Aliased as publishParams as well.</p>
                             <ul class="index-list">
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#binaryBody">binaryBody</a>
-                                </li>
-                                <li>
-                                            <span class="modifier">Optional</span>
-                                        <a href="#body">body</a>
-                                </li>
-                                <li>
                                         <a href="#destination">destination</a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#headers">headers</a>
+                                        <a href="#subHeaders">subHeaders</a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#skipContentLengthHeader">skipContentLengthHeader</a>
+                                        <a href="#subscribeOnlyOnce">subscribeOnlyOnce</a>
+                                </li>
+                                <li>
+                                            <span class="modifier">Optional</span>
+                                        <a href="#unsubHeaders">unsubHeaders</a>
                                 </li>
                             </ul>
                         </td>
@@ -118,86 +114,6 @@ Aliased as publishParams as well.</p>
 
             <section>
                 <h3 id="inputs">Properties</h3>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="binaryBody"></a>
-                                        <span class="name"><b>binaryBody</b><a href="#binaryBody"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>binaryBody:     <code>Uint8Array</code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code>Uint8Array</code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>binary body (optional)</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <a name="body"></a>
-                                        <span class="name"><b>body</b><a href="#body"><span class="icon ion-ios-link"></span></a></span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <code>body:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-</code>
-                                    </td>
-                                </tr>
-
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="col-md-4">
-                                            <i>Optional</i>
-                                        </td>
-                                    </tr>
-
-
-
-
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>body (optional)</p>
-</div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
@@ -221,29 +137,28 @@ Aliased as publishParams as well.</p>
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
 
 
 
 
-                            <tr>
-                                <td class="col-md-4">
-                                    <div class="io-description"><p>destination end point</p>
-</div>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                     <table class="table table-sm table-bordered">
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="headers"></a>
-                                        <span class="name"><b>headers</b><a href="#headers"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="subHeaders"></a>
+                                        <span class="name"><b>subHeaders</b><a href="#subHeaders"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>headers:     <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders</a></code>
+                                        <code>subHeaders:     <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -267,7 +182,7 @@ Aliased as publishParams as well.</p>
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>headers (optional)</p>
+                                    <div class="io-description"><p>Subscription headers, defaults to <code>{}</code></p>
 </div>
                                 </td>
                             </tr>
@@ -277,13 +192,13 @@ Aliased as publishParams as well.</p>
                         <tbody>
                                 <tr>
                                     <td class="col-md-4">
-                                        <a name="skipContentLengthHeader"></a>
-                                        <span class="name"><b>skipContentLengthHeader</b><a href="#skipContentLengthHeader"><span class="icon ion-ios-link"></span></a></span>
+                                        <a name="subscribeOnlyOnce"></a>
+                                        <span class="name"><b>subscribeOnlyOnce</b><a href="#subscribeOnlyOnce"><span class="icon ion-ios-link"></span></a></span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>skipContentLengthHeader:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>subscribeOnlyOnce:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -307,9 +222,61 @@ Aliased as publishParams as well.</p>
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>By default a <code>content-length</code> header will be added in the Frame to the broker.
-Set it to <code>true</code> for the header to be skipped.</p>
+                                    <div class="io-description"><p>By default, the destination will be subscribed after each successful (re)connection to the broker.
+Set this flag to not automatically resubscribe.</p>
 </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="unsubHeaders"></a>
+                                        <span class="name"><b>unsubHeaders</b><a href="#unsubHeaders"><span class="icon ion-ios-link"></span></a></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>unsubHeaders:     <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders | </a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders | </a></code>
+
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Optional</i>
+                                        </td>
+                                    </tr>
+
+
+
+
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-description"><p>Headers to be passed while unsubscribing, defaults to <code>{}</code>.</p>
+<p>Occasionally, headers may not be known while invoking <a href="../classes/RxStomp.html#watch">RxStomp#watch</a>,
+in such cases a callback can be passed that would return the headers.</p>
+<div><pre class="line-numbers"><code class="language-typescript">   *              const unsubHeadersCallback = () =&gt; {
+   *                  return {bye: &#39;world&#39;};
+   *              };
+   *              const sub = rxStomp.watch({ destination: queueName, unsubHeaders: unsubHeadersCallback})
+   *                                 .subscribe((message) =&gt; {
+   *                                    // handle message
+   *                                 });
+   *              // Unsubscribe from RxJS Observable, internally unsubscribe will be issued to the broker.
+   *              // `unsubHeadersCallback` will be invoked to get the headers.
+   *              sub.unsubscribe();
+   *</code></pre></div></div>
                                 </td>
                             </tr>
                         </tbody>
@@ -319,143 +286,47 @@ Set it to <code>true</code> for the header to be skipped.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IFrame } from &#x27;./i-frame&#x27;;
-import { IMessage } from &#x27;./i-message&#x27;;
-import { StompHeaders } from &#x27;./stomp-headers&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { StompHeaders } from &#x27;@stomp/stompjs&#x27;;
 
 /**
- * This callback will receive a &#x60;string&#x60; as parameter.
+ * Options for [RxStomp#watch]{@link RxStomp#watch}.
  *
- * Part of &#x60;@stomp/stompjs&#x60;.
+ * Part of &#x60;@stomp/rx-stomp&#x60;
  */
-export type debugFnType &#x3D; (msg: string) &#x3D;&gt; void;
-
-/**
- * This callback will receive a {@link IMessage} as parameter.
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- */
-export type messageCallbackType &#x3D; (message: IMessage) &#x3D;&gt; void;
-
-/**
- * This callback will receive a {@link IFrame} as parameter.
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- */
-export type frameCallbackType &#x3D; (receipt: IFrame) &#x3D;&gt; void;
-
-/**
- * This callback will receive a [CloseEvent]{@link https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent}
- * as parameter.
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- */
-export type closeEventCallbackType&lt;T &#x3D; any&gt; &#x3D; (evt: T) &#x3D;&gt; void;
-
-/**
- * This callback will receive an [Event]{@link https://developer.mozilla.org/en-US/docs/Web/API/Event}
- * as parameter.
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- */
-export type wsErrorCallbackType&lt;T &#x3D; any&gt; &#x3D; (evt: T) &#x3D;&gt; void;
-
-/**
- * Parameters for [Client#publish]{@link Client#publish}.
- * Aliased as publishParams as well.
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- */
-export interface IPublishParams {
-  /**
-   * destination end point
-   */
-  destination: string;
-  /**
-   * headers (optional)
-   */
-  headers?: StompHeaders;
-  /**
-   * body (optional)
-   */
-  body?: string;
-  /**
-   * binary body (optional)
-   */
-  binaryBody?: Uint8Array;
-  /**
-   * By default a &#x60;content-length&#x60; header will be added in the Frame to the broker.
-   * Set it to &#x60;true&#x60; for the header to be skipped.
-   */
-  skipContentLengthHeader?: boolean;
-}
-
-/**
- * Backward compatibility, switch to {@link IPublishParams}.
- */
-export type publishParams &#x3D; IPublishParams;
-
-/**
- * Used in {@link IRawFrameType}
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- *
- * @internal
- */
-export type RawHeaderType &#x3D; [string, string];
-
-/**
- * The parser yield frames in this structure
- *
- * Part of &#x60;@stomp/stompjs&#x60;.
- *
- * @internal
- */
-export interface IRawFrameType {
-  command: string;
-  headers: RawHeaderType[];
-  binaryBody: Uint8Array;
-}
-
-export interface IStompSocketMessageEvent {
-  data?: string | ArrayBuffer;
-}
-export interface IStompSocket {
-  onclose: ((this: IStompSocket, ev?: any) &#x3D;&gt; any) | null;
-  onerror: ((this: IStompSocket, ev: any) &#x3D;&gt; any) | null;
-  onmessage: ((this: IStompSocket, ev: IStompSocketMessageEvent) &#x3D;&gt; any) | null;
-  onopen: ((this: IStompSocket, ev?: any) &#x3D;&gt; any) | null;
+export interface IWatchParams {
+  readonly destination?: string;
 
   /**
-   * Returns a string that indicates how binary data from the socket is exposed to scripts:
-   * We support only &#x27;arraybuffer&#x27;.
+   * Subscription headers, defaults to &#x60;{}&#x60;
    */
-  binaryType: &#x27;arraybuffer&#x27;;
+  readonly subHeaders?: StompHeaders;
 
   /**
-   * Returns the state of the socket connection. It can have the values of StompSocketState.
+   * Headers to be passed while unsubscribing, defaults to &#x60;{}&#x60;.
+   *
+   * Occasionally, headers may not be known while invoking [RxStomp#watch]{@link RxStomp#watch},
+   * in such cases a callback can be passed that would return the headers.
+   *
+   * &#x60;&#x60;&#x60;typescript
+   *              const unsubHeadersCallback &#x3D; () &#x3D;&gt; {
+   *                  return {bye: &#x27;world&#x27;};
+   *              };
+   *              const sub &#x3D; rxStomp.watch({ destination: queueName, unsubHeaders: unsubHeadersCallback})
+   *                                 .subscribe((message) &#x3D;&gt; {
+   *                                    // handle message
+   *                                 });
+   *              // Unsubscribe from RxJS Observable, internally unsubscribe will be issued to the broker.
+   *              // &#x60;unsubHeadersCallback&#x60; will be invoked to get the headers.
+   *              sub.unsubscribe();
+   * &#x60;&#x60;&#x60;
    */
-  readonly readyState: number;
+  readonly unsubHeaders?: StompHeaders | (() &#x3D;&gt; StompHeaders);
 
   /**
-   * Closes the connection.
+   * By default, the destination will be subscribed after each successful (re)connection to the broker.
+   * Set this flag to not automatically resubscribe.
    */
-  close(): void;
-  /**
-   * Transmits data using the connection. data can be a string or an ArrayBuffer.
-   */
-  send(data: string | ArrayBuffer): void;
-}
-
-/**
- * Possible states for the IStompSocket
- *
- */
-export enum StompSocketState {
-  CONNECTING,
-  OPEN,
-  CLOSING,
-  CLOSED,
+  readonly subscribeOnlyOnce?: boolean;
 }
 </code></pre>
     </div>
@@ -483,7 +354,7 @@ export enum StompSocketState {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
-            var COMPODOC_CURRENT_PAGE_URL = 'IPublishParams.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'IWatchParams.html';
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

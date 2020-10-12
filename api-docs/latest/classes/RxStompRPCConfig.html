@@ -138,7 +138,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc-config.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc-config.ts:23</a></div>
                             </td>
                         </tr>
 
@@ -174,7 +174,7 @@ Default <code>/temp-queue/rpc-replies</code> suitable for RabbitMQ and ActiveMQ.
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc-config.ts:24</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc-config.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -208,7 +208,10 @@ import { RxStomp } from &#x27;./rx-stomp&#x27;;
  *
  * Part of &#x60;@stomp/rx-stomp&#x60;
  */
-export type setupReplyQueueFnType &#x3D; (replyQueueName: string, rxStomp: RxStomp) &#x3D;&gt; Observable&lt;IMessage&gt;;
+export type setupReplyQueueFnType &#x3D; (
+  replyQueueName: string,
+  rxStomp: RxStomp
+) &#x3D;&gt; Observable&lt;IMessage&gt;;
 
 /**
  * RPC Config. See the guide for example.

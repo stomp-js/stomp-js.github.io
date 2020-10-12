@@ -128,7 +128,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IRxStompPublishParams.html" data-type="entity-link">IRxStompPublishParams</a>
                             </li>
                             <li class="link">
+                                <a href="interfaces/IStompSocket.html" data-type="entity-link">IStompSocket</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IStompSocketMessageEvent.html" data-type="entity-link">IStompSocketMessageEvent</a>
+                            </li>
+                            <li class="link">
                                 <a href="interfaces/ITransaction.html" data-type="entity-link">ITransaction</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IWatchParams.html" data-type="entity-link">IWatchParams</a>
                             </li>
                         </ul>
                     </li>
