@@ -8,7 +8,7 @@
     "doc-serve": "./doc-gen.sh -r 59324 -s -w -o"
   },
   "author": "Deepak Kumar",
-  "license": "MIT",
+  "license": "Apache2",
   "dependencies": {
     "@compodoc/compodoc": "^1.1.8"
   }
