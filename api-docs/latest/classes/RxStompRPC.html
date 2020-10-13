@@ -203,7 +203,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -278,7 +278,7 @@ See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:58</a></div>
                             </td>
                         </tr>
 
@@ -340,15 +340,15 @@ however, if <code>correlation-id</code> is passed via <code>headers</code>, that
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable, Observer, Subscription } from &#x27;rxjs&#x27;;
-import { filter, first } from &#x27;rxjs/operators&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Observable, Observer, Subscription} from &#x27;rxjs&#x27;;
+import {filter, first} from &#x27;rxjs/operators&#x27;;
 
-import { UUID } from &#x27;angular2-uuid&#x27;;
+import {UUID} from &#x27;angular2-uuid&#x27;;
 
-import { IMessage, publishParams, StompHeaders } from &#x27;@stomp/stompjs&#x27;;
+import {IMessage, publishParams, StompHeaders} from &#x27;@stomp/stompjs&#x27;;
 
-import { RxStomp } from &#x27;./rx-stomp&#x27;;
-import { RxStompRPCConfig, setupReplyQueueFnType } from &#x27;./rx-stomp-rpc-config&#x27;;
+import {RxStomp} from &#x27;./rx-stomp&#x27;;
+import {RxStompRPCConfig, setupReplyQueueFnType} from &#x27;./rx-stomp-rpc-config&#x27;;
 
 /**
  * An implementation of Remote Procedure Call (RPC) using messaging.
@@ -362,17 +362,14 @@ export class RxStompRPC {
 
   private _setupReplyQueue: setupReplyQueueFnType &#x3D; () &#x3D;&gt; {
     return this.rxStomp.unhandledMessage$;
-  };
+  }
 
   private _repliesObservable: Observable&lt;IMessage&gt;;
 
   /**
    * Create an instance, see the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for details.
    */
-  constructor(
-    private rxStomp: RxStomp,
-    private stompRPCConfig?: RxStompRPCConfig
-  ) {
+  constructor(private rxStomp: RxStomp, private stompRPCConfig?: RxStompRPCConfig) {
     if (stompRPCConfig) {
       if (stompRPCConfig.replyQueueName) {
         this._replyQueueName &#x3D; stompRPCConfig.replyQueueName;
@@ -401,45 +398,36 @@ export class RxStompRPC {
    * however, if &#x60;correlation-id&#x60; is passed via &#x60;headers&#x60;, that will be used instead.
    */
   public stream(params: publishParams): Observable&lt;IMessage&gt; {
-    const headers: StompHeaders &#x3D; (Object as any).assign(
-      {},
-      params.headers || {}
-    );
-    const { destination, body, binaryBody } &#x3D; params;
+    const headers: StompHeaders &#x3D; (Object as any).assign({}, params.headers || {});
+    const {destination, body, binaryBody} &#x3D; params;
 
     if (!this._repliesObservable) {
-      this._repliesObservable &#x3D; this._setupReplyQueue(
-        this._replyQueueName,
-        this.rxStomp
-      );
+      this._repliesObservable &#x3D; this._setupReplyQueue(this._replyQueueName, this.rxStomp);
     }
 
-    return Observable.create((rpcObserver: Observer&lt;IMessage&gt;) &#x3D;&gt; {
-      let defaultMessagesSubscription: Subscription;
+    return Observable.create(
+      (rpcObserver: Observer&lt;IMessage&gt;) &#x3D;&gt; {
+        let defaultMessagesSubscription: Subscription;
 
-      const correlationId &#x3D; headers[&#x27;correlation-id&#x27;] || UUID.UUID();
+        const correlationId &#x3D; headers[&#x27;correlation-id&#x27;] || UUID.UUID();
 
-      defaultMessagesSubscription &#x3D; this._repliesObservable
-        .pipe(
-          filter((message: IMessage) &#x3D;&gt; {
-            return message.headers[&#x27;correlation-id&#x27;] &#x3D;&#x3D;&#x3D; correlationId;
-          })
-        )
-        .subscribe((message: IMessage) &#x3D;&gt; {
+        defaultMessagesSubscription &#x3D; this._repliesObservable.pipe(filter((message: IMessage) &#x3D;&gt; {
+          return message.headers[&#x27;correlation-id&#x27;] &#x3D;&#x3D;&#x3D; correlationId;
+        })).subscribe((message: IMessage) &#x3D;&gt; {
           rpcObserver.next(message);
         });
 
-      // send an RPC request
-      headers[&#x27;reply-to&#x27;] &#x3D; this._replyQueueName;
-      headers[&#x27;correlation-id&#x27;] &#x3D; correlationId;
+        // send an RPC request
+        headers[&#x27;reply-to&#x27;] &#x3D; this._replyQueueName;
+        headers[&#x27;correlation-id&#x27;] &#x3D; correlationId;
 
-      this.rxStomp.publish({ destination, body, binaryBody, headers });
+        this.rxStomp.publish({destination, body, binaryBody, headers});
 
-      return () &#x3D;&gt; {
-        // Cleanup
-        defaultMessagesSubscription.unsubscribe();
-      };
-    });
+        return () &#x3D;&gt; { // Cleanup
+          defaultMessagesSubscription.unsubscribe();
+        };
+      }
+    );
   }
 }
 </code></pre>

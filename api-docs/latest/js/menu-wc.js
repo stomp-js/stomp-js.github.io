@@ -25,8 +25,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                     <a data-type="chapter-link" href="index.html"><span class="icon ion-ios-home"></span>Getting started</a>
                     <ul class="links">
                         <li class="link">
-                            <a href="index.html" data-type="chapter-link">
+                            <a href="overview.html" data-type="chapter-link">
                                 <span class="icon ion-ios-keypad"></span>Overview
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="index.html" data-type="chapter-link">
+                                <span class="icon ion-ios-paper"></span>README
                             </a>
                         </li>
                         <li class="link">
@@ -128,16 +133,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IRxStompPublishParams.html" data-type="entity-link">IRxStompPublishParams</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IStompSocket.html" data-type="entity-link">IStompSocket</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/IStompSocketMessageEvent.html" data-type="entity-link">IStompSocketMessageEvent</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/ITransaction.html" data-type="entity-link">ITransaction</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/IWatchParams.html" data-type="entity-link">IWatchParams</a>
                             </li>
                         </ul>
                     </li>
