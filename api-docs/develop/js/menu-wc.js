@@ -16,7 +16,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">stompjs-docs documentation</a>
+                    <a href="index.html" data-type="index-link">stompjs@6.0.0-beta3, rx-stomp@1.0.0-beta5</a>
                 </li>
 
                 <li class="divider"></li>
