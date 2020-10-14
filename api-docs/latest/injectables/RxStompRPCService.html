@@ -70,7 +70,46 @@
 
             </p>
 
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code><a href="../classes/RxStompRPC.html" target="_self" >RxStompRPC</a></code>
+            </p>
 
+
+            <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rpc">rpc</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stream">stream</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
 
             <section>
     <h3 id="constructor">Constructor</h3>
@@ -104,7 +143,7 @@
                                                         <td>rxStomp</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/RxStompService.html" target="_self" >RxStompService</a></code>
+                                                                        <code><a href="../injectables/RxStompService.html" target="_self" >RxStompService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -116,7 +155,7 @@
                                                         <td>stompRPCConfig</td>
                                                   
                                                         <td>
-                                                                    <code><a href="../injectables/InjectableRxStompRPCConfig.html" target="_self" >InjectableRxStompRPCConfig</a></code>
+                                                                        <code><a href="../injectables/InjectableRxStompRPCConfig.html" target="_self" >InjectableRxStompRPCConfig</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -133,7 +172,176 @@
         </table>
 </section>
 
+            <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rpc"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            rpc
+                        </b>
+                        <a href="#rpc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rpc(params: <a href="../undefineds/publishParams.html">publishParams</a>)</code>
+                </td>
+            </tr>
 
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/RxStompRPC.html" target="_self" >RxStompRPC</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/RxStompRPC.html#source" target="_self" >RxStompRPC:47</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Make an RPC request.
+See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a> for example.</p>
+<p>It is a simple wrapper around <a href="../classes/RxStompRPC.html#stream">RxStompRPC#stream</a>.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#publishParams" target="_self" >publishParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IMessage.html" target="_self" >Observable&lt;IMessage&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stream"></a>
+                    <span class="name">
+                        <b>
+                            <span class="modifier">Public</span>
+                            stream
+                        </b>
+                        <a href="#stream"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stream(params: <a href="../undefineds/publishParams.html">publishParams</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Inherited from         <code><a href="../classes/RxStompRPC.html" target="_self" >RxStompRPC</a></code>
+</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-line">Defined in         <code><a href="../classes/RxStompRPC.html#source" target="_self" >RxStompRPC:58</a></code>
+</div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Make an RPC stream request. See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a>.</p>
+<p>Note: This call internally takes care of generating a correlation id,
+however, if <code>correlation-id</code> is passed via <code>headers</code>, that will be used instead.</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>params</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/typealiases.html#publishParams" target="_self" >publishParams</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="../interfaces/IMessage.html" target="_self" >Observable&lt;IMessage&gt;</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
 
     </div>
 
@@ -169,6 +377,7 @@ export class RxStompRPCService extends RxStompRPC {
 
 
 
+                   
 
 
 
@@ -191,6 +400,7 @@ export class RxStompRPCService extends RxStompRPC {
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
             var COMPODOC_CURRENT_PAGE_URL = 'RxStompRPCService.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>

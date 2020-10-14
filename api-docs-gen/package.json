@@ -9,7 +9,7 @@
   },
   "author": "Deepak Kumar",
   "license": "Apache2",
-  "dependencies": {
-    "@compodoc/compodoc": "^1.1.8"
+  "devDependencies": {
+    "@compodoc/compodoc": "^1.1.11"
   }
 }
