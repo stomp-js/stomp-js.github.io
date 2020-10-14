@@ -10,5 +10,5 @@ cd $BASE/..
         -p tsconfig.json \
         -d $DESTINATION \
         --disablePrivate --disableProtected --disableInternal --disableGraph \
-        --theme Vagrant --hideGenerator \
+        --theme vagrant --hideGenerator \
         "$@"
