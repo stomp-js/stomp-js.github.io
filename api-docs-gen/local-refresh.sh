@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
-# Generatinf locally, by default assume devlop
+# Generating locally, by default assume develop
 export BRANCH=${1:-develop}
 
 source `dirname $0`/config.sh
 
-mkdir -p $BASE
-cd $BASE
+mkdir -p "$BASE"
+cd "$BASE"
 
 for bundle in $BUNDLES
 do

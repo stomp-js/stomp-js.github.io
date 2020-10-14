@@ -5,9 +5,9 @@ export BRANCH=${1:-master}
 
 source `dirname $0`/config.sh
 
-rm -rf $BASE
-mkdir -p $BASE
-cd $BASE
+rm -rf "$BASE"
+mkdir -p "$BASE"
+cd "$BASE"
 
 
 for bundle in $BUNDLES
@@ -17,4 +17,5 @@ do
     mv $bundle-$BRANCH $bundle
 done
 
+cd -
 `dirname $0`/doc-gen.sh
