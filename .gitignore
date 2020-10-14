@@ -9,3 +9,6 @@ _site
 # temp files for API docs
 api-docs-gen/consolidated
 api-docs-gen/node_modules
+
+# This is actually a generated file
+api-docs-gen/README.md
