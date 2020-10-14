@@ -17,5 +17,4 @@ do
     mv $bundle-$BRANCH $bundle
 done
 
-cd -
 `dirname $0`/doc-gen.sh
