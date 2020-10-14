@@ -1,5 +1,8 @@
 # Navigating through the API docs
 
+These docs correspond to NPM released main line versions.
+Please see [dev docs](../develop/) for development versions.
+
 The API docs cover three libraries:
 
 - @stomp/stompjs
@@ -7,7 +10,9 @@ The API docs cover three libraries:
 - @stomp/ng2-stompjs - thin wrapper over @stomp/rx-stomp
 
 The documentation for classes indicate which library each of the classes
-belong. See the [guides](/) for more information.
+belong. See the [guides](/) for more information and tutorials.
+
+These documents have been generated using [Compodoc](https://compodoc.app/).
 
 ## stompjs
 
@@ -34,4 +39,3 @@ Deprecated classes:
 
 - [StompRService](./injectables/StompRService.html)
 - [StompService](./injectables/StompService.html)
-
