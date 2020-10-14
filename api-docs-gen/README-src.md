@@ -1,8 +1,5 @@
 # Navigating through the API docs
 
-These docs correspond to NPM released main line versions.
-Please see [dev docs](../develop/) for development versions.
-
 The API docs cover three libraries:
 
 - @stomp/stompjs
