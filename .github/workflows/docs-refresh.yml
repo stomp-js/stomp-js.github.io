@@ -1,0 +1,37 @@
+# This is a basic workflow that is manually triggered
+
+name: API docs refresh
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+    # Inputs the workflow accepts.
+    inputs:
+      mode:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'develop or master'
+        # Default value if no value is explicitly provided
+        default: 'develop'
+        # Input has to be provided for the workflow to run
+        required: true
+
+jobs:
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: 'develop-docs'
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - run: cd api-docs-gen && echo $PWD
+      - run: echo $PWD
+      - run: npm ci
+      - run: api-docs-gen/docs-refresh.sh master
+      - run: api-docs-gen/docs-refresh.sh develop
