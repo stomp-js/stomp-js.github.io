@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -ex
+
 # by default assume master branch
 export BRANCH=${1:-master}
 

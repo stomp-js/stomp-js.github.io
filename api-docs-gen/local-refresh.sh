@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -ex
+
 # Generating locally, by default assume develop
 export BRANCH=${1:-develop}
 

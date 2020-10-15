@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -ex
+
 # usually will receive from calling script, assume develop otherwise
 export BRANCH=${BRANCH:-$1}
 export BRANCH=${BRANCH:-develop}
@@ -17,13 +19,13 @@ else
   export MESSAGE="These docs correspond to NPM released main line versions. Please see [dev docs](../develop/) for development versions."
 fi
 
-APP_TITLE=`./app-title.rb`
-
 # Change to the Node application with Compodoc installed
 cd "$BASE"/..
 
+APP_TITLE=`./app-title.rb`
+
 # It will be used by Jekyll pages to show current versions
-`dirname $0`/pkg-versions.rb > ../_data/versions/$BRANCH.json
+./pkg-versions.rb > ../_data/versions/$BRANCH.json
 
 # Adjust the README depending on the branch
 sed -e "3i$MESSAGE\n" README-src.md > README.md
