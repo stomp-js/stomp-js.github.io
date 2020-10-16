@@ -7,7 +7,17 @@ git config --global user.name "Deepak Kumar"
 
 git add -A
 
-if git commit -m "Committed by Github action"
+message=$(
+echo "Committed by Github action"
+echo
+
+for i in master develop; do
+  echo -n "$i: "
+  cat _data/versions/$i.json
+done
+)
+
+if git commit -m "$message"
 then
   git push origin HEAD
 fi
