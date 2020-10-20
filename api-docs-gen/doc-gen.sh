@@ -27,6 +27,9 @@ APP_TITLE=`./app-title.rb`
 # It will be used by Jekyll pages to show current versions
 ./pkg-versions.rb > ../_data/versions/$BRANCH.json
 
+# Update versions to be shown in the sidebar
+./update-authors.rb
+
 # Adjust the README depending on the branch
 sed -e "3i$MESSAGE\n" README-src.md > README.md
 
