@@ -100,9 +100,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                     <a href="injectables/RxStompService.html" data-type="entity-link">RxStompService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/StompConfig.html" data-type="entity-link">StompConfig</a>
-                                </li>
-                                <li class="link">
                                     <a href="injectables/StompRService.html" data-type="entity-link">StompRService</a>
                                 </li>
                                 <li class="link">
