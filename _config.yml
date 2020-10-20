@@ -77,22 +77,7 @@ analytics:
 
 
 # Site Author
-author:
-  name: "StompJS"
-  avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio: "STOMP library for JavaScript/TypeScript."
-  location:
-  email:
-  links:
-    - label: "stompjs"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/stomp-js/stompjs"
-    - label: "rx-stomp"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/stomp-js/rx-stomp"
-    - label: "ng2-stompjs"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/stomp-js/ng2-stompjs"
+author: "stompjs"
 
 # Site Footer
 footer:
