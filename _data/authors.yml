@@ -1,16 +1,17 @@
+---
 stompjs:
-  name: "StompJS"
-  avatar: # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio: "STOMP library for JavaScript/TypeScript."
-  location:
-  email:
+  name: StompJS
+  avatar: 
+  bio: STOMP library for JavaScript/TypeScript.
+  location: 
+  email: 
   links:
-    - label: "stompjs"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/stomp-js/stompjs"
-    - label: "rx-stomp"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/stomp-js/rx-stomp"
-    - label: "ng2-stompjs"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/stomp-js/ng2-stompjs"
+  - label: stompjs@5.4.4
+    icon: fab fa-fw fa-github
+    url: https://github.com/stomp-js/stompjs
+  - label: rx-stomp@0.3.5
+    icon: fab fa-fw fa-github
+    url: https://github.com/stomp-js/rx-stomp
+  - label: ng2-stompjs@7.2.0
+    icon: fab fa-fw fa-github
+    url: https://github.com/stomp-js/ng2-stompjs
