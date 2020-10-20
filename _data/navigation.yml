@@ -1,8 +1,8 @@
 main:
   - title: "Getting Started"
-    url: /guide/stompjs/using-stompjs-v5.html
+    url: /#getting-started
   - title: "Upgrade"
-    url: /guide/stompjs/upgrading-stompjs.html
+    url: /#upgrading
   - title: "APIs"
     url: /api-docs/latest/
   - title: "FAQs"
