@@ -10,6 +10,7 @@
   "author": "Deepak Kumar",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@compodoc/compodoc": "=1.1.8"
+    "@compodoc/compodoc": "=1.1.8",
+    "prettier": "^2.1.2"
   }
 }
