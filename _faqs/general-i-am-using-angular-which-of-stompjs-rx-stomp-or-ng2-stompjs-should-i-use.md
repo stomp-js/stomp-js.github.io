@@ -1,5 +1,5 @@
 ---
-question: "I am using Angular, which of stompjs, rx-stomp, or ng2-stompjs should I use?"
+question: 'I am using Angular, which of stompjs, rx-stomp, or ng2-stompjs should I use?'
 group: General
 priority: ACE
 ---

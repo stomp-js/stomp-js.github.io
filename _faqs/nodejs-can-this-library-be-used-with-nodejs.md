@@ -1,5 +1,5 @@
 ---
-question: "Can this library be used with NodeJS?"
+question: 'Can this library be used with NodeJS?'
 group: NodeJS
 priority: GAA
 ---

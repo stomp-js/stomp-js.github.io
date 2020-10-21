@@ -1,20 +1,20 @@
 ---
 layout: single
-title:  "Using STOMP with SockJS"
-date:   2018-09-10 12:06:34 +0530
+title: 'Using STOMP with SockJS'
+date: 2018-09-10 12:06:34 +0530
 categories: guide stompjs rx-stomp ng2-stompjs
 toc: true
 redirect_from:
-    - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/09/using-stomp-with-sockjs.html
-    - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/10/using-stomp-with-sockjs.html
-    - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/11/using-stomp-with-sockjs.html
+  - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/09/using-stomp-with-sockjs.html
+  - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/10/using-stomp-with-sockjs.html
+  - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/11/using-stomp-with-sockjs.html
 ---
 
 This guide covers how to use [SockJS client] instead of WebSockets as underlying transport.
 
 **For Spring STOMP users:**
-*There are few tutorials/guides that implicitly suggest that you need SockJS to use STOMP.
-That is incorrect, you only need SockJS if you need to support old browsers.*
+_There are few tutorials/guides that implicitly suggest that you need SockJS to use STOMP.
+That is incorrect, you only need SockJS if you need to support old browsers._
 
 ## Do you need SockJS?
 
@@ -93,45 +93,45 @@ See the example below.
 ## Example with stompjs
 
 ```javascript
-    const client = new StompJs.Client({
-      brokerURL: "ws://localhost:15674/ws",
-      connectHeaders: {
-        login: "user",
-        passcode: "password"
-      },
-      debug: function (str) {
-        console.log(str);
-      },
-      reconnectDelay: 5000,
-      heartbeatIncoming: 4000,
-      heartbeatOutgoing: 4000
-    });
-    
-    // Fallback code
-    if (typeof WebSocket !== 'function') {
-      // For SockJS you need to set a factory that creates a new SockJS instance
-      // to be used for each (re)connect
-      client.webSocketFactory = function () {
-        // Note that the URL is different from the WebSocket URL 
-        return new SockJS("http://localhost:15674/stomp");
-      };
-    }
+const client = new StompJs.Client({
+  brokerURL: 'ws://localhost:15674/ws',
+  connectHeaders: {
+    login: 'user',
+    passcode: 'password',
+  },
+  debug: function (str) {
+    console.log(str);
+  },
+  reconnectDelay: 5000,
+  heartbeatIncoming: 4000,
+  heartbeatOutgoing: 4000,
+});
 
-    client.onConnect = function(frame) {
-      // Do something, all subscribes must be done is this callback
-      // This is needed because this will be executed after a (re)connect
-    };
-    
-    client.onStompError = function (frame) {
-      // Will be invoked in case of error encountered at Broker
-      // Bad login/passcode typically will cause an error
-      // Complaint brokers will set `message` header with a brief message. Body may contain details.
-      // Compliant brokers will terminate the connection after any error
-      console.log('Broker reported error: ' + frame.headers['message']);
-      console.log('Additional details: ' + frame.body);
-    };
-    
-    client.activate();
+// Fallback code
+if (typeof WebSocket !== 'function') {
+  // For SockJS you need to set a factory that creates a new SockJS instance
+  // to be used for each (re)connect
+  client.webSocketFactory = function () {
+    // Note that the URL is different from the WebSocket URL
+    return new SockJS('http://localhost:15674/stomp');
+  };
+}
+
+client.onConnect = function (frame) {
+  // Do something, all subscribes must be done is this callback
+  // This is needed because this will be executed after a (re)connect
+};
+
+client.onStompError = function (frame) {
+  // Will be invoked in case of error encountered at Broker
+  // Bad login/passcode typically will cause an error
+  // Complaint brokers will set `message` header with a brief message. Body may contain details.
+  // Compliant brokers will terminate the connection after any error
+  console.log('Broker reported error: ' + frame.headers['message']);
+  console.log('Additional details: ' + frame.body);
+};
+
+client.activate();
 ```
 
 Compare the above against the sample in [using StompJS]({% link _posts/2018-06-29-using-stompjs-v5.md %}),
@@ -150,23 +150,21 @@ Try any of the following as a possible work around (from [ng2-stompjs/issues/70]
 - In your index.html file, in the header add the following:
 
 ```html
-    <script type="application/javascript">
-      var global = window;
-    </script>
-```  
+<script type="application/javascript">
+  var global = window;
+</script>
+```
 
 - Add following to your `polyfill.ts`:
 
 ```typescript
-  (window as any).global = window;
-```  
+(window as any).global = window;
+```
 
-
-
-[SockJS client]: https://github.com/sockjs/sockjs-client
-[StompConfig]: /api-docs/latest/classes/StompConfig.html
-[InjectableRxStompConfig]: /api-docs/latest/injectables/InjectableRxStompConfig.html
-[webSocketFactory]: /api-docs/latest/classes/Client.html#webSocketFactory
-[brokerURL]: /api-docs/latest/classes/Client.html#brokerURL
-[Stomp Client]: /api-docs/latest/classes/Client.html
+[sockjs client]: https://github.com/sockjs/sockjs-client
+[stompconfig]: /api-docs/latest/classes/StompConfig.html
+[injectablerxstompconfig]: /api-docs/latest/injectables/InjectableRxStompConfig.html
+[websocketfactory]: /api-docs/latest/classes/Client.html#webSocketFactory
+[brokerurl]: /api-docs/latest/classes/Client.html#brokerURL
+[stomp client]: /api-docs/latest/classes/Client.html
 [ng2-stompjs/issues/70]: https://github.com/stomp-js/ng2-stompjs/issues/70

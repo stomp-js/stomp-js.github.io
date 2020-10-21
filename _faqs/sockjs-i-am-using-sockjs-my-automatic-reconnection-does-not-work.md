@@ -1,5 +1,5 @@
 ---
-question: "I am using SockJS, my automatic reconnection does not work?"
+question: 'I am using SockJS, my automatic reconnection does not work?'
 group: SockJS
 priority: EAC
 ---

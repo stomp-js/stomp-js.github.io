@@ -1,10 +1,10 @@
 ---
-question: "My authentication tokens expire, where should I write code to acquire fresh tokens?"
+question: 'My authentication tokens expire, where should I write code to acquire fresh tokens?'
 group: Authentication
 priority: GAC
 ---
 
-The suggested place to acquire fresh tokens is 
+The suggested place to acquire fresh tokens is
 [beforeConnect](https://stomp-js.github.io/api-docs/latest/classes/Client.html#beforeConnect)
 callback.
 You can update the

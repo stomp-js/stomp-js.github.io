@@ -1,7 +1,7 @@
 ---
 layout: single
-date:   2020-10-19 19:42:22 +0530
-title:  "StompJs Family"
+date: 2020-10-19 19:42:22 +0530
+title: 'StompJs Family'
 author_profile: true
 ---
 
@@ -47,12 +47,9 @@ Samples:
   [Remote Procedure Calls].
 - An article devoted to specific issues posed by [React Native].
 
-
-
-[STOMP]: https://stomp.github.io/index.html
-[Websocket]: https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
-[RxJS]: https://github.com/ReactiveX/RxJS
-
+[stomp]: https://stomp.github.io/index.html
+[websocket]: https://developer.mozilla.org/en-US/docs/Web/API/WebSocket
+[rxjs]: https://github.com/ReactiveX/RxJS
 [stompjs]: https://github.com/stomp-js/stompjs
 [rx-stomp]: https://github.com/stomp-js/rx-stomp
 [ng2-stompjs]: https://github.com/stomp-js/ng2-stompjs

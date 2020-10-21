@@ -1,5 +1,5 @@
 ---
-question: "Can I use libraries with bundlers like Rollup or Webpack?"
+question: 'Can I use libraries with bundlers like Rollup or Webpack?'
 group: General
 priority: ADK
 ---

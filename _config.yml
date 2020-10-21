@@ -16,7 +16,7 @@
 github_username: stomp-js
 
 # Build settings
-remote_theme: "mmistakes/minimal-mistakes@4.20.2"
+remote_theme: 'mmistakes/minimal-mistakes@4.20.2'
 
 collections:
   - faqs
@@ -35,17 +35,17 @@ exclude:
   - api-docs-gen/
   - .idea/
 
-minimal_mistakes_skin: "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin: 'default' # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale: "en-US"
-title: "StompJS Family"
-title_separator: "-"
+locale: 'en-US'
+title: 'StompJS Family'
+title_separator: '-'
 subtitle: # site tagline that appears below site title in masthead
-name: "Deepak Kumar"
+name: 'Deepak Kumar'
 description: Javascript/Typescript client for STOMP protocol. Specialized versions for RxJS/Angular.
 url: # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl: "" # the subpath of your site, e.g. "/blog"
+baseurl: '' # the subpath of your site, e.g. "/blog"
 repository: # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser: # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo: # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
@@ -75,28 +75,25 @@ analytics:
     tracking_id:
     anonymize_ip: # true, false (default)
 
-
 # Site Author
-author: "stompjs"
+author: 'stompjs'
 
 # Site Footer
 footer:
   links:
-    - label: "stompjs"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/stomp-js/stompjs"
-    - label: "rx-stomp"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/stomp-js/rx-stomp"
-    - label: "ng2-stompjs"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/stomp-js/ng2-stompjs"
-
+    - label: 'stompjs'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/stomp-js/stompjs'
+    - label: 'rx-stomp'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/stomp-js/rx-stomp'
+    - label: 'ng2-stompjs'
+      icon: 'fab fa-fw fa-github'
+      url: 'https://github.com/stomp-js/ng2-stompjs'
 
 # Reading Files
-encoding: "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
+encoding: 'utf-8'
+markdown_ext: 'markdown,mkdown,mkdn,mkd,md'
 
 # Conversion
 markdown: kramdown
@@ -104,7 +101,6 @@ highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
-
 
 # Markdown Processing
 kramdown:
@@ -116,19 +112,16 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
-
 # Sass/SCSS
 sass:
   sass_dir: _sass
   style: compressed # https://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
-
 # Outputting
 permalink: /:categories/:title:output_ext
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: "" # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-
+timezone: '' # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Plugins (previously gems:)
 plugins:
@@ -147,7 +140,6 @@ whitelist:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-redirect-from
-
 
 # Archives
 #  Type
@@ -177,7 +169,6 @@ whitelist:
 #     category: /categories/:name/
 #     tag: /tags/:name/
 
-
 # HTML Compression
 # - https://jch.penibelst.de/
 compress_html:
@@ -185,12 +176,11 @@ compress_html:
   ignore:
     envs: development
 
-
 # Defaults
 defaults:
   # _posts
   - scope:
-      path: ""
+      path: ''
       type: posts
     values:
       layout: single

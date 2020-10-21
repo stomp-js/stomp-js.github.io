@@ -1,13 +1,13 @@
 ---
 layout: single
-title:  "ng2-stompjs with Angular 7"
-date:   2018-11-04 17:27:13 +0530
+title: 'ng2-stompjs with Angular 7'
+date: 2018-11-04 17:27:13 +0530
 categories: guide ng2-stompjs
 toc: true
 redirect_from:
-    - /guide/ng2-stompjs/2018/11/03/ng2-stomp-with-angular7.html
-    - /guide/ng2-stompjs/2018/11/04/ng2-stomp-with-angular7.html
-    - /guide/ng2-stompjs/2018/11/05/ng2-stomp-with-angular7.html
+  - /guide/ng2-stompjs/2018/11/03/ng2-stomp-with-angular7.html
+  - /guide/ng2-stompjs/2018/11/04/ng2-stomp-with-angular7.html
+  - /guide/ng2-stompjs/2018/11/05/ng2-stomp-with-angular7.html
 ---
 
 This step by step guide will create a new Angular application
@@ -21,7 +21,7 @@ For the impatient, final code from this tutorial is at:
 
 ## Pre requisites
 
-You need to have [Node.js](https://nodejs.org) 
+You need to have [Node.js](https://nodejs.org)
 and [npm](https://www.npmjs.com/) installed.
 
 You must have basic familiarity with Angular and Typescript.
@@ -51,7 +51,7 @@ $ cd ng2-stompjs-angular7/
 $ npm i
 ```
 
-To run the application locally execute the following and 
+To run the application locally execute the following and
 point your browser to [http://localhost:4200/](http://localhost:4200/).
 
 ```bash
@@ -61,7 +61,7 @@ $ ng serve
 You can keep it running in a terminal and keep the browser tab open.
 It will detect changes, recompile and reload the browser tab.
 
-*At this stage you can use favorite IDE and be ready to edit code.*
+_At this stage you can use favorite IDE and be ready to edit code._
 
 ### Add and Inject @stomp/ng2-stompjs
 
@@ -86,7 +86,7 @@ export const myRxStompConfig: InjectableRxStompConfig = {
   // Typical keys: login, passcode, host
   connectHeaders: {
     login: 'guest',
-    passcode: 'guest'
+    passcode: 'guest',
   },
 
   // How often to heartbeat?
@@ -104,7 +104,7 @@ export const myRxStompConfig: InjectableRxStompConfig = {
   // Skip this key to stop logging to console
   debug: (msg: string): void => {
     console.log(new Date(), msg);
-  }
+  },
 };
 ```
 
@@ -115,24 +115,28 @@ Next we need to configure the configuration to get injected. Open `src/app/app.m
 Add the following to the `providers` array of your `@NgModule`:
 
 ```typescript
-  providers: [
-    {
-      provide: InjectableRxStompConfig,
-      useValue: myRxStompConfig
-    },
-    {
-      provide: RxStompService,
-      useFactory: rxStompServiceFactory,
-      deps: [InjectableRxStompConfig]
-    }
-  ]
+providers: [
+  {
+    provide: InjectableRxStompConfig,
+    useValue: myRxStompConfig,
+  },
+  {
+    provide: RxStompService,
+    useFactory: rxStompServiceFactory,
+    deps: [InjectableRxStompConfig],
+  },
+];
 ```
 
 Also add appropriate import lines towards the top of this file (after existing import
 statements):
 
 ```typescript
-import { InjectableRxStompConfig, RxStompService, rxStompServiceFactory } from '@stomp/ng2-stompjs';
+import {
+  InjectableRxStompConfig,
+  RxStompService,
+  rxStompServiceFactory,
+} from '@stomp/ng2-stompjs';
 
 import { myRxStompConfig } from './my-rx-stomp.config';
 ```
@@ -159,12 +163,12 @@ Now we will create the basic HTML in
 
 ```html
 <div id="messages">
-    <button class="btn btn-primary">Send Test Message</button>
-    <h2>Received messages</h2>
-    <ol>
-        <!-- we will use Angular binding to populate list of messages -->
-        <li class="message">message</li>
-    </ol>
+  <button class="btn btn-primary">Send Test Message</button>
+  <h2>Received messages</h2>
+  <ol>
+    <!-- we will use Angular binding to populate list of messages -->
+    <li class="message">message</li>
+  </ol>
 </div>
 ```
 
@@ -174,9 +178,7 @@ Edit `src/app/app.component.html` to look like the following:
 
 ```html
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
+  <h1>Welcome to {{ title }}!</h1>
 </div>
 <app-messages></app-messages>
 ```
@@ -207,31 +209,29 @@ We will now add code to send message:
   }
 ```
 
-*Please see [RxStomp#publish][rx-stomp-publish].
-Keep this page open as we would be using more methods from this class soon.*
+_Please see [RxStomp#publish][rx-stomp-publish].
+Keep this page open as we would be using more methods from this class soon._
 
 Full content of `src/app/messages/messages.component.ts` should look like
 the following:
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
-import { RxStompService} from '@stomp/ng2-stompjs';
+import { RxStompService } from '@stomp/ng2-stompjs';
 
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css']
+  styleUrls: ['./messages.component.css'],
 })
 export class MessagesComponent implements OnInit {
+  constructor(private rxStompService: RxStompService) {}
 
-  constructor(private rxStompService: RxStompService) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   onSendMessage() {
-    const message = `Message generated at ${new Date}`;
-    this.rxStompService.publish({destination: '/topic/demo', body: message});
+    const message = `Message generated at ${new Date()}`;
+    this.rxStompService.publish({ destination: '/topic/demo', body: message });
   }
 }
 ```
@@ -242,12 +242,14 @@ to the button. The file should look like the following now:
 
 ```html
 <div id="messages">
-    <button class="btn btn-primary" (click)="onSendMessage()">Send Message</button>
-    <h2>Received messages</h2>
-    <ol>
-        <!-- we will use Angular binding to populate list of messages -->
-        <li class="message">message</li>
-    </ol>
+  <button class="btn btn-primary" (click)="onSendMessage()">
+    Send Message
+  </button>
+  <h2>Received messages</h2>
+  <ol>
+    <!-- we will use Angular binding to populate list of messages -->
+    <li class="message">message</li>
+  </ol>
 </div>
 ```
 
@@ -276,18 +278,18 @@ from `@stomp/stompjs`.
 There are `Message` classes exposed by few other modules as well, so,
 you need to be careful.
 
-*If you are coming from `@stomp/stompjs`, please notice that you do not
+_If you are coming from `@stomp/stompjs`, please notice that you do not
 need to subscribe within callback of stomp getting connected.
 This library internally ensures that actual subscription is carried out
 when the broker is actually connected.
-It also keep tracking of broker re-connections and automatically resubscribes.*
+It also keep tracking of broker re-connections and automatically resubscribes._
 
 Now is the time to link the HTML template to received messages.
 We will use `ngFor` to bind list of messages to `<li>`.
 Edit `src/app/messages/messages.component.html`:
 
 ```html
-        <li class="message" *ngFor="let message of receivedMessages">{{message}}</li>
+<li class="message" *ngFor="let message of receivedMessages">{{message}}</li>
 ```
 
 Now your `src/app/messages/messages.component.ts` and
@@ -295,18 +297,18 @@ Now your `src/app/messages/messages.component.ts` and
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
-import { RxStompService} from '@stomp/ng2-stompjs';
+import { RxStompService } from '@stomp/ng2-stompjs';
 import { Message } from '@stomp/stompjs';
 
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css']
+  styleUrls: ['./messages.component.css'],
 })
 export class MessagesComponent implements OnInit {
   public receivedMessages: string[] = [];
 
-  constructor(private rxStompService: RxStompService) { }
+  constructor(private rxStompService: RxStompService) {}
 
   ngOnInit() {
     this.rxStompService.watch('/topic/demo').subscribe((message: Message) => {
@@ -315,20 +317,24 @@ export class MessagesComponent implements OnInit {
   }
 
   onSendMessage() {
-    const message = `Message generated at ${new Date}`;
-    this.rxStompService.publish({destination: '/topic/demo', body: message});
+    const message = `Message generated at ${new Date()}`;
+    this.rxStompService.publish({ destination: '/topic/demo', body: message });
   }
 }
 ```
 
 ```html
 <div id="messages">
-    <button class="btn btn-primary" (click)="onSendMessage()">Send Message</button>
-    <h2>Received messages</h2>
-    <ol>
-        <!-- we will use Angular binding to populate list of messages -->
-        <li class="message" *ngFor="let message of receivedMessages">{{message}}</li>
-    </ol>
+  <button class="btn btn-primary" (click)="onSendMessage()">
+    Send Message
+  </button>
+  <h2>Received messages</h2>
+  <ol>
+    <!-- we will use Angular binding to populate list of messages -->
+    <li class="message" *ngFor="let message of receivedMessages">
+      {{message}}
+    </li>
+  </ol>
 </div>
 ```
 
@@ -366,25 +372,27 @@ Your `src/app/messages/messages.component.ts` should look like the following:
 
 ```typescript
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { RxStompService} from '@stomp/ng2-stompjs';
+import { RxStompService } from '@stomp/ng2-stompjs';
 import { Message } from '@stomp/stompjs';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-messages',
   templateUrl: './messages.component.html',
-  styleUrls: ['./messages.component.css']
+  styleUrls: ['./messages.component.css'],
 })
 export class MessagesComponent implements OnInit, OnDestroy {
   public receivedMessages: string[] = [];
   private topicSubscription: Subscription;
 
-  constructor(private rxStompService: RxStompService) { }
+  constructor(private rxStompService: RxStompService) {}
 
   ngOnInit() {
-    this.topicSubscription = this.rxStompService.watch('/topic/demo').subscribe((message: Message) => {
-      this.receivedMessages.push(message.body);
-    });
+    this.topicSubscription = this.rxStompService
+      .watch('/topic/demo')
+      .subscribe((message: Message) => {
+        this.receivedMessages.push(message.body);
+      });
   }
 
   ngOnDestroy() {
@@ -392,8 +400,8 @@ export class MessagesComponent implements OnInit, OnDestroy {
   }
 
   onSendMessage() {
-    const message = `Message generated at ${new Date}`;
-    this.rxStompService.publish({destination: '/topic/demo', body: message});
+    const message = `Message generated at ${new Date()}`;
+    this.rxStompService.publish({ destination: '/topic/demo', body: message });
   }
 }
 ```
@@ -412,15 +420,13 @@ export class MessagesComponent implements OnInit, OnDestroy {
 I will be writing more tutorials in following days to cover additional topics:
 
 - Manual control in the configuration and connection establishment.
- (In this sample, STOMP broker is connected during the Angular DI class
- initialization phase.)
-
-
-
+  (In this sample, STOMP broker is connected during the Angular DI class
+  initialization phase.)
 
 [tour-of-heroes]: https://angular.io/tutorial
 [angular-di]: https://angular.io/guide/dependency-injection
 [rx-stomp]: /api-docs/latest/classes/RxStomp.html
 [rx-stomp-publish]: /api-docs/latest/classes/RxStomp.html#publish
 [rx-stomp-watch]: /api-docs/latest/classes/RxStomp.html#watch
+
 [connection-status-ng2-stompjs]: {% link _posts/2018-12-18-connection-status-ng2-stompjs.md %}

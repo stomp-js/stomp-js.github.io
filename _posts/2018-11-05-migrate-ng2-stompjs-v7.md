@@ -1,13 +1,13 @@
 ---
 layout: single
-title:  "Migrating ng2-stompjs to v7"
-date:   2018-11-05 23:02:56 +0530
+title: 'Migrating ng2-stompjs to v7'
+date: 2018-11-05 23:02:56 +0530
 categories: guide ng2-stompjs
 toc: true
 redirect_from:
-    - /guide/ng2-stompjs/2018/11/04/migrate-ng2-stompjs-v7.html
-    - /guide/ng2-stompjs/2018/11/05/migrate-ng2-stompjs-v7.html
-    - /guide/ng2-stompjs/2018/11/06/migrate-ng2-stompjs-v7.html
+  - /guide/ng2-stompjs/2018/11/04/migrate-ng2-stompjs-v7.html
+  - /guide/ng2-stompjs/2018/11/05/migrate-ng2-stompjs-v7.html
+  - /guide/ng2-stompjs/2018/11/06/migrate-ng2-stompjs-v7.html
 ---
 
 ## Rationale of changes
@@ -18,7 +18,7 @@ all these libraries have been almost entirely rewritten.
 
 Major reasons for changes in this library are following:
 
-- `@stomp/rx-stomp` has been factored out. 
+- `@stomp/rx-stomp` has been factored out.
   This allows using RxJS goodies even when Angular is not used.
 - `@stomp/ng2-stompjs` is a very thin wrapper (it just makes key classes Injectable).
 - All the member names are lowerCamelCase now.
@@ -29,8 +29,8 @@ Major reasons for changes in this library are following:
 
 ## Upgrading from version 6
 
-*For upgrading from version 4, you will additionally need to make RxJS specific changes.
-These are Angular specific, not covered in this guide.*
+_For upgrading from version 4, you will additionally need to make RxJS specific changes.
+These are Angular specific, not covered in this guide._
 
 ### Polyfills
 
@@ -56,9 +56,9 @@ In addition the compatibility mode for v6 will be dropped in v8.
 
 ## Full Upgrade
 
-*Note: at every state you may need to import classes from `@stomp/ng2-stompjs`
+_Note: at every state you may need to import classes from `@stomp/ng2-stompjs`
 and keep removing imports that are no longer needed.
-These are not explicitly mentioned.*
+These are not explicitly mentioned._
 
 ### Updating configuration
 
@@ -73,7 +73,7 @@ const stompConfig: StompConfig = {
   // Typical keys: login, passcode, host
   headers: {
     login: 'guest',
-    passcode: 'guest'
+    passcode: 'guest',
   },
 
   // How often to heartbeat?
@@ -87,7 +87,7 @@ const stompConfig: StompConfig = {
   reconnect_delay: 5000,
 
   // Will log diagnostics on console
-  debug: true
+  debug: true,
 };
 ```
 
@@ -102,7 +102,7 @@ const myRxStompConfig: InjectableRxStompConfig = {
   // Typical keys: login, passcode, host
   connectHeaders: {
     login: 'guest',
-    passcode: 'guest'
+    passcode: 'guest',
   },
 
   // How often to heartbeat?
@@ -118,9 +118,9 @@ const myRxStompConfig: InjectableRxStompConfig = {
   // Will log diagnostics on console
   // It can be quite verbose, not recommended in production
   // Skip this key to stop logging to console
-  debug: (str) => {
+  debug: str => {
     console.log(new Date(), str);
-  }
+  },
 };
 ```
 
@@ -165,7 +165,9 @@ In this version there is only one class [RxStompService] that replaces both
 For the curious the code for this function is:
 
 ```typescript
-export function rxStompServiceFactory(rxStompConfig: InjectableRxStompConfig): RxStompService {
+export function rxStompServiceFactory(
+  rxStompConfig: InjectableRxStompConfig
+): RxStompService {
   const rxStompService = new RxStompService();
 
   rxStompService.configure(rxStompConfig);
@@ -182,15 +184,16 @@ You will need to replace [StompRService] with [RxStompService].
 ```typescript
   providers: [
     StompRService,
-    ... 
+    ...
   ]
 ```
 
-to 
+to
+
 ```typescript
   providers: [
     RxStompService,
-    ... 
+    ...
   ]
 ```
 
@@ -198,15 +201,15 @@ In addition some where in your code you would be setting configuration and calli
 Change these:
 
 ```typescript
-    stompService.config = config;
-    stompService.initAndConnect();
+stompService.config = config;
+stompService.initAndConnect();
 ```
 
 to
 
 ```typescript
-    stompService.configure(config);
-    stompService.activate();
+stompService.configure(config);
+stompService.activate();
 ```
 
 #### Injecting new service
@@ -218,28 +221,28 @@ to receive the newly configured service.
 ### Changes in usage
 
 - Replace [StompState] to [RxStompState]. Notice that state names have changed.
-See the mapping later in this guide. [RxStompState] needs to be imported from `@stomp/rx-stomp`.
+  See the mapping later in this guide. [RxStompState] needs to be imported from `@stomp/rx-stomp`.
 
 ```typescript
-import {RxStompState} from '@stomp/rx-stomp';
+import { RxStompState } from '@stomp/rx-stomp';
 ```
 
-- Make changes to function and property names as per 
-[Summary of renames and replacements](#summary-of-renames-and-replacements) below.
+- Make changes to function and property names as per
+  [Summary of renames and replacements](#summary-of-renames-and-replacements) below.
 
 - `publish` method now aligns to the same function in `@stomp/stompjs`
-[Client#publish](/api-docs/latest/classes/Client.html#publish).
-Please make changes as per examples below:
+  [Client#publish](/api-docs/latest/classes/Client.html#publish).
+  Please make changes as per examples below:
 
 ```typescript
     stompClient.publish({destination: "/queue/test", headers: {priority: 9}, body: "Hello, STOMP"});
-    
+
     // Only destination is mandatory parameter
     stompClient.publish({destination: "/queue/test", body: "Hello, STOMP"});
-    
+
     // Skip content-length header in the frame to the broker
     stompClient.publish({"/queue/test", body: "Hello, STOMP", skipContentLengthHeader: true});
-    
+
     var binaryData = generateBinaryData(); // This need to be of type Uint8Array
     // setting content-type header is not mandatory, however a good practice
     stompClient.publish({destination: '/topic/special', binaryBody: binaryData,
@@ -254,53 +257,53 @@ If the above instructions do not resolve the issue, please raise a ticket.
 ## Summary of renames and replacements
 
 - Classes (all have semantic changes as well):
-    - [StompConfig] --> [InjectableRxStompConfig]
-    - [StompRService] --> [RxStompService]
-    - [StompService] --> [RxStompService] and [rxStompServiceFactory]
-    - [StompState] --> [RxStompState] - to be imported from `@stomp/rx-stomp`
+  - [StompConfig] --> [InjectableRxStompConfig]
+  - [StompRService] --> [RxStompService]
+  - [StompService] --> [RxStompService] and [rxStompServiceFactory]
+  - [StompState] --> [RxStompState] - to be imported from `@stomp/rx-stomp`
 - Members of [StompRService] and [StompService]:
-    - `client` --> `_stompClient` - to indicate that be careful when using it directly
-    - `defaultMessagesObservable` --> `unhandledMessage$`
-    - `disconnect` --> `deactivate`
-    - `errorSubject` --> `stompError$` - slight semantic change as well
-    - `initAndConnect` --> `activate`
-    - `publish` --> `publish` - parameters are now hash
-    - `receiptsObservable` --> `unhandledReceipts$`
-    - `serverHeadersObservable` --> `serverHeaders$`
-    - `state` --> `connectionState$` - semantic change as well
-    - `subscribe` --> `watch`
-    - `waitForReceipt` --> `watchForReceipt`
+  - `client` --> `_stompClient` - to indicate that be careful when using it directly
+  - `defaultMessagesObservable` --> `unhandledMessage$`
+  - `disconnect` --> `deactivate`
+  - `errorSubject` --> `stompError$` - slight semantic change as well
+  - `initAndConnect` --> `activate`
+  - `publish` --> `publish` - parameters are now hash
+  - `receiptsObservable` --> `unhandledReceipts$`
+  - `serverHeadersObservable` --> `serverHeaders$`
+  - `state` --> `connectionState$` - semantic change as well
+  - `subscribe` --> `watch`
+  - `waitForReceipt` --> `watchForReceipt`
 - Members of [StompConfig]
-    - `headers` --> `connectHeaders`
-    - `heartbeat_in` --> `heartbeatIncoming`
-    - `heartbeat_out` --> `heartbeatOutgoing`
-    - `reconnect_delay` --> `reconnectDelay`
-    - `url` --> `brokerURL` - when value is a URL string
-    - `url` --> `webSocketFactory` - when value is a function
+  - `headers` --> `connectHeaders`
+  - `heartbeat_in` --> `heartbeatIncoming`
+  - `heartbeat_out` --> `heartbeatOutgoing`
+  - `reconnect_delay` --> `reconnectDelay`
+  - `url` --> `brokerURL` - when value is a URL string
+  - `url` --> `webSocketFactory` - when value is a function
 - Values in [StompState]
-    - `TRYING` --> `CONNECTING`
-    - `CONNECTED` --> `OPEN`
-    - `DISCONNECTING` --> `CLOSING`
-    - `CLOSED` --> `CLOSED`
+  - `TRYING` --> `CONNECTING`
+  - `CONNECTED` --> `OPEN`
+  - `DISCONNECTING` --> `CLOSING`
+  - `CLOSED` --> `CLOSED`
 
 ## References
 
 - [RxStomp] - [RxStompService] is an Injectable version
 - [RxStompConfig] - [InjectableRxStompConfig] is an Injectable version
 - [ng2-stompjs with Angular7] -
-  a guide on using `@stomp/ng2-stompjs` v7.  
+  a guide on using `@stomp/ng2-stompjs` v7.
 
-
-[StompRService]: /api-docs/latest/injectables/StompRService.html
-[StompService]: /api-docs/latest/injectables/StompService.html
-[RxStompService]: /api-docs/latest/injectables/RxStompService.html
-[rxStompServiceFactory]: /api-docs/latest/miscellaneous/functions.html#rxStompServiceFactory
-[StompConfig]: /ng2-stompjs/injectables/StompConfig.html
-[InjectableRxStompConfig]: /api-docs/latest/injectables/InjectableRxStompConfig.html
-[StompState]: /api-docs/latest/miscellaneous/enumerations.html#StompState
-[RxStompState]: /api-docs/latest/miscellaneous/enumerations.html#RxStompState
+[stomprservice]: /api-docs/latest/injectables/StompRService.html
+[stompservice]: /api-docs/latest/injectables/StompService.html
+[rxstompservice]: /api-docs/latest/injectables/RxStompService.html
+[rxstompservicefactory]: /api-docs/latest/miscellaneous/functions.html#rxStompServiceFactory
+[stompconfig]: /ng2-stompjs/injectables/StompConfig.html
+[injectablerxstompconfig]: /api-docs/latest/injectables/InjectableRxStompConfig.html
+[stompstate]: /api-docs/latest/miscellaneous/enumerations.html#StompState
+[rxstompstate]: /api-docs/latest/miscellaneous/enumerations.html#RxStompState
 [web-socket-states]: https://developer.mozilla.org/en-US/docs/Web/API/WebSocket/readyState
-[RxStomp]: /api-docs/latest/classes/RxStomp.html
-[RxStompConfig]: /api-docs/latest/classes/RxStompConfig.html
+[rxstomp]: /api-docs/latest/classes/RxStomp.html
+[rxstompconfig]: /api-docs/latest/classes/RxStompConfig.html
+
 [ng2-stompjs with Angular7]: {% link _posts/2018-11-04-ng2-stomp-with-angular7.md %}
 [Polyfills & Critical Dependencies]: {% link _posts/2018-06-28-pollyfils-for-stompjs-v5.md %}

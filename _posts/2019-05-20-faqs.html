@@ -1,53 +1,55 @@
 ---
 layout: single
-title:  "Frequently Asked Questions"
-date:   2019-05-20 12:06:34 +0530
+title: 'Frequently Asked Questions'
+date: 2019-05-20 12:06:34 +0530
 categories: faqs
 redirect_from:
-    - /faqs/2019/05/19/faqs.html
-    - /faqs/2019/05/20/faqs.html
-    - /faqs/2019/05/21/faqs.html
+  - /faqs/2019/05/19/faqs.html
+  - /faqs/2019/05/20/faqs.html
+  - /faqs/2019/05/21/faqs.html
 ---
 
 <style type="text/css">
-    #answers .question {
-        font-weight: bold;
-        margin-top: 1.9em;
-        margin-bottom: 0.3em;
-    }
+  #answers .question {
+    font-weight: bold;
+    margin-top: 1.9em;
+    margin-bottom: 0.3em;
+  }
 
-    h2 {
-        margin-top: 2em;
-    }
-
+  h2 {
+    margin-top: 2em;
+  }
 </style>
 
 <p>
-    <b><i>Under heavy construction</i></b>
+  <b><i>Under heavy construction</i></b>
 </p>
 
-{% assign sorted_faqs = site.faqs | sort: "priority" %}
-{% assign grouped_faqs = sorted_faqs | group_by: "group" %}
+{% assign sorted_faqs = site.faqs | sort: "priority" %} {% assign grouped_faqs =
+sorted_faqs | group_by: "group" %}
 
 <div id="question-list">
-    {% for group in grouped_faqs %}
-    <h3>{{ group.name }}</h3>
-    <ol class="list">
-        {% for faq in group.items %}
-        <li><a href="#{{ faq.question | markdownify | slugify}}">{{ faq.question }}</a></li>
-        {% endfor %}
-    </ol>
+  {% for group in grouped_faqs %}
+  <h3>{{ group.name }}</h3>
+  <ol class="list">
+    {% for faq in group.items %}
+    <li>
+      <a href="#{{ faq.question | markdownify | slugify}}"
+        >{{ faq.question }}</a
+      >
+    </li>
     {% endfor %}
+  </ol>
+  {% endfor %}
 </div>
 
 <div id="answers">
-    {% for group in grouped_faqs %}
-    <h2>{{ group.name }}</h2>
-    {% for faq in group.items %}
-    <div class="item" id="{{ faq.question | markdownify | slugify}}">
-        <p class="question">Q: {{ faq.question }}</p>
-        <div class="answer">{{ faq.content | markdownify }}</div>
-    </div>
-    {% endfor %}
-    {% endfor %}
+  {% for group in grouped_faqs %}
+  <h2>{{ group.name }}</h2>
+  {% for faq in group.items %}
+  <div class="item" id="{{ faq.question | markdownify | slugify}}">
+    <p class="question">Q: {{ faq.question }}</p>
+    <div class="answer">{{ faq.content | markdownify }}</div>
+  </div>
+  {% endfor %} {% endfor %}
 </div>

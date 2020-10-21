@@ -1,5 +1,5 @@
 ---
-question: "Which one I should use - stompjs, rx-stomp, or ng2-stompjs?"
+question: 'Which one I should use - stompjs, rx-stomp, or ng2-stompjs?'
 group: General
 priority: ACA
 ---

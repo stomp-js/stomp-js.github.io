@@ -1,5 +1,5 @@
 ---
-question: "What are Heartbeats? Should I bother?"
+question: 'What are Heartbeats? Should I bother?'
 group: General
 priority: AEA
 ---

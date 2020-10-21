@@ -1,11 +1,11 @@
 main:
-  - title: "Getting Started"
+  - title: 'Getting Started'
     url: /#getting-started
-  - title: "Upgrade"
+  - title: 'Upgrade'
     url: /#upgrading
-  - title: "APIs"
+  - title: 'APIs'
     url: /api-docs/latest/
-  - title: "FAQs"
+  - title: 'FAQs'
     url: /faqs/faqs.html
-  - title: "Github"
-    url: "https://github.com/stomp-js"
+  - title: 'Github'
+    url: 'https://github.com/stomp-js'

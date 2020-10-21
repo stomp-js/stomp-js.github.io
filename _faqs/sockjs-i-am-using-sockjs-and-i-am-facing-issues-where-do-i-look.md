@@ -1,5 +1,5 @@
 ---
-question: "I am using SockJS and I am facing issues, where do I look?"
+question: 'I am using SockJS and I am facing issues, where do I look?'
 group: SockJS
 priority: EAE
 ---

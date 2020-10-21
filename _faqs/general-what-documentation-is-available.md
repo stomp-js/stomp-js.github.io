@@ -1,5 +1,5 @@
 ---
-question: "What documentation is available?"
+question: 'What documentation is available?'
 group: General
 priority: AAC
 ---

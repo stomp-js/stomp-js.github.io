@@ -1,5 +1,5 @@
 ---
-question: "How do I enable logging?"
+question: 'How do I enable logging?'
 group: General
 priority: AGA
 ---

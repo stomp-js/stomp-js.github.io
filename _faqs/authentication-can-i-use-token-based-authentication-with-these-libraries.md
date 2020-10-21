@@ -1,5 +1,5 @@
 ---
-question: "Can I use Token based authentication with these libraries?"
+question: 'Can I use Token based authentication with these libraries?'
 group: Authentication
 priority: GAA
 ---

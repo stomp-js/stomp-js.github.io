@@ -1,13 +1,13 @@
 ---
 layout: single
-title:  "RPC - Remote Procedure Call"
-date:   2018-10-12 09:12:00 +0530
+title: 'RPC - Remote Procedure Call'
+date: 2018-10-12 09:12:00 +0530
 categories: guide rx-stomp ng2-stompjs
 toc: true
 redirect_from:
-    - /guide/rx-stomp/ng2-stompjs/2018/10/11/remote-procedure-call.html
-    - /guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html
-    - /guide/rx-stomp/ng2-stompjs/2018/10/13/remote-procedure-call.html
+  - /guide/rx-stomp/ng2-stompjs/2018/10/11/remote-procedure-call.html
+  - /guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html
+  - /guide/rx-stomp/ng2-stompjs/2018/10/13/remote-procedure-call.html
 ---
 
 **This is an advanced topic.
@@ -23,7 +23,7 @@ See: [https://www.rabbitmq.com/tutorials/tutorial-six-python.html]
 (https://www.rabbitmq.com/tutorials/tutorial-six-python.html)
 for a sample using a very similar approach.
 
-See sample RPC servers and clients at: 
+See sample RPC servers and clients at:
 [https://github.com/stomp-js/samples/]
 
 ## Why RPC using messaging
@@ -50,7 +50,7 @@ There are, however, some limitations with REST/JSON/http(s) approach:
 The approach suggested in this guide solves all of the above issues/patterns.
 On top of that it offers some interesting bonus as well:
 
-- It offers *natural* load balancing. Spring up a new server and that's it.
+- It offers _natural_ load balancing. Spring up a new server and that's it.
   No need to inform the load balancer or anything similar. Yes really!
 - Even more - this form of load balancing automatically takes care of fast and slow
   instances.
@@ -149,15 +149,16 @@ end
 RabbitMQ has special support for `temp-queues` in `reply-to` messages
 which make things to work magically. Really I mean it.
 
-If you don't believe me check details at 
+If you don't believe me check details at
 [https://www.rabbitmq.com/stomp.html#d.tqd](https://www.rabbitmq.com/stomp.html#d.tqd)
 
 Well the client code looks equally simple and similar to what you would expect
 to use with any backend service.
 
 Create an instance of [RxStompRPC], you will need an instance of [RxStomp] in the constructor:
+
 ```typescript
-  const rxStompRPC = new RxStompRPC(rxStomp);
+const rxStompRPC = new RxStompRPC(rxStomp);
 ```
 
 Angular Dependency Injection can be used to inject [RxStompRPCService].
@@ -167,14 +168,16 @@ Making the RPC call is simple, takes same parameters as [RxStomp#publish]
 and returns an `Observable` which will trigger once.
 
 ```typescript
-    const myServiceEndPoint = '/topic/echo';
+const myServiceEndPoint = '/topic/echo';
 
-    const request = 'Hello';
-    // It accepts a optional third argument a Hash of headers to be sent as part of the request
-    rxStompRPC.rpc({destination: myServiceEndPoint, body: request}).subscribe((message: Message) => {
-      // Consume the response
-      console.log(message.body);
-    });
+const request = 'Hello';
+// It accepts a optional third argument a Hash of headers to be sent as part of the request
+rxStompRPC
+  .rpc({ destination: myServiceEndPoint, body: request })
+  .subscribe((message: Message) => {
+    // Consume the response
+    console.log(message.body);
+  });
 ```
 
 You can notice similarity with Angular HTTP calls.
@@ -188,20 +191,20 @@ There are few requirements:
 - the reply queue name **must** be unique across the broker.
 - ideally, for security reasons only the client creating the queue should have access to it.
 
-Many brokers have `temp-queue` concept which should simplify your work. 
+Many brokers have `temp-queue` concept which should simplify your work.
 
 Following gives an outline:
 
 ```typescript
-  const stompRPCConfigForActiveMQ = {
-    // A unique name, BTW angular2-uuid module is already added as dependency
-    replyQueueName: `/topic/replies.${UUID.UUID()}`,
-    
-    // Simply subscribe, you would need to secure by adding broker specific options
-    setupReplyQueue: (replyQueueName: string, stompService: StompRService) => {
-      return stompService.subscribe(replyQueueName);
-    }
-  };
+const stompRPCConfigForActiveMQ = {
+  // A unique name, BTW angular2-uuid module is already added as dependency
+  replyQueueName: `/topic/replies.${UUID.UUID()}`,
+
+  // Simply subscribe, you would need to secure by adding broker specific options
+  setupReplyQueue: (replyQueueName: string, stompService: StompRService) => {
+    return stompService.subscribe(replyQueueName);
+  },
+};
 ```
 
 This custom config would need to be passed as second parameter in `StompRPCService`
@@ -224,14 +227,12 @@ There are samples which cover some of these patterns:
 If you have questions or you will like to see more guides please raise an issue at
 [https://github.com/stomp-js/rx-stomp/issues](https://github.com/stomp-js/rx-stomp/issues).
 
-
-
-[RxStomp]: /api-docs/latest/classes/RxStomp.html
-[RxStomp#publish]: /api-docs/latest/classes/RxStomp.html#publish
-[RxStompService]: /api-docs/latest/injectables/RxStompService.html
-[RxStompRPC]: /api-docs/latest/classes/RxStompRPC.html
-[RxStompRPCService]: /api-docs/latest/injectables/RxStompRPCService.html
-[RxStompRPCConfig]: /api-docs/latest/classes/RxStompRPCConfig.html
-[InjectableRxStompRpcConfig]: /api-docs/latest/injectables/RxStompRPCService.html
-[RxStompRPC#stream]: /api-docs/latest/classes/RxStompRPC.html#stream
+[rxstomp]: /api-docs/latest/classes/RxStomp.html
+[rxstomp#publish]: /api-docs/latest/classes/RxStomp.html#publish
+[rxstompservice]: /api-docs/latest/injectables/RxStompService.html
+[rxstomprpc]: /api-docs/latest/classes/RxStompRPC.html
+[rxstomprpcservice]: /api-docs/latest/injectables/RxStompRPCService.html
+[rxstomprpcconfig]: /api-docs/latest/classes/RxStompRPCConfig.html
+[injectablerxstomprpcconfig]: /api-docs/latest/injectables/RxStompRPCService.html
+[rxstomprpc#stream]: /api-docs/latest/classes/RxStompRPC.html#stream
 [https://github.com/stomp-js/samples/]: https://github.com/stomp-js/samples/

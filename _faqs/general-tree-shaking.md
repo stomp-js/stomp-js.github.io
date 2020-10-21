@@ -1,5 +1,5 @@
 ---
-question: "Do these libraries work well with tree shaking?"
+question: 'Do these libraries work well with tree shaking?'
 group: General
 priority: ADM
 ---

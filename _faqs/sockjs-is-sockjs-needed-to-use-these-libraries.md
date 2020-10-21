@@ -1,5 +1,5 @@
 ---
-question: "Is SockJS needed to use these libraries?"
+question: 'Is SockJS needed to use these libraries?'
 group: SockJS
 priority: EAA
 ---

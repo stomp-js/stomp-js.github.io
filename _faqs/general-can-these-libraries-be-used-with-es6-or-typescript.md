@@ -1,5 +1,5 @@
 ---
-question: "Can these libraries be used with ES6 or Typescript?"
+question: 'Can these libraries be used with ES6 or Typescript?'
 group: General
 priority: ACC
 ---
