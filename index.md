@@ -35,6 +35,8 @@ Samples:
 
 ## Upgrading
 
+- [Upgrading to stompjs@6, rx-stomp@1, ng2-stompjs@8] - update from
+  stompjs@v5, rx-stomp@0.x, ng2-stompjs@7.
 - [Upgrading StompJS] to update to stompjs@v5 from any of the older versions.
 - [Upgrading to ng2-stompjs@7] for any of the older versions.
 
@@ -64,3 +66,4 @@ Samples:
 [Connection status in ng2-stompjs]: {% link _posts/2018-12-18-connection-status-ng2-stompjs.md %}
 [FAQs]: {% link _posts/2019-05-20-faqs.html %}
 [React Native]: {% link _posts/2019-06-10-react-native-additional-notes.md %}
+[Upgrading to stompjs@6, rx-stomp@1, ng2-stompjs@8]: {% link _posts/2020-10-21-upgrading-to-stompjs-6-rx-stomp-1.md %}
