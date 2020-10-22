@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@5.4.4, rx-stomp@0.3.5</title>
+        <title>stompjs@6.0.0, rx-stomp@0.3.5</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@5.4.4, rx-stomp@0.3.5</a>
+            <a href="../" class="navbar-brand">stompjs@6.0.0, rx-stomp@0.3.5</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -319,9 +319,9 @@ Set it to <code>true</code> for the header to be skipped.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {IFrame} from &#x27;./i-frame&#x27;;
-import {IMessage} from &#x27;./i-message&#x27;;
-import {StompHeaders} from &#x27;./stomp-headers&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IFrame } from &#x27;./i-frame&#x27;;
+import { IMessage } from &#x27;./i-message&#x27;;
+import { StompHeaders } from &#x27;./stomp-headers&#x27;;
 
 /**
  * This callback will receive a &#x60;string&#x60; as parameter.
@@ -350,7 +350,7 @@ export type frameCallbackType &#x3D; (receipt: IFrame) &#x3D;&gt; void;
  *
  * Part of &#x60;@stomp/stompjs&#x60;.
  */
-export type closeEventCallbackType &#x3D; (evt: CloseEvent) &#x3D;&gt; void;
+export type closeEventCallbackType&lt;T &#x3D; any&gt; &#x3D; (evt: T) &#x3D;&gt; void;
 
 /**
  * This callback will receive an [Event]{@link https://developer.mozilla.org/en-US/docs/Web/API/Event}
@@ -358,7 +358,7 @@ export type closeEventCallbackType &#x3D; (evt: CloseEvent) &#x3D;&gt; void;
  *
  * Part of &#x60;@stomp/stompjs&#x60;.
  */
-export type wsErrorCallbackType &#x3D; (evt: Event) &#x3D;&gt; void;
+export type wsErrorCallbackType&lt;T &#x3D; any&gt; &#x3D; (evt: T) &#x3D;&gt; void;
 
 /**
  * Parameters for [Client#publish]{@link Client#publish}.
@@ -411,7 +411,70 @@ export type RawHeaderType &#x3D; [string, string];
  *
  * @internal
  */
-export interface IRawFrameType { command: string; headers: RawHeaderType[]; binaryBody: Uint8Array; }
+export interface IRawFrameType {
+  command: string;
+  headers: RawHeaderType[];
+  binaryBody: Uint8Array;
+}
+
+/**
+ * @internal
+ */
+export interface IStompSocketMessageEvent {
+  data?: string | ArrayBuffer;
+}
+
+/**
+ * Copied from Websocket interface to avoid dom typelib dependency.
+ *
+ * @internal
+ */
+export interface IStompSocket {
+  onclose: ((this: IStompSocket, ev?: any) &#x3D;&gt; any) | null;
+  onerror: ((this: IStompSocket, ev: any) &#x3D;&gt; any) | null;
+  onmessage: ((this: IStompSocket, ev: IStompSocketMessageEvent) &#x3D;&gt; any) | null;
+  onopen: ((this: IStompSocket, ev?: any) &#x3D;&gt; any) | null;
+  terminate?: ((this: IStompSocket) &#x3D;&gt; any) | null;
+
+  /**
+   * Returns a string that indicates how binary data from the socket is exposed to scripts:
+   * We support only &#x27;arraybuffer&#x27;.
+   */
+  binaryType: &#x27;arraybuffer&#x27;;
+
+  /**
+   * Returns the state of the socket connection. It can have the values of StompSocketState.
+   */
+  readonly readyState: number;
+
+  /**
+   * Closes the connection.
+   */
+  close(): void;
+  /**
+   * Transmits data using the connection. data can be a string or an ArrayBuffer.
+   */
+  send(data: string | ArrayBuffer): void;
+}
+
+/**
+ * Possible states for the IStompSocket
+ */
+export enum StompSocketState {
+  CONNECTING,
+  OPEN,
+  CLOSING,
+  CLOSED,
+}
+
+/**
+ * Possible activation state
+ */
+export enum ActivationState {
+  ACTIVE,
+  DEACTIVATING,
+  INACTIVE,
+}
 </code></pre>
     </div>
 </div>

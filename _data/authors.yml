@@ -6,7 +6,7 @@ stompjs:
   location: 
   email: 
   links:
-  - label: stompjs@5.4.4
+  - label: stompjs@6.0.0
     icon: fab fa-fw fa-github
     url: https://github.com/stomp-js/stompjs
   - label: rx-stomp@0.3.5

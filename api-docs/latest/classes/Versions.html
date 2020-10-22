@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@5.4.4, rx-stomp@0.3.5</title>
+        <title>stompjs@6.0.0, rx-stomp@0.3.5</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@5.4.4, rx-stomp@0.3.5</a>
+            <a href="../" class="navbar-brand">stompjs@6.0.0, rx-stomp@0.3.5</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -147,7 +147,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">consolidated/stompjs/src/versions.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">consolidated/stompjs/src/versions.ts:27</a></div>
                             </td>
                         </tr>
 
@@ -332,7 +332,7 @@ STOMP handshake.</p>
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">consolidated/stompjs/src/versions.ts:31</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">consolidated/stompjs/src/versions.ts:35</a></div>
                             </td>
                         </tr>
 
@@ -370,7 +370,7 @@ STOMP handshake.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">consolidated/stompjs/src/versions.ts:44</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">consolidated/stompjs/src/versions.ts:47</a></div>
                             </td>
                         </tr>
 
@@ -412,7 +412,7 @@ STOMP handshake.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">consolidated/stompjs/src/versions.ts:37</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">consolidated/stompjs/src/versions.ts:40</a></div>
                             </td>
                         </tr>
 
@@ -458,7 +458,11 @@ STOMP handshake.</p>
   /**
    * @internal
    */
-  public static default &#x3D; new Versions([Versions.V1_0, Versions.V1_1, Versions.V1_2]);
+  public static default &#x3D; new Versions([
+    Versions.V1_0,
+    Versions.V1_1,
+    Versions.V1_2,
+  ]);
 
   /**
    * Takes an array of string of versions, typical elements &#x27;1.0&#x27;, &#x27;1.1&#x27;, or &#x27;1.2&#x27;
@@ -466,8 +470,7 @@ STOMP handshake.</p>
    * You will an instance if this class if you want to override supported versions to be declared during
    * STOMP handshake.
    */
-  constructor(public versions: string[]) {
-  }
+  constructor(public versions: string[]) {}
 
   /**
    * Used as part of CONNECT STOMP Frame
@@ -480,7 +483,7 @@ STOMP handshake.</p>
    * Used while creating a WebSocket
    */
   public protocolVersions() {
-    return this.versions.map((x) &#x3D;&gt; &#x60;v${x.replace(&#x27;.&#x27;, &#x27;&#x27;)}.stomp&#x60;);
+    return this.versions.map(x &#x3D;&gt; &#x60;v${x.replace(&#x27;.&#x27;, &#x27;&#x27;)}.stomp&#x60;);
   }
 }
 </code></pre>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@5.4.4, rx-stomp@0.3.5</title>
+        <title>stompjs@6.0.0, rx-stomp@0.3.5</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@5.4.4, rx-stomp@0.3.5</a>
+            <a href="../" class="navbar-brand">stompjs@6.0.0, rx-stomp@0.3.5</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -118,7 +118,15 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#connectionTimeout">connectionTimeout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#debug">debug</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#discardWebsocketOnCommFailure">discardWebsocketOnCommFailure</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -139,6 +147,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#maxWebSocketChunkSize">maxWebSocketChunkSize</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onChangeState">onChangeState</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -179,6 +191,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#splitLargeFrames">splitLargeFrames</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#state">state</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -238,6 +254,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#deactivate">deactivate</a>
                             </li>
                             <li>
@@ -337,7 +354,7 @@
                     </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:20</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:19</a></div>
                             </td>
                         </tr>
 
@@ -382,7 +399,7 @@
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:120</div>
+                                    <div class="io-line">Defined in Client:143</div>
                             </td>
                         </tr>
 
@@ -428,7 +445,7 @@ this flag will cause data loss and abnormal termination of connection.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:205</div>
+                                    <div class="io-line">Defined in Client:223</div>
                             </td>
                         </tr>
 
@@ -477,7 +494,7 @@ in an asynchronous way.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:30</div>
+                                    <div class="io-line">Defined in Client:43</div>
                             </td>
                         </tr>
 
@@ -487,6 +504,8 @@ in an asynchronous way.</p>
 Typically like <code>&quot;ws://broker.329broker.com:15674/ws&quot;</code> or <code>&quot;wss://broker.329broker.com:15674/ws&quot;</code>.</p>
 <p>Only one of this or <a href="../classes/Client.html#webSocketFactory">Client#webSocketFactory</a> need to be set.
 If both are set, <a href="../classes/Client.html#webSocketFactory">Client#webSocketFactory</a> will be used.</p>
+<p>If your environment does not support WebSockets natively, please refer to
+<a href="https://stomp-js.github.io/guide/stompjs/rx-stomp/ng2-stompjs/pollyfils-for-stompjs-v5.html">Polyfills</a>.</p>
 </div>
                     </td>
                 </tr>
@@ -520,7 +539,7 @@ If both are set, <a href="../classes/Client.html#webSocketFactory">Client#webSoc
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:139</div>
+                                    <div class="io-line">Defined in Client:157</div>
                             </td>
                         </tr>
 
@@ -529,6 +548,52 @@ If both are set, <a href="../classes/Client.html#webSocketFactory">Client#webSoc
                         <div class="io-description"><p>Connection headers, important keys - <code>login</code>, <code>passcode</code>, <code>host</code>.
 Though STOMP 1.2 standard marks these keys to be present, check your broker documentation for
 details specific to your broker.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="connectionTimeout"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            connectionTimeout</b>
+                            <a href="#connectionTimeout"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>10000</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from     <code><a href="../classes/Client.html" target="_self" >Client</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in Client:83</div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Will retry if Stomp connection is not established in specified milliseconds.
+Default 10,000ms, set to 0 to wait for ever.</p>
 </div>
                     </td>
                 </tr>
@@ -562,7 +627,7 @@ details specific to your broker.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:275</div>
+                                    <div class="io-line">Defined in Client:293</div>
                             </td>
                         </tr>
 
@@ -574,6 +639,49 @@ details specific to your broker.</p>
    *        };
    *</code></pre></div><p>Currently this method does not support levels of log. Be aware that the output can be quite verbose
 and may contain sensitive information (like passwords, tokens etc.).</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="discardWebsocketOnCommFailure"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            discardWebsocketOnCommFailure</b>
+                            <a href="#discardWebsocketOnCommFailure"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from     <code><a href="../classes/Client.html" target="_self" >Client</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in Client:301</div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Browsers do not immediately close WebSockets when <code>.close</code> is issued.
+This may cause reconnection to take a longer on certain type of failures.
+In case of incoming heartbeat failure, this experimental flag instructs the library
+to discard the socket immediately (even before it is actually closed).</p>
 </div>
                     </td>
                 </tr>
@@ -612,7 +720,7 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:108</div>
+                                    <div class="io-line">Defined in Client:131</div>
                             </td>
                         </tr>
 
@@ -661,7 +769,7 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:72</div>
+                                    <div class="io-line">Defined in Client:95</div>
                             </td>
                         </tr>
 
@@ -706,7 +814,7 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:77</div>
+                                    <div class="io-line">Defined in Client:100</div>
                             </td>
                         </tr>
 
@@ -746,7 +854,7 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:261</div>
+                                    <div class="io-line">Defined in Client:279</div>
                             </td>
                         </tr>
 
@@ -794,7 +902,7 @@ When unset, it logs headers of the parsed frames.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:98</div>
+                                    <div class="io-line">Defined in Client:121</div>
                             </td>
                         </tr>
 
@@ -802,6 +910,47 @@ When unset, it logs headers of the parsed frames.</p>
                     <td class="col-md-4">
                         <div class="io-description"><p>See <a href="../classes/Client.html#splitLargeFrames">splitLargeFrames</a>.
 This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLargeFrames</a> is <code>false</code>.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="onChangeState"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            onChangeState</b>
+                            <a href="#onChangeState"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from     <code><a href="../classes/Client.html" target="_self" >Client</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in Client:324</div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>It will be called on state change.</p>
+<p>When deactivating it may go from ACTIVE to INACTIVE without entering DEACTIVATING.</p>
 </div>
                     </td>
                 </tr>
@@ -835,7 +984,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:213</div>
+                                    <div class="io-line">Defined in Client:231</div>
                             </td>
                         </tr>
 
@@ -877,7 +1026,7 @@ Sometimes clients will like to use headers from this frame.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:226</div>
+                                    <div class="io-line">Defined in Client:244</div>
                             </td>
                         </tr>
 
@@ -923,7 +1072,7 @@ STOMP broker disconnects.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:235</div>
+                                    <div class="io-line">Defined in Client:253</div>
                             </td>
                         </tr>
 
@@ -966,7 +1115,7 @@ Please check broker specific documentation for exact behavior.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:182</div>
+                                    <div class="io-line">Defined in Client:200</div>
                             </td>
                         </tr>
 
@@ -1007,7 +1156,7 @@ Please check broker specific documentation for exact behavior.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:166</div>
+                                    <div class="io-line">Defined in Client:184</div>
                             </td>
                         </tr>
 
@@ -1052,7 +1201,7 @@ from an endpoint.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:175</div>
+                                    <div class="io-line">Defined in Client:193</div>
                             </td>
                         </tr>
 
@@ -1095,7 +1244,7 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:243</div>
+                                    <div class="io-line">Defined in Client:261</div>
                             </td>
                         </tr>
 
@@ -1137,7 +1286,7 @@ is passed as parameter to the callback.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:251</div>
+                                    <div class="io-line">Defined in Client:269</div>
                             </td>
                         </tr>
 
@@ -1184,7 +1333,7 @@ is passed as parameter to the callback.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:67</div>
+                                    <div class="io-line">Defined in Client:90</div>
                             </td>
                         </tr>
 
@@ -1229,7 +1378,7 @@ is passed as parameter to the callback.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:92</div>
+                                    <div class="io-line">Defined in Client:115</div>
                             </td>
                         </tr>
 
@@ -1243,6 +1392,53 @@ so it is not needed with a truly compliant STOMP/WebSocket broker.
 Actually setting it for such broker will cause large messages to fail.</p>
 <p><code>false</code> by default.</p>
 <p>Binary frames are never split.</p>
+</div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="state"></a>
+                        <span class="name">
+                            <b>
+                                <span class="modifier">Public</span>
+                            state</b>
+                            <a href="#state"><span class="icon ion-ios-link"></span></a>
+                        </span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Type : </i>    <code><a href="../miscellaneous/enumerations.html#ActivationState" target="_self" >ActivationState</a></code>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <i>Default value : </i><code>ActivationState.INACTIVE</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Inherited from     <code><a href="../classes/Client.html" target="_self" >Client</a></code>
+</div>
+                                </td>
+                            </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                    <div class="io-line">Defined in Client:340</div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <div class="io-description"><p>Activation state.</p>
+<p>It will usually be ACTIVE or INACTIVE.
+When deactivating it may go from ACTIVE to INACTIVE without entering DEACTIVATING.</p>
 </div>
                     </td>
                 </tr>
@@ -1275,7 +1471,7 @@ Actually setting it for such broker will cause large messages to fail.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:41</div>
+                                    <div class="io-line">Defined in Client:54</div>
                             </td>
                         </tr>
 
@@ -1318,13 +1514,15 @@ Actually setting it for such broker will cause large messages to fail.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:62</div>
+                                    <div class="io-line">Defined in Client:77</div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>This function should return a WebSocket or a similar (e.g. SockJS) object.
+If your environment does not support WebSockets natively, please refer to
+<a href="https://stomp-js.github.io/guide/stompjs/rx-stomp/ng2-stompjs/pollyfils-for-stompjs-v5.html">Polyfills</a>.
 If your STOMP Broker supports WebSockets, prefer setting <a href="../classes/Client.html#brokerURL">Client#brokerURL</a>.</p>
 <p>If both this and <a href="../classes/Client.html#brokerURL">Client#brokerURL</a> are set, this will be used.</p>
 <p>Example:</p>
@@ -1374,7 +1572,7 @@ If your STOMP Broker supports WebSockets, prefer setting <a href="../classes/Cli
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:90</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:102</a></div>
                             </td>
                         </tr>
 
@@ -1470,7 +1668,7 @@ version with headers to pass your broker specific options.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:112</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:132</a></div>
                             </td>
                         </tr>
 
@@ -1566,7 +1764,7 @@ version with headers to pass your broker specific options.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="141" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:141</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:164</a></div>
                             </td>
                         </tr>
 
@@ -1688,7 +1886,7 @@ However, there may be special purpose headers corresponding to your STOMP broker
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:634</div>
+                                    <div class="io-line">Defined in Client:758</div>
                             </td>
                         </tr>
 
@@ -1772,7 +1970,7 @@ It is preferable to abort a transaction by calling <a href="../interfaces/ITrans
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:651</div>
+                                    <div class="io-line">Defined in Client:775</div>
                             </td>
                         </tr>
 
@@ -1890,7 +2088,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:336</div>
+                                    <div class="io-line">Defined in Client:386</div>
                             </td>
                         </tr>
 
@@ -1941,7 +2139,7 @@ it will keep trying to reconnect.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:603</div>
+                                    <div class="io-line">Defined in Client:727</div>
                             </td>
                         </tr>
 
@@ -2022,7 +2220,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:619</div>
+                                    <div class="io-line">Defined in Client:743</div>
                             </td>
                         </tr>
 
@@ -2106,7 +2304,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:324</div>
+                                    <div class="io-line">Defined in Client:374</div>
                             </td>
                         </tr>
 
@@ -2163,6 +2361,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
                         <span class="name">
                             <b>
                                 <span class="modifier">Public</span>
+                                <span class="modifier">Async</span>
                             deactivate
                             </b>
                             <a href="#deactivate"><span class="icon ion-ios-link"></span></a>
@@ -2185,7 +2384,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:440</div>
+                                    <div class="io-line">Defined in Client:538</div>
                             </td>
                         </tr>
 
@@ -2194,11 +2393,13 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
                     <td class="col-md-4">
                             <div class="io-description"><p>Disconnect if connected and stop auto reconnect loop.
 Appropriate callbacks will be invoked if underlying STOMP connection was connected.</p>
+<p>This call is async, it will resolve immediately if there is no underlying active websocket,
+otherwise, it will resolve after underlying websocket is properly disposed.</p>
 <p>To reactivate you can call <a href="../classes/Client.html#activate">Client#activate</a>.</p>
 </div>
 
                             <div class="io-description">
-                                <b>Returns : </b>    <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                                <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
                             </div>
                     </td>
@@ -2235,7 +2436,7 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:457</div>
+                                    <div class="io-line">Defined in Client:580</div>
                             </td>
                         </tr>
 
@@ -2286,7 +2487,7 @@ To stop further reconnects call <a href="../classes/Client.html#deactivate">Clie
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:668</div>
+                                    <div class="io-line">Defined in Client:796</div>
                             </td>
                         </tr>
 
@@ -2404,7 +2605,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:510</div>
+                                    <div class="io-line">Defined in Client:630</div>
                             </td>
                         </tr>
 
@@ -2508,7 +2709,7 @@ and <code>content-length</code> header is missing.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:577</div>
+                                    <div class="io-line">Defined in Client:697</div>
                             </td>
                         </tr>
 
@@ -2636,7 +2837,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:593</div>
+                                    <div class="io-line">Defined in Client:717</div>
                             </td>
                         </tr>
 
@@ -2738,7 +2939,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
                             </tr>
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in Client:549</div>
+                                    <div class="io-line">Defined in Client:669</div>
                             </td>
                         </tr>
 
@@ -2853,7 +3054,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="161" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:161</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:188</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2914,7 +3115,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:170</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="197" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:197</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2948,7 +3149,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="179" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:179</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="206" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:206</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2978,7 +3179,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="188" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:188</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="215" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:215</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3001,7 +3202,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="197" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:197</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="224" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:224</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3058,7 +3259,7 @@ when corresponding receipt has been received.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="207" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:207</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="234" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:234</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3082,7 +3283,7 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="216" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:216</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="243" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:243</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3139,7 +3340,7 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="228" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:228</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="255" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:255</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3159,7 +3360,7 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="238" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:238</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="265" class="link-to-prism">consolidated/stompjs/src/compatibility/compat-client.ts:265</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -3210,10 +3411,10 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Client} from &#x27;../client&#x27;;
-import {StompHeaders} from &#x27;../stomp-headers&#x27;;
-import {frameCallbackType, messageCallbackType} from &#x27;../types&#x27;;
-import {HeartbeatInfo} from &#x27;./heartbeat-info&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Client } from &#x27;../client&#x27;;
+import { StompHeaders } from &#x27;../stomp-headers&#x27;;
+import { frameCallbackType, messageCallbackType } from &#x27;../types&#x27;;
+import { HeartbeatInfo } from &#x27;./heartbeat-info&#x27;;
 
 /**
  * Available for backward compatibility, please shift to using {@link Client}.
@@ -3225,7 +3426,6 @@ import {HeartbeatInfo} from &#x27;./heartbeat-info&#x27;;
  * To upgrade, please follow the [Upgrade Guide](../additional-documentation/upgrading.html)
  */
 export class CompatClient extends Client {
-
   /**
    * It is no op now. No longer needed. Large packets work out of the box.
    */
@@ -3255,17 +3455,30 @@ export class CompatClient extends Client {
     let errorCallback;
     let headers: StompHeaders &#x3D; {};
     if (args.length &lt; 2) {
-      throw new Error((&#x27;Connect requires at least 2 arguments&#x27;));
+      throw new Error(&#x27;Connect requires at least 2 arguments&#x27;);
     }
-    if (typeof(args[1]) &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
+    if (typeof args[1] &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
       [headers, connectCallback, errorCallback, closeEventCallback] &#x3D; args;
     } else {
       switch (args.length) {
         case 6:
-          [headers.login, headers.passcode, connectCallback, errorCallback, closeEventCallback, headers.host] &#x3D; args;
+          [
+            headers.login,
+            headers.passcode,
+            connectCallback,
+            errorCallback,
+            closeEventCallback,
+            headers.host,
+          ] &#x3D; args;
           break;
         default:
-          [headers.login, headers.passcode, connectCallback, errorCallback, closeEventCallback] &#x3D; args;
+          [
+            headers.login,
+            headers.passcode,
+            connectCallback,
+            errorCallback,
+            closeEventCallback,
+          ] &#x3D; args;
       }
     }
 
@@ -3302,10 +3515,18 @@ export class CompatClient extends Client {
   public connect(...args: any[]): void {
     const out &#x3D; this._parseConnect(...args);
 
-    if (out[0]) { this.connectHeaders &#x3D; out[0]; }
-    if (out[1]) { this.onConnect &#x3D; out[1]; }
-    if (out[2]) { this.onStompError &#x3D; out[2]; }
-    if (out[3]) { this.onWebSocketClose &#x3D; out[3]; }
+    if (out[0]) {
+      this.connectHeaders &#x3D; out[0];
+    }
+    if (out[1]) {
+      this.onConnect &#x3D; out[1];
+    }
+    if (out[2]) {
+      this.onStompError &#x3D; out[2];
+    }
+    if (out[3]) {
+      this.onWebSocketClose &#x3D; out[3];
+    }
 
     super.activate();
   }
@@ -3321,7 +3542,10 @@ export class CompatClient extends Client {
    *
    * To upgrade, please follow the [Upgrade Guide](../additional-documentation/upgrading.html)
    */
-  public disconnect(disconnectCallback?: any, headers: StompHeaders &#x3D; {}): void {
+  public disconnect(
+    disconnectCallback?: any,
+    headers: StompHeaders &#x3D; {}
+  ): void {
     if (disconnectCallback) {
       this.onDisconnect &#x3D; disconnectCallback;
     }
@@ -3350,10 +3574,14 @@ export class CompatClient extends Client {
    *
    * To upgrade, please follow the [Upgrade Guide](../additional-documentation/upgrading.html)
    */
-  public send(destination: string, headers: {[key: string]: any} &#x3D; {}, body: string &#x3D; &#x27;&#x27;): void {
+  public send(
+    destination: string,
+    headers: { [key: string]: any } &#x3D; {},
+    body: string &#x3D; &#x27;&#x27;
+  ): void {
     headers &#x3D; (Object as any).assign({}, headers);
 
-    const skipContentLengthHeader &#x3D; (headers[&#x27;content-length&#x27;] &#x3D;&#x3D;&#x3D; false);
+    const skipContentLengthHeader &#x3D; headers[&#x27;content-length&#x27;] &#x3D;&#x3D;&#x3D; false;
     if (skipContentLengthHeader) {
       delete headers[&#x27;content-length&#x27;];
     }
@@ -3361,7 +3589,7 @@ export class CompatClient extends Client {
       destination,
       headers: headers as StompHeaders,
       body,
-      skipContentLengthHeader
+      skipContentLengthHeader,
     });
   }
 
@@ -3380,7 +3608,7 @@ export class CompatClient extends Client {
    * **Deprecated**
    */
   get ws(): any {
-    return this._webSocket;
+    return this.webSocket;
   }
 
   /**
@@ -3447,7 +3675,7 @@ export class CompatClient extends Client {
    *
    * **Deprecated**
    */
-  set heartbeat(value: {incoming: number, outgoing: number}) {
+  set heartbeat(value: { incoming: number; outgoing: number }) {
     this.heartbeatIncoming &#x3D; value.incoming;
     this.heartbeatOutgoing &#x3D; value.outgoing;
   }
