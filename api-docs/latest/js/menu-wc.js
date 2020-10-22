@@ -16,7 +16,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">stompjs@6.0.0, rx-stomp@0.3.5</a>
+                    <a href="index.html" data-type="index-link">stompjs@6.0.0, rx-stomp@1.0.0</a>
                 </li>
 
                 <li class="divider"></li>
@@ -129,6 +129,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/ITransaction.html" data-type="entity-link">ITransaction</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/IWatchParams.html" data-type="entity-link">IWatchParams</a>
                             </li>
                         </ul>
                     </li>
