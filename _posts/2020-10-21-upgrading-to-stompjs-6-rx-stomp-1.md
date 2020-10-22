@@ -34,6 +34,12 @@ to activate it.
 client.discardWebsocketOnCommFailure = true;
 ```
 
+Ref:
+
+- [Client#discardWebsocketOnCommFailure](https://stomp-js.github.io/api-docs/latest/classes/Client.html#discardWebsocketOnCommFailure)
+- [StompConfig#discardWebsocketOnCommFailure](https://stomp-js.github.io/api-docs/latest/classes/StompConfig.html#discardWebsocketOnCommFailure)
+- [RxStompConfig#discardWebsocketOnCommFailure](https://stomp-js.github.io/api-docs/latest/classes/RxStompConfig.html#discardWebsocketOnCommFailure)
+
 ### connectionTimeout
 
 The STOMP standard supports Heartbeats which allows detecting stale connections.
@@ -50,6 +56,12 @@ The value is number of milliseconds to wait for a successful connection.
 client.connectionTimeout = 500;
 ```
 
+Ref:
+
+- [Client#connectionTimeout](https://stomp-js.github.io/api-docs/latest/classes/Client.html#connectionTimeout)
+- [StompConfig#connectionTimeout](https://stomp-js.github.io/api-docs/latest/classes/StompConfig.html#connectionTimeout)
+- [RxStompConfig#connectionTimeout](https://stomp-js.github.io/api-docs/latest/classes/RxStompConfig.html#connectionTimeout)
+
 ### deactivate - async
 
 You are unlikely to be affected by this change.
@@ -62,6 +74,28 @@ invoked in quick succession.
 If you were calling `deativate` and `activate` in succession,
 you should await for `deativate`.
 
+### rx-stomp/ng-stomp-js specific
+
+[RxStomp#watch] now allows setting unsubscribe headers.
+These headers can be set as fixed values or a callback that would return headers.
+See [IWatchParams#unsubHeaders] for details and an example.
+
+See:
+
+- [RxStomp#watch]
+- [IWatchParams#unsubHeaders]
+
+#### subscribeOnlyOnce
+
+By default when you initiate a watch it will be reestablished in case of
+a reconnection to the broker.
+You can set this flag while initiating a watch to subscribe only once.
+
+See:
+
+- [RxStomp#watch]
+- [IWatchParams#subscribeOnlyOnce]
+
 ## Non visible changes
 
 - The output target is `es2015`. We wanted `es2017`, however,
@@ -70,3 +104,7 @@ you should await for `deativate`.
   In previous version `rx-stomp` used `commonjs` module system,
   which, was not very friendly to tree shaking.
 - Remove dom lib dependency for usage with NodeJS/Typescript.
+
+[rxstomp#watch]: https://stomp-js.github.io/api-docs/latest/classes/RxStomp.html#watch
+[iwatchparams#unsubheaders]: https://stomp-js.github.io/api-docs/latest/interfaces/IWatchParams.html#unsubHeaders
+[iwatchparams#subscribeonlyonce]: https://stomp-js.github.io/api-docs/latest/interfaces/IWatchParams.html#subscribeOnlyOnce
