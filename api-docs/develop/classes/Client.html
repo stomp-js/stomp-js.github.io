@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@6.0.0, rx-stomp@1.0.1</title>
+        <title>stompjs@6.1.0, rx-stomp@1.0.1</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@6.0.0, rx-stomp@1.0.1</a>
+            <a href="../" class="navbar-brand">stompjs@6.1.0, rx-stomp@1.0.1</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -535,7 +535,7 @@ details specific to your broker.</p>
                     </tr>
                     <tr>
                         <td class="col-md-4">
-                            <i>Default value : </i><code>10000</code>
+                            <i>Default value : </i><code>0</code>
                         </td>
                     </tr>
                         <tr>
@@ -547,7 +547,7 @@ details specific to your broker.</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Will retry if Stomp connection is not established in specified milliseconds.
-Default 10,000ms, set to 0 to wait for ever.</p>
+Default 0, which implies wait for ever.</p>
 </div>
                     </td>
                 </tr>
@@ -2772,9 +2772,9 @@ export class Client {
 
   /**
    * Will retry if Stomp connection is not established in specified milliseconds.
-   * Default 10,000ms, set to 0 to wait for ever.
+   * Default 0, which implies wait for ever.
    */
-  public connectionTimeout: number &#x3D; 10000;
+  public connectionTimeout: number &#x3D; 0;
 
   private _connectionWatcher: number; // Timer
 
