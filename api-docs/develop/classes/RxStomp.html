@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@6.1.0, rx-stomp@1.0.2</title>
+        <title>stompjs@6.1.0, rx-stomp@1.1.0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@6.1.0, rx-stomp@1.0.2</a>
+            <a href="../" class="navbar-brand">stompjs@6.1.0, rx-stomp@1.1.0</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -1861,14 +1861,14 @@ export class RxStomp {
 
       if (params.subscribeOnlyOnce) {
         connectedPre$ &#x3D; connectedPre$.pipe(take(1));
-      }    
+      }
 
       stompConnectedSubscription &#x3D; connectedPre$.subscribe(() &#x3D;&gt; {
         this._debug(&#x60;Will subscribe to ${params.destination}&#x60;);
         let subHeaders &#x3D; params.subHeaders;
         if (typeof subHeaders &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
           subHeaders &#x3D; subHeaders();
-        }          
+        }
         stompSubscription &#x3D; this._stompClient.subscribe(
           params.destination,
           (message: IMessage) &#x3D;&gt; {
