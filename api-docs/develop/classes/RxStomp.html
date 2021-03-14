@@ -1188,7 +1188,7 @@ following each other and both meaning very different things.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="580" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:580</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="584" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:584</a></div>
                             </td>
                         </tr>
 
@@ -1861,16 +1861,20 @@ export class RxStomp {
 
       if (params.subscribeOnlyOnce) {
         connectedPre$ &#x3D; connectedPre$.pipe(take(1));
-      }
+      }    
 
       stompConnectedSubscription &#x3D; connectedPre$.subscribe(() &#x3D;&gt; {
         this._debug(&#x60;Will subscribe to ${params.destination}&#x60;);
+        let subHeaders &#x3D; params.subHeaders;
+        if (typeof subHeaders &#x3D;&#x3D;&#x3D; &#x27;function&#x27;) {
+          subHeaders &#x3D; subHeaders();
+        }          
         stompSubscription &#x3D; this._stompClient.subscribe(
           params.destination,
           (message: IMessage) &#x3D;&gt; {
             messages.next(message);
           },
-          params.subHeaders
+          subHeaders
         );
       });
 
