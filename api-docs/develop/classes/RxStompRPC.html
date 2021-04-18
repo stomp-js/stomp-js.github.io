@@ -121,7 +121,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:25</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:30</a></div>
                             </td>
                         </tr>
 
@@ -203,7 +203,7 @@
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:50</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:56</a></div>
                             </td>
                         </tr>
 
@@ -278,7 +278,7 @@ See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:61</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:67</a></div>
                             </td>
                         </tr>
 
@@ -366,6 +366,11 @@ export class RxStompRPC {
 
   private _repliesObservable: Observable&lt;IMessage&gt;;
 
+  private _customReplyQueue: boolean &#x3D; false;
+
+  // This is used to ensure that underlying subscription remains subscribed
+  private _dummySubscription: Subscription;
+
   /**
    * Create an instance, see the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for details.
    */
@@ -378,6 +383,7 @@ export class RxStompRPC {
         this._replyQueueName &#x3D; stompRPCConfig.replyQueueName;
       }
       if (stompRPCConfig.setupReplyQueue) {
+        this._customReplyQueue &#x3D; true;
         this._setupReplyQueue &#x3D; stompRPCConfig.setupReplyQueue;
       }
     }
@@ -408,10 +414,17 @@ export class RxStompRPC {
     const { destination, body, binaryBody } &#x3D; params;
 
     if (!this._repliesObservable) {
-      this._repliesObservable &#x3D; this._setupReplyQueue(
+      const repliesObservable &#x3D; this._setupReplyQueue(
         this._replyQueueName,
         this.rxStomp
       );
+
+      // In case of custom queue, ensure it remains subscribed
+      if (this._customReplyQueue) {
+        this._dummySubscription &#x3D; repliesObservable.subscribe(() &#x3D;&gt; {});
+      }
+
+      this._repliesObservable &#x3D; repliesObservable;
     }
 
     return Observable.create((rpcObserver: Observer&lt;IMessage&gt;) &#x3D;&gt; {
