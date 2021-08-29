@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@6.1.1, rx-stomp@1.1.2</title>
+        <title>stompjs@6.1.1, rx-stomp@1.1.3</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,7 +14,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@6.1.1, rx-stomp@1.1.2</a>
+            <a href="../" class="navbar-brand">stompjs@6.1.1, rx-stomp@1.1.3</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -196,7 +196,7 @@
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>rpc(params: <a href="../undefineds/publishParams.html">publishParams</a>)</code>
+                        <code>rpc(params: <a href="../interfaces/IPublishParams.html">IPublishParams</a>)</code>
                     </td>
                 </tr>
 
@@ -229,7 +229,7 @@ See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</
                                                 <tr>
                                                         <td>params</td>
                                                         <td>
-                                                                    <code><a href="../miscellaneous/typealiases.html#publishParams" target="_self" >publishParams</a></code>
+                                                                    <code><a href="../interfaces/IPublishParams.html" target="_self" >IPublishParams</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -271,7 +271,7 @@ See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</
                 <tr>
                     <td class="col-md-4">
                             <span class="modifier-icon icon ion-ios-reset"></span>
-                        <code>stream(params: <a href="../undefineds/publishParams.html">publishParams</a>)</code>
+                        <code>stream(params: <a href="../interfaces/IPublishParams.html">IPublishParams</a>)</code>
                     </td>
                 </tr>
 
@@ -304,7 +304,7 @@ however, if <code>correlation-id</code> is passed via <code>headers</code>, that
                                                 <tr>
                                                         <td>params</td>
                                                         <td>
-                                                                    <code><a href="../miscellaneous/typealiases.html#publishParams" target="_self" >publishParams</a></code>
+                                                                    <code><a href="../interfaces/IPublishParams.html" target="_self" >IPublishParams</a></code>
                                                         </td>
                                                     
                                                     <td>
@@ -345,7 +345,7 @@ import { filter, first } from &#x27;rxjs/operators&#x27;;
 
 import { UUID } from &#x27;angular2-uuid&#x27;;
 
-import { IMessage, publishParams, StompHeaders } from &#x27;@stomp/stompjs&#x27;;
+import { IMessage, IPublishParams, StompHeaders } from &#x27;@stomp/stompjs&#x27;;
 
 import { RxStomp } from &#x27;./rx-stomp&#x27;;
 import { RxStompRPCConfig, setupReplyQueueFnType } from &#x27;./rx-stomp-rpc-config&#x27;;
@@ -395,7 +395,7 @@ export class RxStompRPC {
    *
    * It is a simple wrapper around [RxStompRPC#stream]{@link RxStompRPC#stream}.
    */
-  public rpc(params: publishParams): Observable&lt;IMessage&gt; {
+  public rpc(params: IPublishParams): Observable&lt;IMessage&gt; {
     // We know there will be only one message in reply
     return this.stream(params).pipe(first());
   }
@@ -406,12 +406,9 @@ export class RxStompRPC {
    * Note: This call internally takes care of generating a correlation id,
    * however, if &#x60;correlation-id&#x60; is passed via &#x60;headers&#x60;, that will be used instead.
    */
-  public stream(params: publishParams): Observable&lt;IMessage&gt; {
-    const headers: StompHeaders &#x3D; (Object as any).assign(
-      {},
-      params.headers || {}
-    );
-    const { destination, body, binaryBody } &#x3D; params;
+  public stream(params: IPublishParams): Observable&lt;IMessage&gt; {
+    // defensively copy
+    const headers: StompHeaders &#x3D; { ...(params.headers || {}) };
 
     if (!this._repliesObservable) {
       const repliesObservable &#x3D; this._setupReplyQueue(
@@ -446,7 +443,7 @@ export class RxStompRPC {
       headers[&#x27;reply-to&#x27;] &#x3D; this._replyQueueName;
       headers[&#x27;correlation-id&#x27;] &#x3D; correlationId;
 
-      this.rxStomp.publish({ destination, body, binaryBody, headers });
+      this.rxStomp.publish({ ...params, headers });
 
       return () &#x3D;&gt; {
         // Cleanup
