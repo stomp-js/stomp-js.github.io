@@ -1400,7 +1400,7 @@ If your STOMP Broker supports WebSockets, prefer setting <a href="../classes/Cli
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="765" class="link-to-prism">consolidated/stompjs/src/client.ts:765</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="767" class="link-to-prism">consolidated/stompjs/src/client.ts:767</a></div>
                             </td>
                         </tr>
 
@@ -1478,7 +1478,7 @@ It is preferable to abort a transaction by calling <a href="../interfaces/ITrans
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="782" class="link-to-prism">consolidated/stompjs/src/client.ts:782</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="784" class="link-to-prism">consolidated/stompjs/src/client.ts:784</a></div>
                             </td>
                         </tr>
 
@@ -1635,7 +1635,7 @@ it will keep trying to reconnect.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="734" class="link-to-prism">consolidated/stompjs/src/client.ts:734</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="736" class="link-to-prism">consolidated/stompjs/src/client.ts:736</a></div>
                             </td>
                         </tr>
 
@@ -1710,7 +1710,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="750" class="link-to-prism">consolidated/stompjs/src/client.ts:750</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="752" class="link-to-prism">consolidated/stompjs/src/client.ts:752</a></div>
                             </td>
                         </tr>
 
@@ -1862,7 +1862,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="545" class="link-to-prism">consolidated/stompjs/src/client.ts:545</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="547" class="link-to-prism">consolidated/stompjs/src/client.ts:547</a></div>
                             </td>
                         </tr>
 
@@ -1908,7 +1908,7 @@ otherwise, it will resolve after underlying websocket is properly disposed.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="587" class="link-to-prism">consolidated/stompjs/src/client.ts:587</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="589" class="link-to-prism">consolidated/stompjs/src/client.ts:589</a></div>
                             </td>
                         </tr>
 
@@ -1953,7 +1953,7 @@ To stop further reconnects call <a href="../classes/Client.html#deactivate">Clie
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="803" class="link-to-prism">consolidated/stompjs/src/client.ts:803</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="805" class="link-to-prism">consolidated/stompjs/src/client.ts:805</a></div>
                             </td>
                         </tr>
 
@@ -2065,7 +2065,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="637" class="link-to-prism">consolidated/stompjs/src/client.ts:637</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="639" class="link-to-prism">consolidated/stompjs/src/client.ts:639</a></div>
                             </td>
                         </tr>
 
@@ -2163,7 +2163,7 @@ and <code>content-length</code> header is missing.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="704" class="link-to-prism">consolidated/stompjs/src/client.ts:704</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="706" class="link-to-prism">consolidated/stompjs/src/client.ts:706</a></div>
                             </td>
                         </tr>
 
@@ -2285,7 +2285,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="724" class="link-to-prism">consolidated/stompjs/src/client.ts:724</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="726" class="link-to-prism">consolidated/stompjs/src/client.ts:726</a></div>
                             </td>
                         </tr>
 
@@ -2381,7 +2381,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
 
                         <tr>
                             <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="676" class="link-to-prism">consolidated/stompjs/src/client.ts:676</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="678" class="link-to-prism">consolidated/stompjs/src/client.ts:678</a></div>
                             </td>
                         </tr>
 
@@ -3079,7 +3079,9 @@ export class Client {
    */
   public activate(): void {
     if (this.state &#x3D;&#x3D;&#x3D; ActivationState.DEACTIVATING) {
-      this.debug(&#x27;Still DEACTIVATING, please await call to deactivate before trying to re-activate&#x27;);
+      this.debug(
+        &#x27;Still DEACTIVATING, please await call to deactivate before trying to re-activate&#x27;
+      );
       throw new Error(&#x27;Still DEACTIVATING, can not activate now&#x27;);
     }
 
