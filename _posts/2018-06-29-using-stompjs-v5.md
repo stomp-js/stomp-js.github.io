@@ -263,7 +263,10 @@ The body of a STOMP message must be a String. If you want to send and receive
 
 ```javascript
 var quote = { symbol: 'APPL', value: 195.46 };
-client.send('/topic/stocks', {}, JSON.stringify(quote));
+client.publish({
+  destination: '/topic/stocks',
+  body: JSON.stringify(quote),
+});
 
 client.subcribe('/topic/stocks', function (message) {
   var quote = JSON.parse(message.body);
