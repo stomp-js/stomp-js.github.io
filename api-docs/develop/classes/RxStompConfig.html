@@ -259,7 +259,7 @@ Instance of this can be passed to <a href="../classes/RxStomp.html#configure">Rx
                     <td class="col-md-4">
                         <div class="io-description"><p>Callback, invoked on before a connection connection to the STOMP broker.</p>
 <p>You can change configuration of the rxStomp, which will impact the immediate connect.
-It is valid to call <a href="../classes/RxStomp.html#deactivate">RxStomp#decativate</a> in this callback.</p>
+It is valid to call <a href="../classes/RxStomp.html#deactivate">RxStomp#deactivate</a> in this callback.</p>
 <p>As of version 0.1.1, this callback can be
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async</a>
 (i.e., it can return a
@@ -267,7 +267,7 @@ It is valid to call <a href="../classes/RxStomp.html#deactivate">RxStomp#decativ
 In that case connect will be called only after the Promise is resolved.
 This can be used to reliably fetch credentials, access token etc. from some other service
 in an asynchronous way.</p>
-<p>As of 0.3.5, this callback will receive [RxStomp](@link RxStomp) as parameter.</p>
+<p>As of 0.3.5, this callback will receive <a href="../classes/RxStomp.html">RxStomp</a> as parameter.</p>
 <p>Maps to: <a href="../classes/Client.html#beforeConnect">Client#beforeConnect</a></p>
 </div>
                     </td>
@@ -559,7 +559,7 @@ Default 0, which implies wait for ever.</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Incoming heartbeat interval in milliseconds. Set to 0 to disable.</p>
-<p>Maps to: [Client#heartbeatIncoming]{@Client#heartbeatIncoming}</p>
+<p>Maps to: <a href="../classes/Client.html#heartbeatIncoming">Client#heartbeatIncoming</a></p>
 </div>
                     </td>
                 </tr>
@@ -705,7 +705,7 @@ When unset, it logs headers of the parsed frames.</p>
                 <tr>
                     <td class="col-md-4">
                         <div class="io-description"><p>Automatically reconnect with delay in milliseconds, set to 0 to disable.</p>
-<p>Maps to: [Client#reconnectDelay]{@Client#reconnectDelay}</p>
+<p>Maps to: <a href="../classes/Client.html#reconnectDelay">Client#reconnectDelay</a></p>
 </div>
                     </td>
                 </tr>
@@ -934,14 +934,14 @@ export class RxStompConfig {
   /**
    * Automatically reconnect with delay in milliseconds, set to 0 to disable.
    *
-   * Maps to: [Client#reconnectDelay]{@Client#reconnectDelay}
+   * Maps to: [Client#reconnectDelay]{@link Client#reconnectDelay}
    */
   public reconnectDelay?: number;
 
   /**
    * Incoming heartbeat interval in milliseconds. Set to 0 to disable.
    *
-   * Maps to: [Client#heartbeatIncoming]{@Client#heartbeatIncoming}
+   * Maps to: [Client#heartbeatIncoming]{@link Client#heartbeatIncoming}
    */
   public heartbeatIncoming?: number;
 
@@ -1001,7 +1001,7 @@ export class RxStompConfig {
    * Callback, invoked on before a connection connection to the STOMP broker.
    *
    * You can change configuration of the rxStomp, which will impact the immediate connect.
-   * It is valid to call [RxStomp#decativate]{@link RxStomp#deactivate} in this callback.
+   * It is valid to call [RxStomp#deactivate]{@link RxStomp#deactivate} in this callback.
    *
    * As of version 0.1.1, this callback can be
    * [async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
@@ -1011,7 +1011,7 @@ export class RxStompConfig {
    * This can be used to reliably fetch credentials, access token etc. from some other service
    * in an asynchronous way.
    *
-   * As of 0.3.5, this callback will receive [RxStomp](@link RxStomp) as parameter.
+   * As of 0.3.5, this callback will receive [RxStomp]{@link RxStomp} as parameter.
    *
    * Maps to: [Client#beforeConnect]{@link Client#beforeConnect}
    */
