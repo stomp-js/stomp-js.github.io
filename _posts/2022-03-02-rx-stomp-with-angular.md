@@ -1,0 +1,454 @@
+---
+layout: single
+title: 'rx-stomp with Angular'
+date: 2018-11-04 17:27:13 +0530
+categories: guide rx-stomp
+toc: true
+---
+
+This step by step guide will create a new Angular application
+and demonstrate usage of rx-stomp.
+
+While preparing this guide `Angular` `13.2.0` and
+`@stomp/rx-stomp` `1.1.4` are used.
+
+For the impatient, final code from this tutorial is at:
+[https://github.com/stomp-js/rx-stomp-angular]
+
+## Pre requisites
+
+You need to have [Node.js](https://nodejs.org)
+and [npm](https://www.npmjs.com/) installed.
+
+You must have basic familiarity with Angular and Typescript.
+If you are unsure, please go through the famous [Tour of Heroes][tour-of-heroes].
+
+## Instructions
+
+### Create a new Angular Application
+
+Install latest Angular CLI as below:
+
+```bash
+$ npm i @angular/cli -g
+```
+
+Change to the folder where you want to create the application
+and create your new application:
+
+```bash
+$ ng new rx-stomp-angular --skip-install --defaults
+```
+
+Change to new created folder and install all dependencies:
+
+```bash
+$ cd rx-stomp-angular/
+$ npm i
+```
+
+To run the application locally execute the following and
+point your browser to [http://localhost:4200/](http://localhost:4200/).
+
+```bash
+$ ng serve
+```
+
+You can keep it running in a terminal and keep the browser tab open.
+It will detect changes, recompile and reload the browser tab.
+
+_At this stage you can use favorite IDE and be ready to edit code._
+
+### Add @stomp/rx-stomp, Inject RxStompService
+
+```bash
+$ npm i @stomp/rx-stomp
+```
+
+We will need to define our configuration.
+This configuration will get injected by Angular Dependency Injection mechanism
+while creating instance of `RxStompService`.
+
+#### Configuration
+
+Create `my-rx-stomp.config.ts` file inside `src/app/` with the following content:
+
+```typescript
+import { RxStompConfig } from '@stomp/rx-stomp';
+
+export const myRxStompConfig: RxStompConfig = {
+  // Which server?
+  brokerURL: 'ws://127.0.0.1:15674/ws',
+
+  // Headers
+  // Typical keys: login, passcode, host
+  connectHeaders: {
+    login: 'guest',
+    passcode: 'guest',
+  },
+
+  // How often to heartbeat?
+  // Interval in milliseconds, set to 0 to disable
+  heartbeatIncoming: 0, // Typical value 0 - disabled
+  heartbeatOutgoing: 20000, // Typical value 20000 - every 20 seconds
+
+  // Wait in milliseconds before attempting auto reconnect
+  // Set to 0 to disable
+  // Typical value 500 (500 milli seconds)
+  reconnectDelay: 200,
+
+  // Will log diagnostics on console
+  // It can be quite verbose, not recommended in production
+  // Skip this key to stop logging to console
+  debug: (msg: string): void => {
+    console.log(new Date(), msg);
+  },
+};
+```
+
+The above should work for a out of the box installation of RabbitMQ broker.
+Please change as per your broker configuration.
+
+#### The RxStompService
+
+Create `rx-stomp.service.ts` file inside `src/app/` with the following content:
+
+```typescript
+import { Injectable } from '@angular/core';
+import { RxStomp } from '@stomp/rx-stomp';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class RxStompService extends RxStomp {}
+```
+
+#### Factory to create and initialize RxStompService
+
+Create `rx-stomp-service-factory.ts` file inside `src/app/` with the following content:
+
+```typescript
+import { RxStompService } from './rx-stomp.service';
+import { myRxStompConfig } from './my-rx-stomp.config';
+
+export function rxStompServiceFactory() {
+  const rxStomp = new RxStompService();
+  rxStomp.configure(myRxStompConfig);
+  rxStomp.activate();
+  return rxStomp;
+}
+```
+
+#### Angular DI setup
+
+Next we need the service get injected. Open `src/app/app.module.ts`
+Add the following to the `providers` array of your `@NgModule`:
+
+```typescript
+providers: [
+  {
+    provide: RxStompService,
+    useFactory: rxStompServiceFactory,
+  },
+]
+```
+
+Also add appropriate import lines towards the top of this file (after existing import
+statements):
+
+```typescript
+import { RxStompService } from './rx-stomp.service';
+import { rxStompServiceFactory } from './rx-stomp-service-factory';
+```
+
+### Messages
+
+We will create a component that will do the following:
+
+- It will have a click-able button to send a message.
+- It will subscribe and keep listing all received messages.
+
+#### Skeleton
+
+Create the `Messages` component:
+
+```bash
+$ ng generate component messages
+```
+
+Inspect the files generated in `src/app/messages/`.
+
+Now we will create the basic HTML in
+`src/app/messages/messages.component.html` - put the following content:
+
+```html
+<div id="messages">
+  <button class="btn btn-primary">Send Test Message</button>
+  <h2>Received messages</h2>
+  <ol>
+    <!-- we will use Angular binding to populate list of messages -->
+    <li class="message">message</li>
+  </ol>
+</div>
+```
+
+We will add this component to the main UI by editing `src/app/app.component.html`.
+In this process we will remove most of the default HTML generated by Angular CLI.
+Edit `src/app/app.component.html` to look like the following:
+
+```html
+<div style="text-align:center">
+  <h1>Welcome to {{ title }}!</h1>
+</div>
+<app-messages></app-messages>
+```
+
+This is a great time to check the browser tab to see that display has changed
+and it should show the HTML that we have added to `src/app/messages/messages.component.html`.
+
+If you find an empty screen, please check the terminal where you executed `ng serve`, if
+there are compilation errors you would see it here. Also, see the browser Javascript
+console, sometimes you may notice errors here.
+
+#### Sending messages
+
+We will now inject `RxStompService` as a dependency in `MessageComponent`.
+To that we will add it to the constructor in `src/app/messages/messages.component.ts`,
+which should look like the following:
+
+```typescript
+  constructor(private rxStompService: RxStompService) { }
+```
+
+We will now add code to send message:
+
+```typescript
+  onSendMessage() {
+  const message = `Message generated at ${new Date()}`;
+  this.rxStompService.publish({ destination: '/topic/demo', body: message });
+}
+```
+
+_Please see [RxStomp#publish][rx-stomp-publish].
+Keep this page open as we would be using more methods from this class soon._
+
+Full content of `src/app/messages/messages.component.ts` should look like
+the following:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { RxStompService } from '../rx-stomp.service';
+
+@Component({
+  selector: 'app-messages',
+  templateUrl: './messages.component.html',
+  styleUrls: ['./messages.component.css'],
+})
+export class MessagesComponent implements OnInit {
+  constructor(private rxStompService: RxStompService) {}
+
+  ngOnInit(): void {}
+
+  onSendMessage() {
+    const message = `Message generated at ${new Date()}`;
+    this.rxStompService.publish({ destination: '/topic/demo', body: message });
+  }
+}
+```
+
+We will attach `onSendMessage` to the button in the html.
+Edit `src/app/messages/messages.component.html` and add `(click)="onSendMessage()"`
+to the button. The file should look like the following now:
+
+```html
+<div id="messages">
+  <button class="btn btn-primary" (click)="onSendMessage()">
+    Send Test Message
+  </button>
+  <h2>Received messages</h2>
+  <ol>
+    <!-- we will use Angular binding to populate list of messages -->
+    <li class="message">message</li>
+  </ol>
+</div>
+```
+
+At this stage you should go back to the browser tab and open the web console.
+When you click on the `Send Message` button, you can see in the console that message
+is being sent to the broker.
+
+#### Receiving messages
+
+The [RxStomp#watch][rx-stomp-watch] method
+initiates a subscription with the broker.
+`this.rxStompService.watch('/topic/demo')` will initiate a subscription
+with the broker for topic `/topic/demo` and returns an `RxJS Observable`.
+Typically we will subscribe this `Observable` to receive actual messages.
+
+```typescript
+  ngOnInit() {
+    this.rxStompService.watch('/topic/demo').subscribe((message: Message) => {
+      this.receivedMessages.push(message.body);
+    });
+  }
+```
+
+We will need to add a declaration for `receivedMessages` and import `Message`
+from `@stomp/stompjs`.
+There are `Message` classes exposed by few other modules as well, so,
+you need to be careful.
+
+_If you are coming from `@stomp/stompjs`, please notice that you do not
+need to subscribe within callback of stomp getting connected.
+This library internally ensures that actual subscription is carried out
+when the broker is actually connected.
+It also keep tracking of broker re-connections and automatically resubscribes._
+
+Now is the time to link the HTML template to received messages.
+We will use `ngFor` to bind list of messages to `<li>`.
+Edit `src/app/messages/messages.component.html`:
+
+```html
+<li class="message" *ngFor="let message of receivedMessages">{{message}}</li>
+```
+
+Now your `src/app/messages/messages.component.ts` and
+`src/app/messages/messages.component.html` should look like:
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { RxStompService } from '../rx-stomp.service';
+import { Message } from '@stomp/stompjs';
+
+@Component({
+  selector: 'app-messages',
+  templateUrl: './messages.component.html',
+  styleUrls: ['./messages.component.css'],
+})
+export class MessagesComponent implements OnInit {
+  receivedMessages: string[] = [];
+
+  constructor(private rxStompService: RxStompService) {}
+
+  ngOnInit(): void {
+    this.rxStompService.watch('/topic/demo').subscribe((message: Message) => {
+      this.receivedMessages.push(message.body);
+    });
+  }
+
+  onSendMessage() {
+    const message = `Message generated at ${new Date()}`;
+    this.rxStompService.publish({ destination: '/topic/demo', body: message });
+  }
+}
+```
+
+```html
+<div id="messages">
+  <button class="btn btn-primary" (click)="onSendMessage()">
+    Send Test Message
+  </button>
+  <h2>Received messages</h2>
+  <ol>
+    <!-- we will use Angular binding to populate list of messages -->
+    <li class="message" *ngFor="let message of receivedMessages">
+      {{ message }}
+    </li>
+  </ol>
+</div>
+```
+
+Check your application in the browser now. Try sending few messages.
+Open another browser window/tab and see messages being received in both.
+
+### Stopping the watch
+
+We are almost done, we just need to add stopping the watch when the component is destroyed.
+For this we need to call `unsubscribe` on the RxJS subscription when we are done.
+`MessagesComponent` will need to implement `OnDestroy`. For this we will need to do
+the following:
+
+- Add `OnDestroy` to the implements list (by default `OnInit` will be there).
+- Implement `ngOnDestroy` method.
+- Add `OnDestroy` to the imports.
+
+Once the above is done we will modify code in `ngOnInit` to store the RxJS
+subscription in a member variable and call `unsusbscribe` in `ngOnDestroy`.
+
+```typescript
+ngOnInit() {
+  this.topicSubscription = this.rxStompService
+          .watch('/topic/demo')
+          .subscribe((message: Message) => {
+            this.receivedMessages.push(message.body);
+          });
+}
+
+ngOnDestroy() {
+  this.topicSubscription.unsubscribe();
+}
+```
+
+Type of `topicSubscription` will be `Subscription` from `rxjs`.
+Your `src/app/messages/messages.component.ts` should look like the following:
+
+```typescript
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { RxStompService } from '../rx-stomp.service';
+import { Message } from '@stomp/stompjs';
+import { Subscription } from 'rxjs';
+
+@Component({
+  selector: 'app-messages',
+  templateUrl: './messages.component.html',
+  styleUrls: ['./messages.component.css'],
+})
+export class MessagesComponent implements OnInit, OnDestroy {
+  receivedMessages: string[] = [];
+  // @ts-ignore, to suppress warning related to being undefined
+  private topicSubscription: Subscription;
+
+  constructor(private rxStompService: RxStompService) {}
+
+  ngOnInit() {
+    this.topicSubscription = this.rxStompService
+            .watch('/topic/demo')
+            .subscribe((message: Message) => {
+              this.receivedMessages.push(message.body);
+            });
+  }
+
+  ngOnDestroy() {
+    this.topicSubscription.unsubscribe();
+  }
+
+  onSendMessage() {
+    const message = `Message generated at ${new Date()}`;
+    this.rxStompService.publish({ destination: '/topic/demo', body: message });
+  }
+}
+```
+
+## Where next
+
+- Browse the code at [https://github.com/stomp-js/rx-stomp-angular]
+- Explore [RxStomp][rx-stomp] to understand other interesting methods exposed by the library.
+- Go through [Angular Dependency Injection][angular-di] - trust me mastering it will take
+  you places.
+- [Observing STOMP connection][connection-status-ng2-stompjs] status and showing a visual indicator.
+- Using [token authentication](/faqs/faqs.html#p-can-i-use-token-based-authentication-with-these-libraries-p)
+  with the STOMP broker.
+
+I will be writing more tutorials in following days to cover additional topics:
+
+- Manual control in the configuration and connection establishment.
+  (In this sample, STOMP broker is connected during the Angular DI class
+  initialization phase.)
+
+[tour-of-heroes]: https://angular.io/tutorial
+[angular-di]: https://angular.io/guide/dependency-injection
+[rx-stomp]: /api-docs/latest/classes/RxStomp.html
+[rx-stomp-publish]: /api-docs/latest/classes/RxStomp.html#publish
+[rx-stomp-watch]: /api-docs/latest/classes/RxStomp.html#watch
+[https://github.com/stomp-js/rx-stomp-angular]: https://github.com/stomp-js/rx-stomp-angular
+[connection-status-ng2-stompjs]: {% link _posts/2018-12-18-connection-status-ng2-stompjs.md %}

@@ -67,7 +67,7 @@ Ref:
 You are unlikely to be affected by this change.
 `deactivate` has now been made `async`, if there is an underlying
 active connection, the call will wait till that is terminated.
-This prevetents a race condition that may cause more that one
+This prevents a race condition that may cause more that one
 active underlying connection in case `deativate` and `activate` were
 invoked in quick succession.
 

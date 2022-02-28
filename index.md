@@ -21,6 +21,8 @@ suitable to be used by Angular (2+).
 Please try the following guides:
 
 - [Using StompJS] - a step by step guide.
+- [Using rx-stomp with Angular] - originally written for Angular13,
+  should work with Angular 8+.
 - [Using ng2-stompjs with Angular] - originally written for Angular7,
   recently tested with Angular.
   Many concepts apply to [rx-stomp] as well.
@@ -61,6 +63,7 @@ Samples:
 [Upgrading StompJS]: {% link _posts/2018-09-08-upgrading-stompjs.md %}
 [SockJS]: {% link _posts/2018-09-10-using-stomp-with-sockjs.md %}
 [Remote Procedure Calls]: {% link _posts/2018-10-12-remote-procedure-call.md %}
+[Using rx-stomp with Angular]: {% link _posts/2022-03-02-rx-stomp-with-angular.md %}
 [Using ng2-stompjs with Angular]: {% link _posts/2018-11-04-ng2-stomp-with-angular7.md %}
 [Upgrading to ng2-stompjs@7]: {% link _posts/2018-11-05-migrate-ng2-stompjs-v7.md %}
 [Connection status in ng2-stompjs]: {% link _posts/2018-12-18-connection-status-ng2-stompjs.md %}
