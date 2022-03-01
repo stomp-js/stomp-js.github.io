@@ -21,10 +21,10 @@ suitable to be used by Angular (2+).
 Please try the following guides:
 
 - [Using StompJS] - a step by step guide.
-- [Using rx-stomp with Angular] - originally written for Angular13,
+- [Using rx-stomp with Angular] - Preferred, originally written for Angular13,
   should work with Angular 8+.
-- [Using ng2-stompjs with Angular] - originally written for Angular7,
-  recently tested with Angular.
+- [Using ng2-stompjs with Angular] - Deprecated, originally written for Angular7,
+  last tested with Angular 9.
   Many concepts apply to [rx-stomp] as well.
 - Guide to [Connection status in ng2-stompjs].
 

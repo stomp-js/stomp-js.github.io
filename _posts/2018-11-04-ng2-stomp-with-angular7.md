@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 'ng2-stompjs with Angular 7'
+title: '*Depcrecated* ng2-stompjs with Angular 7'
 date: 2018-11-04 17:27:13 +0530
 categories: guide ng2-stompjs
 toc: true
@@ -9,6 +9,10 @@ redirect_from:
   - /guide/ng2-stompjs/2018/11/04/ng2-stomp-with-angular7.html
   - /guide/ng2-stompjs/2018/11/05/ng2-stomp-with-angular7.html
 ---
+
+***Depcrecated: ng2-stompjs does not work well with Angular version 10 or above. 
+Please use [rx-stomp] - see newer guide
+[rx-stomp with Angular]({% link _posts/2022-03-02-rx-stomp-with-angular.md %}).***
 
 This step by step guide will create a new Angular application
 and demonstrate usage of ng2-stompjs.
