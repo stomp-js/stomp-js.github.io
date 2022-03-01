@@ -1,15 +1,13 @@
 ---
-question: 'Which one I should use - stompjs, rx-stomp, or ng2-stompjs?'
+question: 'Which one should I use - stompjs or rx-stomp?'
 group: General
 priority: ACA
 ---
 
-`stompjs` is the core underlying library, usable almost everywhere.
+`stompjs` is the underlying core library, usable almost everywhere.
 
-`rx-stomp` exposes functionality as [RxJS](https://github.com/ReactiveX/RxJS) primitives.
-If you are already using RxJS in your project or familiar with it,
-please consider using `rx-stomp`.
+`rx-stomp` exposes functionality as [RxJS] primitives. If you are already using RxJS in your project or are familiar with it, please consider using `rx-stomp`.
 
-`ng2-stompjs` offers same functionally as `rx-stomp`.
-`ng2-stompjs` makes `rx-stomp` classes Injectable and sets up some factories.
-If you are using Angular you should consider this variant.
+Since Angular relies heavily on [RxJS], you should consider `rx-stomp` with Angular.
+
+[RxJS]: https://github.com/ReactiveX/RxJS
