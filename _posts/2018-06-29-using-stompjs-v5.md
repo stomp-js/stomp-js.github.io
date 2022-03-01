@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 'Using StompJs v5'
+title: 'Using StompJs v5+'
 date: 2018-06-29 07:59:22 +0530
 categories: guide stompjs
 toc: true
