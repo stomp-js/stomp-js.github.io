@@ -8,7 +8,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-	      <link rel="stylesheet" href="../styles/style.css">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
         <link rel="stylesheet" href="../styles/postmark.css">
     </head>
     <body>
@@ -42,9 +43,12 @@
 
 
 
+
 <ol class="breadcrumb">
   <li>Interfaces</li>
-  <li>IWatchParams</li>
+  <li
+  >
+  IWatchParams</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -64,6 +68,7 @@
         <p class="comment">
             <code>consolidated/rx-stomp/src/i-watch-params.ts</code>
         </p>
+
 
             <p class="comment">
                 <h3>Description</h3>
@@ -89,19 +94,31 @@
                             <ul class="index-list">
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#destination">destination</a>
+                                        <a href="#destination" 
+>
+                                            destination
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#subHeaders">subHeaders</a>
+                                        <a href="#subHeaders" 
+>
+                                            subHeaders
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#subscribeOnlyOnce">subscribeOnlyOnce</a>
+                                        <a href="#subscribeOnlyOnce" 
+>
+                                            subscribeOnlyOnce
+                                        </a>
                                 </li>
                                 <li>
                                             <span class="modifier">Optional</span>
-                                        <a href="#unsubHeaders">unsubHeaders</a>
+                                        <a href="#unsubHeaders" 
+>
+                                            unsubHeaders
+                                        </a>
                                 </li>
                             </ul>
                         </td>
@@ -119,12 +136,16 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="destination"></a>
-                                        <span class="name"><b>destination</b><a href="#destination"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>destination</b>
+                                            <a href="#destination">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>destination:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                        <code>destination:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -132,7 +153,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                                         </td>
                                     </tr>
@@ -159,12 +180,16 @@
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="subHeaders"></a>
-                                        <span class="name"><b>subHeaders</b><a href="#subHeaders"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>subHeaders</b>
+                                            <a href="#subHeaders">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>subHeaders:     <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders | </a></code>
+                                        <code>subHeaders:     <code>StompHeaders | </code>
 </code>
                                     </td>
                                 </tr>
@@ -172,7 +197,7 @@
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders | </a></code>
+                                            <i>Type : </i>    <code>StompHeaders | </code>
 
                                         </td>
                                     </tr>
@@ -191,15 +216,14 @@
                                     <div class="io-description"><p>Subscription headers, defaults to <code>{}</code></p>
 <p>If header information can change over time and you are allowing automatic resubscriptions,
 consider using a callback as the value rather than a string literal.</p>
-<div><pre class="line-numbers"><code class="language-typescript">   *              const subHeadersCallback = () =&gt; {
-   *                  return {bye: &#39;world&#39;};
-   *              };
-   *              const sub = rxStomp.watch({ destination: queueName, subHeaders: subHeadersCallback})
-   *                                 .subscribe((message) =&gt; {
-   *                                    // handle message
-   *                                 });
-   *              // The subHeadersCallback will be invoked before every (re)subscription.
-   *</code></pre></div></div>
+<div><pre class="line-numbers"><code class="language-typescript">             const subHeadersCallback = () =&gt; {
+                 return {bye: &#39;world&#39;};
+             };
+             const sub = rxStomp.watch({ destination: queueName, subHeaders: subHeadersCallback})
+                                .subscribe((message) =&gt; {
+                                   // handle message
+                                });
+             // The subHeadersCallback will be invoked before every (re)subscription.</code></pre></div></div>
                                 </td>
                             </tr>
                         </tbody>
@@ -209,12 +233,16 @@ consider using a callback as the value rather than a string literal.</p>
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="subscribeOnlyOnce"></a>
-                                        <span class="name"><b>subscribeOnlyOnce</b><a href="#subscribeOnlyOnce"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>subscribeOnlyOnce</b>
+                                            <a href="#subscribeOnlyOnce">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>subscribeOnlyOnce:     <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                        <code>subscribeOnlyOnce:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 </code>
                                     </td>
                                 </tr>
@@ -222,7 +250,7 @@ consider using a callback as the value rather than a string literal.</p>
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                                         </td>
                                     </tr>
@@ -250,12 +278,16 @@ Set this flag to not automatically resubscribe.</p>
                                 <tr>
                                     <td class="col-md-4">
                                         <a name="unsubHeaders"></a>
-                                        <span class="name"><b>unsubHeaders</b><a href="#unsubHeaders"><span class="icon ion-ios-link"></span></a></span>
+                                        <span class="name "><b>unsubHeaders</b>
+                                            <a href="#unsubHeaders">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="col-md-4">
-                                        <code>unsubHeaders:     <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders | </a></code>
+                                        <code>unsubHeaders:     <code>StompHeaders | </code>
 </code>
                                     </td>
                                 </tr>
@@ -263,7 +295,7 @@ Set this flag to not automatically resubscribe.</p>
 
                                     <tr>
                                         <td class="col-md-4">
-                                            <i>Type : </i>    <code><a href="../classes/StompHeaders.html" target="_self" >StompHeaders | </a></code>
+                                            <i>Type : </i>    <code>StompHeaders | </code>
 
                                         </td>
                                     </tr>
@@ -282,17 +314,16 @@ Set this flag to not automatically resubscribe.</p>
                                     <div class="io-description"><p>Headers to be passed while unsubscribing, defaults to <code>{}</code>.</p>
 <p>Occasionally, headers may not be known while invoking <a href="../classes/RxStomp.html#watch">RxStomp#watch</a>,
 in such cases a callback can be passed that would return the headers.</p>
-<div><pre class="line-numbers"><code class="language-typescript">   *              const unsubHeadersCallback = () =&gt; {
-   *                  return {bye: &#39;world&#39;};
-   *              };
-   *              const sub = rxStomp.watch({ destination: queueName, unsubHeaders: unsubHeadersCallback})
-   *                                 .subscribe((message) =&gt; {
-   *                                    // handle message
-   *                                 });
-   *              // Unsubscribe from RxJS Observable, internally unsubscribe will be issued to the broker.
-   *              // `unsubHeadersCallback` will be invoked to get the headers.
-   *              sub.unsubscribe();
-   *</code></pre></div></div>
+<div><pre class="line-numbers"><code class="language-typescript">             const unsubHeadersCallback = () =&gt; {
+                 return {bye: &#39;world&#39;};
+             };
+             const sub = rxStomp.watch({ destination: queueName, unsubHeaders: unsubHeadersCallback})
+                                .subscribe((message) =&gt; {
+                                   // handle message
+                                });
+             // Unsubscribe from RxJS Observable, internally unsubscribe will be issued to the broker.
+             // `unsubHeadersCallback` will be invoked to get the headers.
+             sub.unsubscribe();</code></pre></div></div>
                                 </td>
                             </tr>
                         </tbody>
@@ -370,9 +401,11 @@ export interface IWatchParams {
 
 
 
+
+
                    </div><div class="search-results">
     <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
         <ul class="search-results-list"></ul>
     </div>
     <div class="no-results">
@@ -384,17 +417,27 @@ export interface IWatchParams {
            </div>
        </div>
 
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
             var COMPODOC_CURRENT_PAGE_URL = 'IWatchParams.html';
+            var MAX_SEARCH_RESULTS = 15;
        </script>
 
        <script src="../js/libs/custom-elements.min.js"></script>
        <script src="../js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="../js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
+
        <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
 
        <script src="../js/libs/bootstrap-native.js"></script>
 

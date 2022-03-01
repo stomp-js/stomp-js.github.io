@@ -1,6 +1,5 @@
 'use strict';
 
-
 customElements.define('compodoc-menu', class extends HTMLElement {
     constructor() {
         super();
@@ -34,6 +33,11 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span class="icon ion-ios-paper"></span>README
                             </a>
                         </li>
+                                <li class="link">
+                                    <a href="properties.html" data-type="chapter-link">
+                                        <span class="icon ion-ios-apps"></span>Properties
+                                    </a>
+                                </li>
                     </ul>
                 </li>
                     <li class="chapter">
@@ -43,39 +47,39 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span>Classes</span>
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
-                        <ul class="links collapse" ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="classes-links"' : 'id="xs-classes-links"' }>
                             <li class="link">
-                                <a href="classes/Client.html" data-type="entity-link">Client</a>
+                                <a href="classes/Client.html" data-type="entity-link" >Client</a>
                             </li>
                             <li class="link">
-                                <a href="classes/CompatClient.html" data-type="entity-link">CompatClient</a>
+                                <a href="classes/CompatClient.html" data-type="entity-link" >CompatClient</a>
                             </li>
                             <li class="link">
-                                <a href="classes/RxStomp.html" data-type="entity-link">RxStomp</a>
+                                <a href="classes/RxStomp.html" data-type="entity-link" >RxStomp</a>
                             </li>
                             <li class="link">
-                                <a href="classes/RxStompConfig.html" data-type="entity-link">RxStompConfig</a>
+                                <a href="classes/RxStompConfig.html" data-type="entity-link" >RxStompConfig</a>
                             </li>
                             <li class="link">
-                                <a href="classes/RxStompRPC.html" data-type="entity-link">RxStompRPC</a>
+                                <a href="classes/RxStompRPC.html" data-type="entity-link" >RxStompRPC</a>
                             </li>
                             <li class="link">
-                                <a href="classes/RxStompRPCConfig.html" data-type="entity-link">RxStompRPCConfig</a>
+                                <a href="classes/RxStompRPCConfig.html" data-type="entity-link" >RxStompRPCConfig</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Stomp.html" data-type="entity-link">Stomp</a>
+                                <a href="classes/Stomp.html" data-type="entity-link" >Stomp</a>
                             </li>
                             <li class="link">
-                                <a href="classes/StompConfig.html" data-type="entity-link">StompConfig</a>
+                                <a href="classes/StompConfig.html" data-type="entity-link" >StompConfig</a>
                             </li>
                             <li class="link">
-                                <a href="classes/StompHeaders.html" data-type="entity-link">StompHeaders</a>
+                                <a href="classes/StompHeaders.html" data-type="entity-link" >StompHeaders</a>
                             </li>
                             <li class="link">
-                                <a href="classes/StompSubscription.html" data-type="entity-link">StompSubscription</a>
+                                <a href="classes/StompSubscription.html" data-type="entity-link" >StompSubscription</a>
                             </li>
                             <li class="link">
-                                <a href="classes/Versions.html" data-type="entity-link">Versions</a>
+                                <a href="classes/Versions.html" data-type="entity-link" >Versions</a>
                             </li>
                         </ul>
                     </li>
@@ -86,24 +90,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <span>Injectables</span>
                                 <span class="icon ion-ios-arrow-down"></span>
                             </div>
-                            <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
+                            <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
                                 <li class="link">
-                                    <a href="injectables/InjectableRxStompConfig.html" data-type="entity-link">InjectableRxStompConfig</a>
+                                    <a href="injectables/InjectableRxStompConfig.html" data-type="entity-link" >InjectableRxStompConfig</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/InjectableRxStompRPCConfig.html" data-type="entity-link">InjectableRxStompRPCConfig</a>
+                                    <a href="injectables/InjectableRxStompRPCConfig.html" data-type="entity-link" >InjectableRxStompRPCConfig</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/RxStompRPCService.html" data-type="entity-link">RxStompRPCService</a>
+                                    <a href="injectables/RxStompRPCService.html" data-type="entity-link" >RxStompRPCService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/RxStompService.html" data-type="entity-link">RxStompService</a>
+                                    <a href="injectables/RxStompService.html" data-type="entity-link" >RxStompService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/StompRService.html" data-type="entity-link">StompRService</a>
+                                    <a href="injectables/StompRService.html" data-type="entity-link" >StompRService</a>
                                 </li>
                                 <li class="link">
-                                    <a href="injectables/StompService.html" data-type="entity-link">StompService</a>
+                                    <a href="injectables/StompService.html" data-type="entity-link" >StompService</a>
                                 </li>
                             </ul>
                         </li>
@@ -114,24 +118,24 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span>Interfaces</span>
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
-                        <ul class="links collapse" ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
+                        <ul class="links collapse " ${ isNormalMode ? ' id="interfaces-links"' : 'id="xs-interfaces-links"' }>
                             <li class="link">
-                                <a href="interfaces/IFrame.html" data-type="entity-link">IFrame</a>
+                                <a href="interfaces/IFrame.html" data-type="entity-link" >IFrame</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IMessage.html" data-type="entity-link">IMessage</a>
+                                <a href="interfaces/IMessage.html" data-type="entity-link" >IMessage</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IPublishParams.html" data-type="entity-link">IPublishParams</a>
+                                <a href="interfaces/IPublishParams.html" data-type="entity-link" >IPublishParams</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IRxStompPublishParams.html" data-type="entity-link">IRxStompPublishParams</a>
+                                <a href="interfaces/IRxStompPublishParams.html" data-type="entity-link" >IRxStompPublishParams</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/ITransaction.html" data-type="entity-link">ITransaction</a>
+                                <a href="interfaces/ITransaction.html" data-type="entity-link" >ITransaction</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IWatchParams.html" data-type="entity-link">IWatchParams</a>
+                                <a href="interfaces/IWatchParams.html" data-type="entity-link" >IWatchParams</a>
                             </li>
                         </ul>
                     </li>
@@ -142,7 +146,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             <span>Miscellaneous</span>
                             <span class="icon ion-ios-arrow-down"></span>
                         </div>
-                        <ul class="links collapse" ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
+                        <ul class="links collapse " ${ isNormalMode ? 'id="miscellaneous-links"' : 'id="xs-miscellaneous-links"' }>
                             <li class="link">
                                 <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
                             </li>
