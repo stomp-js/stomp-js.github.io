@@ -243,13 +243,13 @@ if (message.headers['content-type'] === 'application/octet-stream') {
 The body of a STOMP message must be a String or a [Uint8Array]. If you want to send and receive [JSON](http://json.org/) objects, you can use `JSON.stringify()` and`JSON.parse()` to transform the JSON object to a String and vice versa.
 
 ```javascript
-const quote = { symbol: 'APPL', value: 195.46 };
+const quote = { symbol: 'AAPL', value: 195.46 };
 client.publish({
   destination: '/topic/stocks',
   body: JSON.stringify(quote),
 });
 
-client.subcribe('/topic/stocks', function (message) {
+client.subscribe('/topic/stocks', function (message) {
   const quote = JSON.parse(message.body);
   alert(quote.symbol + ' is at ' + quote.value);
 });
@@ -340,7 +340,7 @@ client.heartbeatIncoming = 0; // client does not want to receive heartbeats
 The `client` supports automatic reconnecting in case of a connection failure. It is controlled by a option [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay). The default value is 5000ms, which indicates that an attempt to connect will be made 5000ms after a connection drop.
 
 ```javascript
-// Add the following if you need automatic reconnect (delay is in milli seconds)
+// Add the following if you need automatic reconnect (delay is in milliseconds)
 client.reconnectDelay = 300;
 ```
 
