@@ -15,7 +15,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
         <nav>
             <ul class="list">
                 <li class="title">
-                    <a href="index.html" data-type="index-link">stompjs@6.1.2, rx-stomp@1.1.4</a>
+                    <a href="index.html" data-type="index-link">stompjs@7.0.0-alpha01, rx-stomp@1.2.0</a>
                 </li>
 
                 <li class="divider"></li>
@@ -76,9 +76,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/StompHeaders.html" data-type="entity-link" >StompHeaders</a>
                             </li>
                             <li class="link">
-                                <a href="classes/StompSubscription.html" data-type="entity-link" >StompSubscription</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/Versions.html" data-type="entity-link" >Versions</a>
                             </li>
                         </ul>
@@ -136,6 +133,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IWatchParams.html" data-type="entity-link" >IWatchParams</a>
+                            </li>
+                            <li class="link">
+                                <a href="interfaces/StompSubscription.html" data-type="entity-link" >StompSubscription</a>
                             </li>
                         </ul>
                     </li>

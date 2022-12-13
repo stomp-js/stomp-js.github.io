@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@6.1.2, rx-stomp@1.1.4</title>
+        <title>stompjs@7.0.0-alpha01, rx-stomp@1.2.0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@6.1.2, rx-stomp@1.1.4</a>
+            <a href="../" class="navbar-brand">stompjs@7.0.0-alpha01, rx-stomp@1.2.0</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -226,19 +226,56 @@ is exposed as Observables/Subjects/BehaviorSubjects.</p>
                 <tr>
                     <td class="col-md-4">
                                 <span class="modifier">Public</span>
-                        <code>constructor()</code>
+                        <code>constructor(stompClient?: <a href="../classess/Client.html" target="_self">Client</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="168" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:168</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="173" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:173</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
                             <div class="io-description"><p>Constructor</p>
+<p><a href="https://github.com/stomp-js/stompjs">@stomp/stompjs</a>
+<a href="../classes/Client.html">Client</a> to wrap. If this is not provided, a client will
+be constructed internally.</p>
 </div>
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                                    <td>Description</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>stompClient</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classess/Client.html" target="_self" >Client</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                        <td>
+                                                                <p>optionally inject the 
+[@stomp/stompjs]://github.com/stomp-js/stompjs<a href="https">https</a>
+<a href="../classes/Client.html">Client</a> to wrap. If this is not provided, a client will 
+be constructed internally.</p>
+
+                                                        </td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
                     </td>
                 </tr>
             </tbody>
@@ -585,8 +622,8 @@ objects.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="277"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:277</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="296"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:296</a></div>
                 </td>
             </tr>
 
@@ -630,8 +667,8 @@ it will keep trying to reconnect.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="253"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:253</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="267"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:267</a></div>
                 </td>
             </tr>
 
@@ -720,8 +757,8 @@ Each call will add to the existing configuration.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="337"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:337</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="356"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:356</a></div>
                 </td>
             </tr>
 
@@ -762,8 +799,8 @@ Each call will add to the existing configuration.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="324"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:324</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="343"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:343</a></div>
                 </td>
             </tr>
 
@@ -806,8 +843,8 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="397"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:397</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="416"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:416</a></div>
                 </td>
             </tr>
 
@@ -911,8 +948,8 @@ When <code>false</code>, this function will raise an error if message could not 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="450"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:450</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="469"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:469</a></div>
                 </td>
             </tr>
 
@@ -995,8 +1032,8 @@ following each other and both meaning very different things.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="457"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:457</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="476"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:476</a></div>
                 </td>
             </tr>
 
@@ -1087,8 +1124,8 @@ following each other and both meaning very different things.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="461"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:461</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="480"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:480</a></div>
                 </td>
             </tr>
 
@@ -1176,8 +1213,8 @@ following each other and both meaning very different things.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="583"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:583</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="610"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:610</a></div>
                 </td>
             </tr>
 
@@ -1318,7 +1355,7 @@ will be passed as parameter to the callback.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="346" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:346</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="365" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:365</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -1506,20 +1543,34 @@ export class RxStomp {
   protected _beforeConnect: (client: RxStomp) &#x3D;&gt; void | Promise&lt;void&gt;;
 
   /**
+   * Correlate errors
+   */
+  protected _correlateErrors: (error: IFrame) &#x3D;&gt; string;
+
+  /**
    * Will be assigned during configuration, no-op otherwise
    */
   protected _debug: debugFnType;
 
   /**
    * Constructor
+   * 
+   * @param stompClient optionally inject the 
+   * [@stomp/stompjs]{@link https://github.com/stomp-js/stompjs}
+   * {@link Client} to wrap. If this is not provided, a client will 
+   * be constructed internally.
    */
-  public constructor() {
-    this._stompClient &#x3D; new Client();
+  public constructor(stompClient?: Client) {
+    const client &#x3D; stompClient ? stompClient : new Client();
+    this._stompClient &#x3D; client;
 
     const noOp &#x3D; () &#x3D;&gt; {};
 
     // Before connect is no op by default
     this._beforeConnect &#x3D; noOp;
+
+    // Correlate errors is falsey op by default
+    this._correlateErrors &#x3D; () &#x3D;&gt; undefined;
 
     // debug is no-op by default
     this._debug &#x3D; noOp;
@@ -1594,15 +1645,20 @@ export class RxStomp {
    * Maps to: [Client#configure]{@link Client#configure}
    */
   public configure(rxStompConfig: RxStompConfig) {
-    const stompConfig: StompConfig &#x3D; (Object as any).assign({}, rxStompConfig);
+    const stompConfig: RxStompConfig &#x3D; (Object as any).assign({}, rxStompConfig);
 
     if (stompConfig.beforeConnect) {
       this._beforeConnect &#x3D; stompConfig.beforeConnect;
       delete stompConfig.beforeConnect;
     }
 
+    if (stompConfig.correlateErrors) {
+      this._correlateErrors &#x3D; stompConfig.correlateErrors;
+      delete stompConfig.correlateErrors;
+    }    
+
     // RxStompConfig has subset of StompConfig fields
-    this._stompClient.configure(stompConfig);
+    this._stompClient.configure(stompConfig as StompConfig);
     if (stompConfig.debug) {
       this._debug &#x3D; stompConfig.debug;
     }
@@ -1850,6 +1906,13 @@ export class RxStomp {
         connectedPre$ &#x3D; connectedPre$.pipe(take(1));
       }
 
+      const stompErrorsSubscription &#x3D; this.stompErrors$.subscribe((error: IFrame) &#x3D;&gt; {
+        const correlatedDestination &#x3D; this._correlateErrors(error);
+        if (correlatedDestination &#x3D;&#x3D;&#x3D; params.destination) {
+          messages.error(error);
+        }
+      });      
+
       stompConnectedSubscription &#x3D; connectedPre$.subscribe(() &#x3D;&gt; {
         this._debug(&#x60;Will subscribe to ${params.destination}&#x60;);
         let subHeaders &#x3D; params.subHeaders;
@@ -1871,6 +1934,7 @@ export class RxStomp {
           &#x60;Stop watching connection state (for ${params.destination})&#x60;
         );
         stompConnectedSubscription.unsubscribe();
+        stompErrorsSubscription.unsubscribe();
 
         if (this.connected()) {
           this._debug(&#x60;Will unsubscribe from ${params.destination} at Stomp&#x60;);

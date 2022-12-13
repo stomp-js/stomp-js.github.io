@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@6.1.2, rx-stomp@1.1.4</title>
+        <title>stompjs@7.0.0-alpha01, rx-stomp@1.2.0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@6.1.2, rx-stomp@1.1.4</a>
+            <a href="../" class="navbar-brand">stompjs@7.0.0-alpha01, rx-stomp@1.2.0</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -123,6 +123,11 @@ a <code>const</code> and inject it using value.</p>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Optional</span>
                                 <a href="#connectionTimeout" >connectionTimeout</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#correlateErrors" >correlateErrors</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -423,6 +428,52 @@ details specific to your broker.</p>
                     <div class="io-description"><p>Will retry if Stomp connection is not established in specified milliseconds.
 Default 0, which implies wait for ever.</p>
 <p>Maps to: <a href="../classes/Client.html#connectionTimeout">Client#connectionTimeout</a>.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="correlateErrors"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>correlateErrors</b></span>
+                        <a href="#correlateErrors"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classess/RxStompConfig.html" target="_self" >RxStompConfig</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:178</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Callback invoked on every ERROR frame. If the callback returns the ID of a currently
+subscribed destination, the frame will be emitted as an error on the corresponding
+observable(s), terminating them.</p>
+<p>Importantly, since those observables are now closed, this means a re-SUBSCRIBE to
+the erroneous destination will <em>not</em> be attempted during an automatic reconnection of
+the websocket.</p>
 </div>
                 </td>
             </tr>

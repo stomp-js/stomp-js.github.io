@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@6.1.2, rx-stomp@1.1.4</title>
+        <title>stompjs@7.0.0-alpha01, rx-stomp@1.2.0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@6.1.2, rx-stomp@1.1.4</a>
+            <a href="../" class="navbar-brand">stompjs@7.0.0-alpha01, rx-stomp@1.2.0</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -362,6 +362,7 @@ Set it to <code>true</code> for the header to be skipped.</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IFrame } from &#x27;./i-frame&#x27;;
 import { IMessage } from &#x27;./i-message&#x27;;
 import { StompHeaders } from &#x27;./stomp-headers&#x27;;
+import { Versions } from &#x27;./versions&#x27;;
 
 /**
  * This callback will receive a &#x60;string&#x60; as parameter.
@@ -452,9 +453,9 @@ export type RawHeaderType &#x3D; [string, string];
  * @internal
  */
 export interface IRawFrameType {
-  command: string;
+  command: string | undefined;
   headers: RawHeaderType[];
-  binaryBody: Uint8Array;
+  binaryBody: Uint8Array | undefined;
 }
 
 /**
@@ -514,6 +515,32 @@ export enum ActivationState {
   ACTIVE,
   DEACTIVATING,
   INACTIVE,
+}
+
+/**
+ * @internal
+ */
+export interface IStomptHandlerConfig {
+  debug: debugFnType;
+  stompVersions: Versions;
+  connectHeaders: StompHeaders;
+  disconnectHeaders: StompHeaders;
+  heartbeatIncoming: number;
+  heartbeatOutgoing: number;
+  splitLargeFrames: boolean;
+  maxWebSocketChunkSize: number;
+  forceBinaryWSFrames: boolean;
+  logRawCommunication: boolean;
+  appendMissingNULLonIncoming: boolean;
+  discardWebsocketOnCommFailure: boolean;
+  onConnect: frameCallbackType;
+  onDisconnect: frameCallbackType;
+  onStompError: frameCallbackType;
+  onWebSocketClose: closeEventCallbackType;
+  onWebSocketError: wsErrorCallbackType;
+  onUnhandledMessage: messageCallbackType;
+  onUnhandledReceipt: frameCallbackType;
+  onUnhandledFrame: frameCallbackType;
 }
 </code></pre>
     </div>
