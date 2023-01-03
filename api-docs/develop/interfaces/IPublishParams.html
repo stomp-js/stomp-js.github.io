@@ -383,7 +383,7 @@ export type messageCallbackType &#x3D; (message: IMessage) &#x3D;&gt; void;
  *
  * Part of &#x60;@stomp/stompjs&#x60;.
  */
-export type frameCallbackType &#x3D; (receipt: IFrame) &#x3D;&gt; void;
+export type frameCallbackType &#x3D; ((frame: IFrame) &#x3D;&gt; void) | (() &#x3D;&gt; void);
 
 /**
  * This callback will receive a [CloseEvent]{@link https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent}
