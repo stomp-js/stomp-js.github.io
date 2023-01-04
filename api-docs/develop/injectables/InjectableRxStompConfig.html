@@ -236,7 +236,7 @@ a <code>const</code> and inject it using value.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:121</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:133</a></code>
 </div>
                         </td>
                     </tr>
@@ -277,21 +277,21 @@ a <code>const</code> and inject it using value.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:167</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:179</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Callback, invoked on before a connection connection to the STOMP broker.</p>
-<p>You can change configuration of the rxStomp, which will impact the immediate connect.
+                    <div class="io-description"><p>Callback, invoked before attempting connection to the STOMP broker.</p>
+<p>You can change the configuration of the rxStomp, which will impact the immediate connecting.
 It is valid to call <a href="../classes/RxStomp.html#deactivate">RxStomp#deactivate</a> in this callback.</p>
 <p>As of version 0.1.1, this callback can be
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async</a>
 (i.e., it can return a
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>).
-In that case connect will be called only after the Promise is resolved.
+In that case, connect will be called only after the Promise is resolved.
 This can be used to reliably fetch credentials, access token etc. from some other service
 in an asynchronous way.</p>
 <p>As of 0.3.5, this callback will receive <a href="../classes/RxStomp.html">RxStomp</a> as parameter.</p>
@@ -374,7 +374,7 @@ If both are set, <a href="../classes/RxStompConfig.html#webSocketFactory">RxStom
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:140</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:152</a></code>
 </div>
                         </td>
                     </tr>
@@ -418,7 +418,7 @@ details specific to your broker.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:81</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:93</a></code>
 </div>
                         </td>
                     </tr>
@@ -426,8 +426,9 @@ details specific to your broker.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Will retry if Stomp connection is not established in specified milliseconds.
-Default 0, which implies wait for ever.</p>
+Default 0, which implies wait forever.</p>
 <p>Maps to: <a href="../classes/Client.html#connectionTimeout">Client#connectionTimeout</a>.</p>
+<p>Caution: This feature is experimental.</p>
 </div>
                 </td>
             </tr>
@@ -461,7 +462,7 @@ Default 0, which implies wait for ever.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:178</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:190</a></code>
 </div>
                         </td>
                     </tr>
@@ -507,15 +508,18 @@ the websocket.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:50</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:60</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Enable client debugging?</p>
-</div>
+                    <div class="io-description"><p>Enable client debugging</p>
+<p>Example:</p>
+<div><pre class="line-numbers"><code class="language-typescript">    debug: (msg: string): void =&gt; {
+      console.log(new Date(), msg);
+    },</code></pre></div></div>
                 </td>
             </tr>
 
@@ -548,7 +552,7 @@ the websocket.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:131</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:143</a></code>
 </div>
                         </td>
                     </tr>
@@ -589,7 +593,7 @@ the websocket.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:147</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:159</a></code>
 </div>
                         </td>
                     </tr>
@@ -631,7 +635,7 @@ the websocket.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:116</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:128</a></code>
 </div>
                         </td>
                     </tr>
@@ -672,7 +676,7 @@ the websocket.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:95</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:107</a></code>
 </div>
                         </td>
                     </tr>
@@ -714,7 +718,7 @@ the websocket.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:102</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:114</a></code>
 </div>
                         </td>
                     </tr>
@@ -764,8 +768,8 @@ the websocket.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Set it to log the actual raw communication with the broker.
-When unset, it logs headers of the parsed frames.</p>
-<p>Change in this effects from next broker reconnect.</p>
+When unset, it logs only the headers of the parsed frames.</p>
+<p>Change in this takes effect from the next broker reconnection.</p>
 <p><strong>Caution: this assumes that frames only have valid UTF8 strings.</strong></p>
 <p>Maps to: <a href="../classes/Client.html#logRawCommunication">Client#logRawCommunication</a>.</p>
 </div>
@@ -801,7 +805,7 @@ When unset, it logs headers of the parsed frames.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:126</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:138</a></code>
 </div>
                         </td>
                     </tr>
@@ -842,7 +846,7 @@ When unset, it logs headers of the parsed frames.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:88</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:100</a></code>
 </div>
                         </td>
                     </tr>
@@ -884,16 +888,16 @@ When unset, it logs headers of the parsed frames.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:111</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:123</a></code>
 </div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Enable non-standards compliant mode of splitting of outgoing large text packets.
+                    <div class="io-description"><p>Enable a non-standards compliant mode of splitting outgoing large text packets.
 See <a href="../classes/Client.html#splitLargeFrames">Client#splitLargeFrames</a> for details.
-Useful with Java Spring based brokers.</p>
+Probably, only Java Spring based brokers support this mode.</p>
 <p>Maps to: <a href="../classes/Client.html#splitLargeFrames">Client#splitLargeFrames</a>.</p>
 </div>
                 </td>
@@ -935,10 +939,10 @@ Useful with Java Spring based brokers.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>STOMP versions to attempt during STOMP handshake. By default versions <code>1.0</code>, <code>1.1</code>, and <code>1.2</code> are attempted.</p>
+                    <div class="io-description"><p>STOMP versions to attempt during STOMP handshake. By default, versions <code>1.2</code>, <code>1.1</code>, and <code>1.0</code> are attempted.</p>
 <p>Example:</p>
-<div><pre class="line-numbers"><code class="language-javascript">       // Try only versions 1.0 and 1.1
-       rxStompConfig.stompVersions= new Versions([&#39;1.0&#39;, &#39;1.1&#39;]);</code></pre></div><p>Maps to: <a href="../classes/Client.html#stompVersions">Client#stompVersions</a></p>
+<div><pre class="line-numbers"><code class="language-javascript">       // Try only versions 1.1 and 1.0
+       rxStompConfig.stompVersions= new Versions([&#39;1.1&#39;, &#39;1.0&#39;]);</code></pre></div><p>Maps to: <a href="../classes/Client.html#stompVersions">Client#stompVersions</a></p>
 </div>
                 </td>
             </tr>
@@ -972,7 +976,7 @@ Useful with Java Spring based brokers.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:73</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/RxStompConfig.html#source" target="_self" >RxStompConfig:83</a></code>
 </div>
                         </td>
                     </tr>

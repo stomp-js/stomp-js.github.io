@@ -866,7 +866,7 @@ Each call will add to the existing configuration.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/RxStomp.html#source" target="_self" >RxStomp:360</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/RxStomp.html#source" target="_self" >RxStomp:366</a></code>
 </div>
                 </td>
             </tr>
@@ -901,7 +901,7 @@ Each call will add to the existing configuration.</p>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>deactivate()</code>
+                    <code>deactivate(options: literal type)</code>
                 </td>
             </tr>
 
@@ -914,7 +914,7 @@ Each call will add to the existing configuration.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/RxStomp.html#source" target="_self" >RxStomp:347</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/RxStomp.html#source" target="_self" >RxStomp:353</a></code>
 </div>
                 </td>
             </tr>
@@ -923,14 +923,54 @@ Each call will add to the existing configuration.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Disconnect if connected and stop auto reconnect loop.
-Appropriate callbacks will be invoked if underlying STOMP connection was connected.</p>
-<p>To reactivate you can call <a href="../classes/RxStomp.html#activate">RxStomp#activate</a>.</p>
+Appropriate callbacks will be invoked if the underlying STOMP connection was connected.</p>
+<p>To reactivate, you can call <a href="../classes/RxStomp.html#activate">RxStomp#activate</a>.</p>
+<p>This call is async. It will resolve immediately if there is no underlying active websocket,
+otherwise, it will resolve after the underlying websocket is properly disposed of.</p>
+<p>Experimental: Since version 2.0.0, pass <code>force: true</code> to immediately discard the underlying connection.
+See <a href="../classes/Client.html#deactivate">Client#deactivate</a> for details.</p>
 <p>Maps to: <a href="../classes/Client.html#deactivate">Client#deactivate</a></p>
 </div>
 
                     <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                    <td>Default value</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>options</td>
+                                    <td>
+                                            <code>literal type</code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>{}</code>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
                         <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
 
+                    </div>
+                    <div class="io-description">
+                        
                     </div>
                 </td>
             </tr>
@@ -964,7 +1004,7 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/RxStomp.html#source" target="_self" >RxStomp:473</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/RxStomp.html#source" target="_self" >RxStomp:474</a></code>
 </div>
                 </td>
             </tr>
@@ -977,12 +1017,8 @@ Appropriate callbacks will be invoked if underlying STOMP connection was connect
 If the underlying STOMP connection drops and reconnects, by default, it will resubscribe automatically.
 See <a href="../interfaces/IWatchParams.html#subscribeOnlyOnce">IWatchParams#subscribeOnlyOnce</a> also.</p>
 <p>Note that messages might be missed during reconnect. This issue is not specific
-to this library but the way STOMP brokers are designed to work.</p>
-<p>This method in the underlying library is called <code>subscribe</code>.
-In earlier version it was called <code>subscribe</code> here as well.
-However <code>subscribe</code> is also used by RxJS and code reads strange with two subscribe calls
-following each other and both meaning very different things.</p>
-<p>This method has two alternate syntax, use <a href="../interfaces/IWatchParams.html">IWatchParams</a> if you need to pass additional options.</p>
+to this library, but the way STOMP brokers are designed to work.</p>
+<p>This method has two alternate syntaxes, use <a href="../interfaces/IWatchParams.html">IWatchParams</a> if you need to pass additional options.</p>
 <p>Maps to: <a href="../classes/Client.html#subscribe">Client#subscribe</a></p>
 </div>
 
@@ -1054,7 +1090,7 @@ following each other and both meaning very different things.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/RxStomp.html#source" target="_self" >RxStomp:616</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/RxStomp.html#source" target="_self" >RxStomp:617</a></code>
 </div>
                 </td>
             </tr>
@@ -1064,12 +1100,12 @@ following each other and both meaning very different things.</p>
                 <td class="col-md-4">
                     <div class="io-description"><p>STOMP brokers may carry out operation asynchronously and allow requesting for acknowledgement.
 To request an acknowledgement, a <code>receipt</code> header needs to be sent with the actual request.
-The value (say receipt-id) for this header needs to be unique for each use. Typically a sequence, a UUID, a
+The value (say receipt-id) for this header needs to be unique for each use. Typically, a sequence, a UUID, a
 random number or a combination may be used.</p>
 <p>A complaint broker will send a RECEIPT frame when an operation has actually been completed.
-The operation needs to be matched based in the value of the receipt-id.</p>
-<p>This method allow watching for a receipt and invoke the callback
-when corresponding receipt has been received.</p>
+The operation needs to be matched based on the value of the receipt-id.</p>
+<p>This method allows watching for a receipt and invoking the callback
+when the corresponding receipt has been received.</p>
 <p>The actual <a href="../miscellaneous/typealiases.html#Frame">Frame</a>
 will be passed as parameter to the callback.</p>
 <p>Example:</p>
@@ -1218,7 +1254,7 @@ used to show current status to the end user.</p>
                 <td class="col-md-4">
                     <div class="io-description"><p>Will trigger when connection is established.
 It will trigger every time a (re)connection occurs.
-If it is already connected it will trigger immediately.
+If it is already connected, it will trigger immediately.
 You can safely ignore the value, as it will always be <code>StompState.OPEN</code></p>
 </div>
                 </td>
@@ -1262,7 +1298,7 @@ You can safely ignore the value, as it will always be <code>StompState.OPEN</cod
                 <td class="col-md-4">
                     <div class="io-description"><p>Connection State</p>
 <p>It is a BehaviorSubject and will emit current status immediately. This will typically get
-used to show current status to the end user.</p>
+used to showing current status to the end user.</p>
 </div>
                 </td>
             </tr>
@@ -1303,9 +1339,9 @@ used to show current status to the end user.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Provides headers from most recent connection to the server as returned by the CONNECTED frame.
-If the STOMP connection has already been established it will trigger immediately.
-It will trigger for each reconnection.</p>
+                    <div class="io-description"><p>Provides headers from the most recent connection to the server as returned by the CONNECTED frame.
+If the STOMP connection has already been established, it will trigger immediately.
+It will trigger for each (re)connection.</p>
 </div>
                 </td>
             </tr>
@@ -1393,9 +1429,9 @@ objects.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>This function will be called for any unhandled frame.
-Normally you should receive anything here unless it is non compliant STOMP broker
-or an error.</p>
+                    <div class="io-description"><p>This will yield any unhandled frame.
+Normally, you should not receive anything here unless a non-compliant STOMP broker
+is in use or an error.</p>
 <p>This Observer will yield the received
 <a href="../interfaces/IFrame.html">IFrame</a>
 objects.</p>
@@ -1440,9 +1476,9 @@ objects.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>This function will be called for any unhandled messages.
+                    <div class="io-description"><p>This will yield any unhandled messages.
 It is useful for receiving messages sent to RabbitMQ temporary queues.</p>
-<p>It can also get invoked with stray messages while the server is processing
+<p>It may also yield stray messages while the server is processing
 a request to unsubscribe from an endpoint.</p>
 <p>This Observer will yield the received
 <a href="../interfaces/IMessage.html">IMessage</a>
