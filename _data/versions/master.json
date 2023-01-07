@@ -1,5 +1,4 @@
 {
   "stompjs": "6.1.2",
-  "rx-stomp": "1.1.4",
-  "ng2-stompjs": "8.0.0"
+  "rx-stomp": "1.1.4"
 }

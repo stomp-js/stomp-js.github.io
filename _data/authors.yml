@@ -12,6 +12,3 @@ stompjs:
   - label: rx-stomp@1.1.4
     icon: fab fa-fw fa-github
     url: https://github.com/stomp-js/rx-stomp
-  - label: ng2-stompjs@8.0.0
-    icon: fab fa-fw fa-github
-    url: https://github.com/stomp-js/ng2-stompjs

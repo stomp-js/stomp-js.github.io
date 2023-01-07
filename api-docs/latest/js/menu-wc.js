@@ -83,34 +83,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                         </ul>
                     </li>
-                        <li class="chapter">
-                            <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#injectables-links"' :
-                                'data-target="#xs-injectables-links"' }>
-                                <span class="icon ion-md-arrow-round-down"></span>
-                                <span>Injectables</span>
-                                <span class="icon ion-ios-arrow-down"></span>
-                            </div>
-                            <ul class="links collapse " ${ isNormalMode ? 'id="injectables-links"' : 'id="xs-injectables-links"' }>
-                                <li class="link">
-                                    <a href="injectables/InjectableRxStompConfig.html" data-type="entity-link" >InjectableRxStompConfig</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/InjectableRxStompRPCConfig.html" data-type="entity-link" >InjectableRxStompRPCConfig</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/RxStompRPCService.html" data-type="entity-link" >RxStompRPCService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/RxStompService.html" data-type="entity-link" >RxStompService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/StompRService.html" data-type="entity-link" >StompRService</a>
-                                </li>
-                                <li class="link">
-                                    <a href="injectables/StompService.html" data-type="entity-link" >StompService</a>
-                                </li>
-                            </ul>
-                        </li>
                     <li class="chapter">
                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ? 'data-target="#interfaces-links"' :
                             'data-target="#xs-interfaces-links"' }>
@@ -151,13 +123,7 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="miscellaneous/enumerations.html" data-type="entity-link">Enums</a>
                             </li>
                             <li class="link">
-                                <a href="miscellaneous/functions.html" data-type="entity-link">Functions</a>
-                            </li>
-                            <li class="link">
                                 <a href="miscellaneous/typealiases.html" data-type="entity-link">Type aliases</a>
-                            </li>
-                            <li class="link">
-                                <a href="miscellaneous/variables.html" data-type="entity-link">Variables</a>
                             </li>
                         </ul>
                     </li>
