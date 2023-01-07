@@ -2,20 +2,21 @@
 layout: single
 title: 'RPC - Remote Procedure Call'
 date: 2018-10-12 09:12:00 +0530
-categories: guide rx-stomp ng2-stompjs
+categories: guide rx-stomp
 toc: true
 redirect_from:
   - /guide/rx-stomp/ng2-stompjs/2018/10/11/remote-procedure-call.html
   - /guide/rx-stomp/ng2-stompjs/2018/10/12/remote-procedure-call.html
   - /guide/rx-stomp/ng2-stompjs/2018/10/13/remote-procedure-call.html
+  - /guide/rx-stomp/ng2-stompjs/remote-procedure-call.html
 ---
 
 **This is an advanced topic.
 You may choose to understand the philosophy by reading the initial sections,
-or, you may just skip to the [usage](#usage) sections which is not complicated.**
+or, you may just skip to the [usage](#usage) sections which are not complicated.**
 
 Messaging usually works one way.
-There is however a convention for two way communication (i.e. request/response).
+There is, however, a convention for two-way communication (i.e. request/response).
 This involves `reply-to` queues which routes the response back to correct client program
 and `correlation-id` to uniquely match a response to the correct request.
 
@@ -28,36 +29,35 @@ See sample RPC servers and clients at:
 
 ## Why RPC using messaging
 
-REST calls using JSON encoded payloads over http(s) is quite popular.
-These have become almost ubiquitous and supported by variety of frameworks
-and have become most common technique to access third party APIs.
+REST calls using JSON encoded payloads over http(s) are quite popular.
+These have become almost ubiquitous and supported by a variety of frameworks
+and have become the most common technique to access third party APIs.
 
 There are, however, some limitations with REST/JSON/http(s) approach:
 
 - http(s) can only wait for finite time before timing out.
-  Typically for long running operations as an alternative a request will be submitted
+  Typically, for long-running operations as an alternative a request will be submitted
   and the client will keep polling to check if results are ready.
-- There are some other interesting scenarios where the request to submitted to process A,
-  however, the final response is better handled by process B.
+- There are some other interesting scenarios where the request is submitted to process A.
+  However, the final response is better handled by process B.
   REST/JSON/http(s) will mandate that B communicates back to A which then intimates the client.
   This scenario is quite common in credit card processing.
-- As an extension to the long running tasks, there is no easy way to intimate the client of the
+- As an extension to the long-running tasks, there is no easy way to intimate the client about the
   progress of the task.
-- We have gone accustomed to the overheads of REST/JSON/http(s) approach.
-  However, if you think about it for every request there is connection setup (including TLS/SSL)
+- We have gotten accustomed to the overheads of the REST /JSON/http(s) approach.
+  However, for every request, there is connection setup (including TLS/SSL)
   before a request is made.
 
 The approach suggested in this guide solves all of the above issues/patterns.
-On top of that it offers some interesting bonus as well:
+On top of that, it offers some interesting bonus as well:
 
-- It offers _natural_ load balancing. Spring up a new server and that's it.
-  No need to inform the load balancer or anything similar. Yes really!
-- Even more - this form of load balancing automatically takes care of fast and slow
+- It offers _natural_ load balancing. Just boot up a new servers.
+- Even more — this form of load balancing automatically takes care of fast and slow
   instances.
-- It allows fault tolerance - if a process dies before completing,
-  it would be submitted again (to other node or the same node).
+- It allows fault tolerance — if a process dies before completing,
+  it would be submitted to another node.
 - If there are no servers available when a request is made, these can be queued
-  till a server springs up.
+  till a server becomes available.
 - It offers a mechanism where a server may indicate a temporary failure while processing
   a request.
   This will allow the request to be resubmitted for processing again.
@@ -66,20 +66,13 @@ The samples at [https://github.com/stomp-js/samples/] demonstrate most of the ab
 
 ## Usage
 
-This feature will work with `@stomp/rx-stomp` and `@stomp/ng2-stompjs`.
-
-While working with Angular (`@stomp/ng2-stompjs`) if you need classes to be
-injected as dependencies, you should use following equivalent classes:
-
-- [RxStomp] --> [RxStompService]
-- [RxStompRPC] --> [RxStompRPCService]
-- [RxStompRPCConfig] --> [InjectableRxStompRpcConfig]
+This feature will work with `@stomp/rx-stomp`.
 
 ## Implementing the RPC server endpoint
 
 All code snippets are from [https://github.com/stomp-js/samples/].
 
-This can be implemented in any language, in most cases it will be there in some backend server.
+This can be implemented in any language. In most cases, it will be executed in a backend server.
 
 ```typescript
     // Destination is RabbitMQ specific, change as per your environment
@@ -114,7 +107,7 @@ This can be implemented in any language, in most cases it will be there in some 
       }, randomInt(10000));
 ```
 
-A very similar server in Ruby (it is single threaded blocking server):
+A very similar server in Ruby (it is a single-threaded blocking server):
 
 ```ruby
 amqp_conn = Bunny.new
@@ -147,22 +140,17 @@ end
 ### RabbitMQ
 
 RabbitMQ has special support for `temp-queues` in `reply-to` messages
-which make things to work magically. Really I mean it.
-
-If you don't believe me check details at
+which make things to work magically. Please check details at
 [https://www.rabbitmq.com/stomp.html#d.tqd](https://www.rabbitmq.com/stomp.html#d.tqd)
 
-Well the client code looks equally simple and similar to what you would expect
-to use with any backend service.
+The client code looks simple and similar to JSON and HTTP-based backend services.
 
-Create an instance of [RxStompRPC], you will need an instance of [RxStomp] in the constructor:
+Create an instance of [RxStompRPC],
+you will need an instance of [RxStomp] in the constructor:
 
 ```typescript
 const rxStompRPC = new RxStompRPC(rxStomp);
 ```
-
-Angular Dependency Injection can be used to inject [RxStompRPCService].
-You will need [RxStompService] to be provided as well.
 
 Making the RPC call is simple, takes same parameters as [RxStomp#publish]
 and returns an `Observable` which will trigger once.
@@ -189,11 +177,11 @@ See [https://github.com/stomp-js/samples/] for a sample client.
 There are few requirements:
 
 - the reply queue name **must** be unique across the broker.
-- ideally, for security reasons only the client creating the queue should have access to it.
+- ideally, for security reasons, only the client creating the queue should have access to it.
 
 Many brokers have `temp-queue` concept which should simplify your work.
 
-Following gives an outline:
+The following gives an outline:
 
 ```typescript
 const stompRPCConfigForActiveMQ = {
@@ -207,24 +195,21 @@ const stompRPCConfigForActiveMQ = {
 };
 ```
 
-This custom config would need to be passed as second parameter in `StompRPCService`
-constructor, or, can be passed as an Angular Dependency.
+Apart from this additional setup step usage remains the same as RabbitMQ as documented above.
 
-Apart from this additional setup step usage remains same as RabbitMQ case as documented above.
-
-## Where to Next
+## What Next
 
 In [Why RPC using messaging](#why-rpc-using-messaging), few additional benefits
 like reporting progress, fault tolerance etc. are discussed.
 
 There are samples which cover some of these patterns:
 
-- Multi-threaded Ruby server.
-- Manual acknowledgement - it will cause retry in case of failure.
-- Factoring out boiler-plate server code.
+- Multithreaded Ruby server.
+- Manual acknowledgement — it will retry in case of failure.
+- Factoring out boilerplate server code.
 - Implementing server/client using [RxStompRPC#stream] to report progress.
 
-If you have questions or you will like to see more guides please raise an issue at
+If you have questions, or you would like to see more guides, please raise an issue at
 [https://github.com/stomp-js/rx-stomp/issues](https://github.com/stomp-js/rx-stomp/issues).
 
 [rxstomp]: /api-docs/latest/classes/RxStomp.html

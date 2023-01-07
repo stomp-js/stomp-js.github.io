@@ -2,13 +2,19 @@
 layout: single
 title: 'Using STOMP with SockJS'
 date: 2018-09-10 12:06:34 +0530
-categories: guide stompjs rx-stomp ng2-stompjs
+categories: guide stompjs rx-stomp
 toc: true
 redirect_from:
   - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/09/using-stomp-with-sockjs.html
   - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/10/using-stomp-with-sockjs.html
   - /guide/stompjs/rx-stomp/ng2-stompjs/2018/09/11/using-stomp-with-sockjs.html
+  - /guide/stompjs/rx-stomp/ng2-stompjs/using-stomp-with-sockjs.html
 ---
+
+**There are a large number of obsolete (and copied from one another)
+examples for these libraries that use SockJS.
+In reality, there is very little chance that you need SockJS.
+Unless you know, for sure, you do not need SockJS.**
 
 This guide covers how to use [SockJS client] instead of WebSockets as underlying transport.
 
@@ -18,19 +24,18 @@ That is incorrect, you only need SockJS if you need to support old browsers._
 
 ## Do you need SockJS?
 
-As of 2018, WebSocket support in browsers is nearly ubiquitous.
+As of 2018, WebSocket support in browsers is ubiquitous.
 Please check [https://caniuse.com/#feat=websockets](https://caniuse.com/#feat=websockets).
-Depending on your user base you can skip this page.
+Depending on your user base, you can skip this page.
 
-You can use [SockJS client]
-to support browsers that do not natively support WebSockets.
+You can use [SockJS client] to support browsers that do not support WebSockets natively.
 
 You would need to consider the following:
 
 - URL protocol conventions are different for WebSockets (`ws:`/`wss:`) and SockJS (`http:` or `https:`).
-- Internal handshake sequences are different - so, some brokers will use different end points for
+- Internal handshake sequences are different — so, some brokers will use different end points for
   both protocols.
-- Neither of these allow custom headers to be set during the HTTP handshake.
+- Neither of these allows custom headers to be set during the HTTP handshake.
 - SockJS internally supports different transport mechanisms. You might face specific limitations
   depending on actual transport in use.
 - Auto reconnect is not quite reliable with SockJS.
@@ -44,7 +49,7 @@ It is advised to use WebSockets by default and then fall back to SockJS if the b
 
 ### In Node.js environments
 
-Please install latest [SockJS client]:
+Please install the latest[SockJS client]:
 
 ```bash
 $ npm install sockjs-client --save
@@ -145,7 +150,7 @@ See: [ng2-stompjs/issues/70].
 When you are using SockJS in an Angular6 project you might get **"global is not defined"**.
 
 The underlying issue can only be fixed by SockJS or Angular teams.
-Try any of the following as a possible work around (from [ng2-stompjs/issues/70]):
+Try any of the following workarounds (from [ng2-stompjs/issues/70]):
 
 - In your index.html file, in the header add the following:
 

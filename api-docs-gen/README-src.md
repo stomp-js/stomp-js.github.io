@@ -1,9 +1,9 @@
 # Navigating through the API docs
 
-The API docs cover three libraries:
+The API docs cover the following libraries:
 
 - @stomp/stompjs
-- @stomp/rx-stomp - builds over @stomp/stompjs
+- @stomp/rx-stomp - builds over @stomp/stompjs with RxJS primitives
 
 The documentation for classes also indicates which library each of the classes
  belongs. See the [guides](/) for more information and tutorials.

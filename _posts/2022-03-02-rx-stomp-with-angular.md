@@ -4,9 +4,11 @@ title: 'rx-stomp with Angular'
 date: 2022-03-01 09:20:00 +0530
 categories: guide rx-stomp
 toc: true
+redirect_from:
+  - /guide/ng2-stompjs/ng2-stomp-with-angular7.html
 ---
 
-This step by step guide will create a new Angular application
+This step-by-step guide will create a new Angular application
 and demonstrate usage of [rx-stomp].
 
 While preparing this guide, `Angular` `13.2.0` and
@@ -27,7 +29,7 @@ If you are unsure, please go through the famous [Tour of Heroes][tour-of-heroes]
 
 ### Create a new Angular Application
 
-Install latest Angular CLI as below:
+Install the latest Angular CLI as below:
 
 ```bash
 $ npm i @angular/cli -g
@@ -56,7 +58,7 @@ $ ng serve
 You can keep it running in a terminal and keep the browser tab open.
 It will detect changes, recompile and reload the browser tab.
 
-_At this stage, you can use your favorite IDE and be ready to edit code._
+_At this stage, you can use your favorite IDE and be ready to edit the code._
 
 ### Add @stomp/rx-stomp, Inject RxStompService
 
@@ -300,7 +302,7 @@ This library internally ensures that actual subscription happens
 when the broker is actually connected.
 It also keeps tracking of broker re-connections and automatically resubscribes._
 
-Now is the time to link the HTML template to received messages.
+Now is the time to link the HTML template to the received messages.
 We will use `ngFor` to bind the list of messages to `<li>`.
 Edit `src/app/messages/messages.component.html`:
 
@@ -354,13 +356,13 @@ export class MessagesComponent implements OnInit {
 </div>
 ```
 
-Check your application in the browser now - try sending a few messages. Then open another browser window/tab and see that both receive messages.
+Check your application in the browser now — try sending a few messages. Then open another browser window/tab and see that both receive messages.
 
 ### Stopping the watch
 
-We are almost done. We need to add stopping the watch when the component is destroyed. For this, we need to call `unsubscribe` on the RxJS subscription. We will need to do the following:
+We are almost done. We need to stop the watch when the component is destroyed. For this, we need to call `unsubscribe` on the RxJS subscription. We will need to do the following:
 
-- Add `OnDestroy` to the implements list (by default, `OnInit` will be there).
+- Add `OnDestroy` to the `implements` list (by default, `OnInit` will be there).
 - Implement `ngOnDestroy` method.
 - Add `OnDestroy` to the imports.
 
@@ -425,8 +427,7 @@ export class MessagesComponent implements OnInit, OnDestroy {
 
 - Browse the code at [https://github.com/stomp-js/rx-stomp-angular]
 - Explore [RxStomp][rx-stomp] to understand other interesting methods exposed by the library.
-- Go through [Angular Dependency Injection][angular-di] - trust me mastering it will take
-  you places.
+- Go through [Angular Dependency Injection][angular-di] — mastering it will take you places.
 - [Observing STOMP connection][connection-status-ng2-stompjs] status and showing a visual indicator.
 - Using [token authentication](/faqs/faqs.html#p-can-i-use-token-based-authentication-with-these-libraries-p)
   with the STOMP broker.

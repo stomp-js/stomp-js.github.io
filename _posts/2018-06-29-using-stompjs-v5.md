@@ -22,7 +22,7 @@ This npm distribution has a UMD package and ES6 modules. The web browsers will u
 
 ### Polyfills
 
-_Important: before using, please check [Polyfills & Critical Dependencies]._
+_Important: For NodeJS and React Native, please check [Polyfills]._
 
 ### In Web Browser
 
@@ -391,5 +391,5 @@ The above also allows adjusting [Client#reconnectDelay](/api-docs/latest/classes
 
 Even [Client#brokerURL](/api-docs/latest/classes/Client.html#brokerURL) or [Client#connectHeaders](/api-docs/latest/classes/Client.html#connectHeaders) can be altered which would get used in a subsequent reconnect.
 
-[Polyfills & Critical Dependencies]: {% link _posts/2018-06-28-pollyfils-for-stompjs-v5.md %}
+[Polyfills]: {% link _posts/2018-06-28-polyfills-for-stompjs.md %}
 [Uint8Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array

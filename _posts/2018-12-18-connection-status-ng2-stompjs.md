@@ -122,7 +122,7 @@ this.connected$ = this.connectionState$.pipe(
 
 The above can be used to implement watch for any other state (like `CLOSED`).
 
-[ng2-stompjs-with-angular7]: {% link _posts/2018-11-04-ng2-stomp-with-angular7.md %}
+[ng2-stompjs-with-angular7]: {% link _posts/2022-03-02-rx-stomp-with-angular.md %}
 [ng2-stompjs-angular7-sample]: https://github.com/stomp-js/ng2-stompjs-angular7
 
 [rxstomp]: /api-docs/latest/classes/RxStomp.html

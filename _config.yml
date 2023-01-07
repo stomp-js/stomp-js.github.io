@@ -87,9 +87,6 @@ footer:
     - label: 'rx-stomp'
       icon: 'fab fa-fw fa-github'
       url: 'https://github.com/stomp-js/rx-stomp'
-    - label: 'ng2-stompjs'
-      icon: 'fab fa-fw fa-github'
-      url: 'https://github.com/stomp-js/ng2-stompjs'
 
 # Reading Files
 encoding: 'utf-8'

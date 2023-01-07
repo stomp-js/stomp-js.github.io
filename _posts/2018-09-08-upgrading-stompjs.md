@@ -12,7 +12,7 @@ redirect_from:
 
 ## Upgrading from version 3/4
 
-_Important: before upgrading please check [Polyfills & Critical Dependencies]._
+_Important: For NodeJS and React Native, please check [Polyfills]._
 
 ### Basic changes
 
@@ -197,4 +197,4 @@ Additional notes:
 - If you are using `SockJS` please also see [SockJS support]
 
 [SockJS support]: {% link _posts/2018-09-10-using-stomp-with-sockjs.md %}
-[Polyfills & Critical Dependencies]: {% link _posts/2018-06-28-pollyfils-for-stompjs-v5.md %}
+[Polyfills]: {% link _posts/2018-06-28-polyfills-for-stompjs.md %}
