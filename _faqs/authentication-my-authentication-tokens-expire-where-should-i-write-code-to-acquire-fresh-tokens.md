@@ -9,7 +9,7 @@ The suggested place to acquire fresh tokens is
 callback.
 You can update the
 [connectHeaders](https://stomp-js.github.io/api-docs/latest/classes/Client.html#connectHeaders)
-after you have acquired fresh token.
+after you have acquired a fresh token.
 
 If you need to fetch a token using an async request (say using an XHR),
 you can set an async function as the callback.

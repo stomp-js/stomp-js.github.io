@@ -4,5 +4,5 @@ group: SockJS
 priority: EAE
 ---
 
-Several topics related to SockJS has been compiled at
-[Using STOMP with SockJS](/guide/stompjs/rx-stomp/ng2-stompjs/using-stomp-with-sockjs.html).
+Several topics related to SockJS have been compiled at
+[Using STOMP with SockJS](/guide/stompjs/rx-stomp/using-stomp-with-sockjs.html).

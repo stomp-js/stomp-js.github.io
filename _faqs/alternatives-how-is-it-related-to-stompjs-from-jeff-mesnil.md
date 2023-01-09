@@ -5,9 +5,9 @@ priority: ZAA
 ---
 
 [stompjs](https://www.npmjs.com/package/stompjs)
-from [Jeff Mesnil](http://jmesnil.net/) has been the most important
+from [Jeff Mesnil](http://jmesnil.net/) has been one of the initial
 STOMP implementations for JavaScript.
-However the original author has no longer been maintaining it since 2016.
+However, the original author has no longer been maintaining it since 2016.
 `@stomp/stompjs` started as a maintained fork.
 
 `@stomp/stompjs` v4 is an enhanced version of

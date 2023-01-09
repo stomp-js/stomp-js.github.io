@@ -4,11 +4,11 @@ group: Jeff Mesnil's stompjs
 priority: ZAE
 ---
 
-The Jeff Mesnil's stompjs supports STOMP over TCP when used in NodeJS environment.
-Other than this, there are no known missing functionality.
+Jeff Mesnil's stompjs supports STOMP over TCP when used in the NodeJS environment.
+Other than this, there is no known missing functionality.
 If you intend to use this feature, please raise an issue.
 
-The Jeff Mesnil's stompjs does not support the STOMP protocol strictly
-while `@stomp/stompjs` implements the protocol strictly and completely.
+Jeff Mesnil's stompjs is not fully compliant to STOMP protocol.
+The `@stomp/stompjs` strictly adheres the protocol.
 This might, in some cases, give behavioral differences.
-If you facing any such issues please raise an issue.
+If you are facing any such issues, please raise an issue.

@@ -8,4 +8,4 @@ No SockJS is not mandatory to use this library.
 
 SockJS, however, is supported.
 Please see
-[using StompJS with SockJS](/guide/stompjs/rx-stomp/ng2-stompjs/using-stomp-with-sockjs.html).
+[using StompJS with SockJS](/guide/stompjs/rx-stomp/using-stomp-with-sockjs.html).

@@ -17,9 +17,9 @@ _Important: For NodeJS and React Native, please check [Polyfills]._
 ### Basic changes
 
 Please follow section [Include STOMP.js]({% link _posts/2018-06-29-using-stompjs-v5.md %}#include-stompjs)
-to add latest version.
+to add the latest version.
 
-The following is for convenience - to keep the code change to the minimum.
+The following is for convenience, — to keep the code change to the minimum.
 
 ```javascript
 // Depending on your JS version you may have to use var instead of const
@@ -30,23 +30,23 @@ const Stomp = StompJs.Stomp;
 
 ### For the lazy: use the compatibility mode
 
-With the changes above, your code should now work. If you face issues please
-raise an issue at https://github.com/stomp-js/stompjs/issues
+With the changes above, your code should now work. If you face issues, please
+raise an issue at https://github.com/stomp-js/stompjs/issues.
 
 _Note: no new features will be added to the compatibility mode.
-Attempt would be made so that code working in version 3/4 continue
-to work. The compatibility mode will be maintained for a year._
+Attempt would be made so that code working in version 3/4 continues
+to work. The compatibility mode will be maintained till 2020._
 
 ### Take control: proper upgrade
 
-This section covers rationale of new features and
+This section covers the rationale of new features and
 changes needed to take full advantage.
 
 #### Creating a client and connecting
 
-In version 3/4 typically a client instance is created and one of the
+In version 3/4, typically, a client instance is created and one of the
 variants of connect is called.
-Over the years connect has gotten many variants with different
+Over the years, connect has gotten many variants with a different
 combination of parameters.
 
 The new version makes all options settable on client instance.
@@ -98,11 +98,11 @@ client.activate();
 
 Please see [StompConfig](/api-docs/latest/classes/StompConfig.html) for all possible options.
 These options can be set onto [client](/api-docs/latest/classes/Client.html).
-Alternatively these can be passed
+Alternatively, these can be passed
 as options to the [Client constructor](/api-docs/latest/classes/Client.html#constructor) constructor,
 the [Client#activate](/api-docs/latest/classes/Client.html#activate)
 or the [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate) calls.
-If you want to set options in bulk you can use [Client#configure](/api-docs/latest/classes/Client.html#configure).
+If you want to set options in bulk, you can use [Client#configure](/api-docs/latest/classes/Client.html#configure).
 
 #### Publishing messages
 
@@ -156,7 +156,7 @@ client.publish({
 #### Name changes
 
 These changes have been carried out in order to make a consistent naming convention (lowerCamelCase)
-and to make meaning of the option clearer.
+and to make the meaning of the option clearer.
 
 - [reconnect_delay](/api-docs/latest/classes/CompatClient.html#reconnect_delay) --> [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay)
 - [ws](/api-docs/latest/classes/CompatClient.html#ws) --> [Client#webSocket](/api-docs/latest/classes/Client.html#webSocket)
@@ -168,7 +168,7 @@ and to make meaning of the option clearer.
 
 #### Dropped APIs
 
-- [maxWebSocketFrameSize](/api-docs/latest/classes/CompatClient.html#maxWebSocketFrameSize) - large messages
+- [maxWebSocketFrameSize](/api-docs/latest/classes/CompatClient.html#maxWebSocketFrameSize) — large messages
   work without this. Test cases have been added to test large text and binary messages.
 
 ## Migrating from Version 2
@@ -179,7 +179,7 @@ Please note:
 
 - Auto reconnect is switched on by default.
   Set [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay) to `0` to disable.
-- After each connect (i.e., initial connect as well each reconnection) the
+- After each connect (i.e., the initial connect as well each reconnection) the
   [Client#onConnect](/api-docs/latest/classes/Client.html#onConnect) (connectCallback in earlier versions)
   will be called.
 - After reconnecting, it will not automatically subscribe to queues that were subscribed.
@@ -192,7 +192,7 @@ Additional notes:
 - `Stomp.overWS` is same as `Stomp.client`. Follow the instructions for `Stomp.client` above.
 - `NodeJS` is supported at same level as browser. Test suits are executed for both NodJS and browser.
   Follow the instructions as above.
-- `Stomp.overTCP` is no longer supported. If your brokers supports WebStomp (STOMP over WebSocket),
+- `Stomp.overTCP` is no longer supported. If your broker supports WebStomp (STOMP over WebSocket),
   you may switch to that.
 - If you are using `SockJS` please also see [SockJS support]
 

@@ -6,12 +6,10 @@ priority: ACC
 
 Yes.
 
-These libraries are released as [UMD](https://github.com/umdjs/umd).
-This should allow these modules to be used as JavaScript on web page as well as
-from variety of module systems.
+From 2023, these libraries are distributed as Javascript modules as default.
+These can be used with `import`.
 
 All these libraries have been developed in TypeScript and type definition
 files are included in releases.
 
-In the bundle, ESM5 and ESM6 variants are also included,
-which can be used as alternatives.
+In addition, a UMD bundle is included to be used as a html script tag.

@@ -32,29 +32,13 @@ _Important: For NodeJS and React Native, please check [Polyfills]._
   - [https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.js)
 - `StompJs` object will now be available. Read along to learn how to use it.
 
-### In NodeJS
-
-See [Polyfills & Critical Dependencies] for installing dependencies.
-
-```javascript
-// For StompJs >= 5.1.0
-StompJs = require('@stomp/stompjs');
-
-// For StompJs 5.0.x
-StompJs = require('@stomp/stompjs/esm5');
-```
-
-Read along to learn how to use the `StompJs` object.
-
-### TypeScript or ES6
-
-See [Polyfills & Critical Dependencies] for installing dependencies.
+### In NodeJS, TypeScript or ES6
 
 These libraries have been developed using typescript, and the typings are included in the distribution.
 
 You can import classes like the following:
 
-```typescript
+```javascript
 import { Client, Message } from '@stomp/stompjs';
 ```
 
@@ -166,8 +150,9 @@ destination and `callback`, a function with one message argument and an optional
 const subscription = client.subscribe('/queue/test', callback);
 ```
 
-The subscribe() method returns an object with one attribute, `id`,
-that correspond to the client subscription ID and one method `unsubscribe()` that can be used later on to unsubscribe the client from this destination.
+The `subscribe` method returns an object with one attribute, `id`,
+that correspond to the client subscription ID and one method `unsubscribe`
+that can be used later on to unsubscribe the client from this destination.
 
 Every time the broker sends a message to the client, the client will, in turn, invoke the callback with a [Message](/api-docs/latest/classes/Message.html) object.
 
@@ -182,7 +167,7 @@ callback = function (message) {
 };
 ```
 
-The `subscribe()` method takes an optional headers argument to specify additional `headers` when subscribing to a destination:
+The `subscribe` method takes an optional headers argument to specify additional `headers` when subscribing to a destination:
 
 ```javascript
 const headers = { ack: 'client' };
@@ -348,7 +333,7 @@ You can set the `reconnectDelay` to quite a small value.
 
 ## Debug
 
-On a busy system volume of logs can be overwhelming. Therefore, by default, the debug messages are ignored.
+On a busy system, the volume of logs can be overwhelming. Therefore, by default, the debug messages are ignored.
 
 [Client#debug](/api-docs/latest/classes/Client.html#debug) property can be set to a function (which will receive a `String` argument) to enable debug statements:
 

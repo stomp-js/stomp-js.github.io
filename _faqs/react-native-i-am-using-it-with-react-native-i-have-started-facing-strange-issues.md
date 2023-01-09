@@ -5,4 +5,4 @@ priority: XAA
 ---
 
 Please see
-[React Native - Additional Notes](/workaround/stompjs/rx-stomp/ng2-stompjs/react-native-additional-notes.html).
+[React Native - Additional Notes](/workaround/stompjs/rx-stomp/react-native-additional-notes.html).
