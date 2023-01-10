@@ -74,7 +74,7 @@
                 <p>Available for backward compatibility, please shift to using <a href="../classes/Client.html">Client</a>.</p>
 <p><strong>Deprecated</strong></p>
 <p>Part of <code>@stomp/stompjs</code>.</p>
-<p>To upgrade, please follow the <a href="../additional-documentation/upgrading.html">Upgrade Guide</a></p>
+<p>To upgrade, please follow the <a href="https://stomp-js.github.io/guide/stompjs/upgrading-stompjs.html">Upgrade Guide</a></p>
 
             </p>
 
@@ -453,14 +453,14 @@ this flag will cause data loss and abnormal termination of connection.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Callback, invoked on before a connection connection to the STOMP broker.</p>
-<p>You can change options on the client, which will impact the immediate connect.
+                    <div class="io-description"><p>Callback, invoked on before a connection to the STOMP broker.</p>
+<p>You can change options on the client, which will impact the immediate connecting.
 It is valid to call <a href="../classes/Client.html#deactivate">Client#decativate</a> in this callback.</p>
 <p>As of version 5.1, this callback can be
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function">async</a>
 (i.e., it can return a
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>).
-In that case connect will be called only after the Promise is resolved.
+In that case, connect will be called only after the Promise is resolved.
 This can be used to reliably fetch credentials, access token etc. from some other service
 in an asynchronous way.</p>
 </div>
@@ -595,7 +595,7 @@ details specific to your broker.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Will retry if Stomp connection is not established in specified milliseconds.
-Default 0, which implies wait for ever.</p>
+Default 0, which switches off automatic reconnection.</p>
 </div>
                 </td>
             </tr>
@@ -628,7 +628,7 @@ Default 0, which implies wait for ever.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:294</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:295</a></code>
 </div>
                         </td>
                     </tr>
@@ -638,7 +638,8 @@ Default 0, which implies wait for ever.</p>
                     <div class="io-description"><p>By default, debug messages are discarded. To log to <code>console</code> following can be used:</p>
 <div><pre class="line-numbers"><code class="language-javascript">       client.debug = function(str) {
          console.log(str);
-       };</code></pre></div><p>Currently this method does not support levels of log. Be aware that the output can be quite verbose
+       };</code></pre></div><p>Currently this method does not support levels of log. Be aware that the
+output can be quite verbose
 and may contain sensitive information (like passwords, tokens etc.).</p>
 </div>
                 </td>
@@ -677,7 +678,7 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:302</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:305</a></code>
 </div>
                         </td>
                     </tr>
@@ -685,9 +686,11 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Browsers do not immediately close WebSockets when <code>.close</code> is issued.
-This may cause reconnection to take a longer on certain type of failures.
-In case of incoming heartbeat failure, this experimental flag instructs the library
-to discard the socket immediately (even before it is actually closed).</p>
+This may cause reconnection to take a significantly long time in case
+ of some types of failures.
+In case of incoming heartbeat failure, this experimental flag instructs
+the library to discard the socket immediately
+(even before it is actually closed).</p>
 </div>
                 </td>
             </tr>
@@ -868,7 +871,7 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
                 <td class="col-md-4">
                     <div class="io-description"><p>Set it to log the actual raw communication with the broker.
 When unset, it logs headers of the parsed frames.</p>
-<p>Change in this effects from next broker reconnect.</p>
+<p>Changes effect from the next broker reconnect.</p>
 <p><strong>Caution: this assumes that frames only have valid UTF8 strings.</strong></p>
 </div>
                 </td>
@@ -948,7 +951,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:325</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:328</a></code>
 </div>
                         </td>
                     </tr>
@@ -956,7 +959,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>It will be called on state change.</p>
-<p>When deactivating it may go from ACTIVE to INACTIVE without entering DEACTIVATING.</p>
+<p>When deactivating, it may go from ACTIVE to INACTIVE without entering DEACTIVATING.</p>
 </div>
                 </td>
             </tr>
@@ -997,7 +1000,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Callback, invoked on every successful connection to the STOMP broker.</p>
-<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.
+<p>The actual <a href="../interfaces/IFrame.html">IFrame</a> will be passed as parameter to the callback.
 Sometimes clients will like to use headers from this frame.</p>
 </div>
                 </td>
@@ -1040,9 +1043,9 @@ Sometimes clients will like to use headers from this frame.</p>
                 <td class="col-md-4">
                     <div class="io-description"><p>Callback, invoked on every successful disconnection from the STOMP broker. It will not be invoked if
 the STOMP broker disconnected due to an error.</p>
-<p>The actual Receipt <a href="FrameImpl">FrameImpl</a> acknowledging the DISCONNECT will be passed as parameter to the callback.</p>
+<p>The actual Receipt <a href="../interfaces/IFrame.html">IFrame</a> acknowledging the DISCONNECT will be passed as parameter to the callback.</p>
 <p>The way STOMP protocol is designed, the connection may close/terminate without the client
-receiving the Receipt <a href="FrameImpl">FrameImpl</a> acknowledging the DISCONNECT.
+receiving the Receipt <a href="../interfaces/IFrame.html">IFrame</a> acknowledging the DISCONNECT.
 You might find <a href="../classes/Client.html#onWebSocketClose">Client#onWebSocketClose</a> more appropriate to watch
 STOMP broker disconnects.</p>
 </div>
@@ -1127,7 +1130,7 @@ Please check broker specific documentation for exact behavior.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Will be invoked if <a href="FrameImpl">FrameImpl</a> of unknown type is received from the STOMP broker.</p>
+                    <div class="io-description"><p>Will be invoked if <a href="../interfaces/IFrame.html">IFrame</a> of an unknown type is received from the STOMP broker.</p>
 <p>The actual <a href="../interfaces/IFrame.html">IFrame</a> will be passed as parameter to the callback.</p>
 </div>
                 </td>
@@ -1216,7 +1219,7 @@ from an endpoint.</p>
                     <div class="io-description"><p>STOMP brokers can be requested to notify when an operation is actually completed.
 Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a>. See
 <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a> for examples.</p>
-<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.</p>
+<p>The actual <a href="../interfaces/IFrame.html">IFrame</a> will be passed as parameter to the callback.</p>
 </div>
                 </td>
             </tr>
@@ -1390,12 +1393,12 @@ is passed as parameter to the callback.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>This switches on a non standard behavior while sending WebSocket packets.
+                    <div class="io-description"><p>This switches on a non-standard behavior while sending WebSocket packets.
 It splits larger (text) packets into chunks of <a href="../classes/Client.html#maxWebSocketChunkSize">maxWebSocketChunkSize</a>.
-Only Java Spring brokers seems to use this mode.</p>
+Only Java Spring brokers seem to support this mode.</p>
 <p>WebSockets, by itself, split large (text) packets,
 so it is not needed with a truly compliant STOMP/WebSocket broker.
-Actually setting it for such broker will cause large messages to fail.</p>
+Setting it for such a broker will cause large messages to fail.</p>
 <p><code>false</code> by default.</p>
 <p>Binary frames are never split.</p>
 </div>
@@ -1435,7 +1438,7 @@ Actually setting it for such broker will cause large messages to fail.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:338</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:341</a></code>
 </div>
                         </td>
                     </tr>
@@ -1444,7 +1447,7 @@ Actually setting it for such broker will cause large messages to fail.</p>
                 <td class="col-md-4">
                     <div class="io-description"><p>Activation state.</p>
 <p>It will usually be ACTIVE or INACTIVE.
-When deactivating it may go from ACTIVE to INACTIVE without entering DEACTIVATING.</p>
+When deactivating, it may go from ACTIVE to INACTIVE without entering DEACTIVATING.</p>
 </div>
                 </td>
             </tr>
@@ -1483,10 +1486,10 @@ When deactivating it may go from ACTIVE to INACTIVE without entering DEACTIVATIN
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>STOMP versions to attempt during STOMP handshake. By default versions <code>1.0</code>, <code>1.1</code>, and <code>1.2</code> are attempted.</p>
+                    <div class="io-description"><p>STOMP versions to attempt during STOMP handshake. By default, versions <code>1.2</code>, <code>1.1</code>, and <code>1.0</code> are attempted.</p>
 <p>Example:</p>
-<div><pre class="line-numbers"><code class="language-javascript">       // Try only versions 1.0 and 1.1
-       client.stompVersions = new Versions([&#39;1.0&#39;, &#39;1.1&#39;])</code></pre></div></div>
+<div><pre class="line-numbers"><code class="language-javascript">       // Try only versions 1.1 and 1.0
+       client.stompVersions = new Versions([&#39;1.1&#39;, &#39;1.0&#39;])</code></pre></div></div>
                 </td>
             </tr>
 
@@ -1887,7 +1890,7 @@ However, there may be special purpose headers corresponding to your STOMP broker
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:807</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:811</a></code>
 </div>
                 </td>
             </tr>
@@ -1970,7 +1973,7 @@ It is preferable to abort a transaction by calling <a href="../interfaces/ITrans
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:826</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:830</a></code>
 </div>
                 </td>
             </tr>
@@ -2087,7 +2090,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:384</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:387</a></code>
 </div>
                 </td>
             </tr>
@@ -2137,7 +2140,7 @@ it will keep trying to reconnect.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:772</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:776</a></code>
 </div>
                 </td>
             </tr>
@@ -2218,7 +2221,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:790</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:794</a></code>
 </div>
                 </td>
             </tr>
@@ -2301,7 +2304,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:372</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:375</a></code>
 </div>
                 </td>
             </tr>
@@ -2381,7 +2384,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:559</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:563</a></code>
 </div>
                 </td>
             </tr>
@@ -2398,7 +2401,8 @@ Each of those would resolve on completion of deactivation.</p>
 <p>To reactivate, you can call <a href="../classes/Client.html#activate">Client#activate</a>.</p>
 <p>Experimental: pass <code>force: true</code> to immediately discard the underlying connection.
 This mode will skip both the STOMP and the Websocket shutdown sequences.
-In some cases, browsers take a long time in the Websocket shutdown if the underlying connection had gone stale.
+In some cases, browsers take a long time in the Websocket shutdown
+if the underlying connection had gone stale.
 Using this mode can speed up.
 When this mode is used, the actual Websocket may linger for a while
 and the broker may not realize that the connection is no longer in use.</p>
@@ -2478,7 +2482,7 @@ and subsequently, say after a wait, with the <code>force</code> option.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:612</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:616</a></code>
 </div>
                 </td>
             </tr>
@@ -2487,7 +2491,7 @@ and subsequently, say after a wait, with the <code>force</code> option.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Force disconnect if there is an active connection by directly closing the underlying WebSocket.
-This is different than a normal disconnect where a DISCONNECT sequence is carried out with the broker.
+This is different from a normal disconnect where a DISCONNECT sequence is carried out with the broker.
 After forcing disconnect, automatic reconnect will be attempted.
 To stop further reconnects call <a href="../classes/Client.html#deactivate">Client#deactivate</a> as well.</p>
 </div>
@@ -2528,7 +2532,7 @@ To stop further reconnects call <a href="../classes/Client.html#deactivate">Clie
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:849</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:853</a></code>
 </div>
                 </td>
             </tr>
@@ -2645,7 +2649,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:661</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:665</a></code>
 </div>
                 </td>
             </tr>
@@ -2655,18 +2659,18 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
                 <td class="col-md-4">
                     <div class="io-description"><p>Send a message to a named destination. Refer to your STOMP broker documentation for types
 and naming of destinations.</p>
-<p>STOMP protocol specifies and suggests some headers and also allows broker specific headers.</p>
+<p>STOMP protocol specifies and suggests some headers and also allows broker-specific headers.</p>
 <p><code>body</code> must be String.
 You will need to covert the payload to string in case it is not string (e.g. JSON).</p>
-<p>To send a binary message body use binaryBody parameter. It should be a
+<p>To send a binary message body, use <code>binaryBody</code> parameter. It should be a
 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array">Uint8Array</a>.
 Sometimes brokers may not support binary frames out of the box.
 Please check your broker documentation.</p>
 <p><code>content-length</code> header is automatically added to the STOMP Frame sent to the broker.
 Set <code>skipContentLengthHeader</code> to indicate that <code>content-length</code> header should not be added.
-For binary messages <code>content-length</code> header is always added.</p>
-<p>Caution: The broker will, most likely, report an error and disconnect if message body has NULL octet(s)
-and <code>content-length</code> header is missing.</p>
+For binary messages, <code>content-length</code> header is always added.</p>
+<p>Caution: The broker will, most likely, report an error and disconnect
+if the message body has NULL octet(s) and <code>content-length</code> header is missing.</p>
 <div><pre class="line-numbers"><code class="language-javascript">       client.publish({destination: &quot;/queue/test&quot;, headers: {priority: 9}, body: &quot;Hello, STOMP&quot;});
 
        // Only destination is mandatory parameter
@@ -2748,7 +2752,7 @@ and <code>content-length</code> header is missing.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:738</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:742</a></code>
 </div>
                 </td>
             </tr>
@@ -2756,10 +2760,10 @@ and <code>content-length</code> header is missing.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Subscribe to a STOMP Broker location. The callback will be invoked for each received message with
-the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
-<p>Note: The library will generate an unique ID if there is none provided in the headers.
-      To use your own ID, pass it using the headers argument.</p>
+                    <div class="io-description"><p>Subscribe to a STOMP Broker location. The callback will be invoked for each
+received message with the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
+<p>Note: The library will generate a unique ID if there is none provided in the headers.
+      To use your own ID, pass it using the <code>headers</code> argument.</p>
 <div><pre class="line-numbers"><code class="language-javascript">       callback = function(message) {
        // called when the client receives a STOMP message from the server
          if (message.body) {
@@ -2875,7 +2879,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:760</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:764</a></code>
 </div>
                 </td>
             </tr>
@@ -2887,7 +2891,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
 <code>unsubscribe()</code> directly on <a href="../interfaces/StompSubscription.html">StompSubscription</a> returned by <code>client.subscribe()</code>:</p>
 <div><pre class="line-numbers"><code class="language-javascript">       var subscription = client.subscribe(destination, onmessage);
        // ...
-       subscription.unsubscribe();</code></pre></div><p>See: <a href="http://stomp.github.com/stomp-specification-1.2.html#UNSUBSCRIBE">http://stomp.github.com/stomp-specification-1.2.html#UNSUBSCRIBE</a> UNSUBSCRIBE Frame</p>
+       subscription.unsubscribe();</code></pre></div><p>See: <a href="https://stomp.github.com/stomp-specification-1.2.html#UNSUBSCRIBE">https://stomp.github.com/stomp-specification-1.2.html#UNSUBSCRIBE</a> UNSUBSCRIBE Frame</p>
 </div>
 
                     <div class="io-description">
@@ -2976,7 +2980,7 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:708</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:712</a></code>
 </div>
                 </td>
             </tr>
@@ -2986,13 +2990,13 @@ the <a href="../interfaces/IMessage.html">IMessage</a> as argument.</p>
                 <td class="col-md-4">
                     <div class="io-description"><p>STOMP brokers may carry out operation asynchronously and allow requesting for acknowledgement.
 To request an acknowledgement, a <code>receipt</code> header needs to be sent with the actual request.
-The value (say receipt-id) for this header needs to be unique for each use. Typically a sequence, a UUID, a
-random number or a combination may be used.</p>
+The value (say receipt-id) for this header needs to be unique for each use.
+Typically, a sequence, a UUID, a random number or a combination may be used.</p>
 <p>A complaint broker will send a RECEIPT frame when an operation has actually been completed.
-The operation needs to be matched based in the value of the receipt-id.</p>
-<p>This method allow watching for a receipt and invoke the callback
-when corresponding receipt has been received.</p>
-<p>The actual <a href="FrameImpl">FrameImpl</a> will be passed as parameter to the callback.</p>
+The operation needs to be matched based on the value of the receipt-id.</p>
+<p>This method allows watching for a receipt and invoking the callback
+ when the corresponding receipt has been received.</p>
+<p>The actual <a href="../interfaces/IFrame.html">IFrame</a> will be passed as parameter to the callback.</p>
 <p>Example:</p>
 <div><pre class="line-numbers"><code class="language-javascript">       // Subscribing with acknowledgement
        let receiptId = randomText();
@@ -3468,7 +3472,7 @@ import { HeartbeatInfo } from &#x27;./heartbeat-info.js&#x27;;
  *
  * Part of &#x60;@stomp/stompjs&#x60;.
  *
- * To upgrade, please follow the [Upgrade Guide](../additional-documentation/upgrading.html)
+ * To upgrade, please follow the [Upgrade Guide](https://stomp-js.github.io/guide/stompjs/upgrading-stompjs.html)
  */
 export class CompatClient extends Client {
   /**
