@@ -201,14 +201,14 @@ web_stomp.ws_frame = binary
 
 ### Publishing binary messages
 
-Use parameter `binaryBody` of [Client#publish](/api-docs/latest/classes/Client.html#publish) to send binary data of type [Uint8Array].
+Use parameter `binaryBody` of [Client#publish](/api-docs/latest/classes/Client.html#publish) to send binary data of a type [Uint8Array].
 
 See [Send messages](#send-messages) for an example.
 
 ### Receiving binary messages
 
-The library does not guess whether the incoming data is text/binary.
-To access the message body as a string, please use [Message#body](/api-docs/latest/interfaces/IFrame.html#body) and to access it as binary, please use [Message#binaryBody](/api-docs/latest/classes/Frame.html#binaryBody).
+The library does not guess whether the incoming datum is text/binary.
+To access the message body as a string, please use [Message#body](/api-docs/latest/interfaces/IFrame.html#body) and to access it as binary, please use [Message#binaryBody](/api-docs/latest/interfaces/IFrame.html#binaryBody).
 
 There is no generally accepted convention in STOMP (actually messaging in general) to indicate binary messages. Therefore, the message senders and receivers must agree on the required convention. For example, you may choose to set a `content-type` header to indicate a binary message.
 
