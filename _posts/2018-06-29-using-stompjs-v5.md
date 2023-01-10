@@ -154,7 +154,7 @@ The `subscribe` method returns an object with one attribute, `id`,
 that correspond to the client subscription ID and one method `unsubscribe`
 that can be used later on to unsubscribe the client from this destination.
 
-Every time the broker sends a message to the client, the client will, in turn, invoke the callback with a [Message](/api-docs/latest/classes/Message.html) object.
+Every time the broker sends a message to the client, the client will, in turn, invoke the callback with a [Message](/api-docs/latest/interfaces/IMessage.html) object.
 
 ```javascript
 callback = function (message) {
@@ -208,7 +208,7 @@ See [Send messages](#send-messages) for an example.
 ### Receiving binary messages
 
 The library does not guess whether the incoming data is text/binary.
-To access the message body as a string, please use [Message#body](/api-docs/latest/classes/Frame.html#body) and to access it as binary, please use [Message#binaryBody](/api-docs/latest/classes/Frame.html#binaryBody).
+To access the message body as a string, please use [Message#body](/api-docs/latest/interfaces/IFrame.html#body) and to access it as binary, please use [Message#binaryBody](/api-docs/latest/classes/Frame.html#binaryBody).
 
 There is no generally accepted convention in STOMP (actually messaging in general) to indicate binary messages. Therefore, the message senders and receivers must agree on the required convention. For example, you may choose to set a `content-type` header to indicate a binary message.
 
@@ -246,7 +246,7 @@ By default, the server will automatically acknowledge STOMP messages before the 
 
 Instead, the client can choose to handle message acknowledgment by subscribing to a destination with the `ack` header set to `client` or `client-individual`.
 
-In that case, the client must use the [Message#ack](/api-docs/latest/classes/Message.html#ack) method to inform the broker that it has processed the message.
+In that case, the client must use the [Message#ack](/api-docs/latest/interfaces/IMessage.html#ack) method to inform the broker that it has processed the message.
 
 ```javascript
 const subscription = client.subscribe(
@@ -261,7 +261,7 @@ const subscription = client.subscribe(
 );
 ```
 
-The [Message#ack](/api-docs/latest/classes/Message.html#ack) method accepts `headers` argument for additional headers. For example, to acknowledge a message as part of a transaction and request a receipt:
+The [Message#ack](/api-docs/latest/interfaces/IMessage.html#ack) method accepts `headers` argument for additional headers. For example, to acknowledge a message as part of a transaction and request a receipt:
 
 ```javascript
 const tx = client.begin();
@@ -269,7 +269,7 @@ message.ack({ transaction: tx.id, receipt: 'my-receipt' });
 tx.commit();
 ```
 
-The client should [Message#nack](/api-docs/latest/classes/Message.html#nack) to inform STOMP 1.1 or higher brokers that the client did not consume the message. It takes the same arguments as the [Message#ack](/api-docs/latest/classes/Message.html#ack) method.
+The client should [Message#nack](/api-docs/latest/interfaces/IMessage.html#nack) to inform STOMP 1.1 or higher brokers that the client did not consume the message. It takes the same arguments as the [Message#ack](/api-docs/latest/interfaces/IMessage.html#ack) method.
 
 ## Transactions
 
@@ -358,7 +358,7 @@ Usually, headers of the incoming and outgoing frames are logged. Set [Client#log
 ### Frame callbacks
 
 - [Client#onUnhandledMessage](/api-docs/latest/classes/Client.html#onUnhandledMessage) - typically brokers will send messages corresponding to subscriptions. However, brokers may support concepts beyond the standard definition of STOMP - for example, RabbitMQ supports concepts of temporary queues. This callback will be invoked if any message is received that is not linked to a subscription.
-- [Client#onUnhandledReceipt](/api-docs/latest/classe /Client.html#onUnhandledReceipt) - you should prefer [Client#watchForReceipt](/api-docs/latest/classes/Client.html#watchForReceipt). If there is any incoming receipt for which there is no active watcher, this callback will be invoked.
+- [Client#onUnhandledReceipt](/api-docs/latest/classes/Client.html#onUnhandledReceipt) - you should prefer [Client#watchForReceipt](/api-docs/latest/classes/Client.html#watchForReceipt). If there is any incoming receipt for which there is no active watcher, this callback will be invoked.
 - [Client#onUnhandledFrame](/api-docs/latest/classes/Client.html#onUnhandledFrame) - it will be invoked if broker sends a non standard STOMP Frame.
 
 ## Advanced notes

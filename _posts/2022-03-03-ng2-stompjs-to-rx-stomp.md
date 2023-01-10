@@ -25,7 +25,7 @@ $ npm i @stomp/rx-stomp
 
 ### Change classes and imports
 
-Change [InjectableRxStompConfig] from `@stomp/ng2-stompjs` -> [RxStompConfig] from `@stomp/rx-stomp`.
+Change `InjectableRxStompConfig` from `@stomp/ng2-stompjs` -> [RxStompConfig] from `@stomp/rx-stomp`.
 
 Next, we will create `RxStompService` and `rxStompServiceFactory`. These were provided by `ng2-stompjs`. If you were using code similar to the tutorials, the following would work as-is.
 
@@ -84,6 +84,5 @@ import { rxStompServiceFactory } from './rx-stomp-service-factory';
 Change import path for `RxStompService` from `@stomp/ng2-stompjs` to the local module.
 
 [rx-stomp]: /api-docs/latest/classes/RxStomp.html
-[InjectableRxStompConfig]: /api-docs/latest/classes/InjectableRxStompConfig.html
 [RxStompConfig]: /api-docs/latest/classes/RxStompConfig.html
 [Using rx-stomp with Angular]: {% link _posts/2022-03-02-rx-stomp-with-angular.md %}
