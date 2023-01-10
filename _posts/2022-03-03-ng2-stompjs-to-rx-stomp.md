@@ -81,7 +81,7 @@ import { rxStompServiceFactory } from './rx-stomp-service-factory';
 
 ### Adjust imports
 
-Change import path for `RxStompService` from `@stomp/ng2-stompjs` to the local module.
+Change the import path for `RxStompService` from `@stomp/ng2-stompjs` to the local module.
 
 [rx-stomp]: /api-docs/latest/classes/RxStomp.html
 [RxStompConfig]: /api-docs/latest/classes/RxStompConfig.html
