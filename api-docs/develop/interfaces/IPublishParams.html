@@ -471,6 +471,7 @@ export interface IStompSocketMessageEvent {
  * @internal
  */
 export interface IStompSocket {
+  url: string;
   onclose: ((this: IStompSocket, ev?: any) &#x3D;&gt; any) | undefined | null;
   onerror: ((this: IStompSocket, ev: any) &#x3D;&gt; any) | undefined | null;
   onmessage: ((ev: IStompSocketMessageEvent) &#x3D;&gt; any) | undefined | null;

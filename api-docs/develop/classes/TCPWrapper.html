@@ -116,6 +116,11 @@
                                     <span class="modifier">Public</span>
                                 <a href="#readyState" >readyState</a>
                             </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#url" >url</a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
@@ -163,7 +168,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:17</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -238,7 +243,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:14</a></div>
                         </td>
                     </tr>
 
@@ -265,7 +270,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="10" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:10</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:15</a></div>
                         </td>
                     </tr>
 
@@ -292,7 +297,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -319,7 +324,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:15</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:20</a></div>
                         </td>
                     </tr>
 
@@ -346,7 +351,35 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:8</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="url"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>url</b></span>
+                        <a href="#url"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:13</a></div>
                         </td>
                     </tr>
 
@@ -382,8 +415,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="63"
-                            class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:63</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:69</a></div>
                 </td>
             </tr>
 
@@ -465,8 +498,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="55"
-                            class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:55</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:61</a></div>
                 </td>
             </tr>
 
@@ -536,8 +569,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="68"
-                            class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:68</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="74"
+                            class="link-to-prism">consolidated/stompjs/src/tcp-wrapper.ts:74</a></div>
                 </td>
             </tr>
 
@@ -563,14 +596,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { createConnection, Socket } from &quot;net&quot;;
-import { IStompSocket, IStompSocketMessageEvent, StompSocketState } from &quot;./types.js&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { createConnection, Socket } from &#x27;net&#x27;;
+import {
+  IStompSocket,
+  IStompSocketMessageEvent,
+  StompSocketState,
+} from &#x27;./types.js&#x27;;
 
 /**
  * Wrapper for a TCP socket to make it behave similar to the WebSocket interface
  */
 export class TCPWrapper implements IStompSocket {
   public readyState: StompSocketState;
+  public readonly url: string;
   public onclose: ((this: IStompSocket, ev?: any) &#x3D;&gt; any) | undefined | null;
   public onerror: ((this: IStompSocket, ev: any) &#x3D;&gt; any) | undefined | null;
   public onmessage:
@@ -584,6 +622,7 @@ export class TCPWrapper implements IStompSocket {
   constructor(host: string, port: number) {
     const noOp &#x3D; () &#x3D;&gt; {};
 
+    this.url &#x3D; &#x60;tcp://${host}/${port}/&#x60;;
     this.readyState &#x3D; StompSocketState.CONNECTING;
 
     this.socket &#x3D; createConnection(port, host, () &#x3D;&gt; {
