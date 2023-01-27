@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.0.0-beta3, rx-stomp@2.0.0-beta1</title>
+        <title>stompjs@7.0.0-beta4, rx-stomp@2.0.0-beta1</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.0.0-beta3, rx-stomp@2.0.0-beta1</a>
+            <a href="../" class="navbar-brand">stompjs@7.0.0-beta4, rx-stomp@2.0.0-beta1</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -472,11 +472,11 @@ export interface IStompSocketMessageEvent {
  */
 export interface IStompSocket {
   url: string;
-  onclose: ((this: IStompSocket, ev?: any) &#x3D;&gt; any) | undefined | null;
-  onerror: ((this: IStompSocket, ev: any) &#x3D;&gt; any) | undefined | null;
+  onclose: ((ev?: any) &#x3D;&gt; any) | undefined | null;
+  onerror: ((ev: any) &#x3D;&gt; any) | undefined | null;
   onmessage: ((ev: IStompSocketMessageEvent) &#x3D;&gt; any) | undefined | null;
-  onopen: ((this: IStompSocket, ev?: any) &#x3D;&gt; any) | undefined | null;
-  terminate?: ((this: IStompSocket) &#x3D;&gt; any) | undefined | null;
+  onopen: ((ev?: any) &#x3D;&gt; any) | undefined | null;
+  terminate?: (() &#x3D;&gt; any) | undefined | null;
 
   /**
    * Returns a string that indicates how binary data from the socket is exposed to scripts:
