@@ -38,7 +38,11 @@ import { RxStomp } from '@stomp/rx-stomp';
 @Injectable({
   providedIn: 'root',
 })
-export class RxStompService extends RxStomp {}
+export class RxStompService extends RxStomp {
+  constructor() {
+    super();
+  }
+}
 ```
 
 Create `rx-stomp-service-factory.ts` file inside `src/app/` with the following content:
@@ -69,7 +73,7 @@ providers: [
     provide: RxStompService,
     useFactory: rxStompServiceFactory,
   },
-]
+];
 ```
 
 Remove the old imports and add the imports from the newly created modules.
@@ -85,4 +89,5 @@ Change the import path for `RxStompService` from `@stomp/ng2-stompjs` to the loc
 
 [rx-stomp]: /api-docs/latest/classes/RxStomp.html
 [RxStompConfig]: /api-docs/latest/classes/RxStompConfig.html
+
 [Using rx-stomp with Angular]: {% link _posts/2022-03-02-rx-stomp-with-angular.md %}

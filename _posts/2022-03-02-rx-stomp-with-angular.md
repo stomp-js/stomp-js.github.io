@@ -121,7 +121,11 @@ import { RxStomp } from '@stomp/rx-stomp';
 @Injectable({
   providedIn: 'root',
 })
-export class RxStompService extends RxStomp {}
+export class RxStompService extends RxStomp {
+  constructor() {
+    super();
+  }
+}
 ```
 
 #### Factory to create and initialize RxStompService
@@ -151,7 +155,7 @@ providers: [
     provide: RxStompService,
     useFactory: rxStompServiceFactory,
   },
-]
+];
 ```
 
 Also, add appropriate import lines towards the top of this file (after the existing import
@@ -406,10 +410,10 @@ export class MessagesComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.topicSubscription = this.rxStompService
-            .watch('/topic/demo')
-            .subscribe((message: Message) => {
-              this.receivedMessages.push(message.body);
-            });
+      .watch('/topic/demo')
+      .subscribe((message: Message) => {
+        this.receivedMessages.push(message.body);
+      });
   }
 
   ngOnDestroy() {
@@ -432,11 +436,11 @@ export class MessagesComponent implements OnInit, OnDestroy {
 - Using [token authentication](/faqs/faqs.html#p-can-i-use-token-based-authentication-with-these-libraries-p)
   with the STOMP broker.
 
-
 [tour-of-heroes]: https://angular.io/tutorial
 [angular-di]: https://angular.io/guide/dependency-injection
 [rx-stomp]: /api-docs/latest/classes/RxStomp.html
 [rx-stomp-publish]: /api-docs/latest/classes/RxStomp.html#publish
 [rx-stomp-watch]: /api-docs/latest/classes/RxStomp.html#watch
 [https://github.com/stomp-js/rx-stomp-angular]: https://github.com/stomp-js/rx-stomp-angular
+
 [connection-status-ng2-stompjs]: {% link _posts/2018-12-18-connection-status-ng2-stompjs.md %}
