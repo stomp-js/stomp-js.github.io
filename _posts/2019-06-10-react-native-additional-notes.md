@@ -31,7 +31,7 @@ and [https://blog.usejournal.com/6-daily-issues-in-android-cleartext-traffic-err
 
 Some versions of React Native (including the current production
 version as on June 10, 2019) have an underlying issue that prevents these libraries
- from working correctly.
+from working correctly.
 Please see:
 
 - [react-native/issues/12731](https://github.com/facebook/react-native/issues/12731)

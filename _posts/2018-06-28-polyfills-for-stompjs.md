@@ -5,10 +5,10 @@ date: 2018-06-29 07:59:22 +0530
 categories: guide stompjs rx-stomp
 toc: true
 redirect_from:
-- /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/28/pollyfils-for-stompjs-v5.html
-- /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/29/pollyfils-for-stompjs-v5.html
-- /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/30/pollyfils-for-stompjs-v5.html
-- /guide/stompjs/rx-stomp/ng2-stompjs/pollyfils-for-stompjs-v5.html
+  - /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/28/pollyfils-for-stompjs-v5.html
+  - /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/29/pollyfils-for-stompjs-v5.html
+  - /guide/stompjs/rx-stomp/ng2-stompjs/2018/06/30/pollyfils-for-stompjs-v5.html
+  - /guide/stompjs/rx-stomp/ng2-stompjs/pollyfils-for-stompjs-v5.html
 ---
 
 This guide covers critical dependencies and polyfills for version 5+ of `@stomp/stompjs`;
@@ -32,7 +32,7 @@ There are two alternate libraries `websocket` and `ws` which have been reported 
 
   ```javascript
   import websocket from 'websocket';
-  
+
   Object.assign(global, { WebSocket: websocket.w3cwebsocket });
   ```
 
@@ -50,7 +50,7 @@ There are two alternate libraries `websocket` and `ws` which have been reported 
 
   ```javascript
   import { WebSocket } from 'ws';
-  
+
   Object.assign(global, { WebSocket });
   ```
 
