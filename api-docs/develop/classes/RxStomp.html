@@ -671,8 +671,8 @@ it will keep trying to reconnect.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="626"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:626</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="625"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp.ts:625</a></div>
                 </td>
             </tr>
 
@@ -692,9 +692,8 @@ when the corresponding receipt has been received.</p>
 <div><pre class="line-numbers"><code class="language-javascript">       // Publishing with acknowledgement
        let receiptId = randomText();
 
-       const receipt = rxStomp.asyncReceipt(receiptId);
        rxStomp.publish({destination: &#39;/topic/special&#39;, headers: {receipt: receiptId}, body: msg});
-       await receipt; // it yields the actual Frame</code></pre></div><p>Maps to: <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a></p>
+       await rxStomp.asyncReceipt(receiptId);; // it yields the actual Frame</code></pre></div><p>Maps to: <a href="../classes/Client.html#watchForReceipt">Client#watchForReceipt</a></p>
 </div>
 
                     <div class="io-description">
@@ -2107,9 +2106,8 @@ export class RxStomp {
    *        // Publishing with acknowledgement
    *        let receiptId &#x3D; randomText();
    *
-   *        const receipt &#x3D; rxStomp.asyncReceipt(receiptId);
    *        rxStomp.publish({destination: &#x27;/topic/special&#x27;, headers: {receipt: receiptId}, body: msg});
-   *        await receipt; // it yields the actual Frame
+   *        await rxStomp.asyncReceipt(receiptId);; // it yields the actual Frame
    * &#x60;&#x60;&#x60;
    *
    * Maps to: [Client#watchForReceipt]{@link Client#watchForReceipt}
