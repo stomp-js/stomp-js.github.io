@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@6.1.2, rx-stomp@1.1.4</title>
+        <title>stompjs@7.0.0, rx-stomp@1.1.4</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@6.1.2, rx-stomp@1.1.4</a>
+            <a href="../" class="navbar-brand">stompjs@7.0.0, rx-stomp@1.1.4</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -156,9 +156,9 @@
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Takes an array of string of versions, typical elements &#39;1.0&#39;, &#39;1.1&#39;, or &#39;1.2&#39;</p>
-<p>You will an instance if this class if you want to override supported versions to be declared during
-STOMP handshake.</p>
+                            <div class="io-description"><p>Takes an array of versions, typical elements &#39;1.2&#39;, &#39;1.1&#39;, or &#39;1.0&#39;</p>
+<p>You will be creating an instance of this class if you want to override
+supported versions to be declared during STOMP handshake.</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -455,16 +455,16 @@ STOMP handshake.</p>
    * @internal
    */
   public static default &#x3D; new Versions([
-    Versions.V1_0,
-    Versions.V1_1,
     Versions.V1_2,
+    Versions.V1_1,
+    Versions.V1_0,
   ]);
 
   /**
-   * Takes an array of string of versions, typical elements &#x27;1.0&#x27;, &#x27;1.1&#x27;, or &#x27;1.2&#x27;
+   * Takes an array of versions, typical elements &#x27;1.2&#x27;, &#x27;1.1&#x27;, or &#x27;1.0&#x27;
    *
-   * You will an instance if this class if you want to override supported versions to be declared during
-   * STOMP handshake.
+   * You will be creating an instance of this class if you want to override
+   * supported versions to be declared during STOMP handshake.
    */
   constructor(public versions: string[]) {}
 

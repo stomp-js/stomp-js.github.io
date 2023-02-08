@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@6.1.2, rx-stomp@1.1.4</title>
+        <title>stompjs@7.0.0, rx-stomp@1.1.4</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@6.1.2, rx-stomp@1.1.4</a>
+            <a href="../" class="navbar-brand">stompjs@7.0.0, rx-stomp@1.1.4</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -347,7 +347,7 @@ Aliased as publishParams as well.</p>
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>By default a <code>content-length</code> header will be added in the Frame to the broker.
+                                    <div class="io-description"><p>By default, a <code>content-length</code> header will be added in the Frame to the broker.
 Set it to <code>true</code> for the header to be skipped.</p>
 </div>
                                 </td>
@@ -359,12 +359,13 @@ Set it to <code>true</code> for the header to be skipped.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IFrame } from &#x27;./i-frame&#x27;;
-import { IMessage } from &#x27;./i-message&#x27;;
-import { StompHeaders } from &#x27;./stomp-headers&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IFrame } from &#x27;./i-frame.js&#x27;;
+import { IMessage } from &#x27;./i-message.js&#x27;;
+import { StompHeaders } from &#x27;./stomp-headers.js&#x27;;
+import { Versions } from &#x27;./versions.js&#x27;;
 
 /**
- * This callback will receive a &#x60;string&#x60; as parameter.
+ * This callback will receive a &#x60;string&#x60; as a parameter.
  *
  * Part of &#x60;@stomp/stompjs&#x60;.
  */
@@ -382,7 +383,7 @@ export type messageCallbackType &#x3D; (message: IMessage) &#x3D;&gt; void;
  *
  * Part of &#x60;@stomp/stompjs&#x60;.
  */
-export type frameCallbackType &#x3D; (receipt: IFrame) &#x3D;&gt; void;
+export type frameCallbackType &#x3D; ((frame: IFrame) &#x3D;&gt; void) | (() &#x3D;&gt; void);
 
 /**
  * This callback will receive a [CloseEvent]{@link https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent}
@@ -424,7 +425,7 @@ export interface IPublishParams {
    */
   binaryBody?: Uint8Array;
   /**
-   * By default a &#x60;content-length&#x60; header will be added in the Frame to the broker.
+   * By default, a &#x60;content-length&#x60; header will be added in the Frame to the broker.
    * Set it to &#x60;true&#x60; for the header to be skipped.
    */
   skipContentLengthHeader?: boolean;
@@ -452,9 +453,9 @@ export type RawHeaderType &#x3D; [string, string];
  * @internal
  */
 export interface IRawFrameType {
-  command: string;
+  command: string | undefined;
   headers: RawHeaderType[];
-  binaryBody: Uint8Array;
+  binaryBody: Uint8Array | undefined;
 }
 
 /**
@@ -470,17 +471,18 @@ export interface IStompSocketMessageEvent {
  * @internal
  */
 export interface IStompSocket {
-  onclose: ((this: IStompSocket, ev?: any) &#x3D;&gt; any) | null;
-  onerror: ((this: IStompSocket, ev: any) &#x3D;&gt; any) | null;
-  onmessage: ((this: IStompSocket, ev: IStompSocketMessageEvent) &#x3D;&gt; any) | null;
-  onopen: ((this: IStompSocket, ev?: any) &#x3D;&gt; any) | null;
-  terminate?: ((this: IStompSocket) &#x3D;&gt; any) | null;
+  url: string;
+  onclose: ((ev?: any) &#x3D;&gt; any) | undefined | null;
+  onerror: ((ev: any) &#x3D;&gt; any) | undefined | null;
+  onmessage: ((ev: IStompSocketMessageEvent) &#x3D;&gt; any) | undefined | null;
+  onopen: ((ev?: any) &#x3D;&gt; any) | undefined | null;
+  terminate?: (() &#x3D;&gt; any) | undefined | null;
 
   /**
    * Returns a string that indicates how binary data from the socket is exposed to scripts:
    * We support only &#x27;arraybuffer&#x27;.
    */
-  binaryType: &#x27;arraybuffer&#x27;;
+  binaryType?: string;
 
   /**
    * Returns the state of the socket connection. It can have the values of StompSocketState.
@@ -514,6 +516,32 @@ export enum ActivationState {
   ACTIVE,
   DEACTIVATING,
   INACTIVE,
+}
+
+/**
+ * @internal
+ */
+export interface IStomptHandlerConfig {
+  debug: debugFnType;
+  stompVersions: Versions;
+  connectHeaders: StompHeaders;
+  disconnectHeaders: StompHeaders;
+  heartbeatIncoming: number;
+  heartbeatOutgoing: number;
+  splitLargeFrames: boolean;
+  maxWebSocketChunkSize: number;
+  forceBinaryWSFrames: boolean;
+  logRawCommunication: boolean;
+  appendMissingNULLonIncoming: boolean;
+  discardWebsocketOnCommFailure: boolean;
+  onConnect: frameCallbackType;
+  onDisconnect: frameCallbackType;
+  onStompError: frameCallbackType;
+  onWebSocketClose: closeEventCallbackType;
+  onWebSocketError: wsErrorCallbackType;
+  onUnhandledMessage: messageCallbackType;
+  onUnhandledReceipt: frameCallbackType;
+  onUnhandledFrame: frameCallbackType;
 }
 </code></pre>
     </div>
