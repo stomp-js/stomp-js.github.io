@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.0.0, rx-stomp@1.1.4</title>
+        <title>stompjs@7.0.0, rx-stomp@2.0.0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.0.0, rx-stomp@1.1.4</a>
+            <a href="../" class="navbar-brand">stompjs@7.0.0, rx-stomp@2.0.0</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -214,7 +214,7 @@
                             <tr>
                                 <td class="col-md-4">
                                     <div class="io-description"><p>Subscription headers, defaults to <code>{}</code></p>
-<p>If header information can change over time and you are allowing automatic resubscriptions,
+<p>If header information can change over time, and you are allowing automatic re-subscriptions,
 consider using a callback as the value rather than a string literal.</p>
 <div><pre class="line-numbers"><code class="language-typescript">             const subHeadersCallback = () =&gt; {
                  return {bye: &#39;world&#39;};
@@ -349,7 +349,7 @@ export interface IWatchParams {
   /**
    * Subscription headers, defaults to &#x60;{}&#x60;
    *
-   * If header information can change over time and you are allowing automatic resubscriptions,
+   * If header information can change over time, and you are allowing automatic re-subscriptions,
    * consider using a callback as the value rather than a string literal.
    *
    * &#x60;&#x60;&#x60;typescript

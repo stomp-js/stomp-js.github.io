@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.0.0, rx-stomp@1.1.4</title>
+        <title>stompjs@7.0.0, rx-stomp@2.0.0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.0.0, rx-stomp@1.1.4</a>
+            <a href="../" class="navbar-brand">stompjs@7.0.0, rx-stomp@2.0.0</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -124,7 +124,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:30</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:32</a></div>
                             </td>
                         </tr>
 
@@ -204,8 +204,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="56"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:56</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="58"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:58</a></div>
                 </td>
             </tr>
 
@@ -279,8 +279,8 @@ See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="67"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:67</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="69"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:69</a></div>
                 </td>
             </tr>
 
@@ -342,15 +342,17 @@ however, if <code>correlation-id</code> is passed via <code>headers</code>, that
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Observable, Observer, Subscription } from &#x27;rxjs&#x27;;
-import { filter, first } from &#x27;rxjs/operators&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { filter, first, Observable, Observer, Subscription } from &#x27;rxjs&#x27;;
 
-import { UUID } from &#x27;angular2-uuid&#x27;;
+import { v4 as uuid } from &#x27;uuid&#x27;;
 
 import { IMessage, IPublishParams, StompHeaders } from &#x27;@stomp/stompjs&#x27;;
 
-import { RxStomp } from &#x27;./rx-stomp&#x27;;
-import { RxStompRPCConfig, setupReplyQueueFnType } from &#x27;./rx-stomp-rpc-config&#x27;;
+import { RxStomp } from &#x27;./rx-stomp.js&#x27;;
+import {
+  RxStompRPCConfig,
+  setupReplyQueueFnType,
+} from &#x27;./rx-stomp-rpc-config.js&#x27;;
 
 /**
  * An implementation of Remote Procedure Call (RPC) using messaging.
@@ -429,7 +431,7 @@ export class RxStompRPC {
     return Observable.create((rpcObserver: Observer&lt;IMessage&gt;) &#x3D;&gt; {
       let defaultMessagesSubscription: Subscription;
 
-      const correlationId &#x3D; headers[&#x27;correlation-id&#x27;] || UUID.UUID();
+      const correlationId &#x3D; headers[&#x27;correlation-id&#x27;] || uuid();
 
       defaultMessagesSubscription &#x3D; this._repliesObservable
         .pipe(
