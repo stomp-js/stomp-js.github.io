@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 'React Native - Additional notes'
-date: 2019-06-10 21:01:01 +0530
+date: 2024-04-26 21:01:01 +0530
 categories: workaround stompjs rx-stomp
 toc: true
 redirect_from:
@@ -30,10 +30,11 @@ and [https://blog.usejournal.com/6-daily-issues-in-android-cleartext-traffic-err
 # Null Chopping
 
 Some versions of React Native (including the current production
-version as on June 10, 2019) have an underlying issue that prevents these libraries
+version as on April 26, 2024) have an underlying issue that prevents these libraries
 from working correctly.
 Please see:
 
+- [react-native/issues/24129](https://github.com/facebook/react-native/issues/24129)
 - [react-native/issues/12731](https://github.com/facebook/react-native/issues/12731)
 - [react-native/issues/22043](https://github.com/facebook/react-native/issues/22043)
 - [metro/issues/365](https://github.com/facebook/metro/issues/365)
@@ -45,6 +46,7 @@ Reported in `stompjs`:
 
 The best solution would have been for the underlying issue to be fixed.
 However, it seems there is not much interest in that.
+Reference [react-native/issues/24129](https://github.com/facebook/react-native/issues/24129).
 
 It has been observed that NULL chopping happens only with strings, buffers works correctly.
 Workaround 2, avoids using strings altogether by using binary
