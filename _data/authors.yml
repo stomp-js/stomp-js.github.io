@@ -9,6 +9,6 @@ stompjs:
   - label: stompjs@7.0.1
     icon: fab fa-fw fa-github
     url: https://github.com/stomp-js/stompjs
-  - label: rx-stomp@2.0.0
+  - label: rx-stomp@2.0.1
     icon: fab fa-fw fa-github
     url: https://github.com/stomp-js/rx-stomp
