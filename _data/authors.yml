@@ -1,10 +1,10 @@
 ---
 stompjs:
   name: StompJS
-  avatar: 
+  avatar:
   bio: STOMP library for JavaScript/TypeScript.
-  location: 
-  email: 
+  location:
+  email:
   links:
   - label: stompjs@7.0.0
     icon: fab fa-fw fa-github
