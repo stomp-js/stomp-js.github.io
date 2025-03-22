@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.0.1, rx-stomp@2.0.1</title>
+        <title>stompjs@7.1.0, rx-stomp@2.0.1</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.0.1, rx-stomp@2.0.1</a>
+            <a href="../" class="navbar-brand">stompjs@7.1.0, rx-stomp@2.0.1</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -65,10 +65,16 @@
                             <a href="#ActivationState" title="consolidated/stompjs/src/types.ts" ><b>ActivationState</b>&nbsp;&nbsp;&nbsp;(consolidated/.../types.ts)</a>
                         </li>
                         <li>
+                            <a href="#ReconnectionTimeMode" title="consolidated/stompjs/src/types.ts" ><b>ReconnectionTimeMode</b>&nbsp;&nbsp;&nbsp;(consolidated/.../types.ts)</a>
+                        </li>
+                        <li>
                             <a href="#RxStompState" title="consolidated/rx-stomp/src/rx-stomp-state.ts" ><b>RxStompState</b>&nbsp;&nbsp;&nbsp;(consolidated/.../rx-stomp-state.ts)</a>
                         </li>
                         <li>
                             <a href="#StompSocketState" title="consolidated/stompjs/src/types.ts" ><b>StompSocketState</b>&nbsp;&nbsp;&nbsp;(consolidated/.../types.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TickerStrategy" title="consolidated/stompjs/src/types.ts" ><b>TickerStrategy</b>&nbsp;&nbsp;&nbsp;(consolidated/.../types.ts)</a>
                         </li>
                     </ul>
                 </td>
@@ -114,6 +120,32 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
+                        <a name="ReconnectionTimeMode"></a>
+                        <span class="name "><b>ReconnectionTimeMode</b><a href="#ReconnectionTimeMode"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Possible reconnection wait time modes</p>
+</div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;LINEAR
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;EXPONENTIAL
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
                         <a name="StompSocketState"></a>
                         <span class="name "><b>StompSocketState</b><a href="#StompSocketState"><span class="icon ion-ios-link"></span></a></span>
                     </td>
@@ -142,6 +174,42 @@
                         <tr>
                             <td class="col-md-4">
                                 &nbsp;CLOSED
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="TickerStrategy"></a>
+                        <span class="name "><b>TickerStrategy</b><a href="#TickerStrategy"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Possible ticker strategies for outgoing heartbeat ping</p>
+</div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;Interval
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>interval</code>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                &nbsp;Worker
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Value : </i><code>worker</code>
                             </td>
                         </tr>
             </tbody>

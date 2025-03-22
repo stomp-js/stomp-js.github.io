@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.0.1, rx-stomp@2.0.1</title>
+        <title>stompjs@7.1.0, rx-stomp@2.0.1</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.0.1, rx-stomp@2.0.1</a>
+            <a href="../" class="navbar-brand">stompjs@7.1.0, rx-stomp@2.0.1</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -133,7 +133,15 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#heartbeatStrategy" >heartbeatStrategy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#logRawCommunication" >logRawCommunication</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#maxReconnectDelay" >maxReconnectDelay</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -178,6 +186,10 @@
                             <li>
                                     <span class="modifier">Public</span>
                                 <a href="#reconnectDelay" >reconnectDelay</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#reconnectTimeMode" >reconnectTimeMode</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
@@ -309,7 +321,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="343" class="link-to-prism">consolidated/stompjs/src/client.ts:343</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="381" class="link-to-prism">consolidated/stompjs/src/client.ts:381</a></div>
                             </td>
                         </tr>
 
@@ -379,7 +391,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="144" class="link-to-prism">consolidated/stompjs/src/client.ts:144</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">consolidated/stompjs/src/client.ts:182</a></div>
                         </td>
                     </tr>
 
@@ -418,7 +430,7 @@ this flag will cause data loss and abnormal termination of connection.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="224" class="link-to-prism">consolidated/stompjs/src/client.ts:224</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="262" class="link-to-prism">consolidated/stompjs/src/client.ts:262</a></div>
                         </td>
                     </tr>
 
@@ -460,7 +472,7 @@ in an asynchronous way.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">consolidated/stompjs/src/client.ts:43</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">consolidated/stompjs/src/client.ts:45</a></div>
                         </td>
                     </tr>
 
@@ -498,7 +510,7 @@ If both are set, <a href="../classes/Client.html#webSocketFactory">Client#webSoc
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="158" class="link-to-prism">consolidated/stompjs/src/client.ts:158</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="196" class="link-to-prism">consolidated/stompjs/src/client.ts:196</a></div>
                         </td>
                     </tr>
 
@@ -538,7 +550,7 @@ details specific to your broker.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">consolidated/stompjs/src/client.ts:83</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">consolidated/stompjs/src/client.ts:85</a></div>
                         </td>
                     </tr>
 
@@ -572,7 +584,7 @@ Default 0, which switches off automatic reconnection.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="295" class="link-to-prism">consolidated/stompjs/src/client.ts:295</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="333" class="link-to-prism">consolidated/stompjs/src/client.ts:333</a></div>
                         </td>
                     </tr>
 
@@ -615,7 +627,7 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="305" class="link-to-prism">consolidated/stompjs/src/client.ts:305</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="343" class="link-to-prism">consolidated/stompjs/src/client.ts:343</a></div>
                         </td>
                     </tr>
 
@@ -658,7 +670,7 @@ the library to discard the socket immediately
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">consolidated/stompjs/src/client.ts:132</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">consolidated/stompjs/src/client.ts:170</a></div>
                         </td>
                     </tr>
 
@@ -700,7 +712,7 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">consolidated/stompjs/src/client.ts:96</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">consolidated/stompjs/src/client.ts:117</a></div>
                         </td>
                     </tr>
 
@@ -738,13 +750,59 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">consolidated/stompjs/src/client.ts:101</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">consolidated/stompjs/src/client.ts:122</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>Outgoing heartbeat interval in milliseconds. Set to 0 to disable.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="heartbeatStrategy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>heartbeatStrategy</b></span>
+                        <a href="#heartbeatStrategy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Ticker.html" target="_self" >TickerStrategy</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>TickerStrategy.Interval</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">consolidated/stompjs/src/client.ts:139</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Outgoing heartbeat strategy.
+See <a href="https://github.com/stomp-js/stompjs/pull/579">https://github.com/stomp-js/stompjs/pull/579</a></p>
+<p>Can be worker or interval strategy, but will always use <code>interval</code>
+if web workers are unavailable, for example, in a non-browser environment.</p>
+<p>Using Web Workers may work better on long-running pages
+and mobile apps, as the browser may suspend Timers in the main page.
+Try the <code>Worker</code> mode if you discover disconnects when the browser tab is in the background.</p>
+<p>When used in a JS environment, use &#39;worker&#39; or &#39;interval&#39; as valid values.</p>
+<p>Defaults to <code>interval</code> strategy.</p>
 </div>
                 </td>
             </tr>
@@ -771,7 +829,7 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="280" class="link-to-prism">consolidated/stompjs/src/client.ts:280</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="318" class="link-to-prism">consolidated/stompjs/src/client.ts:318</a></div>
                         </td>
                     </tr>
 
@@ -781,6 +839,46 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
 When unset, it logs headers of the parsed frames.</p>
 <p>Changes effect from the next broker reconnect.</p>
 <p><strong>Caution: this assumes that frames only have valid UTF8 strings.</strong></p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="maxReconnectDelay"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>maxReconnectDelay</b></span>
+                        <a href="#maxReconnectDelay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>15 * 60 * 1000</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">consolidated/stompjs/src/client.ts:106</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Maximum time to wait between reconnects, in milliseconds. Defaults to 15 minutes.
+Only relevant when reconnectTimeMode not LINEAR (e.g. EXPONENTIAL).
+Set to 0 to wait indefinitely.</p>
 </div>
                 </td>
             </tr>
@@ -812,7 +910,7 @@ When unset, it logs headers of the parsed frames.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">consolidated/stompjs/src/client.ts:122</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="160" class="link-to-prism">consolidated/stompjs/src/client.ts:160</a></div>
                         </td>
                     </tr>
 
@@ -846,7 +944,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="328" class="link-to-prism">consolidated/stompjs/src/client.ts:328</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="366" class="link-to-prism">consolidated/stompjs/src/client.ts:366</a></div>
                         </td>
                     </tr>
 
@@ -880,7 +978,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="232" class="link-to-prism">consolidated/stompjs/src/client.ts:232</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="270" class="link-to-prism">consolidated/stompjs/src/client.ts:270</a></div>
                         </td>
                     </tr>
 
@@ -915,7 +1013,7 @@ Sometimes clients will like to use headers from this frame.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="245" class="link-to-prism">consolidated/stompjs/src/client.ts:245</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="283" class="link-to-prism">consolidated/stompjs/src/client.ts:283</a></div>
                         </td>
                     </tr>
 
@@ -954,7 +1052,7 @@ STOMP broker disconnects.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="254" class="link-to-prism">consolidated/stompjs/src/client.ts:254</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="292" class="link-to-prism">consolidated/stompjs/src/client.ts:292</a></div>
                         </td>
                     </tr>
 
@@ -990,7 +1088,7 @@ Please check broker specific documentation for exact behavior.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">consolidated/stompjs/src/client.ts:201</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="239" class="link-to-prism">consolidated/stompjs/src/client.ts:239</a></div>
                         </td>
                     </tr>
 
@@ -1024,7 +1122,7 @@ Please check broker specific documentation for exact behavior.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="185" class="link-to-prism">consolidated/stompjs/src/client.ts:185</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="223" class="link-to-prism">consolidated/stompjs/src/client.ts:223</a></div>
                         </td>
                     </tr>
 
@@ -1062,7 +1160,7 @@ from an endpoint.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="194" class="link-to-prism">consolidated/stompjs/src/client.ts:194</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="232" class="link-to-prism">consolidated/stompjs/src/client.ts:232</a></div>
                         </td>
                     </tr>
 
@@ -1098,7 +1196,7 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="262" class="link-to-prism">consolidated/stompjs/src/client.ts:262</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="300" class="link-to-prism">consolidated/stompjs/src/client.ts:300</a></div>
                         </td>
                     </tr>
 
@@ -1133,7 +1231,7 @@ is passed as parameter to the callback.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="270" class="link-to-prism">consolidated/stompjs/src/client.ts:270</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="308" class="link-to-prism">consolidated/stompjs/src/client.ts:308</a></div>
                         </td>
                     </tr>
 
@@ -1173,13 +1271,52 @@ is passed as parameter to the callback.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">consolidated/stompjs/src/client.ts:91</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">consolidated/stompjs/src/client.ts:93</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p> automatically reconnect with delay in milliseconds, set to 0 to disable.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reconnectTimeMode"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>reconnectTimeMode</b></span>
+                        <a href="#reconnectTimeMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#ReconnectionTimeMode" target="_self" >ReconnectionTimeMode</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ReconnectionTimeMode.LINEAR</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">consolidated/stompjs/src/client.ts:112</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Reconnection wait time mode, either linear (default) or exponential.
+Note: See <a href="../classes/Client.html#maxReconnectDelay">Client#maxReconnectDelay</a> for setting the maximum delay when exponential</p>
 </div>
                 </td>
             </tr>
@@ -1211,7 +1348,7 @@ is passed as parameter to the callback.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">consolidated/stompjs/src/client.ts:116</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="154" class="link-to-prism">consolidated/stompjs/src/client.ts:154</a></div>
                         </td>
                     </tr>
 
@@ -1256,7 +1393,7 @@ Setting it for such a broker will cause large messages to fail.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="341" class="link-to-prism">consolidated/stompjs/src/client.ts:341</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="379" class="link-to-prism">consolidated/stompjs/src/client.ts:379</a></div>
                         </td>
                     </tr>
 
@@ -1290,7 +1427,7 @@ When deactivating, it may go from ACTIVE to INACTIVE without entering DEACTIVATI
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">consolidated/stompjs/src/client.ts:54</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">consolidated/stompjs/src/client.ts:56</a></div>
                         </td>
                     </tr>
 
@@ -1325,7 +1462,7 @@ When deactivating, it may go from ACTIVE to INACTIVE without entering DEACTIVATI
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">consolidated/stompjs/src/client.ts:77</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">consolidated/stompjs/src/client.ts:79</a></div>
                         </td>
                     </tr>
 
@@ -1380,8 +1517,8 @@ If your STOMP Broker supports WebSockets, prefer setting <a href="../classes/Cli
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="816"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:816</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="887"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:887</a></div>
                 </td>
             </tr>
 
@@ -1457,8 +1594,8 @@ It is preferable to abort a transaction by calling <a href="../interfaces/ITrans
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="835"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:835</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="906"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:906</a></div>
                 </td>
             </tr>
 
@@ -1568,8 +1705,8 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="387"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:387</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="437"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:437</a></div>
                 </td>
             </tr>
 
@@ -1578,7 +1715,8 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
                 <td class="col-md-4">
                     <div class="io-description"><p>Initiate the connection with the broker.
 If the connection breaks, as per <a href="../classes/Client.html#reconnectDelay">Client#reconnectDelay</a>,
-it will keep trying to reconnect.</p>
+it will keep trying to reconnect. If the <a href="../classes/Client.html#reconnectTimeMode">Client#reconnectTimeMode</a>
+is set to EXPONENTIAL it will increase the wait time exponentially</p>
 <p>Call <a href="../classes/Client.html#deactivate">Client#deactivate</a> to disconnect and stop reconnection attempts.</p>
 </div>
 
@@ -1612,8 +1750,8 @@ it will keep trying to reconnect.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="781"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:781</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="852"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:852</a></div>
                 </td>
             </tr>
 
@@ -1687,8 +1825,8 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="799"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:799</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="870"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:870</a></div>
                 </td>
             </tr>
 
@@ -1764,8 +1902,8 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="375"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:375</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="413"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:413</a></div>
                 </td>
             </tr>
 
@@ -1838,8 +1976,8 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="568"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:568</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="636"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:636</a></div>
                 </td>
             </tr>
 
@@ -1930,8 +2068,8 @@ and subsequently, say after a wait, with the <code>force</code> option.</p>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="621"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:621</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="692"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:692</a></div>
                 </td>
             </tr>
 
@@ -1974,8 +2112,8 @@ To stop further reconnects call <a href="../classes/Client.html#deactivate">Clie
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="858"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:858</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="929"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:929</a></div>
                 </td>
             </tr>
 
@@ -2085,8 +2223,8 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="670"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:670</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="741"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:741</a></div>
                 </td>
             </tr>
 
@@ -2182,8 +2320,8 @@ if the message body has NULL octet(s) and <code>content-length</code> header is 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="747"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:747</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="818"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:818</a></div>
                 </td>
             </tr>
 
@@ -2303,8 +2441,8 @@ received message with the <a href="../interfaces/IMessage.html">IMessage</a> as 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="769"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:769</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="840"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:840</a></div>
                 </td>
             </tr>
 
@@ -2398,8 +2536,8 @@ received message with the <a href="../interfaces/IMessage.html">IMessage</a> as 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="717"
-                            class="link-to-prism">consolidated/stompjs/src/client.ts:717</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="788"
+                            class="link-to-prism">consolidated/stompjs/src/client.ts:788</a></div>
                 </td>
             </tr>
 
@@ -2512,7 +2650,7 @@ The operation needs to be matched based on the value of the receipt-id.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="149" class="link-to-prism">consolidated/stompjs/src/client.ts:149</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">consolidated/stompjs/src/client.ts:187</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2545,7 +2683,7 @@ The operation needs to be matched based on the value of the receipt-id.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="163" class="link-to-prism">consolidated/stompjs/src/client.ts:163</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">consolidated/stompjs/src/client.ts:201</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2567,7 +2705,7 @@ The operation needs to be matched based on the value of the receipt-id.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">consolidated/stompjs/src/client.ts:167</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="205" class="link-to-prism">consolidated/stompjs/src/client.ts:205</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2625,7 +2763,7 @@ The operation needs to be matched based on the value of the receipt-id.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="206" class="link-to-prism">consolidated/stompjs/src/client.ts:206</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="244" class="link-to-prism">consolidated/stompjs/src/client.ts:244</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2658,7 +2796,7 @@ The operation needs to be matched based on the value of the receipt-id.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="310" class="link-to-prism">consolidated/stompjs/src/client.ts:310</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="348" class="link-to-prism">consolidated/stompjs/src/client.ts:348</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2691,7 +2829,7 @@ The operation needs to be matched based on the value of the receipt-id.</p>
                 </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="319" class="link-to-prism">consolidated/stompjs/src/client.ts:319</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="357" class="link-to-prism">consolidated/stompjs/src/client.ts:357</a></div>
                                 </td>
                             </tr>
                     <tr>
@@ -2726,7 +2864,9 @@ import {
   IPublishParams,
   IStompSocket,
   messageCallbackType,
+  ReconnectionTimeMode,
   StompSocketState,
+  TickerStrategy,
   wsErrorCallbackType,
 } from &#x27;./types.js&#x27;;
 import { Versions } from &#x27;./versions.js&#x27;;
@@ -2806,6 +2946,25 @@ export class Client {
   public reconnectDelay: number &#x3D; 5000;
 
   /**
+   * tracking the time to the next reconnection. Initialized to [Client#reconnectDelay]{@link Client#reconnectDelay}&#x27;s value and it may
+   * change depending on the [Client#reconnectTimeMode]{@link Client#reconnectTimeMode} setting
+   */
+  private _nextReconnectDelay: number &#x3D; 0;
+
+  /**
+   * Maximum time to wait between reconnects, in milliseconds. Defaults to 15 minutes.
+   * Only relevant when reconnectTimeMode not LINEAR (e.g. EXPONENTIAL).
+   * Set to 0 to wait indefinitely.
+   */
+  public maxReconnectDelay: number &#x3D; 15 * 60 * 1000; // 15 minutes in ms
+
+  /**
+   * Reconnection wait time mode, either linear (default) or exponential.
+   * Note: See [Client#maxReconnectDelay]{@link Client#maxReconnectDelay} for setting the maximum delay when exponential
+   */
+  public reconnectTimeMode: ReconnectionTimeMode &#x3D; ReconnectionTimeMode.LINEAR;
+
+  /**
    * Incoming heartbeat interval in milliseconds. Set to 0 to disable.
    */
   public heartbeatIncoming: number &#x3D; 10000;
@@ -2814,6 +2973,23 @@ export class Client {
    * Outgoing heartbeat interval in milliseconds. Set to 0 to disable.
    */
   public heartbeatOutgoing: number &#x3D; 10000;
+
+  /**
+   * Outgoing heartbeat strategy.
+   * See https://github.com/stomp-js/stompjs/pull/579
+   *
+   * Can be worker or interval strategy, but will always use &#x60;interval&#x60;
+   * if web workers are unavailable, for example, in a non-browser environment.
+   *
+   * Using Web Workers may work better on long-running pages
+   * and mobile apps, as the browser may suspend Timers in the main page.
+   * Try the &#x60;Worker&#x60; mode if you discover disconnects when the browser tab is in the background.
+   *
+   * When used in a JS environment, use &#x27;worker&#x27; or &#x27;interval&#x27; as valid values.
+   *
+   * Defaults to &#x60;interval&#x60; strategy.
+   */
+  public heartbeatStrategy: TickerStrategy &#x3D; TickerStrategy.Interval;
 
   /**
    * This switches on a non-standard behavior while sending WebSocket packets.
@@ -2936,7 +3112,7 @@ export class Client {
    * This can be used to reliably fetch credentials, access token etc. from some other service
    * in an asynchronous way.
    */
-  public beforeConnect: () &#x3D;&gt; void | Promise&lt;void&gt;;
+  public beforeConnect: (client: Client) &#x3D;&gt; void | Promise&lt;void&gt;;
 
   /**
    * Callback, invoked on every successful connection to the STOMP broker.
@@ -3090,12 +3266,24 @@ export class Client {
   public configure(conf: StompConfig): void {
     // bulk assign all properties to this
     (Object as any).assign(this, conf);
+
+    // Warn on incorrect maxReconnectDelay settings
+    if (
+      this.maxReconnectDelay &gt; 0 &amp;&amp;
+      this.maxReconnectDelay &lt; this.reconnectDelay
+    ) {
+      this.debug(
+        &#x60;Warning: maxReconnectDelay (${this.maxReconnectDelay}ms) is less than reconnectDelay (${this.reconnectDelay}ms). Using reconnectDelay as the maxReconnectDelay delay.&#x60;,
+      );
+      this.maxReconnectDelay &#x3D; this.reconnectDelay;
+    }
   }
 
   /**
    * Initiate the connection with the broker.
    * If the connection breaks, as per [Client#reconnectDelay]{@link Client#reconnectDelay},
-   * it will keep trying to reconnect.
+   * it will keep trying to reconnect. If the [Client#reconnectTimeMode]{@link Client#reconnectTimeMode}
+   * is set to EXPONENTIAL it will increase the wait time exponentially
    *
    * Call [Client#deactivate]{@link Client#deactivate} to disconnect and stop reconnection attempts.
    */
@@ -3108,6 +3296,7 @@ export class Client {
 
       this._changeState(ActivationState.ACTIVE);
 
+      this._nextReconnectDelay &#x3D; this.reconnectDelay;
       this._connect();
     };
 
@@ -3123,16 +3312,18 @@ export class Client {
   }
 
   private async _connect(): Promise&lt;void&gt; {
-    await this.beforeConnect();
+    await this.beforeConnect(this);
 
     if (this._stompHandler) {
-      this.debug(&#x27;There is already a stompHandler, skipping the call to connect&#x27;);
+      this.debug(
+        &#x27;There is already a stompHandler, skipping the call to connect&#x27;,
+      );
       return;
     }
 
     if (!this.active) {
       this.debug(
-        &#x27;Client has been marked inactive, will not attempt to connect&#x27;
+        &#x27;Client has been marked inactive, will not attempt to connect&#x27;,
       );
       return;
     }
@@ -3150,7 +3341,7 @@ export class Client {
         // Connection not established, close the underlying socket
         // a reconnection will be attempted
         this.debug(
-          &#x60;Connection not established in ${this.connectionTimeout}ms, closing socket&#x60;
+          &#x60;Connection not established in ${this.connectionTimeout}ms, closing socket&#x60;,
         );
         this.forceDisconnect();
       }, this.connectionTimeout);
@@ -3168,6 +3359,7 @@ export class Client {
       disconnectHeaders: this._disconnectHeaders,
       heartbeatIncoming: this.heartbeatIncoming,
       heartbeatOutgoing: this.heartbeatOutgoing,
+      heartbeatStrategy: this.heartbeatStrategy,
       splitLargeFrames: this.splitLargeFrames,
       maxWebSocketChunkSize: this.maxWebSocketChunkSize,
       forceBinaryWSFrames: this.forceBinaryWSFrames,
@@ -3184,7 +3376,7 @@ export class Client {
 
         if (!this.active) {
           this.debug(
-            &#x27;STOMP got connected while deactivate was issued, will disconnect now&#x27;
+            &#x27;STOMP got connected while deactivate was issued, will disconnect now&#x27;,
           );
           this._disposeStompHandler();
           return;
@@ -3238,7 +3430,7 @@ export class Client {
     } else if (this.brokerURL) {
       webSocket &#x3D; new WebSocket(
         this.brokerURL,
-        this.stompVersions.protocolVersions()
+        this.stompVersions.protocolVersions(),
       );
     } else {
       throw new Error(&#x27;Either brokerURL or webSocketFactory must be provided&#x27;);
@@ -3248,12 +3440,26 @@ export class Client {
   }
 
   private _schedule_reconnect(): void {
-    if (this.reconnectDelay &gt; 0) {
-      this.debug(&#x60;STOMP: scheduling reconnection in ${this.reconnectDelay}ms&#x60;);
+    if (this._nextReconnectDelay &gt; 0) {
+      this.debug(
+        &#x60;STOMP: scheduling reconnection in ${this._nextReconnectDelay}ms&#x60;,
+      );
 
       this._reconnector &#x3D; setTimeout(() &#x3D;&gt; {
+        if (this.reconnectTimeMode &#x3D;&#x3D;&#x3D; ReconnectionTimeMode.EXPONENTIAL) {
+          this._nextReconnectDelay &#x3D; this._nextReconnectDelay * 2;
+
+          // Truncated exponential backoff with a set limit unless disabled
+          if (this.maxReconnectDelay !&#x3D;&#x3D; 0) {
+            this._nextReconnectDelay &#x3D; Math.min(
+              this._nextReconnectDelay,
+              this.maxReconnectDelay,
+            );
+          }
+        }
+
         this._connect();
-      }, this.reconnectDelay);
+      }, this._nextReconnectDelay);
     }
   }
 
@@ -3291,6 +3497,9 @@ export class Client {
     }
 
     this._changeState(ActivationState.DEACTIVATING);
+
+    // Reset reconnection timer just to be safe
+    this._nextReconnectDelay &#x3D; 0;
 
     // Clear if a reconnection was scheduled
     if (this._reconnector) {
@@ -3462,7 +3671,7 @@ export class Client {
   public subscribe(
     destination: string,
     callback: messageCallbackType,
-    headers: StompHeaders &#x3D; {}
+    headers: StompHeaders &#x3D; {},
   ): StompSubscription {
     this._checkConnection();
     // @ts-ignore - we already checked that there is a _stompHandler, and it is connected
@@ -3550,7 +3759,7 @@ export class Client {
   public ack(
     messageId: string,
     subscriptionId: string,
-    headers: StompHeaders &#x3D; {}
+    headers: StompHeaders &#x3D; {},
   ): void {
     this._checkConnection();
     // @ts-ignore - we already checked that there is a _stompHandler, and it is connected
@@ -3573,7 +3782,7 @@ export class Client {
   public nack(
     messageId: string,
     subscriptionId: string,
-    headers: StompHeaders &#x3D; {}
+    headers: StompHeaders &#x3D; {},
   ): void {
     this._checkConnection();
     // @ts-ignore - we already checked that there is a _stompHandler, and it is connected

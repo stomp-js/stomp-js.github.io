@@ -45,7 +45,7 @@
 
 <ol class="breadcrumb">
   <li>Classes</li>
-  <li >RxStompRPC</li>
+  <li >Ticker</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -63,19 +63,10 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>consolidated/rx-stomp/src/rx-stomp-rpc.ts</code>
+            <code>consolidated/stompjs/src/ticker.ts</code>
         </p>
 
 
-            <p class="comment">
-                <h3>Description</h3>
-            </p>
-            <p class="comment">
-                <p>An implementation of Remote Procedure Call (RPC) using messaging.</p>
-<p>Please see the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a> for details.</p>
-<p>Part of <code>@stomp/rx-stomp</code></p>
-
-            </p>
 
 
 
@@ -95,11 +86,11 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#rpc" >rpc</a>
+                                <a href="#start" >start</a>
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
-                                <a href="#stream" >stream</a>
+                                <a href="#stop" >stop</a>
                             </li>
                         </ul>
                     </td>
@@ -119,19 +110,17 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rxStomp: <a href="../classess/RxStomp.html" target="_self">RxStomp</a>, stompRPCConfig?: <a href="../classes/RxStompRPCConfig.html" target="_self">RxStompRPCConfig</a>)</code>
+<code>constructor(_interval: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, _strategy, _debug: <a href="../undefineds/debugFnType.html" target="_self">debugFnType</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">consolidated/stompjs/src/ticker.ts:12</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Create an instance, see the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a> for details.</p>
-</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -144,10 +133,10 @@
                                         </thead>
                                         <tbody>
                                                 <tr>
-                                                        <td>rxStomp</td>
+                                                        <td>_interval</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classess/RxStomp.html" target="_self" >RxStomp</a></code>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -156,14 +145,25 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>stompRPCConfig</td>
+                                                        <td>_strategy</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/RxStompRPCConfig.html" target="_self" >RxStompRPCConfig</a></code>
                                                         </td>
                                                   
                                                     <td>
-                                                            Yes
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_debug</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../miscellaneous/typealiases.html#debugFnType" target="_self" >debugFnType</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
                                                     </td>
                                                     
                                                 </tr>
@@ -186,36 +186,32 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="rpc"></a>
+                    <a name="start"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
-                        <span ><b>rpc</b></span>
-                        <a href="#rpc"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>start</b></span>
+                        <a href="#start"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>rpc(params: <a href="../interfaces/IPublishParams.html" target="_self">IPublishParams</a>)</code>
+                    <code>start(tick: (elapsedTime: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>) => void)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="20"
+                            class="link-to-prism">consolidated/stompjs/src/ticker.ts:20</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Make an RPC request.
-See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a> for example.</p>
-<p>It is a simple wrapper around <a href="../classes/RxStompRPC.html#stream">RxStompRPC#stream</a>.</p>
-</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -230,9 +226,9 @@ See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>params</td>
+                                    <td>tick</td>
                                     <td>
-                                                <code><a href="../interfaces/IPublishParams.html" target="_self" >IPublishParams</a></code>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/function" target="_blank" >function</a></code>
                                     </td>
 
                                     <td>
@@ -247,7 +243,7 @@ See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</
                     <div>
                     </div>
                     <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/IMessage.html" target="_self" >Observable&lt;IMessage&gt;</a></code>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
                     </div>
                     <div class="io-description">
@@ -261,72 +257,36 @@ See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="stream"></a>
+                    <a name="stop"></a>
                     <span class="name">
                         <span class="modifier">Public</span>
-                        <span ><b>stream</b></span>
-                        <a href="#stream"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>stop</b></span>
+                        <a href="#stop"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                     <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>stream(params: <a href="../interfaces/IPublishParams.html" target="_self">IPublishParams</a>)</code>
+                    <code>stop()</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">consolidated/stompjs/src/ticker.ts:30</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Make an RPC stream request. See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a>.</p>
-<p>Note: This call internally takes care of generating a correlation id,
-however, if <code>correlation-id</code> is passed via <code>headers</code>, that will be used instead.</p>
-</div>
 
                     <div class="io-description">
-                        <b>Parameters :</b>
-                        
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Type</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>params</td>
-                                    <td>
-                                                <code><a href="../interfaces/IPublishParams.html" target="_self" >IPublishParams</a></code>
-                                    </td>
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
 
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="../interfaces/IMessage.html" target="_self" >Observable&lt;IMessage&gt;</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
                     </div>
                 </td>
             </tr>
@@ -342,118 +302,80 @@ however, if <code>correlation-id</code> is passed via <code>headers</code>, that
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { filter, first, Observable, Observer, Subscription } from &#x27;rxjs&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { debugFnType, TickerStrategy } from &#x27;./types.js&#x27;;
 
-import { v4 as uuid } from &#x27;uuid&#x27;;
+export class Ticker {
+  private readonly _workerScript &#x3D; &#x60;
+    var startTime &#x3D; Date.now();
+    setInterval(function() {
+        self.postMessage(Date.now() - startTime);
+    }, ${this._interval});
+  &#x60;;
 
-import { IMessage, IPublishParams, StompHeaders } from &#x27;@stomp/stompjs&#x27;;
+  private _worker?: Worker;
+  private _timer?: any;
 
-import { RxStomp } from &#x27;./rx-stomp.js&#x27;;
-import {
-  RxStompRPCConfig,
-  setupReplyQueueFnType,
-} from &#x27;./rx-stomp-rpc-config.js&#x27;;
-
-/**
- * An implementation of Remote Procedure Call (RPC) using messaging.
- *
- * Please see the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for details.
- *
- * Part of &#x60;@stomp/rx-stomp&#x60;
- */
-export class RxStompRPC {
-  private _replyQueueName &#x3D; &#x27;/temp-queue/rpc-replies&#x27;;
-
-  private _setupReplyQueue: setupReplyQueueFnType &#x3D; () &#x3D;&gt; {
-    return this.rxStomp.unhandledMessage$;
-  };
-
-  private _repliesObservable: Observable&lt;IMessage&gt;;
-
-  private _customReplyQueue: boolean &#x3D; false;
-
-  // This is used to ensure that underlying subscription remains subscribed
-  private _dummySubscription: Subscription;
-
-  /**
-   * Create an instance, see the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for details.
-   */
   constructor(
-    private rxStomp: RxStomp,
-    private stompRPCConfig?: RxStompRPCConfig
-  ) {
-    if (stompRPCConfig) {
-      if (stompRPCConfig.replyQueueName) {
-        this._replyQueueName &#x3D; stompRPCConfig.replyQueueName;
-      }
-      if (stompRPCConfig.setupReplyQueue) {
-        this._customReplyQueue &#x3D; true;
-        this._setupReplyQueue &#x3D; stompRPCConfig.setupReplyQueue;
-      }
+    private readonly _interval: number,
+    private readonly _strategy &#x3D; TickerStrategy.Interval,
+    private readonly _debug: debugFnType) {
+  }
+
+  public start(tick: (elapsedTime: number) &#x3D;&gt; void): void {
+    this.stop();
+
+    if (this.shouldUseWorker()) {
+      this.runWorker(tick);
+    } else {
+      this.runInterval(tick);
     }
   }
 
-  /**
-   * Make an RPC request.
-   * See the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for example.
-   *
-   * It is a simple wrapper around [RxStompRPC#stream]{@link RxStompRPC#stream}.
-   */
-  public rpc(params: IPublishParams): Observable&lt;IMessage&gt; {
-    // We know there will be only one message in reply
-    return this.stream(params).pipe(first());
+  public stop(): void {
+    this.disposeWorker();
+    this.disposeInterval();
   }
 
-  /**
-   * Make an RPC stream request. See the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html).
-   *
-   * Note: This call internally takes care of generating a correlation id,
-   * however, if &#x60;correlation-id&#x60; is passed via &#x60;headers&#x60;, that will be used instead.
-   */
-  public stream(params: IPublishParams): Observable&lt;IMessage&gt; {
-    // defensively copy
-    const headers: StompHeaders &#x3D; { ...(params.headers || {}) };
+  private shouldUseWorker(): boolean {
+    return typeof(Worker) !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; this._strategy &#x3D;&#x3D;&#x3D; TickerStrategy.Worker
+  }
 
-    if (!this._repliesObservable) {
-      const repliesObservable &#x3D; this._setupReplyQueue(
-        this._replyQueueName,
-        this.rxStomp
-      );
-
-      // In case of custom queue, ensure it remains subscribed
-      if (this._customReplyQueue) {
-        this._dummySubscription &#x3D; repliesObservable.subscribe(() &#x3D;&gt; {});
-      }
-
-      this._repliesObservable &#x3D; repliesObservable;
-    }
-
-    return Observable.create((rpcObserver: Observer&lt;IMessage&gt;) &#x3D;&gt; {
-      let defaultMessagesSubscription: Subscription;
-
-      const correlationId &#x3D; headers[&#x27;correlation-id&#x27;] || uuid();
-
-      defaultMessagesSubscription &#x3D; this._repliesObservable
-        .pipe(
-          filter((message: IMessage) &#x3D;&gt; {
-            return message.headers[&#x27;correlation-id&#x27;] &#x3D;&#x3D;&#x3D; correlationId;
-          })
+  private runWorker(tick: (elapsedTime: number) &#x3D;&gt; void): void {
+    this._debug(&#x27;Using runWorker for outgoing pings&#x27;);
+    if (!this._worker) {
+      this._worker &#x3D; new Worker(
+        URL.createObjectURL(
+          new Blob([this._workerScript], { type: &#x27;text/javascript&#x27; })
         )
-        .subscribe((message: IMessage) &#x3D;&gt; {
-          rpcObserver.next(message);
-        });
+      );
+      this._worker.onmessage &#x3D; (message) &#x3D;&gt; tick(message.data);
+    }
+  }
 
-      // send an RPC request
-      headers[&#x27;reply-to&#x27;] &#x3D; this._replyQueueName;
-      headers[&#x27;correlation-id&#x27;] &#x3D; correlationId;
+  private runInterval(tick: (elapsedTime: number) &#x3D;&gt; void): void {
+    this._debug(&#x27;Using runInterval for outgoing pings&#x27;);
+    if (!this._timer) {
+      const startTime &#x3D; Date.now();
+      this._timer &#x3D; setInterval(() &#x3D;&gt; {
+        tick(Date.now() - startTime);
+      }, this._interval);
+    }
+  }
 
-      this.rxStomp.publish({ ...params, headers });
+  private disposeWorker(): void {
+    if (this._worker) {
+      this._worker.terminate();
+      delete this._worker;
+      this._debug(&#x27;Outgoing ping disposeWorker&#x27;);
+    }
+  }
 
-      return () &#x3D;&gt; {
-        // Cleanup
-        defaultMessagesSubscription.unsubscribe();
-      };
-    });
+  private disposeInterval(): void {
+    if (this._timer) {
+      clearInterval(this._timer);
+      delete this._timer;
+      this._debug(&#x27;Outgoing ping disposeInterval&#x27;);
+    }
   }
 }
 </code></pre>
@@ -494,7 +416,7 @@ export class RxStompRPC {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
-            var COMPODOC_CURRENT_PAGE_URL = 'RxStompRPC.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'Ticker.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 
