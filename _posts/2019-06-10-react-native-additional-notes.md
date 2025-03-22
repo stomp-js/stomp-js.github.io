@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 'React Native - Additional notes'
-date: 2024-04-26 10:01:01 +0530
+date: 2025-03-22 10:01:01 +0530
 categories: workaround stompjs rx-stomp
 toc: true
 redirect_from:
@@ -12,12 +12,25 @@ redirect_from:
   - /workaround/stompjs/rx-stomp/ng2-stompjs/react-native-additional-notes.html
 ---
 
-# Polyfills
+The largest number of tickets raised for these projects is related to using these libraries with React Native.
+There are some platform issues in React Native that cause these libraries to fail.
+Unfortunately, the React Native team is not inclined to resolve these issues.
+Please follow the advice on this page to effectively use these libraries with React Native.
+
+## Prefer [rx-stomp]
+
+This advice is not specific to React Native, but in general, to Single Page Applications.
+Your code is going to be far less convoluted and will handle edge cases much better.
+Managing the Client objest and state can be tricky with React hooks.
+Please see
+[How to Use RxStomp with React](https://www.freecodecamp.org/news/build-chat-app-with-stomp-and-react/) and [Sample](https://gitlab.com/harsh183/rxstomp-react-tutorial).
+
+## Polyfills
 
 Before you proceed, ensure you have [polyfills for
 TextEncoder/TextDecoder]({% link _posts/2018-06-28-polyfills-for-stompjs.md %}).
 
-# Insecure connection issue in Android
+## Insecure connection issue in Android
 
 Recent versions of Android SDK do not allow insecure (not HTTPS) HTTP connections.
 This is likely to show up in production builds only.
@@ -27,7 +40,7 @@ To bypass the checks, please follow suggestions at
 [https://github.com/stomp-js/stompjs/issues/149#issuecomment-633734719](https://github.com/stomp-js/stompjs/issues/149#issuecomment-633734719)
 and [https://blog.usejournal.com/6-daily-issues-in-android-cleartext-traffic-error-52ab31dd86c2](https://blog.usejournal.com/6-daily-issues-in-android-cleartext-traffic-error-52ab31dd86c2).
 
-# Null Chopping
+## Null Chopping
 
 Some versions of React Native (including the current production
 version as on April 26, 2024) have an underlying issue that prevents these libraries
@@ -85,3 +98,8 @@ If your broker supports forcing binary frames, you may try this approach.
 
 The approach is completely safe — it will not cause any data loss
 or incorrect protocol behavior.
+
+
+[rxjs]: https://github.com/ReactiveX/RxJS
+[stompjs]: https://github.com/stomp-js/stompjs
+[rx-stomp]: https://github.com/stomp-js/rx-stomp

@@ -1,13 +1,14 @@
 ---
 layout: single
-date: 2020-10-19 19:42:22 +0530
+date: 2025-03-22 19:42:22 +0530
 title: 'StompJs Family'
 author_profile: true
 ---
 
 These libraries provide [STOMP] over [Websocket] connectivity for web browsers or other Javascript-based environments.
 
-[stompjs] is the core Javascript library. [rx-stomp] is a wrapper that exposes functionality as [RxJS] primitives.
+[stompjs] is the core JavaScript library.
+[rx-stomp] is a wrapper that exposes functionality as [RxJS] primitives.
 If you are already using [RxJS] in your project or are familiar with it, check out [rx-stomp].
 
 ## Getting started
@@ -18,11 +19,15 @@ Please try the following guides:
 - [Using rx-stomp with Angular] — originally written for Angular13,
   should work with Angular 7+.
 - Guide to [Connection status in ng2-stompjs].
+- Guide to [How to Use RxStomp with React](https://www.freecodecamp.org/news/build-chat-app-with-stomp-and-react/).
+
+All these guides are written by the maintainers of these projects and follow best practices.
 
 Samples:
 
 - [Samples](https://github.com/stomp-js/samples/) for [stompjs] and [rx-stomp].
 - [Sample](https://github.com/stomp-js/rx-stomp-angular) for [rx-stomp] with Angular 7+.
+- [Sample](https://gitlab.com/harsh183/rxstomp-react-tutorial) for [rx-stomp] with React.
 
 [API documentation](/api-docs/latest/) for NPM released versions.
 
