@@ -76,6 +76,9 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/StompHeaders.html" data-type="entity-link" >StompHeaders</a>
                             </li>
                             <li class="link">
+                                <a href="classes/Ticker.html" data-type="entity-link" >Ticker</a>
+                            </li>
+                            <li class="link">
                                 <a href="classes/Versions.html" data-type="entity-link" >Versions</a>
                             </li>
                         </ul>

@@ -145,6 +145,10 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                <a href="#heartbeatStrategy" >heartbeatStrategy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
                                 <a href="#logRawCommunication" >logRawCommunication</a>
                             </li>
                             <li>
@@ -408,7 +412,7 @@
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:165</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:182</a></code>
 </div>
                         </td>
                     </tr>
@@ -454,7 +458,7 @@ this flag will cause data loss and abnormal termination of connection.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:245</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:262</a></code>
 </div>
                         </td>
                     </tr>
@@ -503,7 +507,7 @@ in an asynchronous way.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:44</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:45</a></code>
 </div>
                         </td>
                     </tr>
@@ -548,7 +552,7 @@ If both are set, <a href="../classes/Client.html#webSocketFactory">Client#webSoc
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:179</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:196</a></code>
 </div>
                         </td>
                     </tr>
@@ -595,7 +599,7 @@ details specific to your broker.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:84</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:85</a></code>
 </div>
                         </td>
                     </tr>
@@ -636,7 +640,7 @@ Default 0, which switches off automatic reconnection.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:316</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:333</a></code>
 </div>
                         </td>
                     </tr>
@@ -686,7 +690,7 @@ and may contain sensitive information (like passwords, tokens etc.).</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:326</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:343</a></code>
 </div>
                         </td>
                     </tr>
@@ -736,7 +740,7 @@ the library to discard the socket immediately
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:153</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:170</a></code>
 </div>
                         </td>
                     </tr>
@@ -848,6 +852,59 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="heartbeatStrategy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>heartbeatStrategy</b></span>
+                        <a href="#heartbeatStrategy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Ticker.html" target="_self" >TickerStrategy</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>TickerStrategy.Interval</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classess/Client.html" target="_self" >Client</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:139</a></code>
+</div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Outgoing heartbeat strategy.
+See <a href="https://github.com/stomp-js/stompjs/pull/579">https://github.com/stomp-js/stompjs/pull/579</a></p>
+<p>Can be worker or interval strategy, but will always use <code>interval</code>
+if web workers are unavailable, for example, in a non-browser environment.</p>
+<p>Using Web Workers may work better on long-running pages
+and mobile apps, as the browser may suspend Timers in the main page.
+Try the <code>Worker</code> mode if you discover disconnects when the browser tab is in the background.</p>
+<p>When used in a JS environment, use &#39;worker&#39; or &#39;interval&#39; as valid values.</p>
+<p>Defaults to <code>interval</code> strategy.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="logRawCommunication"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
@@ -870,7 +927,7 @@ Default is <code>false</code>, which should work with all compliant brokers.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:301</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:318</a></code>
 </div>
                         </td>
                     </tr>
@@ -918,7 +975,7 @@ When unset, it logs headers of the parsed frames.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:105</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:106</a></code>
 </div>
                         </td>
                     </tr>
@@ -965,7 +1022,7 @@ Set to 0 to wait indefinitely.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:143</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:160</a></code>
 </div>
                         </td>
                     </tr>
@@ -1006,7 +1063,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:349</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:366</a></code>
 </div>
                         </td>
                     </tr>
@@ -1047,7 +1104,7 @@ This has no effect if <a href="../classes/Client.html#splitLargeFrames">splitLar
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:253</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:270</a></code>
 </div>
                         </td>
                     </tr>
@@ -1089,7 +1146,7 @@ Sometimes clients will like to use headers from this frame.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:266</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:283</a></code>
 </div>
                         </td>
                     </tr>
@@ -1135,7 +1192,7 @@ STOMP broker disconnects.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:275</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:292</a></code>
 </div>
                         </td>
                     </tr>
@@ -1178,7 +1235,7 @@ Please check broker specific documentation for exact behavior.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:222</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:239</a></code>
 </div>
                         </td>
                     </tr>
@@ -1219,7 +1276,7 @@ Please check broker specific documentation for exact behavior.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:206</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:223</a></code>
 </div>
                         </td>
                     </tr>
@@ -1264,7 +1321,7 @@ from an endpoint.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:215</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:232</a></code>
 </div>
                         </td>
                     </tr>
@@ -1307,7 +1364,7 @@ Prefer using <a href="../classes/Client.html#watchForReceipt">Client#watchForRec
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:283</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:300</a></code>
 </div>
                         </td>
                     </tr>
@@ -1349,7 +1406,7 @@ is passed as parameter to the callback.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:291</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:308</a></code>
 </div>
                         </td>
                     </tr>
@@ -1396,7 +1453,7 @@ is passed as parameter to the callback.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:92</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:93</a></code>
 </div>
                         </td>
                     </tr>
@@ -1487,7 +1544,7 @@ Note: See <a href="../classes/Client.html#maxReconnectDelay">Client#maxReconnect
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:137</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:154</a></code>
 </div>
                         </td>
                     </tr>
@@ -1539,7 +1596,7 @@ Setting it for such a broker will cause large messages to fail.</p>
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:362</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:379</a></code>
 </div>
                         </td>
                     </tr>
@@ -1580,7 +1637,7 @@ When deactivating, it may go from ACTIVE to INACTIVE without entering DEACTIVATI
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:55</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:56</a></code>
 </div>
                         </td>
                     </tr>
@@ -1622,7 +1679,7 @@ When deactivating, it may go from ACTIVE to INACTIVE without entering DEACTIVATI
                         </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:78</a></code>
+                                <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:79</a></code>
 </div>
                         </td>
                     </tr>
@@ -1991,7 +2048,7 @@ However, there may be special purpose headers corresponding to your STOMP broker
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:857</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:887</a></code>
 </div>
                 </td>
             </tr>
@@ -2074,7 +2131,7 @@ It is preferable to abort a transaction by calling <a href="../interfaces/ITrans
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:876</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:906</a></code>
 </div>
                 </td>
             </tr>
@@ -2191,7 +2248,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:415</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:437</a></code>
 </div>
                 </td>
             </tr>
@@ -2242,7 +2299,7 @@ is set to EXPONENTIAL it will increase the wait time exponentially</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:822</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:852</a></code>
 </div>
                 </td>
             </tr>
@@ -2323,7 +2380,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:840</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:870</a></code>
 </div>
                 </td>
             </tr>
@@ -2406,7 +2463,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:396</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:413</a></code>
 </div>
                 </td>
             </tr>
@@ -2486,7 +2543,7 @@ and <a href="../interfaces/ITransaction.html#abort">abort</a>.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:606</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:636</a></code>
 </div>
                 </td>
             </tr>
@@ -2584,7 +2641,7 @@ and subsequently, say after a wait, with the <code>force</code> option.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:662</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:692</a></code>
 </div>
                 </td>
             </tr>
@@ -2634,7 +2691,7 @@ To stop further reconnects call <a href="../classes/Client.html#deactivate">Clie
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:899</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:929</a></code>
 </div>
                 </td>
             </tr>
@@ -2751,7 +2808,7 @@ on the <a href="../interfaces/IMessage.html">IMessage</a> handled by a subscript
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:711</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:741</a></code>
 </div>
                 </td>
             </tr>
@@ -2854,7 +2911,7 @@ if the message body has NULL octet(s) and <code>content-length</code> header is 
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:788</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:818</a></code>
 </div>
                 </td>
             </tr>
@@ -2981,7 +3038,7 @@ received message with the <a href="../interfaces/IMessage.html">IMessage</a> as 
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:810</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:840</a></code>
 </div>
                 </td>
             </tr>
@@ -3082,7 +3139,7 @@ received message with the <a href="../interfaces/IMessage.html">IMessage</a> as 
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:758</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:788</a></code>
 </div>
                 </td>
             </tr>
