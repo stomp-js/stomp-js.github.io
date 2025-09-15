@@ -481,7 +481,7 @@ export interface IStompSocket {
   url: string;
   onclose: ((ev?: any) &#x3D;&gt; any) | undefined | null;
   onerror: ((ev: any) &#x3D;&gt; any) | undefined | null;
-  onmessage: ((ev: IStompSocketMessageEvent) &#x3D;&gt; any) | undefined | null;
+  onmessage: ((ev: any) &#x3D;&gt; any) | undefined | null;
   onopen: ((ev?: any) &#x3D;&gt; any) | undefined | null;
   terminate?: (() &#x3D;&gt; any) | undefined | null;
 
