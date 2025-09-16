@@ -29,7 +29,7 @@ _Important: For Node.js and React Native, please check [Polyfills]._
 
 - Download and include directly from the `bundles/` folder.
 - Or use a CDN:
-  - Minified: [https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.0/bundles/stomp.umd.min.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.0/bundles/stomp.umd.js)
+  - Minified: [https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.0/bundles/stomp.umd.min.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.0/bundles/stomp.umd.min.js)
   - Unminified: [https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.0/bundles/stomp.umd.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.0/bundles/stomp.umd.js)
 - A global `StompJs` object will now be available. Read on to learn how to use it.
 
