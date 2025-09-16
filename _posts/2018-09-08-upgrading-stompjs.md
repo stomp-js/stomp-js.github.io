@@ -192,8 +192,7 @@ Additional notes:
 - `Stomp.overWS` is same as `Stomp.client`. Follow the instructions for `Stomp.client` above.
 - `NodeJS` is supported at same level as browser. Test suits are executed for both NodJS and browser.
   Follow the instructions as above.
-- `Stomp.overTCP` is no longer supported. If your broker supports WebStomp (STOMP over WebSocket),
-  you may switch to that.
+- `Stomp.overTCP` is no longer supported by this library. However, you can use [TCP Wrapper](https://github.com/stomp-js/tcp-wrapper).
 - If you are using `SockJS` please also see [SockJS support]
 
 [SockJS support]: {% link _posts/2018-09-10-using-stomp-with-sockjs.md %}
