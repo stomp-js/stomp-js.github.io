@@ -52,9 +52,21 @@ You can use these classes directly without prefixing them with `StompJs.`.
 All options can be set or read directly on the client instance:
 
 ```javascript
-const client = new StompJs.Client();
+// ES modules (Node.js/modern bundlers)
+import { Client } from '@stomp/stompjs';
+
+const client = new Client();
 client.brokerURL = 'ws://localhost:15674/ws';
 
+console.log(client.brokerURL);
+```
+
+If using the UMD bundle in a browser, create with the global namespace:
+
+```javascript
+// UMD (browser via <script>)
+const client = new StompJs.Client();
+client.brokerURL = 'ws://localhost:15674/ws';
 console.log(client.brokerURL);
 ```
 
@@ -101,7 +113,8 @@ client.activate();
 To deactivate a client, call [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate). It stops reconnection attempts and disconnects any active connection.
 
 ```javascript
-client.deactivate();
+// Prefer awaiting deactivation to ensure the client fully disconnects
+await client.deactivate();
 ```
 
 ## Send messages
@@ -153,7 +166,7 @@ The `subscribe` method returns an object with an `id` (the client subscription I
 Each time the broker sends a message, the client invokes the callback with a [Message](/api-docs/latest/interfaces/IMessage.html) object.
 
 ```javascript
-callback = function (message) {
+const onMessage = function (message) {
   // Called when the client receives a STOMP message from the server
   if (message.body) {
     alert('Got message with body ' + message.body);
@@ -161,6 +174,8 @@ callback = function (message) {
     alert('Got empty message');
   }
 };
+
+const subscription = client.subscribe('/queue/test', onMessage);
 ```
 
 You can pass optional headers when subscribing:
@@ -311,6 +326,8 @@ client.heartbeatOutgoing = 20000; // client will send heartbeats every 20000ms
 client.heartbeatIncoming = 0; // client does not want to receive heartbeats from the server
 ```
 
+Very small heartbeat intervals can increase server load; tune with care in production.
+
 ## Auto Reconnect
 
 The client supports automatic reconnection after a connection failure. It is controlled by the [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay) option. The default is 5000 ms, meaning the client will attempt to reconnect 5 seconds after a drop.
@@ -325,12 +342,17 @@ You can set `reconnectDelay` to a small value.
 **Reconnect with Exponential Backoff**
 
 ```javascript
+// ES modules
+import { ReconnectionTimeMode } from '@stomp/stompjs';
+
 client.configure({
-  reconnectTimeMode: StompJs.ReconnectionTimeMode.EXPONENTIAL,
+  reconnectTimeMode: ReconnectionTimeMode.EXPONENTIAL,
   reconnectDelay: 200, // It will wait 200, 400, 800 ms...
   maxReconnectDelay: 10000, // Optional: when provided, it will not wait more than this
-})
+});
 ```
+
+For UMD usage in the browser, use `StompJs.ReconnectionTimeMode.EXPONENTIAL`.
 
 ## Debug
 
