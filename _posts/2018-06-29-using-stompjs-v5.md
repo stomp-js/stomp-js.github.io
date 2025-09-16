@@ -117,6 +117,28 @@ To deactivate a client, call [Client#deactivate](/api-docs/latest/classes/Client
 await client.deactivate();
 ```
 
+You can also request an immediate teardown by passing `{ force: true }`. This skips both STOMP and WebSocket shutdown sequences and is useful if the underlying socket is stale and the browser is slow to close it.
+
+```javascript
+// Forceful, immediate shutdown (skips STOMP and WebSocket close sequences)
+await client.deactivate({ force: true });
+```
+
+### Use a custom WebSocket (e.g., SockJS)
+
+Instead of `brokerURL`, you may supply a factory that returns a WebSocket-like object. If both `webSocketFactory` and `brokerURL` are set, `webSocketFactory` is used.
+
+```javascript
+import { Client } from '@stomp/stompjs';
+import SockJS from 'sockjs-client';
+
+const client = new Client({
+  webSocketFactory: () => new SockJS('http://localhost:15674/stomp'),
+});
+
+client.activate();
+```
+
 ## Send messages
 
 When the client is connected, it can send STOMP messages using the [Client#publish](/api-docs/latest/classes/Client.html#publish) method.
@@ -215,7 +237,7 @@ See [Send messages](#send-messages) for an example.
 
 ### Receiving binary messages
 
-The library does not infer whether incoming data is text or binary. Use [Message#body](/api-docs/latest/interfaces/IFrame.html#body) to access the body as a string, or [Message#binaryBody](/api-docs/latest/interfaces/IFrame.html#binaryBody) to access it as binary.
+The library does not infer whether incoming data is text or binary. Use [Message#body](/api-docs/latest/interfaces/IMessage.html#body) to access the body as a string, or [Message#binaryBody](/api-docs/latest/interfaces/IMessage.html#binaryBody) to access it as binary.
 
 There is no generally accepted convention in STOMP (or messaging in general) to indicate binary messages. Producers and consumers should agree on a convention—for example, set a `content-type` header to indicate a binary payload.
 
@@ -317,6 +339,32 @@ client.publish({
 tx.abort(); // Too late! the message has been sent
 ```
 
+## Receipts
+
+Some operations (SUBSCRIBE, SEND, BEGIN/COMMIT/ABORT, DISCONNECT) can be acknowledged by the broker via RECEIPT frames when you include a unique `receipt` header. Use [Client#watchForReceipt](/api-docs/latest/classes/Client.html#watchForReceipt) to be notified when a given receipt arrives.
+
+```javascript
+// Watch for a subscription receipt
+const subReceipt = 'sub-' + crypto.randomUUID();
+client.watchForReceipt(subReceipt, (frame) => {
+  console.log('Subscribed, receipt:', frame.headers['receipt-id']);
+});
+client.subscribe('/queue/test', onMessage, { receipt: subReceipt });
+
+// Watch for a publish receipt
+const sendReceipt = 'send-' + crypto.randomUUID();
+client.watchForReceipt(sendReceipt, () => {
+  console.log('Message accepted by the broker.');
+});
+client.publish({
+  destination: '/topic/general',
+  body: 'Hello',
+  headers: { receipt: sendReceipt },
+});
+```
+
+If no watcher is active for an arriving receipt, [Client#onUnhandledReceipt](/api-docs/latest/classes/Client.html#onUnhandledReceipt) will be invoked.
+
 ## Heart-beating
 
 For STOMP 1.1 or higher, heart-beating is enabled by default. Options [Client#heartbeatIncoming](/api-docs/latest/classes/Client.html#heartbeatIncoming) and [Client#heartbeatOutgoing](/api-docs/latest/classes/Client.html#heartbeatOutgoing) control heart-beating (default 10,000 ms). Set either to 0 to disable.
@@ -327,6 +375,15 @@ client.heartbeatIncoming = 0; // client does not want to receive heartbeats from
 ```
 
 Very small heartbeat intervals can increase server load; tune with care in production.
+
+### Heartbeat strategy
+
+Control the scheduling strategy used for outgoing heartbeats with [Client#heartbeatStrategy](/api-docs/latest/classes/Client.html#heartbeatStrategy). Use `'interval'` (default) or `'worker'` (uses Web Workers when available). Using `'worker'` may improve reliability when the page is in a background tab, where browsers often throttle or pause timers.
+
+```javascript
+import { TickerStrategy } from '@stomp/stompjs';
+client.heartbeatStrategy = TickerStrategy.Worker; // or TickerStrategy.Interval
+```
 
 ## Auto Reconnect
 
@@ -352,7 +409,15 @@ client.configure({
 });
 ```
 
-For UMD usage in the browser, use `StompJs.ReconnectionTimeMode.EXPONENTIAL`.
+When using exponential backoff, [Client#maxReconnectDelay](/api-docs/latest/classes/Client.html#maxReconnectDelay) caps the wait time (default 15 minutes). Set it to 0 to disable the cap.
+
+### Connection timeout
+
+Use [Client#connectionTimeout](/api-docs/latest/classes/Client.html#connectionTimeout) to fail-fast if a connection is not established in time. When the timeout elapses without connecting, the underlying socket is closed and a reconnect is scheduled (if enabled).
+
+```javascript
+client.connectionTimeout = 8000; // close and retry if not connected within 8 seconds
+```
 
 ## Debug
 
@@ -377,6 +442,7 @@ Usually, headers of incoming and outgoing frames are logged. Set [Client#logRawC
 - [Client#onDisconnect](/api-docs/latest/classes/Client.html#onDisconnect) — invoked after each graceful disconnection. If the connection breaks due to an error or network failure, it is not called.
 - [Client#onStompError](/api-docs/latest/classes/Client.html#onStompError) — invoked when the broker reports an error.
 - [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose) — invoked when the WebSocket closes. This is the most reliable way to detect that the connection terminated.
+- [Client#onWebSocketError](/api-docs/latest/classes/Client.html#onWebSocketError) — invoked when the underlying WebSocket raises an error event.
 
 ### Frame callbacks
 
@@ -384,20 +450,20 @@ Usually, headers of incoming and outgoing frames are logged. Set [Client#logRawC
 - [Client#onUnhandledReceipt](/api-docs/latest/classes/Client.html#onUnhandledReceipt) — prefer [Client#watchForReceipt](/api-docs/latest/classes/Client.html#watchForReceipt). If a receipt arrives with no active watcher, this callback is invoked.
 - [Client#onUnhandledFrame](/api-docs/latest/classes/Client.html#onUnhandledFrame) — invoked if the broker sends a non-standard STOMP frame.
 
-## Advanced notes
+### State changes
 
-Version 5+ of this library differs significantly from earlier versions.
+- [Client#onChangeState](/api-docs/latest/classes/Client.html#onChangeState) — invoked whenever the client's activation state changes.
+- [Client#state](/api-docs/latest/classes/Client.html#state) reflects the current activation state; [Client#active](/api-docs/latest/classes/Client.html#active) is `true` when connecting/connected or scheduled to reconnect.
 
-You can change configuration options and callbacks at runtime. New values take effect as soon as possible. For example:
+## Advanced options
 
-- Updated values of [Client#onUnhandledMessage](/api-docs/latest/classes/Client.html#onUnhandledMessage) or [Client#onDisconnect](/api-docs/latest/classes/Client.html#onDisconnect) are effective immediately.
-- New values of [Client#heartbeatIncoming](/api-docs/latest/classes/Client.html#heartbeatIncoming) and [Client#heartbeatOutgoing](/api-docs/latest/classes/Client.html#heartbeatOutgoing) are used on the next STOMP connect.
+These options are rarely needed; use only when you understand broker and environment behavior:
 
-Callback sequences are designed so that common operations work as expected. For example, you can call [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate) within [Client#onStompError](/api-docs/latest/classes/Client.html#onStompError) or [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose).
-
-You can also adjust [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay) in [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose) to implement exponential backoff by progressively increasing the delay.
-
-Even [Client#brokerURL](/api-docs/latest/classes/Client.html#brokerURL) and [Client#connectHeaders](/api-docs/latest/classes/Client.html#connectHeaders) can be altered; the new values will be used on the next reconnect.
+- [Client#splitLargeFrames](/api-docs/latest/classes/Client.html#splitLargeFrames) and [Client#maxWebSocketChunkSize](/api-docs/latest/classes/Client.html#maxWebSocketChunkSize): split large text frames into chunks (some non-standard brokers require this; compliant brokers do not).
+- [Client#forceBinaryWSFrames](/api-docs/latest/classes/Client.html#forceBinaryWSFrames): force binary WebSocket frames instead of letting the browser decide.
+- [Client#appendMissingNULLonIncoming](/api-docs/latest/classes/Client.html#appendMissingNULLonIncoming): workaround for a React Native bug that can drop trailing NULLs.
+- [Client#logRawCommunication](/api-docs/latest/classes/Client.html#logRawCommunication): log complete frames instead of just headers. Caution: assumes valid UTF-8.
+- [Client#discardWebsocketOnCommFailure](/api-docs/latest/classes/Client.html#discardWebsocketOnCommFailure): aggressively discard sockets on heartbeat failures to speed up recovery on some platforms.
 
 [Polyfills]: {% link _posts/2018-06-28-polyfills-for-stompjs.md %}
 [Uint8Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array
