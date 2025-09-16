@@ -15,44 +15,41 @@ You can find samples at [https://github.com/stomp-js/samples/](https://github.co
 
 ## The STOMP Broker
 
-Ensure that your STOMP broker supports STOMP over WebSockets. While some messaging brokers support it out of the box, a
-few may need additional configuration or activating plugins.
+Ensure your STOMP broker supports STOMP over WebSockets. While some brokers support this out of the box, others may require additional configuration or enabling a plugin.
 
 ## Include stompjs
 
-This npm distribution has a UMD package and ES6 modules. The web browsers will use the UMD via a script tag, and Node's
-`require` and ES `import` will use the appropriate versions.
+This npm package provides both a UMD build and ES modules. Web browsers can use the UMD build via a script tag, and Node.js (CommonJS `require`) and ES `import` will resolve to the appropriate builds.
 
 ### Polyfills
 
-_Important: For NodeJS and React Native, please check [Polyfills]._
+_Important: For Node.js and React Native, please check [Polyfills]._
 
 ### In Web Browser
 
 - Download and include directly from the `bundles/` folder.
-- Alternatively, use from CDN
-    -
-    Minified [https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js)
-    - [https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.js)
-- `StompJs` object will now be available. Read along to learn how to use it.
+- Or use a CDN:
+  - Minified: [https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js)
+  - Unminified: [https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.js)
+- A global `StompJs` object will now be available. Read on to learn how to use it.
 
-### In NodeJS, TypeScript or ES6
+### In Node.js, TypeScript, or ES6
 
-These libraries have been developed using typescript, and the typings are included in the distribution.
+This library is developed in TypeScript, and type definitions are included in the distribution.
 
 You can import classes like the following:
 
 ```javascript
-import {Client, Message} from '@stomp/stompjs';
+import { Client, Message } from '@stomp/stompjs';
 ```
 
-You can use these classes without prefixing with `StompJs.`.
+You can use these classes directly without prefixing them with `StompJs.`.
 
 **There is no `StompJs` class/object to be imported.**
 
 ## Setting/getting options
 
-All options can be set/get by directly operating on the client instance:
+All options can be set or read directly on the client instance:
 
 ```javascript
 const client = new StompJs.Client();
@@ -61,12 +58,11 @@ client.brokerURL = 'ws://localhost:15674/ws';
 console.log(client.brokerURL);
 ```
 
-These can also be set passing key/value pairs to [Client constructor](/api-docs/latest/classes/Client.html#constructor)
-or to [Client#configure](/api-docs/latest/classes/Client.html#configure).
+You can also pass them as key–value pairs to the [Client constructor](/api-docs/latest/classes/Client.html#constructor) or to [Client#configure](/api-docs/latest/classes/Client.html#configure).
 
 ## Create a STOMP client
 
-STOMP JavaScript clients will communicate to a STOMP server using a `ws://` or `wss://` URL.
+STOMP JavaScript clients communicate with a STOMP server using a `ws://` or `wss://` URL.
 
 ```javascript
 const client = new StompJs.Client({
@@ -84,15 +80,15 @@ const client = new StompJs.Client({
 });
 
 client.onConnect = function (frame) {
-  // Do something, all subscribes must be done is this callback
-  // This is needed because this will be executed after a (re)connect
+  // Do something; all subscriptions must be done in this callback.
+  // This is needed because it runs after a (re)connect.
 };
 
 client.onStompError = function (frame) {
-  // Will be invoked in case of error encountered at Broker
-  // Bad login/passcode typically will cause an error
-  // Complaint brokers will set `message` header with a brief message. Body may contain details.
-  // Compliant brokers will terminate the connection after any error
+  // Invoked when the broker reports an error.
+  // Bad login/passcode typically causes an error.
+  // Compliant brokers set the `message` header with a brief message; the body may contain details.
+  // Compliant brokers terminate the connection after any error.
   console.log('Broker reported error: ' + frame.headers['message']);
   console.log('Additional details: ' + frame.body);
 };
@@ -100,8 +96,7 @@ client.onStompError = function (frame) {
 client.activate();
 ```
 
-To deactivate a client call [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate).
-It will stop attempting to reconnect and disconnect if there is an active connection.
+To deactivate a client, call [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate). It stops reconnection attempts and disconnects any active connection.
 
 ```javascript
 client.deactivate();
@@ -109,13 +104,12 @@ client.deactivate();
 
 ## Send messages
 
-When the client is connected to the server, it can send STOMP messages using
-the [Client#publish](/api-docs/latest/classes/Client.html#publish) method.
+When the client is connected, it can send STOMP messages using the [Client#publish](/api-docs/latest/classes/Client.html#publish) method.
 
 ```javascript
 client.publish({destination: '/topic/general', body: 'Hello world'});
 
-// There is an option to skip content length header
+// There is an option to skip the Content-length header
 client.publish({
   destination: '/topic/general',
   body: 'Hello world',
@@ -130,13 +124,11 @@ client.publish({
 });
 ```
 
-Starting version 5, sending binary messages is supported.
-To send a binary message body, use the `binaryBody` parameter. It should be a
-[Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array).
+Starting with v5, sending binary messages is supported. To send a binary body, use the `binaryBody` parameter. It must be a [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array).
 
 ```javascript
-const binaryData = generateBinaryData(); // This need to be of type Uint8Array
-// setting content-type header is not mandatory, however a good practice
+const binaryData = generateBinaryData(); // This must be a Uint8Array
+// Setting a content-type header is not mandatory, but is good practice
 client.publish({
   destination: '/topic/special',
   binaryBody: binaryData,
@@ -146,51 +138,42 @@ client.publish({
 
 ## Subscribe and receive messages
 
-The STOMP client must first subscribe to a destination to receive messages.
+The STOMP client must subscribe to a destination to receive messages.
 
-To subscribe to a destination, you can use the [Client#subscribe](/api-docs/latest/classes/Client.html#subscribe)
-method. The method takes two mandatory arguments: `destination`, a String corresponding to the
-destination and `callback`, a function with one message argument and an optional argument `headers`, a JavaScript object
-for additional headers.
+Use [Client#subscribe](/api-docs/latest/classes/Client.html#subscribe). It takes two required arguments: `destination` (a string) and `callback` (a function that receives a message), plus an optional `headers` object for additional headers.
 
 ```javascript
 const subscription = client.subscribe('/queue/test', callback);
 ```
 
-The `subscribe` method returns an object with one attribute, `id`,
-that correspond to the client subscription ID and one method `unsubscribe`
-that can be used later on to unsubscribe the client from this destination.
+The `subscribe` method returns an object with an `id` (the client subscription ID) and an `unsubscribe` method to stop receiving from this destination.
 
-Every time the broker sends a message to the client, the client will, in turn, invoke the callback with
-a [Message](/api-docs/latest/interfaces/IMessage.html) object.
+Each time the broker sends a message, the client invokes the callback with a [Message](/api-docs/latest/interfaces/IMessage.html) object.
 
 ```javascript
 callback = function (message) {
-  // called when the client receives a STOMP message from the server
+  // Called when the client receives a STOMP message from the server
   if (message.body) {
-    alert('got message with body ' + message.body);
+    alert('Got message with body ' + message.body);
   } else {
-    alert('got empty message');
+    alert('Got empty message');
   }
 };
 ```
 
-The `subscribe` method takes an optional headers argument to specify additional `headers` when subscribing to a
-destination:
+You can pass optional headers when subscribing:
 
 ```javascript
 const headers = {ack: 'client'};
 client.subscribe('/queue/test', message_callback, headers);
 ```
 
-The client specifies that it will handle the message acknowledgment.
+Here, the client specifies that it will handle message acknowledgments.
 
-To stop receiving messages, the client can use the
-[unsubscribe](/api-docs/latest/classes/StompSubscription.html#unsubscribe) method on
-the object returned by the [Client#subscribe](/api-docs/latest/classes/Client.html#subscribe) method.
+To stop receiving messages, call [unsubscribe](/api-docs/latest/classes/StompSubscription.html#unsubscribe) on the object returned by [Client#subscribe](/api-docs/latest/classes/Client.html#subscribe).
 
 ```javascript
-const subscription = client.subscribe('queue/test', onmessage);
+const subscription = client.subscribe('/queue/test', onmessage);
 
 // ... use the subscription ...
 
@@ -201,9 +184,7 @@ subscription.unsubscribe();
 
 ### Prepare your broker
 
-Not every broker will support binary messages out of the box.
-For example, RabbitMQ (see: https://www.rabbitmq.com/web-stomp.html) will need the following to be added to the server
-configuration:
+Not every broker supports binary messages out of the box. For example, RabbitMQ (see: https://www.rabbitmq.com/web-stomp.html) requires the following server configuration:
 
 ```
 web_stomp.ws_frame = binary
@@ -211,20 +192,15 @@ web_stomp.ws_frame = binary
 
 ### Publishing binary messages
 
-Use parameter `binaryBody` of [Client#publish](/api-docs/latest/classes/Client.html#publish) to send binary data of a
-type [Uint8Array].
+Use the `binaryBody` parameter of [Client#publish](/api-docs/latest/classes/Client.html#publish) to send binary data of type [Uint8Array].
 
 See [Send messages](#send-messages) for an example.
 
 ### Receiving binary messages
 
-The library does not guess whether the incoming datum is text/binary.
-To access the message body as a string, please use [Message#body](/api-docs/latest/interfaces/IFrame.html#body) and to
-access it as binary, please use [Message#binaryBody](/api-docs/latest/interfaces/IFrame.html#binaryBody).
+The library does not infer whether incoming data is text or binary. Use [Message#body](/api-docs/latest/interfaces/IFrame.html#body) to access the body as a string, or [Message#binaryBody](/api-docs/latest/interfaces/IFrame.html#binaryBody) to access it as binary.
 
-There is no generally accepted convention in STOMP (actually messaging in general) to indicate binary messages.
-Therefore, the message senders and receivers must agree on the required convention. For example, you may choose to set a
-`content-type` header to indicate a binary message.
+There is no generally accepted convention in STOMP (or messaging in general) to indicate binary messages. Producers and consumers should agree on a convention—for example, set a `content-type` header to indicate a binary payload.
 
 ```javascript
 // within message callback
@@ -239,8 +215,7 @@ if (message.headers['content-type'] === 'application/octet-stream') {
 
 ## JSON support
 
-The body of a STOMP message must be a String or a [Uint8Array]. If you want to send and receive [JSON](http://json.org/)
-objects, you can use `JSON.stringify()` and`JSON.parse()` to transform the JSON object to a String and vice versa.
+The body of a STOMP message must be a String or a [Uint8Array]. To send and receive [JSON](http://json.org/), use `JSON.stringify()` and `JSON.parse()` to convert between objects and strings.
 
 ```javascript
 const quote = {symbol: 'AAPL', value: 195.46};
@@ -257,13 +232,11 @@ client.subscribe('/topic/stocks', function (message) {
 
 ## Acknowledgment
 
-By default, the server will automatically acknowledge STOMP messages before the message is delivered to the client.
+By default, the server automatically acknowledges STOMP messages before delivering them to the client.
 
-Instead, the client can choose to handle message acknowledgment by subscribing to a destination with the `ack` header
-set to `client` or `client-individual`.
+Alternatively, the client can handle acknowledgments by subscribing with the `ack` header set to `client` or `client-individual`.
 
-In that case, the client must use the [Message#ack](/api-docs/latest/interfaces/IMessage.html#ack) method to inform the
-broker that it has processed the message.
+In that case, call [Message#ack](/api-docs/latest/interfaces/IMessage.html#ack) to inform the broker that the message has been processed.
 
 ```javascript
 const subscription = client.subscribe(
@@ -278,8 +251,7 @@ const subscription = client.subscribe(
 );
 ```
 
-The [Message#ack](/api-docs/latest/interfaces/IMessage.html#ack) method accepts `headers` argument for additional
-headers. For example, to acknowledge a message as part of a transaction and request a receipt:
+[Message#ack](/api-docs/latest/interfaces/IMessage.html#ack) accepts an optional `headers` object. For example, to acknowledge within a transaction and request a receipt:
 
 ```javascript
 const tx = client.begin();
@@ -287,24 +259,20 @@ message.ack({transaction: tx.id, receipt: 'my-receipt'});
 tx.commit();
 ```
 
-The client should [Message#nack](/api-docs/latest/interfaces/IMessage.html#nack) to inform STOMP 1.1 or higher brokers
-that the client did not consume the message. It takes the same arguments as
-the [Message#ack](/api-docs/latest/interfaces/IMessage.html#ack) method.
+Use [Message#nack](/api-docs/latest/interfaces/IMessage.html#nack) with STOMP 1.1+ brokers to indicate that the client did not consume the message. It takes the same arguments as [Message#ack](/api-docs/latest/interfaces/IMessage.html#ack).
 
 ## Transactions
 
-Messages can be sent and acknowledged _in a transaction_.
+Messages can be sent and acknowledged within a transaction.
 
-The client starts a transaction using the [Client#begin](/api-docs/latest/classes/Client.html#begin) method, which takes
-an optional `transaction_id`.
+Start a transaction using [Client#begin](/api-docs/latest/classes/Client.html#begin), which takes an optional `transaction_id`.
 
-This method returns an object with an `id` attribute corresponding to the transaction ID and two methods:
+This returns an object with an `id` (the transaction ID) and two methods:
 
-- [Client#commit](/api-docs/latest/classes/Client.html#commit) to commit the transaction, and,
-- [Client#abort](/api-docs/latest/classes/Client.html#abort) to abort the transaction.
+- [Client#commit](/api-docs/latest/classes/Client.html#commit) to commit the transaction
+- [Client#abort](/api-docs/latest/classes/Client.html#abort) to abort the transaction
 
-The client can then send and acknowledge messages in the transaction by specifying a `transaction` indetified by the
-transaction `id`.
+You can then send and acknowledge messages in the transaction by specifying a `transaction` identified by that `id`.
 
 ```javascript
 // start the transaction
@@ -319,9 +287,7 @@ client.publish({
 tx.commit();
 ```
 
-_If you forget to add the `transaction` header when
-calling [Client#publish](/api-docs/latest/classes/Client.html#publish), the message will not be part of the transaction,
-and it will be sent directly without waiting for the completion of the transaction._
+_If you forget to add the `transaction` header when calling [Client#publish](/api-docs/latest/classes/Client.html#publish), the message will not be part of the transaction and will be sent immediately._
 
 ```javascript
 // start the transaction
@@ -336,29 +302,23 @@ tx.abort(); // Too late! the message has been sent
 
 ## Heart-beating
 
-For a connection with STOMP protocol 1.1 or higher, heart-beating is enabled by default.
-Options [Client#heartbeatIncoming](/api-docs/latest/classes/Client.html#heartbeatIncoming)
-and [Client#heartbeatOutgoing](/api-docs/latest/classes/Client.html#heartbeatOutgoing) can be used to control
-heart-beating (default value for both is 10,000ms). The client can disable heart beating by setting these to 0.
+For STOMP 1.1 or higher, heart-beating is enabled by default. Options [Client#heartbeatIncoming](/api-docs/latest/classes/Client.html#heartbeatIncoming) and [Client#heartbeatOutgoing](/api-docs/latest/classes/Client.html#heartbeatOutgoing) control heart-beating (default 10,000 ms). Set either to 0 to disable.
 
 ```javascript
 client.heartbeatOutgoing = 20000; // client will send heartbeats every 20000ms
-client.heartbeatIncoming = 0; // client does not want to receive heartbeats
-// from the server
+client.heartbeatIncoming = 0; // client does not want to receive heartbeats from the server
 ```
 
 ## Auto Reconnect
 
-The `client` supports automatic reconnecting in case of a connection failure. It is controlled by a
-option [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay). The default value is 5000ms, which
-indicates that an attempt to connect will be made 5000ms after a connection drop.
+The client supports automatic reconnection after a connection failure. It is controlled by the [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay) option. The default is 5000 ms, meaning the client will attempt to reconnect 5 seconds after a drop.
 
 ```javascript
 // Add the following if you need automatic reconnect (delay is in milliseconds)
 client.reconnectDelay = 300;
 ```
 
-You can set the `reconnectDelay` to quite a small value.
+You can set `reconnectDelay` to a small value.
 
 **Reconnect with Exponential Backoff**
 
@@ -366,16 +326,15 @@ You can set the `reconnectDelay` to quite a small value.
 client.configure({
   reconnectTimeMode: StompJs.ReconnectionTimeMode.EXPONENTIAL,
   reconnectDelay: 200, // It will wait 200, 400, 800 ms...
-  maxReconnectDelay: 10000, // Optional, when provided, it will not wait more that these ms
+  maxReconnectDelay: 10000, // Optional: when provided, it will not wait more than this
 })
 ```
 
 ## Debug
 
-On a busy system, the volume of logs can be overwhelming. Therefore, by default, the debug messages are ignored.
+On a busy system, the volume of logs can be overwhelming. Therefore, debug messages are ignored by default.
 
-[Client#debug](/api-docs/latest/classes/Client.html#debug) property can be set to a function (which will receive a
-`String` argument) to enable debug statements:
+Set the [Client#debug](/api-docs/latest/classes/Client.html#debug) property to a function (receives a `String`) to enable debug logging:
 
 ```javascript
 client.debug = function (str) {
@@ -383,61 +342,38 @@ client.debug = function (str) {
 };
 ```
 
-Usually, headers of the incoming and outgoing frames are logged.
-Set [Client#logRawCommunication](/api-docs/latest/classes/Client.html#logRawCommunication) to log entire frames.
+Usually, headers of incoming and outgoing frames are logged. Set [Client#logRawCommunication](/api-docs/latest/classes/Client.html#logRawCommunication) to log complete frames.
 
 ## Callbacks
 
 ### Lifecycle callbacks
 
-- [Client#beforeConnect](/api-docs/latest/classes/Client.html#beforeConnect) - invoked each time before connection to
-  STOMP broker is attempted. You can modify connection parameters and other callbacks. On v6+ you can set an async
-  function for this callback.
-- [Client#onConnect](/api-docs/latest/classes/Client.html#onConnect) - invoked for each time STOMP broker connects and
-  STOMP handshake is complete.
-- [Client#onDisconnect](/api-docs/latest/classes/Client.html#onDisconnect) - invoked after each graceful disconnection.
-  If the connection breaks because of an error or network failure, it will not be called.
-- [Client#onStompError](/api-docs/latest/classes/Client.html#onStompError) - invoked when the broker reports an Error.
-- [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose) - when the WebSocket closes. It is
-  the most reliable way of knowing that the connection has terminated.
+- [Client#beforeConnect](/api-docs/latest/classes/Client.html#beforeConnect) — invoked each time before connecting to the STOMP broker. You can modify connection parameters and other callbacks. On v6+, this callback may be async.
+- [Client#onConnect](/api-docs/latest/classes/Client.html#onConnect) — invoked each time the broker connects and the STOMP handshake completes.
+- [Client#onDisconnect](/api-docs/latest/classes/Client.html#onDisconnect) — invoked after each graceful disconnection. If the connection breaks due to an error or network failure, it is not called.
+- [Client#onStompError](/api-docs/latest/classes/Client.html#onStompError) — invoked when the broker reports an error.
+- [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose) — invoked when the WebSocket closes. This is the most reliable way to detect that the connection terminated.
 
 ### Frame callbacks
 
-- [Client#onUnhandledMessage](/api-docs/latest/classes/Client.html#onUnhandledMessage) - typically brokers will send
-  messages corresponding to subscriptions. However, brokers may support concepts beyond the standard definition of
-  STOMP - for example, RabbitMQ supports concepts of temporary queues. This callback will be invoked if any message is
-  received that is not linked to a subscription.
-- [Client#onUnhandledReceipt](/api-docs/latest/classes/Client.html#onUnhandledReceipt) - you should
-  prefer [Client#watchForReceipt](/api-docs/latest/classes/Client.html#watchForReceipt). If there is any incoming
-  receipt for which there is no active watcher, this callback will be invoked.
-- [Client#onUnhandledFrame](/api-docs/latest/classes/Client.html#onUnhandledFrame) - it will be invoked if broker sends
-  a non standard STOMP Frame.
+- [Client#onUnhandledMessage](/api-docs/latest/classes/Client.html#onUnhandledMessage) — typically, brokers send messages corresponding to subscriptions. However, some brokers support concepts beyond standard STOMP (for example, RabbitMQ temporary queues). This callback is invoked if a message is received that is not linked to a subscription.
+- [Client#onUnhandledReceipt](/api-docs/latest/classes/Client.html#onUnhandledReceipt) — prefer [Client#watchForReceipt](/api-docs/latest/classes/Client.html#watchForReceipt). If a receipt arrives with no active watcher, this callback is invoked.
+- [Client#onUnhandledFrame](/api-docs/latest/classes/Client.html#onUnhandledFrame) — invoked if the broker sends a non-standard STOMP frame.
 
 ## Advanced notes
 
-Version 5+ of this library has taken significant variation from the previous syntax.
+Version 5+ of this library differs significantly from earlier versions.
 
-It is possible to alter configuration options and callbacks. New values will take effect as soon as possible. For
-example:
+You can change configuration options and callbacks at runtime. New values take effect as soon as possible. For example:
 
-- Altered values of [Client#onUnhandledMessage](/api-docs/latest/classes/Client.html#onUnhandledMessage)
-  or [Client#onDisconnect](/api-docs/latest/classes/Client.html#onDisconnect) will be effective immediately.
-- New values of [Client#heartbeatIncoming](/api-docs/latest/classes/Client.html#heartbeatIncoming)
-  and [Client#heartbeatOutgoing](/api-docs/latest/classes/Client.html#heartbeatOutgoing) will be used next time STOMP
-  connects.
+- Updated values of [Client#onUnhandledMessage](/api-docs/latest/classes/Client.html#onUnhandledMessage) or [Client#onDisconnect](/api-docs/latest/classes/Client.html#onDisconnect) are effective immediately.
+- New values of [Client#heartbeatIncoming](/api-docs/latest/classes/Client.html#heartbeatIncoming) and [Client#heartbeatOutgoing](/api-docs/latest/classes/Client.html#heartbeatOutgoing) are used on the next STOMP connect.
 
-The callback sequences are arranged in a way that most expected operations should work. For example, it is possible to
-call [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate)
-within [Client#onStompError](/api-docs/latest/classes/Client.html#onStompError)
-or [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose).
+Callback sequences are designed so that common operations work as expected. For example, you can call [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate) within [Client#onStompError](/api-docs/latest/classes/Client.html#onStompError) or [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose).
 
-The above also allows adjusting [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay)
-in [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose). You can implement exponential
-back-off using a series of such adjustments.
+You can also adjust [Client#reconnectDelay](/api-docs/latest/classes/Client.html#reconnectDelay) in [Client#onWebSocketClose](/api-docs/latest/classes/Client.html#onWebSocketClose) to implement exponential backoff by progressively increasing the delay.
 
-Even [Client#brokerURL](/api-docs/latest/classes/Client.html#brokerURL)
-or [Client#connectHeaders](/api-docs/latest/classes/Client.html#connectHeaders) can be altered which would get used in a
-subsequent reconnect.
+Even [Client#brokerURL](/api-docs/latest/classes/Client.html#brokerURL) and [Client#connectHeaders](/api-docs/latest/classes/Client.html#connectHeaders) can be altered; the new values will be used on the next reconnect.
 
 [Polyfills]: {% link _posts/2018-06-28-polyfills-for-stompjs.md %}
 [Uint8Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array
