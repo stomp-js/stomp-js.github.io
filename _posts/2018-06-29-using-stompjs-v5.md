@@ -19,7 +19,7 @@ Ensure your STOMP broker supports STOMP over WebSockets. While some brokers supp
 
 ## Include stompjs
 
-This npm package provides both a UMD build and ES modules. Web browsers can use the UMD build via a script tag, and Node.js (CommonJS `require`) and ES `import` will resolve to the appropriate builds.
+This npm package provides both a UMD build and ES modules. Web browsers can use the UMD build via a script tag. In Node.js, use ES module imports; CommonJS `require` is not supported.
 
 ### Polyfills
 
@@ -29,8 +29,8 @@ _Important: For Node.js and React Native, please check [Polyfills]._
 
 - Download and include directly from the `bundles/` folder.
 - Or use a CDN:
-  - Minified: [https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.min.js)
-  - Unminified: [https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@5.0.0/bundles/stomp.umd.js)
+  - Minified: [https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.0/bundles/stomp.umd.min.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.0/bundles/stomp.umd.js)
+  - Unminified: [https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.0/bundles/stomp.umd.js](https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.2.0/bundles/stomp.umd.js)
 - A global `StompJs` object will now be available. Read on to learn how to use it.
 
 ### In Node.js, TypeScript, or ES6
@@ -63,6 +63,8 @@ You can also pass them as key–value pairs to the [Client constructor](/api-doc
 ## Create a STOMP client
 
 STOMP JavaScript clients communicate with a STOMP server using a `ws://` or `wss://` URL.
+
+The example below shows how to use this library when included via a script tag. When included via an ES module, no need to prefix the class names with `StompJs.`. It will be `const client = new Client();`.
 
 ```javascript
 const client = new StompJs.Client({
