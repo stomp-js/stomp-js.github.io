@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 'Upgrading StompJs'
-date: 2018-09-08 17:04:43 +0530
+date: 2025-09-16 17:04:43 +0530
 categories: guide stompjs
 toc: true
 redirect_from:

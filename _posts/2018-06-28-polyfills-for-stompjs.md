@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 'StompJs v5+, RxStomp: Polyfills'
-date: 2018-06-29 07:59:22 +0530
+date: 2025-09-16 09:59:22 +0530
 categories: guide stompjs rx-stomp
 toc: true
 redirect_from:
