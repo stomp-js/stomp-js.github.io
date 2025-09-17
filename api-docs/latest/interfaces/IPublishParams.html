@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.1.0, rx-stomp@2.0.1</title>
+        <title>stompjs@7.2.0, rx-stomp@2.0.1</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.1.0, rx-stomp@2.0.1</a>
+            <a href="../" class="navbar-brand">stompjs@7.2.0, rx-stomp@2.0.1</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -386,6 +386,13 @@ export type messageCallbackType &#x3D; (message: IMessage) &#x3D;&gt; void;
 export type frameCallbackType &#x3D; ((frame: IFrame) &#x3D;&gt; void) | (() &#x3D;&gt; void);
 
 /**
+ * This callback is an &quot;Event&quot; only callback, no parameters provided.
+ *
+ * Part of &#x60;@stomp/stompjs&#x60;.
+ */
+export type emptyCallbackType &#x3D; () &#x3D;&gt; void;
+
+/**
  * This callback will receive a [CloseEvent]{@link https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent}
  * as parameter.
  *
@@ -474,7 +481,7 @@ export interface IStompSocket {
   url: string;
   onclose: ((ev?: any) &#x3D;&gt; any) | undefined | null;
   onerror: ((ev: any) &#x3D;&gt; any) | undefined | null;
-  onmessage: ((ev: IStompSocketMessageEvent) &#x3D;&gt; any) | undefined | null;
+  onmessage: ((ev: any) &#x3D;&gt; any) | undefined | null;
   onopen: ((ev?: any) &#x3D;&gt; any) | undefined | null;
   terminate?: (() &#x3D;&gt; any) | undefined | null;
 
@@ -496,7 +503,7 @@ export interface IStompSocket {
   /**
    * Transmits data using the connection. data can be a string or an ArrayBuffer.
    */
-  send(data: string | ArrayBuffer): void;
+  send(data: string | ArrayBufferLike | Blob | ArrayBufferView): void;
 }
 
 /**
@@ -523,7 +530,7 @@ export enum ActivationState {
  */
 export enum ReconnectionTimeMode {
   LINEAR,
-  EXPONENTIAL
+  EXPONENTIAL,
 }
 
 /**
@@ -531,7 +538,7 @@ export enum ReconnectionTimeMode {
  */
 export enum TickerStrategy {
   Interval &#x3D; &#x27;interval&#x27;,
-  Worker &#x3D; &#x27;worker&#x27;
+  Worker &#x3D; &#x27;worker&#x27;,
 }
 
 /**
@@ -543,6 +550,7 @@ export interface IStomptHandlerConfig {
   connectHeaders: StompHeaders;
   disconnectHeaders: StompHeaders;
   heartbeatIncoming: number;
+  heartbeatGracePeriods: number;
   heartbeatOutgoing: number;
   heartbeatStrategy: TickerStrategy;
   splitLargeFrames: boolean;
@@ -559,6 +567,8 @@ export interface IStomptHandlerConfig {
   onUnhandledMessage: messageCallbackType;
   onUnhandledReceipt: frameCallbackType;
   onUnhandledFrame: frameCallbackType;
+  onHeartbeatReceived: emptyCallbackType;
+  onHeartbeatLost: emptyCallbackType;
 }
 </code></pre>
     </div>

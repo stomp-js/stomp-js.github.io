@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.1.0, rx-stomp@2.0.1</title>
+        <title>stompjs@7.2.0, rx-stomp@2.0.1</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.1.0, rx-stomp@2.0.1</a>
+            <a href="../" class="navbar-brand">stompjs@7.2.0, rx-stomp@2.0.1</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -318,8 +318,8 @@ export class Ticker {
   constructor(
     private readonly _interval: number,
     private readonly _strategy &#x3D; TickerStrategy.Interval,
-    private readonly _debug: debugFnType) {
-  }
+    private readonly _debug: debugFnType,
+  ) {}
 
   public start(tick: (elapsedTime: number) &#x3D;&gt; void): void {
     this.stop();
@@ -337,7 +337,9 @@ export class Ticker {
   }
 
   private shouldUseWorker(): boolean {
-    return typeof(Worker) !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; this._strategy &#x3D;&#x3D;&#x3D; TickerStrategy.Worker
+    return (
+      typeof Worker !&#x3D;&#x3D; &#x27;undefined&#x27; &amp;&amp; this._strategy &#x3D;&#x3D;&#x3D; TickerStrategy.Worker
+    );
   }
 
   private runWorker(tick: (elapsedTime: number) &#x3D;&gt; void): void {
@@ -345,10 +347,10 @@ export class Ticker {
     if (!this._worker) {
       this._worker &#x3D; new Worker(
         URL.createObjectURL(
-          new Blob([this._workerScript], { type: &#x27;text/javascript&#x27; })
-        )
+          new Blob([this._workerScript], { type: &#x27;text/javascript&#x27; }),
+        ),
       );
-      this._worker.onmessage &#x3D; (message) &#x3D;&gt; tick(message.data);
+      this._worker.onmessage &#x3D; message &#x3D;&gt; tick(message.data);
     }
   }
 
