@@ -6,10 +6,8 @@ priority: ACC
 
 Yes.
 
-From 2023, these libraries are distributed as Javascript modules as default.
-These can be used with `import`.
+These libraries are distributed as JavaScript ES Modules by default and can be imported with `import`.
 
-All these libraries have been developed in TypeScript and type definition
-files are included in releases.
+All libraries are developed in TypeScript and include type definitions.
 
-In addition, a UMD bundle is included to be used as a html script tag.
+A UMD bundle is also provided for direct use via a `<script>` tag in browsers.

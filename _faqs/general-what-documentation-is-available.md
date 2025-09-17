@@ -5,6 +5,6 @@ priority: AAC
 ---
 
 - Comprehensive [API documentation](/api-docs/latest/).
-- Several [guides](/).
-- [Samples](https://github.com/stomp-js/samples/) for `@stomp/stompjs` and `@stompjs/rx-stomp`.
-- [Sample](https://github.com/stomp-js/rx-stomp-angular) for using `@stompjs/rx-stomp` with Angular.
+- Guides on the website home page.
+- [Samples](https://github.com/stomp-js/samples/) for `@stomp/stompjs` and `@stomp/rx-stomp`.
+- [Angular sample](https://github.com/stomp-js/rx-stomp-angular) for `@stomp/rx-stomp` with Angular.

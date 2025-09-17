@@ -4,8 +4,7 @@ group: General
 priority: AGA
 ---
 
-Please see [enabling debug log](/guide/stompjs/using-stompjs-v5.html#debug).
+See the Debug section in the guide: {% link _posts/2018-06-29-using-stompjs-v5.md %}#debug
 
-The console debug output may have NULL characters, which will prevent it from copying and pasting
-into a GitHub issue.
-In such cases, save it as a text file and attach with the issue.
+The console debug output may contain NULL characters, which can break copy/paste into an issue.
+If that happens, save the output to a text file and attach it to the issue.

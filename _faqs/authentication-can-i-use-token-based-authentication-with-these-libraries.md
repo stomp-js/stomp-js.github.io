@@ -4,25 +4,13 @@ group: Authentication
 priority: GAA
 ---
 
-Even though [WebSocket](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
-is somewhat similar to HTTP(S), it differs in one very important aspect — it
-does not allow control of headers.
+While WebSocket is initiated via HTTP(S), custom headers cannot be set during the handshake.
 
-This poses a limitation on using token-based authentication schemes using HTTP headers.
-
-Conventional brokers do not expect any authentication information as part of
-HTTP headers or HTTP connection parameters.
-These instead rely on STOMP protocol's
-[CONNECT Frame](https://stomp.github.io/stomp-specification-1.2.html#CONNECT_or_STOMP_Frame).
-This frame can have headers as key/value pairs.
-You can control these by setting
-[connectHeaders](https://stomp-js.github.io/api-docs/latest/classes/Client.html#connectHeaders)
-configuration option.
-You can pass any pair of strings as keys and values.
-
-So, typically, for token-based authentication you will pass the token as part of
+STOMP brokers typically expect authentication in the STOMP
+[CONNECT frame](https://stomp.github.io/stomp-specification-1.2.html#CONNECT_or_STOMP_Frame)
+via headers. You can supply arbitrary key/value pairs using
 [connectHeaders](https://stomp-js.github.io/api-docs/latest/classes/Client.html#connectHeaders).
-Check your broker documentation for details.
 
-If you are using Spring, please check
-[https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#websocket-stomp-authentication-token-based](https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#websocket-stomp-authentication-token-based)
+For token-based authentication, include your token in `connectHeaders` as required by your broker.
+If using Spring, see:
+https://docs.spring.io/spring-framework/reference/web/websocket/stomp/authentication.html#websocket-stomp-authentication-token-based

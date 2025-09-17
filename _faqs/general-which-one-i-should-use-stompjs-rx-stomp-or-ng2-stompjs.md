@@ -4,22 +4,16 @@ group: General
 priority: ACA
 ---
 
-`stompjs` is the underlying core library, usable almost everywhere.
+`stompjs` is the core library.
 
-`rx-stomp` exposes functionality as [RxJS] primitives.
-If you are already using RxJS in your project or are familiar with it, please consider using `rx-stomp`.
+`rx-stomp` exposes functionality as [RxJS] primitives. If you already use RxJS or prefer reactive
+streams, consider `rx-stomp`.
 
-Other than syntactical differences,
-these two variants have a very important difference.
-In `stompjs`, the [client] must only be used within the [onConnect] callback.
-Using it outside may produce strange errors.
-The `rx-stomp` does not suffer from this limitation.
+A key difference: with `stompjs`, use the [client] primarily inside the [onConnect] callback;
+using it outside can lead to races. `rx-stomp` avoids this limitation.
 
-So, as a rule of thumb, if your application needs to use the [client] object
-outside the [onConnect] callback, use `rx-stomp`.
-
-When using with Angular, `rx-stomp` seems natual as 
-Angular relies heavily on [RxJS].
+Rule of thumb: if you need to interact with the client outside the connect lifecycle,
+prefer `rx-stomp`. With Angular (which relies heavily on RxJS), `rx-stomp` feels natural.
 
 
 [RxJS]: https://github.com/ReactiveX/RxJS

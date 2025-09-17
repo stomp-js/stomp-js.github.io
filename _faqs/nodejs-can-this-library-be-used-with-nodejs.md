@@ -4,12 +4,10 @@ group: NodeJS
 priority: GAA
 ---
 
-Yes, NodeJS is supported using WebSockets as the communication mechanism.
-Please see [NodeJS topic in using StompJS guide](/guide/stompjs/using-stompjs-v5.html#in-nodejs).
-In addition, check the needed [PolyFills](/guide/stompjs/rx-stomp/polyfills-for-stompjs.html).
+Yes. Node.js is supported using WebSockets as the transport.
+See the guide: {% link _posts/2018-06-29-using-stompjs-v5.md %}
 
-While this library can be used with NodeJS, if your broker supports,
-you should consider
-[AMQP](https://www.amqp.org/) or
-[MQTT](http://mqtt.org/).
-These protocols are likely to give more flexibility than STOMP.
+Also ensure required polyfills are present: {% link _posts/2018-06-28-polyfills-for-stompjs.md %}
+
+If your broker supports them, you may also consider broker-native protocols like
+[AMQP](https://www.amqp.org/) or [MQTT](http://mqtt.org/).

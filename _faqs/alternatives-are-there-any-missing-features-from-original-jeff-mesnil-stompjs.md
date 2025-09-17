@@ -4,11 +4,11 @@ group: Jeff Mesnil's stompjs
 priority: ZAE
 ---
 
-Jeff Mesnil's stompjs supports STOMP over TCP when used in the NodeJS environment.
-Other than this, there is no known missing functionality.
-If you intend to use this feature, please raise an issue.
+The original `stompjs` offered STOMP over TCP in Node.js.
+`@stomp/stompjs` focuses on STOMP over WebSocket (WebStomp), which is supported by most brokers.
 
-Jeff Mesnil's stompjs is not fully compliant to STOMP protocol.
-The `@stomp/stompjs` strictly adheres the protocol.
-This might, in some cases, give behavioral differences.
-If you are facing any such issues, please raise an issue.
+`@stomp/stompjs` adheres more strictly to the STOMP specification than the original library,
+so behavior may differ in edge cases. If you hit issues, please raise an issue.
+
+If you specifically need STOMP over TCP in Node.js, consider using the TCP Wrapper:
+https://github.com/stomp-js/tcp-wrapper

@@ -6,6 +6,5 @@ priority: ADK
 
 Yes.
 
-These libraries include ES6 modules in the distribution,
-so, any environment that uses `import` will be able to find modules
-without any additional configuration.
+The packages ship ES modules compatible with modern bundlers (e.g., Vite, Rollup, Webpack, Parcel).
+Tree-shaking works well when you import the specific symbols you need.

@@ -5,14 +5,9 @@ priority: ZAA
 ---
 
 [stompjs](https://www.npmjs.com/package/stompjs)
-from [Jeff Mesnil](http://jmesnil.net/) has been one of the initial
-STOMP implementations for JavaScript.
-However, the original author has no longer been maintaining it since 2016.
-`@stomp/stompjs` started as a maintained fork.
+from [Jeff Mesnil](http://jmesnil.net/) was one of the first STOMP implementations for JavaScript.
+It has not been maintained since 2016. `@stomp/stompjs` started as a maintained fork.
 
-`@stomp/stompjs` v4 is an enhanced version of
-[stompjs](https://www.npmjs.com/package/stompjs)
-from [Jeff Mesnil](http://jmesnil.net/).
-
-Version 5 of `@stomp/stompjs` has been bottom up rewritten in TypeScript.
-This version supports the older API in compatibility mode.
+`@stomp/stompjs` v4 enhanced the original API and remained compatible.
+From v5 onward, `@stomp/stompjs` was rewritten in TypeScript and offers a modern API while
+retaining a compatibility mode.

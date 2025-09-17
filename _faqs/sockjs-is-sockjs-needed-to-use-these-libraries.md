@@ -4,8 +4,9 @@ group: SockJS
 priority: EAA
 ---
 
-No SockJS is not mandatory to use this library.
+No. SockJS is optional.
 
-SockJS, however, is supported.
-Please see
-[using StompJS with SockJS](/guide/stompjs/rx-stomp/using-stomp-with-sockjs.html).
+Prefer native WebSockets by default. Use SockJS only to support environments without WebSocket,
+or when your deployment requires HTTP-only transport.
+
+See: {% link _posts/2018-09-10-using-stomp-with-sockjs.md %}

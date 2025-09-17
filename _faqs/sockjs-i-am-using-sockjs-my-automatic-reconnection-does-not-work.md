@@ -4,11 +4,9 @@ group: SockJS
 priority: EAC
 ---
 
-You need to pass a factory that returns a SockJS instance.
+Pass a `webSocketFactory` that creates a new SockJS instance for each (re)connect.
 
-Please see
-[Using STOMP with SockJS](/guide/stompjs/rx-stomp/using-stomp-with-sockjs.html)
-if you are using recent versions of these libraries.
+See: {% link _posts/2018-09-10-using-stomp-with-sockjs.md %}
 
-If you are using `Stomp.over` compatibility mode (or older version), please refer to
+If you are using the legacy `Stomp.over` compatibility API, refer to
 [Stomp.over API docs](/api-docs/latest/classes/Stomp.html#over).

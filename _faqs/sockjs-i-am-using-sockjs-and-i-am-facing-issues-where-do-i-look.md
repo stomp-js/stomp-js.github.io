@@ -4,5 +4,4 @@ group: SockJS
 priority: EAE
 ---
 
-Several topics related to SockJS have been compiled at
-[Using STOMP with SockJS](/guide/stompjs/rx-stomp/using-stomp-with-sockjs.html).
+See the guide: {% link _posts/2018-09-10-using-stomp-with-sockjs.md %}

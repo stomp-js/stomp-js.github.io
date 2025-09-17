@@ -1,23 +1,18 @@
 ---
-question: 'What are Heartbeats? Should I bother?'
+question: 'What are heartbeats? Should I bother?'
 group: General
 priority: AEA
 ---
 
-Most STOMP 1.1+ brokers will support heart beats.
-These can be from the broker to the client (incoming)
-or the client to the broker (outgoing).
-When enabled, periodic heartbeats are sent.
-If heartbeats are not received within specified time (along with some grace time),
-the connection is assumed to be stale and will be terminated.
+Most STOMP 1.1+ brokers support heartbeats — periodic pings either
+from the broker to the client (incoming) or the client to the broker (outgoing).
+If heartbeats are not received within a configured time (plus grace), the connection is considered stale and closed.
 
-SockJS may not support heart beats.
-See [using STOMP with SockJS](/guide/stompjs/rx-stomp/using-stomp-with-sockjs.html).
+SockJS may not support heartbeats with some brokers.
+See {% link _posts/2018-09-10-using-stomp-with-sockjs.md %}.
 
-Whether you should use heart beats is a complex decision.
-If you use it, a stale connection will be detected sooner.
-However, it also means packets (actually a one-byte payload) will keep getting sent/received even when
-there is no application traffic.
+Whether you should enable heartbeats depends on your needs:
+- Pro: stale connections are detected sooner.
+- Con: small packets continue even when there is no app traffic.
 
-Please see the [Heart Beats](/guide/stompjs/using-stompjs-v5.html#heart-beating)
-topic for usage details.
+See the Heart-beating section for usage details: {% link _posts/2018-06-29-using-stompjs-v5.md %}#heart-beating

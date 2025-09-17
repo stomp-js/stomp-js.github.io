@@ -4,12 +4,9 @@ group: Authentication
 priority: GAC
 ---
 
-The suggested place to acquire fresh tokens is
-[beforeConnect](https://stomp-js.github.io/api-docs/latest/classes/Client.html#beforeConnect)
-callback.
-You can update the
+Use the [beforeConnect](https://stomp-js.github.io/api-docs/latest/classes/Client.html#beforeConnect)
+callback to fetch a fresh token and update
 [connectHeaders](https://stomp-js.github.io/api-docs/latest/classes/Client.html#connectHeaders)
-after you have acquired a fresh token.
+just before each (re)connect.
 
-If you need to fetch a token using an async request (say using an XHR),
-you can set an async function as the callback.
+If you need async fetching (e.g., HTTP call), make `beforeConnect` an async function.
