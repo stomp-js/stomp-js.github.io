@@ -12,7 +12,7 @@ redirect_from:
 
 ## Upgrading from version 3/4
 
-_Important: For NodeJS and React Native, please check [Polyfills]._
+_Important: For Node.js and React Native, please check [Polyfills]._
 
 ### Basic changes
 
@@ -24,9 +24,11 @@ The following is for convenience, — to keep the code change to the minimum.
 ```javascript
 // Depending on your JS version you may have to use var instead of const
 
-// To use compatibility mode
+// To use compatibility mode (UMD build via <script>)
 const Stomp = StompJs.Stomp;
 ```
+
+CommonJS `require` is not supported; use ES module imports in Node.js or bundlers.
 
 ### For the lazy: use the compatibility mode
 
@@ -72,7 +74,7 @@ client.connect('user', 'password', function () {
 });
 ```
 
-**Updated**
+**Updated (UMD via <script>)**
 
 ```javascript
 const client = new StompJs.Client({
@@ -96,10 +98,40 @@ client.onConnect = function (frame) {
 client.activate();
 ```
 
+**Updated (ES modules)**
+
+```javascript
+import { Client } from '@stomp/stompjs';
+
+const client = new Client({
+  brokerURL: 'ws://localhost:15674/ws',
+  connectHeaders: {
+    login: 'user',
+    passcode: 'password',
+  },
+  debug: (str) => console.log(str),
+  reconnectDelay: 5000,
+  heartbeatIncoming: 4000,
+  heartbeatOutgoing: 4000,
+});
+
+client.onConnect = () => {
+  // Do something
+};
+
+client.activate();
+```
+
+To disconnect and stop reconnection attempts, call [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate). This method is asynchronous; prefer awaiting it to avoid races:
+
+```javascript
+await client.deactivate();
+```
+
 Please see [StompConfig](/api-docs/latest/classes/StompConfig.html) for all possible options.
 These options can be set onto [client](/api-docs/latest/classes/Client.html).
 Alternatively, these can be passed
-as options to the [Client constructor](/api-docs/latest/classes/Client.html#constructor) constructor,
+as options to the [Client constructor](/api-docs/latest/classes/Client.html#constructor),
 the [Client#activate](/api-docs/latest/classes/Client.html#activate)
 or the [Client#deactivate](/api-docs/latest/classes/Client.html#deactivate) calls.
 If you want to set options in bulk, you can use [Client#configure](/api-docs/latest/classes/Client.html#configure).
@@ -123,7 +155,7 @@ client.send('/topic/general', { priority: '9' }, 'Hello world');
 ```javascript
 client.publish({ destination: '/topic/general', body: 'Hello world' });
 
-// There is an option to skip content length header
+// There is an option to skip content-length header
 client.publish({
   destination: '/topic/general',
   body: 'Hello world',
@@ -190,7 +222,7 @@ Please note:
 Additional notes:
 
 - `Stomp.overWS` is same as `Stomp.client`. Follow the instructions for `Stomp.client` above.
-- `NodeJS` is supported at same level as browser. Test suits are executed for both NodJS and browser.
+- `Node.js` is supported at same level as browser. Test suites are executed for both Node.js and browser.
   Follow the instructions as above.
 - `Stomp.overTCP` is no longer supported by this library. However, you can use [TCP Wrapper](https://github.com/stomp-js/tcp-wrapper).
 - If you are using `SockJS` please also see [SockJS support]
