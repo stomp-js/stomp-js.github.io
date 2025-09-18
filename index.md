@@ -33,7 +33,6 @@ Samples:
 ## Upgrading
 
 - [Migrate ng2-stompjs to rx-stomp] — migrate Angular projects to use [rx-stomp].
-- [Upgrade Guide] — upgrade to the most recent versions of `stompjs` and `rx-stomp`.
 - [Upgrading from old versions] — to update to stompjs@v5 from any of the older versions.
 
 ## Other topics
@@ -60,5 +59,4 @@ Samples:
 [Connection status in ng2-stompjs]: {% link _posts/2018-12-18-connection-status-ng2-stompjs.md %}
 [FAQs]: {% link _posts/2019-05-20-faqs.html %}
 [React Native]: {% link _posts/2019-06-10-react-native-additional-notes.md %}
-[Upgrade Guide]: {% link _posts/2020-10-21-upgrading-to-stompjs-6-rx-stomp-1.md %}
 [Migrate ng2-stompjs to rx-stomp]: {% link _posts/2022-03-03-ng2-stompjs-to-rx-stomp.md %}
