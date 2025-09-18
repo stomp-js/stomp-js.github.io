@@ -33,7 +33,7 @@ Samples:
 ## Upgrading
 
 - [Migrate ng2-stompjs to rx-stomp] — migrate Angular projects to use [rx-stomp].
-- [Upgrading from old versions] — to update to stompjs@v5 from any of the older versions.
+- [Upgrading from old versions] — to upgrade from versions 2, 3, or 4.
 
 ## Other topics
 
