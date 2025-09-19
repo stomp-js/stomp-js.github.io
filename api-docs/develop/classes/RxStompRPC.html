@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.2.0, rx-stomp@2.0.1</title>
+        <title>stompjs@7.2.0, rx-stomp@2.1.0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.2.0, rx-stomp@2.0.1</a>
+            <a href="../" class="navbar-brand">stompjs@7.2.0, rx-stomp@2.1.0</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -71,8 +71,29 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>An implementation of Remote Procedure Call (RPC) using messaging.</p>
-<p>Please see the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a> for details.</p>
+                <p>Remote Procedure Call (RPC) helper over STOMP.</p>
+<p>RxStompRPC implements a simple request/reply pattern using STOMP frames:</p>
+<ul>
+<li>Requests are published to a destination you control.</li>
+<li>A reply destination is advertised via the <code>reply-to</code> header.</li>
+<li>Responses are matched back to the request using a <code>correlation-id</code> header.</li>
+</ul>
+<p>Usage summary</p>
+<ul>
+<li>Use <code>rpc(...)</code> when you expect exactly one reply; it completes after the first matching message.</li>
+<li>Use <code>stream(...)</code> when the server may send multiple messages (e.g., progress updates).</li>
+<li>If you provide a <code>correlation-id</code> in <code>params.headers</code>, it will be used; otherwise a UUID is generated.</li>
+<li>The <code>reply-to</code> header is set automatically to <code>replyQueueName</code> (default <code>/temp-queue/rpc-replies</code>).</li>
+</ul>
+<p>Reply queue strategy</p>
+<ul>
+<li>By default, replies are read from <code>rxStomp.unhandledMessage$</code>, which is suitable when the broker
+routes temporary-queue replies without an explicit subscription.</li>
+<li>To subscribe to a dedicated queue or customize the reply stream, provide <code>{ setupReplyQueue }</code>
+via <a href="../classes/RxStompRPCConfig.html">RxStompRPCConfig</a>. RxStompRPC will keep your observable “hot” internally.</li>
+</ul>
+<p>See the guide for end-to-end examples:
+/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html</p>
 <p>Part of <code>@stomp/rx-stomp</code></p>
 
             </p>
@@ -119,18 +140,25 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(rxStomp: <a href="../classess/RxStomp.html" target="_self">RxStomp</a>, stompRPCConfig?: <a href="../classes/RxStompRPCConfig.html" target="_self">RxStompRPCConfig</a>)</code>
+<code>constructor(rxStomp: <a href="../classess/RxStomp.html" target="_self">RxStomp</a>, stompRPCConfig?: <a href="../classess/RxStompRPCConfig.html" target="_self">RxStompRPCConfig</a>)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:32</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:67</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
-                            <div class="io-description"><p>Create an instance, see the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a> for details.</p>
+                            <div class="io-description"><p>Construct a new RxStompRPC.</p>
+<p>Notes</p>
+<ul>
+<li>If <code>replyQueueName</code> is provided, it is used in the <code>reply-to</code> header for all requests.</li>
+<li>If <code>setupReplyQueue</code> is provided, it must return a hot Observable of all reply messages.
+RxStompRPC will subscribe internally to keep it alive across consumers.</li>
+</ul>
+<p>See the guide for broker-specific considerations.</p>
 </div>
                             <div>
                                     <b>Parameters :</b>
@@ -140,6 +168,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -154,18 +183,33 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>The active <a href="../classes/RxStomp.html">RxStomp</a> instance to use for publishing and receiving.</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>stompRPCConfig</td>
                                                   
                                                         <td>
-                                                                        <code><a href="../classes/RxStompRPCConfig.html" target="_self" >RxStompRPCConfig</a></code>
+                                                                        <code><a href="../classess/RxStompRPCConfig.html" target="_self" >RxStompRPCConfig</a></code>
                                                         </td>
                                                   
                                                     <td>
                                                             Yes
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>Optional hooks to customize reply queue name and setup.</p>
+<p>Notes</p>
+<ul>
+<li>If <code>replyQueueName</code> is provided, it is used in the <code>reply-to</code> header for all requests.</li>
+<li>If <code>setupReplyQueue</code> is provided, it must return a hot Observable of all reply messages.
+RxStompRPC will subscribe internally to keep it alive across consumers.</li>
+</ul>
+<p>See the guide for broker-specific considerations.</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -204,17 +248,22 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="58"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:58</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="107"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:107</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Make an RPC request.
-See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a> for example.</p>
-<p>It is a simple wrapper around <a href="../classes/RxStompRPC.html#stream">RxStompRPC#stream</a>.</p>
+                    <div class="io-description"><p>Perform a unary RPC request that resolves with the first matching reply.</p>
+<p>Behavior</p>
+<ul>
+<li>Sends a single request using <a href="stream">stream</a> and returns an Observable that emits the first
+reply whose <code>correlation-id</code> matches the request.</li>
+<li>The returned Observable completes after emitting the first message.</li>
+</ul>
+<p>Use <a href="stream">stream</a> if you expect multiple replies for a single request.</p>
 </div>
 
                     <div class="io-description">
@@ -279,17 +328,38 @@ See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="134"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:134</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Make an RPC stream request. See the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a>.</p>
-<p>Note: This call internally takes care of generating a correlation id,
-however, if <code>correlation-id</code> is passed via <code>headers</code>, that will be used instead.</p>
+                    <div class="io-description"><p>Perform an RPC request and receive a stream of matching replies.</p>
+<p>How it matches replies</p>
+<ul>
+<li>A <code>correlation-id</code> is attached to the request and used to filter messages
+from the reply stream. If you pass <code>headers[&#39;correlation-id&#39;]</code>, it is preserved;
+otherwise, a UUID is generated.</li>
+</ul>
+<p>Headers set by RxStompRPC</p>
+<ul>
+<li><code>reply-to</code>: set to <a href="_replyQueueName">_replyQueueName</a>.</li>
+<li><code>correlation-id</code>: set or preserved as described above.</li>
+</ul>
+<p>Observability</p>
+<ul>
+<li>The returned Observable is cold with respect to the request; the request is sent
+upon subscription, and the filtered replies are forwarded to the subscriber.</li>
+<li>Unsubscribe to stop receiving further replies for the request; the underlying
+reply-queue subscription remains active and shared.</li>
+</ul>
+<p>When to use</p>
+<ul>
+<li>Use this when the server responds with multiple messages (progress events, partials).</li>
+<li>Prefer <a href="rpc">rpc</a> if exactly one reply is expected.</li>
+</ul>
 </div>
 
                     <div class="io-description">
@@ -355,32 +425,77 @@ import {
 } from &#x27;./rx-stomp-rpc-config.js&#x27;;
 
 /**
- * An implementation of Remote Procedure Call (RPC) using messaging.
+ * Remote Procedure Call (RPC) helper over STOMP.
  *
- * Please see the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for details.
+ * RxStompRPC implements a simple request/reply pattern using STOMP frames:
+ * - Requests are published to a destination you control.
+ * - A reply destination is advertised via the &#x60;reply-to&#x60; header.
+ * - Responses are matched back to the request using a &#x60;correlation-id&#x60; header.
+ *
+ * Usage summary
+ * - Use &#x60;rpc(...)&#x60; when you expect exactly one reply; it completes after the first matching message.
+ * - Use &#x60;stream(...)&#x60; when the server may send multiple messages (e.g., progress updates).
+ * - If you provide a &#x60;correlation-id&#x60; in &#x60;params.headers&#x60;, it will be used; otherwise a UUID is generated.
+ * - The &#x60;reply-to&#x60; header is set automatically to &#x60;replyQueueName&#x60; (default &#x60;/temp-queue/rpc-replies&#x60;).
+ *
+ * Reply queue strategy
+ * - By default, replies are read from &#x60;rxStomp.unhandledMessage$&#x60;, which is suitable when the broker
+ *   routes temporary-queue replies without an explicit subscription.
+ * - To subscribe to a dedicated queue or customize the reply stream, provide &#x60;{ setupReplyQueue }&#x60;
+ *   via {@link RxStompRPCConfig}. RxStompRPC will keep your observable “hot” internally.
+ *
+ * See the guide for end-to-end examples:
+ * /guide/rx-stomp/ng2-stompjs/remote-procedure-call.html
  *
  * Part of &#x60;@stomp/rx-stomp&#x60;
  */
 export class RxStompRPC {
+  /**
+   * Destination used in the &#x60;reply-to&#x60; header for all RPC calls.
+   * You can override it through {@link RxStompRPCConfig.replyQueueName}.
+   */
   private _replyQueueName &#x3D; &#x27;/temp-queue/rpc-replies&#x27;;
 
+  /**
+   * Factory that returns a hot Observable delivering all reply messages.
+   * Defaults to a function that uses &#x60;rxStomp.unhandledMessage$&#x60;.
+   * Override via {@link RxStompRPCConfig.setupReplyQueue}.
+   */
   private _setupReplyQueue: setupReplyQueueFnType &#x3D; () &#x3D;&gt; {
     return this.rxStomp.unhandledMessage$;
   };
 
+  /**
+   * Shared stream of all messages arriving on the reply destination.
+   * Lazily initialized on first call to {@link stream}.
+   */
   private _repliesObservable: Observable&lt;IMessage&gt;;
 
+  /**
+   * True when a custom reply queue setup function is supplied.
+   * In that case, this class keeps a dummy subscription to prevent accidental teardown.
+   */
   private _customReplyQueue: boolean &#x3D; false;
 
   // This is used to ensure that underlying subscription remains subscribed
   private _dummySubscription: Subscription;
 
   /**
-   * Create an instance, see the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for details.
+   * Construct a new RxStompRPC.
+   *
+   * @param rxStomp The active {@link RxStomp} instance to use for publishing and receiving.
+   * @param stompRPCConfig Optional hooks to customize reply queue name and setup.
+   *
+   * Notes
+   * - If &#x60;replyQueueName&#x60; is provided, it is used in the &#x60;reply-to&#x60; header for all requests.
+   * - If &#x60;setupReplyQueue&#x60; is provided, it must return a hot Observable of all reply messages.
+   *   RxStompRPC will subscribe internally to keep it alive across consumers.
+   *
+   * See the guide for broker-specific considerations.
    */
   constructor(
     private rxStomp: RxStomp,
-    private stompRPCConfig?: RxStompRPCConfig
+    private stompRPCConfig?: RxStompRPCConfig,
   ) {
     if (stompRPCConfig) {
       if (stompRPCConfig.replyQueueName) {
@@ -394,10 +509,14 @@ export class RxStompRPC {
   }
 
   /**
-   * Make an RPC request.
-   * See the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html) for example.
+   * Perform a unary RPC request that resolves with the first matching reply.
    *
-   * It is a simple wrapper around [RxStompRPC#stream]{@link RxStompRPC#stream}.
+   * Behavior
+   * - Sends a single request using {@link stream} and returns an Observable that emits the first
+   *   reply whose &#x60;correlation-id&#x60; matches the request.
+   * - The returned Observable completes after emitting the first message.
+   *
+   * Use {@link stream} if you expect multiple replies for a single request.
    */
   public rpc(params: IPublishParams): Observable&lt;IMessage&gt; {
     // We know there will be only one message in reply
@@ -405,10 +524,26 @@ export class RxStompRPC {
   }
 
   /**
-   * Make an RPC stream request. See the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html).
+   * Perform an RPC request and receive a stream of matching replies.
    *
-   * Note: This call internally takes care of generating a correlation id,
-   * however, if &#x60;correlation-id&#x60; is passed via &#x60;headers&#x60;, that will be used instead.
+   * How it matches replies
+   * - A &#x60;correlation-id&#x60; is attached to the request and used to filter messages
+   *   from the reply stream. If you pass &#x60;headers[&#x27;correlation-id&#x27;]&#x60;, it is preserved;
+   *   otherwise, a UUID is generated.
+   *
+   * Headers set by RxStompRPC
+   * - &#x60;reply-to&#x60;: set to {@link _replyQueueName}.
+   * - &#x60;correlation-id&#x60;: set or preserved as described above.
+   *
+   * Observability
+   * - The returned Observable is cold with respect to the request; the request is sent
+   *   upon subscription, and the filtered replies are forwarded to the subscriber.
+   * - Unsubscribe to stop receiving further replies for the request; the underlying
+   *   reply-queue subscription remains active and shared.
+   *
+   * When to use
+   * - Use this when the server responds with multiple messages (progress events, partials).
+   * - Prefer {@link rpc} if exactly one reply is expected.
    */
   public stream(params: IPublishParams): Observable&lt;IMessage&gt; {
     // defensively copy
@@ -417,7 +552,7 @@ export class RxStompRPC {
     if (!this._repliesObservable) {
       const repliesObservable &#x3D; this._setupReplyQueue(
         this._replyQueueName,
-        this.rxStomp
+        this.rxStomp,
       );
 
       // In case of custom queue, ensure it remains subscribed
@@ -437,7 +572,7 @@ export class RxStompRPC {
         .pipe(
           filter((message: IMessage) &#x3D;&gt; {
             return message.headers[&#x27;correlation-id&#x27;] &#x3D;&#x3D;&#x3D; correlationId;
-          })
+          }),
         )
         .subscribe((message: IMessage) &#x3D;&gt; {
           rpcObserver.next(message);
@@ -450,7 +585,7 @@ export class RxStompRPC {
       this.rxStomp.publish({ ...params, headers });
 
       return () &#x3D;&gt; {
-        // Cleanup
+        // Cleanup: stop forwarding matching replies to this observer
         defaultMessagesSubscription.unsubscribe();
       };
     });

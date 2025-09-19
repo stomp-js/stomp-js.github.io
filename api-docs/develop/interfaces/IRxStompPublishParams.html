@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.2.0, rx-stomp@2.0.1</title>
+        <title>stompjs@7.2.0, rx-stomp@2.1.0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.2.0, rx-stomp@2.0.1</a>
+            <a href="../" class="navbar-brand">stompjs@7.2.0, rx-stomp@2.1.0</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -74,7 +74,9 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>Additional options for <a href="../classes/RxStomp.html#publish">RxStomp#publish</a></p>
+                <p>Additional options for <a href="../classes/RxStomp.html#publish">RxStomp#publish</a>.</p>
+<p>These options extend the base STOMP publish parameters with client-side
+behavior that is specific to RxStomp.</p>
 <p>Part of <code>@stomp/rx-stomp</code></p>
 
             </p>
@@ -154,10 +156,16 @@
 
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-description"><p>When set to <code>true</code> message will be enqueued if the connection
-to the broker is down.
-Such messages will be published when connection is reestablished.</p>
-<p>Default is <code>true</code>.</p>
+                                    <div class="io-description"><p>When <code>true</code>, if the client is disconnected at publish time, the message
+is queued locally and will be sent automatically after reconnection.</p>
+<p>Notes:</p>
+<ul>
+<li>Ordering is preserved among queued messages.</li>
+<li>Messages are kept in-memory only; they are not persisted across page reloads.</li>
+<li>If set to <code>false</code>, publish will be attempted immediately and will fail
+if there is no active connection.</li>
+</ul>
+<p>Default: <code>true</code>.</p>
 </div>
                                 </td>
                             </tr>
@@ -171,17 +179,25 @@ Such messages will be published when connection is reestablished.</p>
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IPublishParams } from &#x27;@stomp/stompjs&#x27;;
 
 /**
- * Additional options for [RxStomp#publish]{@link RxStomp#publish}
+ * Additional options for [RxStomp#publish]{@link RxStomp#publish}.
+ *
+ * These options extend the base STOMP publish parameters with client-side
+ * behavior that is specific to RxStomp.
  *
  * Part of &#x60;@stomp/rx-stomp&#x60;
  */
 export interface IRxStompPublishParams extends IPublishParams {
   /**
-   * When set to &#x60;true&#x60; message will be enqueued if the connection
-   * to the broker is down.
-   * Such messages will be published when connection is reestablished.
+   * When &#x60;true&#x60;, if the client is disconnected at publish time, the message
+   * is queued locally and will be sent automatically after reconnection.
    *
-   * Default is &#x60;true&#x60;.
+   * Notes:
+   * - Ordering is preserved among queued messages.
+   * - Messages are kept in-memory only; they are not persisted across page reloads.
+   * - If set to &#x60;false&#x60;, publish will be attempted immediately and will fail
+   *   if there is no active connection.
+   *
+   * Default: &#x60;true&#x60;.
    */
   retryIfDisconnected?: boolean;
 }

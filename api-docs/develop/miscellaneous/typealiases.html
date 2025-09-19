@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.2.0, rx-stomp@2.0.1</title>
+        <title>stompjs@7.2.0, rx-stomp@2.1.0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.2.0, rx-stomp@2.0.1</a>
+            <a href="../" class="navbar-brand">stompjs@7.2.0, rx-stomp@2.1.0</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -323,9 +323,38 @@ as parameter.</p>
             </tr>
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>For examples see the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a>.</p>
-<p>Part of <code>@stomp/rx-stomp</code></p>
-</div>
+                    <div class="io-description"><p>This is a Ninja-level topic.</p>
+<p>A factory function type used to create an Observable for the reply queue.</p>
+<p>Purpose</p>
+<ul>
+<li>RxStompRPC needs an Observable that emits all RPC replies. By default, it uses
+RxStomp.unhandledMessage$, which receives messages that don’t match any explicit subscription.</li>
+<li>Implement this to route replies from a dedicated queue or custom destination if your broker
+requires it.</li>
+</ul>
+<p>Parameters</p>
+<ul>
+<li>replyQueueName: The queue/destination where RPC replies should arrive.</li>
+<li>rxStomp: The active RxStomp instance (use it to set up any subscriptions you need).</li>
+</ul>
+<p>Return</p>
+<ul>
+<li>An Observable that emits every reply (<a href="../interfaces/IMessage.html">IMessage</a>) arriving on the reply queue.</li>
+</ul>
+<p>Notes</p>
+<ul>
+<li>The returned Observable should be “hot” (i.e., continue receiving frames without requiring
+downstream subscribers). If you return a cold Observable, RxStompRPC ensures it remains
+subscribed internally to keep the stream alive.</li>
+<li>The Observable must include all messages for the reply queue; RxStompRPC will filter replies
+per request using the correlation-id header.</li>
+</ul>
+<p>Example: use a dedicated temporary reply queue</p>
+<div><pre class="line-numbers"><code class="language-typescript">const setupReplyQueue: setupReplyQueueFnType = (replyQueueName, rxStomp) =&gt; {
+  // Ensure the broker delivers replies to `replyQueueName` for this session.
+  // Then return a hot Observable of all messages from that destination.
+  return rxStomp.watch({ destination: replyQueueName });
+};</code></pre></div></div>
                 </td>
             </tr>
             <tr>
