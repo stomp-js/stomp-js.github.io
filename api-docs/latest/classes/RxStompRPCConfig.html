@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.2.0, rx-stomp@2.0.1</title>
+        <title>stompjs@7.2.0, rx-stomp@2.1.0</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.2.0, rx-stomp@2.0.1</a>
+            <a href="../" class="navbar-brand">stompjs@7.2.0, rx-stomp@2.1.0</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -71,7 +71,10 @@
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>RPC Config. For examples see the <a href="/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html">guide</a>.</p>
+                <p>This is a Ninja-level topic.</p>
+<p>Configuration and customization hooks for RxStomp RPC reply handling.</p>
+<p>For usage examples, see the guide:
+/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html</p>
 
             </p>
 
@@ -140,14 +143,21 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc-config.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc-config.ts:64</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Name of the reply queue. See the guide for details.
-Default <code>/temp-queue/rpc-replies</code> suitable for RabbitMQ and ActiveMQ.</p>
+                    <div class="io-description"><p>Destination name for the reply queue used by RPC.</p>
+<p>Default: <code>/temp-queue/rpc-replies</code> — suitable for brokers like RabbitMQ and ActiveMQ that
+support temporary or auto-named queues and route replies based on the <code>reply-to</code> header.</p>
+<p>When to customize:</p>
+<ul>
+<li>Your broker requires a different temporary-queue prefix/name.</li>
+<li>You prefer a dedicated, durable, or pre-provisioned reply destination.</li>
+<li>You want to isolate replies per application instance or user.</li>
+</ul>
 </div>
                 </td>
             </tr>
@@ -175,13 +185,27 @@ Default <code>/temp-queue/rpc-replies</code> suitable for RabbitMQ and ActiveMQ.
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc-config.ts:27</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc-config.ts:83</a></div>
                         </td>
                     </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Setup the reply queue. See the guide for details.</p>
+                    <div class="io-description"><p>This is a Ninja-level topic.</p>
+<p>A hook to set up the reply queue and return an Observable of reply messages.</p>
+<p>Defaults to a function that uses RxStomp.unhandledMessage$, which is adequate when the broker
+routes replies (via <code>reply-to</code>) to a temporary queue that doesn’t have an explicit subscription.</p>
+<p>Provide a custom implementation when:</p>
+<ul>
+<li>The broker requires an explicit subscription to the reply destination.</li>
+<li>You want to apply operators (e.g., share, retry) or diagnostics to the reply stream.</li>
+</ul>
+<p>Contract:</p>
+<ul>
+<li>Must return an Observable that emits every reply message (<a href="../interfaces/IMessage.html">IMessage</a>) received on
+the reply destination. RxStompRPC will filter messages by <code>correlation-id</code>.</li>
+<li>The Observable should remain active across reconnects or be resilient to resubscription.</li>
+</ul>
 </div>
                 </td>
             </tr>
@@ -205,26 +229,82 @@ import { Observable } from &#x27;rxjs&#x27;;
 import { RxStomp } from &#x27;./rx-stomp.js&#x27;;
 
 /**
- * For examples see the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html).
+ * This is a Ninja-level topic.
  *
- * Part of &#x60;@stomp/rx-stomp&#x60;
+ * A factory function type used to create an Observable for the reply queue.
+ *
+ * Purpose
+ * - RxStompRPC needs an Observable that emits all RPC replies. By default, it uses
+ *   RxStomp.unhandledMessage$, which receives messages that don’t match any explicit subscription.
+ * - Implement this to route replies from a dedicated queue or custom destination if your broker
+ *   requires it.
+ *
+ * Parameters
+ * - replyQueueName: The queue/destination where RPC replies should arrive.
+ * - rxStomp: The active RxStomp instance (use it to set up any subscriptions you need).
+ *
+ * Return
+ * - An Observable that emits every reply ({@link IMessage}) arriving on the reply queue.
+ *
+ * Notes
+ * - The returned Observable should be “hot” (i.e., continue receiving frames without requiring
+ *   downstream subscribers). If you return a cold Observable, RxStompRPC ensures it remains
+ *   subscribed internally to keep the stream alive.
+ * - The Observable must include all messages for the reply queue; RxStompRPC will filter replies
+ *   per request using the correlation-id header.
+ *
+ * Example: use a dedicated temporary reply queue
+ * &#x60;&#x60;&#x60;typescript
+ * const setupReplyQueue: setupReplyQueueFnType &#x3D; (replyQueueName, rxStomp) &#x3D;&gt; {
+ *   // Ensure the broker delivers replies to &#x60;replyQueueName&#x60; for this session.
+ *   // Then return a hot Observable of all messages from that destination.
+ *   return rxStomp.watch({ destination: replyQueueName });
+ * };
+ * &#x60;&#x60;&#x60;
  */
 export type setupReplyQueueFnType &#x3D; (
   replyQueueName: string,
-  rxStomp: RxStomp
+  rxStomp: RxStomp,
 ) &#x3D;&gt; Observable&lt;IMessage&gt;;
 
 /**
- * RPC Config. For examples see the [guide](/guide/rx-stomp/ng2-stompjs/remote-procedure-call.html).
+ * This is a Ninja-level topic.
+ *
+ * Configuration and customization hooks for RxStomp RPC reply handling.
+ *
+ * For usage examples, see the guide:
+ * /guide/rx-stomp/ng2-stompjs/remote-procedure-call.html
  */
 export class RxStompRPCConfig {
   /**
-   * Name of the reply queue. See the guide for details.
-   * Default &#x60;/temp-queue/rpc-replies&#x60; suitable for RabbitMQ and ActiveMQ.
+   * Destination name for the reply queue used by RPC.
+   *
+   * Default: &#x60;/temp-queue/rpc-replies&#x60; — suitable for brokers like RabbitMQ and ActiveMQ that
+   * support temporary or auto-named queues and route replies based on the &#x60;reply-to&#x60; header.
+   *
+   * When to customize:
+   * - Your broker requires a different temporary-queue prefix/name.
+   * - You prefer a dedicated, durable, or pre-provisioned reply destination.
+   * - You want to isolate replies per application instance or user.
    */
   public replyQueueName?: string;
+
   /**
-   * Setup the reply queue. See the guide for details.
+   * This is a Ninja-level topic.
+   *
+   * A hook to set up the reply queue and return an Observable of reply messages.
+   *
+   * Defaults to a function that uses RxStomp.unhandledMessage$, which is adequate when the broker
+   * routes replies (via &#x60;reply-to&#x60;) to a temporary queue that doesn’t have an explicit subscription.
+   *
+   * Provide a custom implementation when:
+   * - The broker requires an explicit subscription to the reply destination.
+   * - You want to apply operators (e.g., share, retry) or diagnostics to the reply stream.
+   *
+   * Contract:
+   * - Must return an Observable that emits every reply message ({@link IMessage}) received on
+   *   the reply destination. RxStompRPC will filter messages by &#x60;correlation-id&#x60;.
+   * - The Observable should remain active across reconnects or be resilient to resubscription.
    */
   public setupReplyQueue?: setupReplyQueueFnType;
 }
