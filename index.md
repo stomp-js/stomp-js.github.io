@@ -1,6 +1,6 @@
 ---
 layout: single
-date: 2025-03-22 19:42:22 +0530
+date: 2025-09-20 19:42:22 +0530
 title: 'STOMP.js Family'
 author_profile: true
 ---
@@ -17,7 +17,7 @@ Start here:
 
 - [Using StompJS] - a step-by-step guide.
 - [Using rx-stomp with Angular] — originally written for Angular 13; works with Angular 7+.
-- Guide to [Connection status in ng2-stompjs].
+- Guide to [Connection status in RxStomp].
 - Guide to [How to Use RxStomp with React](https://www.freecodecamp.org/news/build-chat-app-with-stomp-and-react/).
 
 All of these guides are written by the maintainers and follow best practices.
@@ -56,7 +56,7 @@ Samples:
 [SockJS]: {% link _posts/2018-09-10-using-stomp-with-sockjs.md %}
 [Remote Procedure Calls]: {% link _posts/2018-10-12-remote-procedure-call.md %}
 [Using rx-stomp with Angular]: {% link _posts/2022-03-02-rx-stomp-with-angular.md %}
-[Connection status in ng2-stompjs]: {% link _posts/2018-12-18-connection-status-ng2-stompjs.md %}
+[Connection status in RxStomp]: {% link _posts/2018-12-18-connection-status-rx-stomp.md %}
 [FAQs]: {% link _posts/2019-05-20-faqs.html %}
 [React Native]: {% link _posts/2019-06-10-react-native-additional-notes.md %}
 [Migrate ng2-stompjs to rx-stomp]: {% link _posts/2022-03-03-ng2-stompjs-to-rx-stomp.md %}
