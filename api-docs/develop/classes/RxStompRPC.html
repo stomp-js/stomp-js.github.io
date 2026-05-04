@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>stompjs@7.3.0, rx-stomp@2.4.0</title>
+        <title>stompjs@7.3.0, rx-stomp@2.5.0-beta.1</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -15,7 +15,7 @@
     <body>
 
         <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="../" class="navbar-brand">stompjs@7.3.0, rx-stomp@2.4.0</a>
+            <a href="../" class="navbar-brand">stompjs@7.3.0, rx-stomp@2.5.0-beta.1</a>
             <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
         </div>
 
@@ -145,7 +145,7 @@ via <a href="../classes/RxStompRPCConfig.html">RxStompRPCConfig</a>. RxStompRPC 
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:67</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:68</a></div>
                             </td>
                         </tr>
 
@@ -248,8 +248,8 @@ RxStompRPC will subscribe internally to keep it alive across consumers.</li>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="107"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:107</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="108"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:108</a></div>
                 </td>
             </tr>
 
@@ -328,8 +328,8 @@ reply whose <code>correlation-id</code> matches the request.</li>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="134"
-                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:134</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="135"
+                            class="link-to-prism">consolidated/rx-stomp/src/rx-stomp-rpc.ts:135</a></div>
                 </td>
             </tr>
 
@@ -416,7 +416,8 @@ reply-queue subscription remains active and shared.</li>
 
 import { v4 as uuid } from &#x27;uuid&#x27;;
 
-import { IMessage, IPublishParams, StompHeaders } from &#x27;@stomp/stompjs&#x27;;
+import { StompHeaders } from &#x27;@stomp/stompjs&#x27;;
+import type { IMessage, IPublishParams } from &#x27;@stomp/stompjs&#x27;;
 
 import { RxStomp } from &#x27;./rx-stomp.js&#x27;;
 import {
@@ -469,7 +470,7 @@ export class RxStompRPC {
    * Shared stream of all messages arriving on the reply destination.
    * Lazily initialized on first call to {@link stream}.
    */
-  private _repliesObservable: Observable&lt;IMessage&gt;;
+  private _repliesObservable: Observable&lt;IMessage&gt; | undefined;
 
   /**
    * True when a custom reply queue setup function is supplied.
@@ -478,7 +479,7 @@ export class RxStompRPC {
   private _customReplyQueue: boolean &#x3D; false;
 
   // This is used to ensure that underlying subscription remains subscribed
-  private _dummySubscription: Subscription;
+  private _dummySubscription: Subscription | undefined;
 
   /**
    * Construct a new RxStompRPC.
@@ -564,17 +565,14 @@ export class RxStompRPC {
     }
 
     return Observable.create((rpcObserver: Observer&lt;IMessage&gt;) &#x3D;&gt; {
-      let defaultMessagesSubscription: Subscription;
-
       const correlationId &#x3D; headers[&#x27;correlation-id&#x27;] || uuid();
 
-      defaultMessagesSubscription &#x3D; this._repliesObservable
-        .pipe(
+      const defaultMessagesSubscription: Subscription &#x3D;
+        this._repliesObservable!.pipe(
           filter((message: IMessage) &#x3D;&gt; {
             return message.headers[&#x27;correlation-id&#x27;] &#x3D;&#x3D;&#x3D; correlationId;
           }),
-        )
-        .subscribe((message: IMessage) &#x3D;&gt; {
+        ).subscribe((message: IMessage) &#x3D;&gt; {
           rpcObserver.next(message);
         });
 
