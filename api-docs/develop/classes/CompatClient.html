@@ -2349,7 +2349,7 @@ However, there may be special purpose headers corresponding to your STOMP broker
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1267</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1260</a></code>
 </div>
                 </td>
             </tr>
@@ -2438,7 +2438,7 @@ tx.abort(); // Abort the transaction</code></pre></div></div>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1292</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1283</a></code>
 </div>
                 </td>
             </tr>
@@ -2623,7 +2623,7 @@ is lost, it will automatically retry based on <code>reconnectDelay</code> or <co
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1225</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1222</a></code>
 </div>
                 </td>
             </tr>
@@ -2714,7 +2714,7 @@ const tx = client.begin(&quot;my-transaction-id&quot;);</code></pre></div></div>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1246</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1241</a></code>
 </div>
                 </td>
             </tr>
@@ -2895,7 +2895,7 @@ value lower than <code>reconnectDelay</code>, and <code>maxReconnectDelay</code>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:988</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:990</a></code>
 </div>
                 </td>
             </tr>
@@ -3007,7 +3007,7 @@ await client.deactivate({ force: true });</code></pre></div></div>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1054</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1052</a></code>
 </div>
                 </td>
             </tr>
@@ -3059,7 +3059,7 @@ will automatically attempt to reconnect based on its <code>reconnectDelay</code>
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1323</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1312</a></code>
 </div>
                 </td>
             </tr>
@@ -3193,7 +3193,7 @@ client.subscribe(&quot;/queue/example&quot;, callback, { ack: &quot;client&quot;
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1102</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1100</a></code>
 </div>
                 </td>
             </tr>
@@ -3301,7 +3301,7 @@ client.publish({
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1172</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1173</a></code>
 </div>
                 </td>
             </tr>
@@ -3443,7 +3443,7 @@ const subscription = client.subscribe(&quot;/queue/test&quot;, callback, { id: m
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1202</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1201</a></code>
 </div>
                 </td>
             </tr>
@@ -3554,7 +3554,7 @@ subscription.unsubscribe();</code></pre></div><p>This method can also be used di
             </tr>
             <tr>
                 <td class="col-md-4">
-                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1137</a></code>
+                        <div class="io-line">Defined in         <code><a href="../classess/Client.html#source" target="_self" >Client:1140</a></code>
 </div>
                 </td>
             </tr>
@@ -4169,7 +4169,7 @@ export class CompatClient extends Client {
     }
     this.disconnectHeaders &#x3D; headers;
 
-    super.deactivate();
+    void super.deactivate();
   }
 
   /**
